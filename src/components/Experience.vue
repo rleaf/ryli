@@ -10,15 +10,22 @@ export default {
 
    mounted() {
       this.experience = new Experience(document.querySelector('canvas.webgl'))
+      // this.experience.cssRenderer.setInstance(document.querySelector('div.text-wrapper'))
+      // this.experience.world.text.setText0(document.querySelector('div.text'))
    }
 }
 </script>
 
 <template>
+   <div class="text-wrapper"></div>
    <canvas class="webgl"></canvas>
 </template>
 
 <style scoped>
+   .text {
+      /* position: absolute; */
+      font-size: 5rem;
+   }
    .webgl {
       position: fixed;
       top: 0;

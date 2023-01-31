@@ -26,7 +26,6 @@ export default class Box {
 
    setGeometry() {
       this.geometry = new THREE.SphereGeometry(2, 128, 128)
-      // this.geometry = new THREE.PlaneGeometry(7, 7, 32, 32)
    }
    
    setMaterial() {
@@ -74,9 +73,6 @@ export default class Box {
    }
 
    update() {
-      // this.mesh.rotation.y = this.time.elapsed * 0.001
       this.material.uniforms.uTime.value = this.time.elapsed * 0.05
    }
-
-   
 }

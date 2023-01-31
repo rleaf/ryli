@@ -4,6 +4,7 @@ import Time from "./Utils/Time.js"
 import Mouse from "./Utils/Mouse.js"
 import Camera from './Camera.js'
 import Renderer from './Renderer.js'
+// import CSSRenderer from './CSSRenderer.js'
 import World from './World/World.js'
 import Resources from './Utils/Resources.js'
 import sources from './sources.js'
@@ -26,9 +27,11 @@ export default class Experience {
       this.mouse = new Mouse()
       this.time = new Time()
       this.scene = new THREE.Scene()
+      // this.cssScene = new THREE.Scene()
       this.resources = new Resources(sources)
       this.camera = new Camera()
       this.renderer = new Renderer()
+      // this.cssRenderer = new CSSRenderer()
       this.world = new World()
       
       this.sizes.on('resize', () => {
@@ -43,11 +46,13 @@ export default class Experience {
    resize() {
       this.camera.resize()
       this.renderer.resize()
+      // this.cssRenderer.resize()
    }
 
    update() {
       this.camera.update()
       this.renderer.update()
+      // this.cssRenderer.update()
       this.world.update()
    }
 

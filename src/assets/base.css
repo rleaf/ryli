@@ -2,8 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
 @font-face {
+	font-family: 'Butler-Reg';
+	src: url('../assets/font/Butler.woff2') format('woff2');
+}
+@font-face {
    font-family: 'Butler-Med';
    src: url('../assets/font/Butler-Medium.woff2') format('woff2');
+}
+@font-face {
+   font-family: 'Butler-Bold';
+   src: url('../assets/font/Butler-Bold.woff2') format('woff2');
 }
 
 
@@ -18,8 +26,9 @@
 	--light700: #4c4c4c;
 
 	--dark000: hsl(0, 0%, 0%);
-	--dark100: hsl(0, 0%, 5%);
-	--dark200: hsl(0, 0%, 2%);
+	--dark0000: rgba(0, 0, 0, 0.75);
+	--dark100: hsl(0, 0%, 2%);
+	--dark200: hsl(0, 0%, 5%);
 	--dark300: hsl(0, 0%, 0%);
 	--dark400: hsl(0, 0%, 0%);
 	--dark500: hsl(0, 0%, 0%);
@@ -31,7 +40,8 @@
 	/* offWhite */
 	--primaryDark: #0e0e0e;
 	--scrollbarThumb: #3f3f3f;
-	--selection: #2c2c2c;
+	/* --selection: #2c2c2c; */
+	--selection: rgba(44, 44, 44, 0.75);
 	--bgColor: #1d1d1d;
 	--codeblock: #131313;
 	--codeSnippet: #242424;
@@ -40,9 +50,12 @@
 
 	--serifType: 'Lora', sans-serif;
 	--sansType: 'Open Sans', sans-serif;
-	--displayType: 'Butler-Med', sans-serif;
+	--displayTypeReg: 'Butler', sans-serif;
+	--displayTypeMed: 'Butler-Med', sans-serif;
+	--displayTypeBold: 'Butler-Bold', sans-serif;
 
 	--typeSize: 1rem;
+	--testGrad: linear-gradient(#0f8001, var(--light200));
 }
 
 
@@ -51,7 +64,8 @@ body {
 	margin: 0;
 	color: var(--light200);
 	min-height: 100vh;
-	background: var(--dark100);
+	background: var(--dark200);
+	/* background: tomato; */
 	transition: color 0.5s, background-color 0.5s;
 	font-family: var(--serifType);
 	font-size: var(--typeSize);

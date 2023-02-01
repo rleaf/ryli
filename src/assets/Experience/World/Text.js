@@ -10,11 +10,15 @@ import fontAtlas from '../../font/ButlerMedium.png'
 export default class Text {
    constructor() {
       this.experience = new Experience()
+      this.camera = this.experience.camera.instance
+      this.renderer = this.experience.renderer.instance
       this.scene = this.experience.scene
+      this.sizes = this.experience.sizes
       this.time = this.experience.time
 
       this.setGeometry()
       this.setMaterial()
+      // this.setCoords()
       this.setMesh()
       this.update()
    }
@@ -38,7 +42,7 @@ export default class Text {
          },
          uniforms: {
             uOpacity: { value: 1 },
-            uColor: { value: new THREE.Color('#ffffff') },
+            uColor: { value: new THREE.Color('#cccccc') },
             uMap: { value:  new THREE.TextureLoader().load(fontAtlas) },
             // Rendering
             uThreshold: { value: 0.05 },
@@ -52,10 +56,10 @@ export default class Text {
          fragmentShader: fragmentShader,
       })
    }
-   
+
    setMesh() {
       this.mesh = new THREE.Mesh(this.geometry, this.material)
-      this.mesh.scale.set(0.009, -0.009, 0.009)
+      this.mesh.scale.set(0.0091, -0.0091, 0.0091)
       this.mesh.position.set(-1.64, -0.098, 0)
 
       this.scene.add(this.mesh)

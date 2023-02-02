@@ -17,9 +17,9 @@ void main() {
 
     vec3 displacementPosition = position * uDisplacementFrequency;
     
-    displacementPosition += perlin4d(vec4(displacementPosition * uDistortionFrequency, uTime * 0.001)) * uDistortionStrength;
+    displacementPosition += perlin4d(vec4(displacementPosition * uDistortionFrequency, uTime * 0.003)) * uDistortionStrength;
 
-    float perlinStrength = perlin4d(vec4(displacementPosition * uDistortionFrequency, uTime * 0.001)) * uDisplacementStrength;
+    float perlinStrength = perlin4d(vec4(displacementPosition * uDistortionFrequency, uTime * 0.003)) * uDisplacementStrength;
     // float perlinStrength = perlin4d(vec4(position *  uDistortionFrequency, uTime * 0.001))* uDisplacementStrength;
 
     vec3 newPosition = position;

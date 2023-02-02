@@ -10,8 +10,6 @@ export default {
 
    mounted() {
       this.experience = new Experience(document.querySelector('canvas.webgl'))
-      // this.experience.cssRenderer.setInstance(document.querySelector('div.text-wrapper'))
-      // this.experience.world.text.setText0(document.querySelector('div.text'))
    }
 }
 </script>

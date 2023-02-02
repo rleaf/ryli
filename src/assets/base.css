@@ -58,8 +58,6 @@
 	--testGrad: linear-gradient(#0f8001, var(--light200));
 }
 
-
-
 body {
 	margin: 0;
 	color: var(--light200);
@@ -72,6 +70,41 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+      position: relative;
+      margin: 0;
+      font-family: var(--displayTypeBold);
+      font-weight: normal;
+      font-size: 9rem;
+      color: transparent;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: var(--light200);
+   }
+
+h2 {
+	position: relative;
+	font-family: var(--displayTypeBold);
+	font-weight: normal;
+	font-size: 1.75rem;
+}
+
+.text-mask {
+	overflow: hidden;
+}
+
+
+.fore {
+	position: absolute;
+	z-index: -1;
+}
+
+.back {
+	position: absolute;
+	top: 0;
+	color: var(--light200);
+	z-index: -75;
 }
 
 ::-webkit-scrollbar {

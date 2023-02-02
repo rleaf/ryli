@@ -10,9 +10,19 @@ export default class Camera {
       this.sizes = this.experience.sizes
       this.scene = this.experience.scene
       this.canvas = this.experience.canvas
+      this.pointer = this.experience.mouse.pointer
+      
+      // this.pointer.x *= 0.005
+      // this.pointer.y *= 0.005
+      
+      this.cursor = {
+         x: 0,
+         y: 0
+      }
 
       this.setInstance()
       this.setControls()
+      // this.setWobble()
 
    }
 
@@ -29,6 +39,13 @@ export default class Camera {
 
    }
 
+   setWobble() {
+      window.addEventListener('mousemove', (e) => {
+         this.cursor.x = e.clientX / this.sizes.width - 0.5
+         this.cursor.y = e.clientY / this.sizes.height - 0.5
+      })
+   }
+
    resize() {
       this.instance.aspect = this.sizes.width / this.sizes.height
       this.instance.updateProjectionMatrix()
@@ -36,5 +53,7 @@ export default class Camera {
 
    update() {
       this.controls.update()
+      this.instance.rotation.x = -(this.pointer.y * 0.01)
+      this.instance.rotation.y = (this.pointer.x * 0.01)
    }
 }

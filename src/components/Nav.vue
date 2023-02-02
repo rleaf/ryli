@@ -1,5 +1,6 @@
 <script>
 import gsap from 'gsap'
+import { nextTick } from '@vue/runtime-core'
 
 export default {
    data() {
@@ -9,7 +10,7 @@ export default {
    },
 
    methods: {
-      menuToggle() {
+      async menuToggle() {
          this.menu = !this.menu
 
          let bread = document.querySelectorAll('.bread')
@@ -24,22 +25,16 @@ export default {
             bread[2].classList.remove('bottom') 
          }
 
-         gsap.to('.test', {
-            duration: 4,
-            y: 100,
-            // opacity: 0,
-            ease: 'power4'
-         })
-      }, 
+         await nextTick()
 
-      tween() {
-         gsap.from('.test', {
+         gsap.from('li', {
+            delay: 0.2,
             duration: 1.5,
-            y: 100,
+            y: '100%',
             ease: 'power4',
             stagger: 0.1
          })
-      }
+      }, 
    },
 
 }
@@ -56,13 +51,36 @@ export default {
          <div class="routes" v-if="this.menu">
             <nav>
                <ul>
-                  <li class="test"><RouterLink to="/" @click="this.menuToggle()">Home</RouterLink></li>
-                  <li><RouterLink to="/about" @click="this.menuToggle()">About</RouterLink></li>
-                  <li><RouterLink to="/projects" @click="this.menuToggle()">Projects</RouterLink></li>
-                  <li><RouterLink to="/blog" @click="this.menuToggle()">Blog</RouterLink></li>
-                  <li><RouterLink to="/food" @click="this.menuToggle()">Food</RouterLink></li>
+                  <div class="text-mask">
+                     <li><RouterLink to="/" @click="this.menuToggle()">Home</RouterLink></li>
+                  </div>
+                  <div class="text-mask">
+                     <li><RouterLink to="/about" @click="this.menuToggle()">About</RouterLink></li>
+                  </div>
+                  <div class="text-mask">
+                     <li><RouterLink to="/projects" @click="this.menuToggle()">Projects</RouterLink></li>
+                  </div>
+                  <div class="text-mask">
+                     <li><RouterLink to="/blog" @click="this.menuToggle()">Blog</RouterLink></li>
+                  </div>
+                  <div class="text-mask">
+                     <li><RouterLink to="/food" @click="this.menuToggle()">Food</RouterLink></li>
+                  </div>
                </ul>
             </nav>
+            <div class="nav-misc">
+               <ul>
+                  <div class="text-mask">
+                     <li><h2><a href="https://www.youtube.com/channel/UCe8X-Ib4hEc7keoBQ7cMdmA" target="_blank">YouTube</a></h2></li>
+                  </div>
+                  <div class="text-mask">
+                     <li><h2><a href="https://github.com/rleaf" target="_blank">GitHub</a></h2></li>
+                  </div>
+               </ul>
+               <div class="contact">
+                  ryanurquhartlin [at] gmail [dot] com
+               </div>
+            </div>
          </div>
       </Transition>
    </div>
@@ -77,10 +95,34 @@ export default {
       transform: translateX(-100%); 
    }
    
-   .test {
-      opacity: 1;
+   .contact {
+      margin-top: auto;
+      font-family: var(--serifType);
+   }
+   .nav-misc ul {
+      padding: 0;
+      list-style-type: none;
+   }
+
+   .nav-misc li {
+      padding-bottom: .25rem;
+   }
+   .nav-misc a {
+      position: relative;
+      z-index: 1;
+      color: var(--light200);
+      text-decoration: none;
+      transition: 0.5s ease-out;
+   }
+   .nav-misc {
+      display: flex;
+      flex-direction: column;
+      padding-left: 3rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
    }
    .routes {
+      display: flex;
       width: 100vw;
       height: 100vh;
       overflow-y: scroll;
@@ -95,9 +137,13 @@ export default {
       position: absolute;
       z-index: 20;
    }
+
    nav {
+      width: 60%;
       padding-left: 5rem;
-      padding-top: 4rem;
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+      border-right: 1px solid var(--light200);
    }
 
    nav ul {
@@ -107,14 +153,14 @@ export default {
    nav a {
       position: relative;
       z-index: 1;
-      line-height: 1.3;
+      line-height: 1.5;
       font-family: var(--displayTypeReg);
       font-size: 6rem;
       text-decoration: none;
       color: var(--light000);
-      background-clip: text;
+      transition: 0.5s ease-out;
    }
-
+   
    a:hover {
       color: var(--dark000);
       transition: 0.5s ease-out;
@@ -137,14 +183,6 @@ export default {
    a:hover::after {
       transform: scaleX(1);
       transform-origin: bottom left;
-   }
-
-   .rhs-nav {
-      margin-left: auto;
-   }
-
-   .rhs-nav a:first-child {
-      padding-right: 3rem;
    }
 
    .burger {

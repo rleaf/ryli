@@ -1,62 +1,18 @@
 import * as THREE from 'three'
-import EventEmitter from "./EventEmitter"
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
-export default class Resources extends EventEmitter {
+export default class Resources {
    constructor(sources) {
-      super()
 
       this.sources = sources
-      this.items = {}
-      this.toLoad = this.sources.length
-      this.loaded = 0
+		this.loader = new THREE.TextureLoader()
+		this.textures = []
 
-      this.setLoaders()
-      // this.startLoading()
+		this.setTextures()
    }
 
-   setLoaders() {
-      this.loaders = {}
-      this.loaders.gltfLoader = new GLTFLoader()
-      this.loaders.textureLoader = new THREE.TextureLoader()
-      this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader()
+   setTextures() {
+		for (const source of this.sources) {
+			this.textures.push(this.loader.load(source))
+		}
    }
-
-   startLoading()
-    {
-        // Load each source
-        for(const source of this.sources)
-        {
-            if(source.type === 'gltfModel')
-            {
-                this.loaders.gltfLoader.load(
-                    source.path,
-                    (file) =>
-                    {
-                        console.log(source, file)
-                    }
-                )
-            }
-            else if(source.type === 'texture')
-            {
-                this.loaders.textureLoader.load(
-                    source.path,
-                    (file) =>
-                    {
-                        console.log(source, file)
-                    }
-                )
-            }
-            else if(source.type === 'cubeTexture')
-            {
-                this.loaders.cubeTextureLoader.load(
-                    source.path,
-                    (file) =>
-                    {
-                        console.log(source, file)
-                    }
-                )
-            }
-        }
-    }
 }

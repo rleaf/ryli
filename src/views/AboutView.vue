@@ -11,13 +11,24 @@ export default {
 
 	mounted() {
 		this.experience = new Experience()
-		this.experience.world.sphere.tweenAbout()
+		this.experience.world.sphere.aboutView()
 
 		gsap.from('.about-text', {
 			duration: 0.5,
 			y: '150%',
 			delay: 0.5,
-			stagger: 0.2
+			stagger: 0.1
+		})
+
+		gsap.from('.about-head h1', {
+			duration: 1.0,
+			opacity: 0,
+			delay: 0.5,
+			// stagger: {
+			// 	amount: 0.5,
+			// 	from: 'random'
+			// },
+			ease: 'power2.inOut'
 		})
 	}
 }
@@ -37,40 +48,79 @@ export default {
 		</div>
 		<div class="about-words">
 			<div class="about-tech">
-				asdfadsflkjad;sflkajsd;flkjasd;
+				<!-- <div class="tech-container">
+					<h2>Design</h2>
+					<ul>
+						<li>Typography</li>
+						<li>Figma</li>
+						<li>InVision</li>
+						<li>UX/UI</li>
+						<ul>
+							<li>Research</li>
+							<li>Wireframing</li>
+							<li>Prototyping</li>
+						</ul>
+						<li>Adobe CC</li>
+						<ul>
+							<li>PhotoShop</li>
+							<li>Illustrator</li>
+							<li>After Efects</li>
+							<li>InDesign</li>
+						</ul>
+					</ul>
+				</div>
+				<div class="tech-container">
+					<h2>Development</h2>
+					<ul>
+						<li>HTML & CSS</li>
+						<li>Mongo DB</li>
+						<li>GLSL</li>
+						<li>AWS</li>
+						<li>Python</li>
+						<ul>
+							<li>PyTorch</li>
+							<li>Pandas</li>
+							<li>NumPy</li>
+							<li>Matplotlib</li>
+						</ul>
+						<li>JavaScript</li>
+						<ul>
+							<li>Vue.js</li>
+							<li>Express.js</li>
+							<li>Node.js</li>
+							<li>Three.js</li>
+							<li>D3.js</li>
+							<li>GSAP</li>
+						</ul>
+					</ul>
+				</div> -->
 			</div>
 			<div class="about-book">
 				<div class="text-mask">
 					<p class="about-text">
-						Hello. Here you'll find more about who I am and the things I enjoy doing.
-						Most of my time is divided between some derivative of design, frequently UI/UX, machine learning projects, and web
-						development.
+						Hello. My name is Ryan Lin and I am currently based in the New York metropolitan area.
 					</p>
 				</div>
 				<div class="text-mask">
 					<p class="about-text">
-						The design section serves as a portfolio and showcases some of my
-						previous projects.
-						A lot of the technology I've used in design is abbreviated in "Technical Skills" below, however each portfolio piece
-						provides a brief synopsis
-						of the goals and challenges faced for that project.
+						I have have worked on projects that broach into UX/UI design & research, full stack development, graphic design & illustration,
+						typography, creative web development, and machine learning. 
 					</p>
 				</div>
 				<div class="text-mask">
 					<p class="about-text">
-						In the blog section, you'll find a lot of discussion affiliated to
+						<!-- In the blog section, you'll find a lot of discussion affiliated to
 						machine learning.
 						Accompanied with those discussions, my <a href="#" target="_blank">GitHub</a> also has repositories showing
 						various models I've made. All of what I talk about
-						in my blogs and, in general, knowledge of machine learning is self taught.
+						in my blogs and, in general, knowledge of machine learning is self taught. -->
 					</p>
 				</div>
 				<div class="text-mask">
 					<p class="about-text">
-						In the remaining time when I'm not designing something or wrapping my head around some model, I enjoy
-						<a href='#' target='_blank'><u><i>power/olympic lifting</i></u></a>,
-						<a href='#' target='_blank'><u><i>eating/cooking</i></u></a>, practicing guitar & ukulele,
-						playing games, and reading about full stack development (particularly MEVN).
+						In the remaining time when I'm on cooldown from learning any of the above I enjoy
+						<a href='https://www.youtube.com/channel/UCe8X-Ib4hEc7keoBQ7cMdmA' target='_blank'><u><i>lifting</i></u></a>,
+						<a href='https://www.instagram.com/rylikefood/' target='_blank'><u><i>cooking</i></u></a>, practicing guitar & uke, and playing video games.
 					</p>
 				</div>
 			</div>
@@ -84,12 +134,27 @@ export default {
 		padding-top: 25vh;
 	}
 	.about-tech {
+		display: flex;
 		padding-top: 20vh;
-		padding-left: 8%;
-		width: 43%;
+		padding-left: 5rem;
+		width: 40%;
+		gap: 10px;
+	}
+
+	.tech-container {
+		width: 30%;
+	}
+
+	.tech-container ul {
+		font-family: var(--serifType);
+		/* text-decoration: none; */
+		list-style-type: none;
+	}
+	.tech-container li {
+		line-height: 1.5;
 	}
 	.about-text {
-		overflow: hidden;
+		font-size: 1.5rem;
 	}
 
 	.about-text a {
@@ -101,6 +166,10 @@ export default {
 		/* padding-top: 25vh;
 		padding-right: 7vw; */
 		width: 40%;
+	}
+
+	.about-main {
+		padding-left: 8%
 	}
 
 	.about-head {

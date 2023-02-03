@@ -1,6 +1,6 @@
 import Experience from "../Experience"
 import Sphere from './Sphere'
-// import Text from './Text'
+import Plane from './Plane'
 
 export default class World {
    constructor() {
@@ -9,13 +9,12 @@ export default class World {
       this.time = this.experience.time
       this.scene = this.experience.scene
       this.sphere = new Sphere()
-      // this.text = new Text()
+      this.plane = new Plane()
 
-      // this.scene.background = new THREE.Color(0x0E0E0E)
    }
 
    update() {
       this.sphere.update()
-      // this.text.update()
+      this.plane.update()
    }
 }

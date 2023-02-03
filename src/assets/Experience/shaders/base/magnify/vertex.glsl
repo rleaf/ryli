@@ -1,5 +1,5 @@
 // #pragma perlin3d = require('../../partials/perlin3d.glsl')
-#include ../../partials/perlin3d.glsl
+// #include ../../partials/perlin3d.glsl
 // #include ../../partials/perlin4d.glsl
 // #include ../../partials/simplex2d.glsl
 // #include ../../partials/simplex3d.glsl
@@ -24,15 +24,18 @@ void main() {
    // float perlinStrength = snoise(vec2(position.xz) + uTime * 0.001) * 0.3;
    // float perlinStrength = perlin4d(vec4(position, uTime * 0.001)) * 0.3;
    // float perlinStrength = perlin3d(vec3(position.xz, uTime * 0.001)) * 0.5;
-   float perlinStrength = perlin3d(vec3(position) + uTime * 0.001) * 0.3;
-   vPerlin = perlinStrength;
+   // float perlinStrength = perlin3d(vec3(position) + uTime * 0.001) * 0.3;
+   // vPerlin = perlinStrength;
 
    vec3 newPosition = position;
-   newPosition += perlinStrength * normal;
-   newPosition.z += sin((newPosition.x + 3.5) * 0.5) * 0.8;
+   // newPosition += perlinStrength * normal;
+
+   // newPosition.z += sin((newPosition.x) + uTime * 0.001);
+   newPosition.z += sin(newPosition.x * 2.5 + uTime * 0.005) * 0.1;
 
    vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);
    vec4 viewPosition = viewMatrix * modelPosition;
    
    gl_Position = projectionMatrix * viewPosition;
+   // gl_Position = projectionMatrix * vec4(position, 1.0);
 }

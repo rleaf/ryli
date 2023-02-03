@@ -27,7 +27,7 @@ export default {
 
          await nextTick()
 
-         gsap.from('li', {
+         gsap.from('.routes li', {
             delay: 0.2,
             duration: 1.5,
             y: '100%',

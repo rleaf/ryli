@@ -5,6 +5,8 @@ import Mouse from "./Utils/Mouse.js"
 import Camera from './Camera.js'
 import Renderer from './Renderer.js'
 import World from './World/World.js'
+import sources from './sources.js'
+import Resources from './Utils/Resources.js'
 import { Pane } from 'tweakpane'
 
 let instance = null
@@ -25,6 +27,7 @@ export default class Experience {
       this.time = new Time()
       this.scene = new THREE.Scene()
       this.camera = new Camera()
+      this.resources = new Resources(sources)
       this.renderer = new Renderer()
       this.world = new World()
       

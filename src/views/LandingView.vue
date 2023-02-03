@@ -9,7 +9,7 @@ export default {
 
    mounted() {
       this.experience = new Experience()
-      this.experience.world.sphere.tweenLanding()
+      this.experience.world.sphere.landingView()
    }
 }
 </script>

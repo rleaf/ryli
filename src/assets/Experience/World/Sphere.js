@@ -31,21 +31,22 @@ export default class Box {
    
    setMaterial() {
       
-      this.uColor1 = {}
-      this.uColor2 = {}
+      this.uValley = {}
+      this.uPeak = {}
 
-      this.uColor1.value = '#1300cc'
-      this.uColor1.instance = new THREE.Color( this.uColor1.value )
+      this.uValley.value = 'rgb(0, 0, 0)'
+      this.uValley.instance = new THREE.Color( this.uValley.value )
       
-      this.uColor2.value = '#e1b3e2'
-      this.uColor2.instance = new THREE.Color( this.uColor2.value )
+      this.uPeak.value = 'rgb(128, 128, 128)'
+      this.uPeak.instance = new THREE.Color( this.uPeak.value )
 
       this.material = new THREE.ShaderMaterial({
          vertexShader: vertexShader,
          fragmentShader: fragmentShader,
          uniforms: {
-            uColor1: { value: this.uColor1.instance },
-            uColor2: { value: this.uColor2.instance },
+            uValley: { value: this.uValley.instance },
+            uPeak: { value: this.uPeak.instance },
+            uStrength: { value: 0.15 },
             uFrequency: { value: 10 },
             uTime: { value: 0.0 },
             uDistortionFrequency: { value: 1.3 },
@@ -57,40 +58,25 @@ export default class Box {
 
       if (this.debug) {
          this.debugFolder.addInput(
-            this.uColor1, 'value', 
+            this.uValley, 'value', 
             {label: 'valley'}
          )
          .on('change', () => {
-            this.uColor1.instance.set(this.uColor1.value)
+            this.uValley.instance.set(this.uValley.value)
          })
 
          this.debugFolder.addInput(
-            this.uColor2, 'value', 
+            this.uPeak, 'value', 
             {label: 'peak'}
          )
          .on('change', () => {
-            this.uColor2.instance.set(this.uColor2.value)
+            this.uPeak.instance.set(this.uPeak.value)
          })
-         // this.debugFolder.addInput(
-         //    this.material.uniforms.uDistortionFrequency,
-         //    'value',
-         //    { label: 'uDistortionFrequency', min: 0, max: 10, step: 0.01 }
-         // )
-         // this.debugFolder.addInput(
-         //    this.material.uniforms.uDistortionStrength,
-         //    'value',
-         //    { label: 'uDistortionStrength', min: 0, max: 10, step: 0.01 }
-         // )
-         // this.debugFolder.addInput(
-         //    this.material.uniforms.uDisplacementFrequency,
-         //    'value',
-         //    { label: 'uDisplacementFrequency', min: 0, max: 10, step: 0.01 }
-         // )
-         // this.debugFolder.addInput(
-         //    this.material.uniforms.uDisplacementStrength,
-         //    'value',
-         //    { label: 'uDisplacementStrength', min: 0, max: 10, step: 0.01 }
-         // )
+         this.debugFolder.addInput(
+            this.material.uniforms.uStrength,
+            'value',
+            { label: 'uStrength', min: 0, max: 1, step: 0.01 }
+         )
       }
    }
    
@@ -100,49 +86,116 @@ export default class Box {
       this.scene.add(this.mesh)
    }
 
-   tweenLanding() {
-      gsap.to(this.mesh.position, {
+   landingView() {
+      const tl = gsap.timeline({
+         defaults: {
+            duration: 1.5,
+            ease: 'power2.inOut'
+         }
+      })
+
+      tl.to(this.mesh.position, {
          x: 1.25,
          y: 0,
          z: 0,
-         ease: 'power2.inOut',
-         duration: 2
       })
-
-      gsap.to(this.mesh.rotation, {
+      .to(this.mesh.rotation, {
          y: 0,
          z: 0,
-         duration: 1.5,
-         ease: 'power2.inOut'
-      })
+      }, '<')
+      .to(this.mesh.scale, {
+         x: 1,
+         y: 1,
+         z: 1
+      }, '<')
+      .to(this.material.uniforms.uValley.value, {
+         r: 0/255,
+         g: 0/255,
+         b: 0/255,
+      }, '<')
+      .to(this.material.uniforms.uPeak.value, {
+         r: 128/255,
+         g: 128/255,
+         b: 128/255,
+      }, '<')
+      .to(this.material.uniforms.uStrength, {
+         value: 0.15,
+      }, '<')
    }
 
-   tweenAbout() {
-      const tl = gsap.timeline()
+   aboutView() {
+      const tl = gsap.timeline({
+         defaults: {
+            duration: 1.5,
+            ease: 'power2.inOut'
+         }
+      })
 
       tl.to(this.mesh.position, {
-         duration: 2,
-            x: -3,
-            y: 2,
-            z: -10,
-            ease: 'power2.inOut',
-      }).to(this.mesh.rotation, {
+         x: -3,
+         y: 2,
+         z: -10,
+      })
+      .to(this.mesh.rotation, {
          y: 1.8,
          z: 1.8,
-         duration: 2,
-         ease: 'power2.inOut'
       }, '<')
-      // .to(this.uColor1, {
-      //    value: '#cc0052',
-      //    onComplete: () => {
-      //       this.uColor1.instance.set(this.uColor1.value)
-      //    }
-      // }, '<').to(this.uColor2, {
-      //    value: '#dbd618',
-      //    onComplete: () => {
-      //       this.uColor2.instance.set(this.uColor2.value)
-      //    }
-      // }, '<')
+      .to(this.mesh.scale, {
+         x: 1,
+         y: 1,
+         z: 1
+      }, '<')
+      .to(this.material.uniforms.uValley.value, {
+         r: 0/255,
+         g: 65/255,
+         b: 0/255,
+      }, '<')
+      .to(this.material.uniforms.uPeak.value, {
+         r: 255/255,
+         g: 255/255,
+         b: 255/255,
+      }, '<')
+      .to(this.material.uniforms.uStrength, {
+         value: 0.15,
+      }, '<')
+   }
+
+   projectsView() {
+      const tl = gsap.timeline({
+         defaults: {
+            duration: 1.5,
+            ease: 'power2.inOut'
+         }
+      })
+
+      tl.to(this.mesh.position, {
+         x: -7,
+         y: 0,
+         z: -10,
+      })
+      .to(this.mesh.scale, {
+         x: 3,
+         y: 3,
+         z: 3
+      }, '<')
+      .to(this.mesh.rotation, {
+         x: 2,
+         y: 0,
+         z: 2
+      }, '<')
+      .to(this.material.uniforms.uValley.value, {
+         r: 17/255,
+         g: 57/255,
+         b: 67/255,
+      }, '<')
+      .to(this.material.uniforms.uPeak.value, {
+         r: 255/255,
+         g: 255/255,
+         b: 255/255,
+      }, '<')
+      .to(this.material.uniforms.uStrength, {
+         value: 0.15,
+      }, '<')
    }
 
    update() {

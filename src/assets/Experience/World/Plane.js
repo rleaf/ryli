@@ -1,43 +1,97 @@
 import * as THREE from 'three'
+import gsap from 'gsap'
 import Experience from '../Experience'
 // import vertex from '../shaders/base/vertex.glsl'
 // import fragment from '../shaders/base/fragment.glsl'
 import vertex from '../shaders/base/magnify/vertex.glsl'
 import fragment from '../shaders/base/magnify/fragment.glsl'
-import cat from '../../cat.png'
-import { DoubleSide } from 'three'
 
 export default class Plane {
    constructor() {
 
       this.experience = new Experience()
+      this.sizes = this.experience.sizes
+      this.textures = this.experience.resources.textures
       this.debug = this.experience.debug
       this.mouse = this.experience.mouse.pointer
       this.scene = this.experience.scene
       this.time = this.experience.time
+      this.group = new THREE.Group()
       this.raycaster = new THREE.Raycaster()
 
       if (this.debug) {
          this.debugFolder = this.debug.addFolder({
             title: 'Plane',
-            expanded: true
+            expanded: false
          })
       }
 
       this.setGeometry()
-      this.setMaterial()
-      this.setMesh()
+      this.batchSetMesh()
       this.setMouseEvent()
       this.update()
    }
 
-   setGeometry() {
-      // this.geometry = new THREE.PlaneGeometry(3, 3, 256, 256)
-      this.geometry = new THREE.PlaneGeometry(1, 1, 32, 32)
-      this.geometry.scale(8, 8, 8)
-      // this.geometry.rotateX(-Math.PI * 0.5)
-      this.geometry.rotateY(-Math.PI * 0.1)
+   initProjectView() {
+      this.group.position.set(0.25, (-this.group.children.length + 1) * 1.3,1.25)
+      this.scene.add(this.group)
+
+      gsap.from(this.group.position, {
+         duration: 2,
+         y: -8,
+         ease: 'power4.inOut'
+      })
+   }
+
+   destroyProjectView() {
+      gsap.to(this.group.position, {
+         y: this.group.children.length * 3,
+         onComplete: () => {
+            this.scene.remove(this.group)
+            
+            for (const mesh of this.group.children) {
+               mesh.geometry.dispose()
+               mesh.material.dispose()
+            }
+         }
+      })
+   }
+
+   batchSetMesh() {
+      for (const [i, asset] of this.textures.entries()) {
+         let material = new THREE.ShaderMaterial({
+            vertexShader: vertex,
+            fragmentShader: fragment,
+            transparent: true,
+            side: THREE.DoubleSide,
+            uniforms: {
+               uCover: { value: asset },
+               uMouse: { value: new THREE.Vector3()},
+               uColor: { value: new THREE.Color('orange') },
+               uFrequency: { value: 10 },
+               uTime: { value: 0.0 },
+               uMin1: { value: 0.0 },
+               uMax1: { value: 0.5 },
+               uMin2: { value: 0.0 },
+               uMax2: { value: 1.0 },
+               uSize: { value: 0.5 },
+               uStrength: { value: 0.05 },
+            }
+         })
+
+         let mesh = new THREE.Mesh(this.geometry, material)
+
+         mesh.position.y = i * 1.3
+         
+         this.group.add(mesh)
+         this.group.position.set(0.25, (-this.group.children.length + 1) * 1.3,1.25)
+      }
       
+   }
+
+   setGeometry() {
+      this.geometry = new THREE.PlaneGeometry(1.5, 1, 32, 32)
+      this.geometry.rotateY(-Math.PI * 0.1)
    }
 
    setMaterial() {
@@ -45,9 +99,9 @@ export default class Plane {
          vertexShader: vertex,
          fragmentShader: fragment,
          transparent: true,
-         side: DoubleSide,
+         side: THREE.DoubleSide,
          uniforms: {
-            uCat: { value: new THREE.TextureLoader().load(cat) },
+            uCover: { value: this.textures[0] },
             uMouse: { value: new THREE.Vector3()},
             uColor: { value: new THREE.Color('orange') },
             uFrequency: { value: 10 },
@@ -97,27 +151,68 @@ export default class Plane {
 
    setMesh() {
       this.mesh = new THREE.Mesh(this.geometry, this.material)
-      // this.mesh.scale(3, 3, 3)
-      // this.mesh.position.y = 0.5
-      this.scene.add(this.mesh)
    }
-
    
    setMouseEvent() {
       function onMouseEvent(that) {
          that.raycaster.setFromCamera(that.mouse, that.experience.camera.instance)
-         that.intersects = that.raycaster.intersectObject(that.mesh)   
+         that.intersects = that.raycaster.intersectObjects([...that.group.children])   
    
          if (that.intersects.length > 0) {
-            that.material.uniforms.uMouse.value = that.intersects[0].point
-            // that.material.uniforms.uColor.value = new THREE.Color(0xff0000)
+
+            for(const intersect of that.intersects) {
+               intersect.object.material.uniforms.uMouse.value = that.intersects[0].point
+            }
          }
       }
 
       window.addEventListener('mousemove', () => onMouseEvent(this), false)
    }
 
+   setScrollEvent() {
+      // this.scrollY = 0
+
+      // window.addEventListener('wheel', (e) => {
+      //    this.scrollY += e.deltaY * 0.0001
+      // })
+
+      const tl = gsap.timeline({
+         defaults: {
+            ease: 'power1.inOut'
+         }
+      })
+
+      window.addEventListener('wheel', (e) => {
+
+         if (!tl.isActive()) {
+            if (e.deltaY > 0) {
+               tl.to(this.experience.world.plane.group.position, {
+                  y: '+=1.3'
+               })
+            }
+            if (e.deltaY < 0) {
+               tl.to(this.experience.world.plane.group.position, {
+                  y: '-=1.3',
+                  yoyo: true
+               })
+            }
+         }
+
+      })
+   }
+
    update() {
-      this.material.uniforms.uTime.value = this.time.elapsed * 0.2
+      // if (this.mesh) {
+      //    this.material.uniforms.uTime.value = this.time.elapsed * 0.2
+      // }
+      for(const mesh of this.group.children) {
+         mesh.material.uniforms.uTime.value = this.time.elapsed * 0.2
+      }
+
+      // this.group.position.y += this.scrollY
+      // this.scrollY *= 0.92
+      // console.log(this.scrollY)
+
+      // this.group.position.y = Math.sin(this.time.elapsed * 0.001) * 0.05
    }
 }

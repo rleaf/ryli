@@ -1,9 +1,9 @@
 varying vec2 vUv;
 varying vec3 vPosition;
 varying float vNoise;
-varying float vPerlin;
+// varying float vPerlin;
 
-uniform sampler2D uCat;
+uniform sampler2D uCover;
 uniform vec3 uMouse;
 uniform float uMin1;
 uniform float uMax1;
@@ -31,7 +31,7 @@ void main() {
    vec2 zoomedUV = mix(vUv, atan(uMouse.xy), prox * uStrength);
 
    // sampler2D test = vUv
-	vec4 color = texture2D(uCat, zoomedUV);
+	vec4 color = texture2D(uCover, zoomedUV);
    // vec4 color = texture2D(test, zoomedUV);
    gl_FragColor = color;
    // gl_FragColor = vec4(vec3(vPerlin), 1.0);

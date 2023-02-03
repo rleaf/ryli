@@ -11,8 +11,12 @@ export default class Resources {
    }
 
    setTextures() {
-		for (const source of this.sources) {
-			this.textures.push(this.loader.load(source))
+		for (const [_, v] of Object.entries(this.sources)) {
+			this.textures.push({
+				name: v.title,
+				body: v.body,
+				texture: this.loader.load(v.cover)
+			})
 		}
    }
 }

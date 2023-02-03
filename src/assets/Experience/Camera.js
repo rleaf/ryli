@@ -11,6 +11,7 @@ export default class Camera {
       this.scene = this.experience.scene
       this.canvas = this.experience.canvas
       this.pointer = this.experience.mouse.pointer
+      this.wobble = true
       
       // this.pointer.x *= 0.005
       // this.pointer.y *= 0.005

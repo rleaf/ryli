@@ -1,8 +1,6 @@
 import * as THREE from 'three'
 import gsap from 'gsap'
 import Experience from '../Experience'
-// import vertex from '../shaders/base/vertex.glsl'
-// import fragment from '../shaders/base/fragment.glsl'
 import vertex from '../shaders/base/magnify/vertex.glsl'
 import fragment from '../shaders/base/magnify/fragment.glsl'
 
@@ -11,11 +9,13 @@ export default class Plane {
 
       this.experience = new Experience()
       this.sizes = this.experience.sizes
-      this.textures = this.experience.resources.textures
+      this.assets = this.experience.resources.textures
       this.debug = this.experience.debug
       this.mouse = this.experience.mouse.pointer
       this.scene = this.experience.scene
       this.space = 1.8
+      this.trackIdx = 0
+      this.track = []
       this.time = this.experience.time
       this.group = new THREE.Group()
       this.raycaster = new THREE.Raycaster()
@@ -30,6 +30,12 @@ export default class Plane {
       this.setGeometry()
       this.batchSetMesh()
       this.setMouseEvent()
+      this.upperBound = -this.space * (this.group.children.length - 1)
+
+      for (let i = 0; i < this.group.children.length; i++) {
+         this.track.push(this.upperBound + (this.space * i))
+      }
+
       this.update()
    }
 
@@ -39,14 +45,16 @@ export default class Plane {
 
       gsap.from(this.group.position, {
          duration: 2,
-         y: -8,
+         y: -this.group.children.length * this.space,
          ease: 'power4.inOut'
       })
    }
 
    destroyProjectView() {
       gsap.to(this.group.position, {
-         y: this.group.children.length * 3,
+         duration: 1.5,
+         y: this.group.children.length * this.space,
+         ease: 'power4.inOut',
          onComplete: () => {
             this.scene.remove(this.group)
             
@@ -59,14 +67,14 @@ export default class Plane {
    }
 
    batchSetMesh() {
-      for (const [i, asset] of this.textures.entries()) {
+      for (const [i, asset] of this.assets.entries()) {
          this.material = new THREE.ShaderMaterial({
             vertexShader: vertex,
             fragmentShader: fragment,
             transparent: true,
             side: THREE.DoubleSide,
             uniforms: {
-               uCover: { value: asset },
+               uCover: { value: asset.texture },
                uMouse: { value: new THREE.Vector3()},
                uFrequency: { value: 10 },
                uPerlinWeight: { value: 0.0 },
@@ -76,14 +84,12 @@ export default class Plane {
             }
          })
 
-         let mesh = new THREE.Mesh(this.geometry, this.material)
-
-         mesh.position.y = i * this.space
-         
-         this.group.add(mesh)
+         this.mesh = new THREE.Mesh(this.geometry, this.material)
+         this.mesh.position.y = i * this.space
+         this.group.add(this.mesh)
       }
 
-      // this.group.position.set(0.25, (-this.group.children.length + 1) * this.space,1.25)
+      this.group.position.set(0.55, (-this.group.children.length + 1) * this.space,1.25)
 
       if (this.debug) {
          this.debugFolder.addInput(
@@ -104,32 +110,6 @@ export default class Plane {
       this.geometry.rotateY(-Math.PI * 0.1)
    }
 
-   setMaterial() {
-      this.material = new THREE.ShaderMaterial({
-         vertexShader: vertex,
-         fragmentShader: fragment,
-         transparent: true,
-         side: THREE.DoubleSide,
-         uniforms: {
-            uCover: { value: this.textures[0] },
-            uMouse: { value: new THREE.Vector3()},
-            uColor: { value: new THREE.Color('orange') },
-            uFrequency: { value: 10 },
-            uTime: { value: 0.0 },
-            uMin1: { value: 0.0 },
-            uMax1: { value: 0.5 },
-            uMin2: { value: 0.0 },
-            uMax2: { value: 1.0 },
-            uSize: { value: 0.5 },
-            uStrength: { value: 0.05 },
-         }
-      })
-   }
-
-   setMesh() {
-      this.mesh = new THREE.Mesh(this.geometry, this.material)
-   }
-   
    setMouseEvent() {
       function onMouseEvent(that) {
          that.raycaster.setFromCamera(that.mouse, that.experience.camera.instance)
@@ -145,46 +125,7 @@ export default class Plane {
          }
       }
 
-      window.addEventListener('mousemove', () => onMouseEvent(this), false)
-   }
-
-   setScrollEvent() {
-      this.upperBound = -this.space * (this.group.children.length - 1)
-
-      const tl = gsap.timeline({
-         defaults: {
-            duration: 0.5,
-            ease: 'power2.inOut'
-         }
-      })
-
-      window.addEventListener('wheel', (e) => {
-
-         if (!tl.isActive()) {
-            if (e.deltaY > 0 && this.group.position.y < 0) {
-            
-               tl.to(this.group.position, {
-                  y: '+=' + this.space,
-                  // overwrite: true
-               })
-            }
-            if (e.deltaY < 0 && this.group.position.y > this.upperBound) {
-               tl.to(this.group.position, {
-                  y: '-=' + this.space,
-                  // overwrite: true
-               })
-            }
-         }
-         // if (this.group.position.y < this.upperBound) {
-         //    tl.to(this.group.position, {
-         //       y: this.upperBound,
-         //       duration: 0.2,
-         //       ease: 'power2.inOut',
-         //       overwrite: true
-         //    })
-         // }
-
-      })
+      window.addEventListener('mousemove', () => onMouseEvent(this))
    }
 
    update() {
@@ -192,7 +133,6 @@ export default class Plane {
          mesh.material.uniforms.uTime.value = this.time.elapsed * 0.2
          mesh.position.y += Math.sin(this.time.elapsed * 0.001) * 0.0002
       }
-      console.log(this.group.position.y)
-      // this.group.position.y = Math.sin(this.time.elapsed * 0.001) * 0.05
+      // console.log(this.group.position.y, this.trackIdx, this.upperBound)
    }
 }

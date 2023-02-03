@@ -53,7 +53,10 @@ export default class Camera {
 
    update() {
       this.controls.update()
-      this.instance.rotation.x = -(this.pointer.y * 0.01)
-      this.instance.rotation.y = (this.pointer.x * 0.01)
+
+      if (this.wobble) {
+         this.instance.rotation.x = -(this.pointer.y * 0.005)
+         this.instance.rotation.y = (this.pointer.x * 0.005)
+      }
    }
 }

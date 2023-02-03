@@ -11,13 +11,15 @@ export default {
 
    mounted() {
       this.experience = new Experience()
+      this.experience.camera.wobble = false
       this.experience.world.sphere.projectsView()
       this.experience.world.plane.initProjectView()
       this.experience.world.plane.setScrollEvent()
-
+      
    },
-
+   
    unmounted() {
+      this.experience.camera.wobble = true
       this.experience.world.plane.destroyProjectView()
    }
 }

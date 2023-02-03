@@ -5,10 +5,10 @@ varying float vNoise;
 
 uniform sampler2D uCover;
 uniform vec3 uMouse;
-uniform float uMin1;
-uniform float uMax1;
-uniform float uMin2;
-uniform float uMax2;
+// uniform float uMin1;
+// uniform float uMax1;
+// uniform float uMin2;
+// uniform float uMax2;
 uniform float uSize;
 uniform float uStrength;
 

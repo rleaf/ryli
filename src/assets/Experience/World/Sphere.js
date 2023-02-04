@@ -12,7 +12,6 @@ export default class Box {
       this.debug = this.experience.debug
       this.scene = this.experience.scene
       this.time = this.experience.time
-      this.trackIdx = 0
 
       if (this.debug) {
          this.debugFolder = this.debug.addFolder({
@@ -148,8 +147,8 @@ export default class Box {
          z: 1
       }, '<')
       .to(this.material.uniforms.uValley.value, {
-         r: 0/255,
-         g: 65/255,
+         r: 153/255,
+         g: 62/255,
          b: 0/255,
       }, '<')
       .to(this.material.uniforms.uPeak.value, {
@@ -185,23 +184,22 @@ export default class Box {
          y: 0,
          z: 2
       }, '<')
-      .to(this.material.uniforms.uValley.value, {
-         r: 17/255,
-         g: 57/255,
-         b: 67/255,
-      }, '<')
-      .to(this.material.uniforms.uPeak.value, {
-         r: 255/255,
-         g: 255/255,
-         b: 255/255,
-      }, '<')
-      .to(this.material.uniforms.uStrength, {
-         value: 0.15,
-      }, '<')
+      // .to(this.material.uniforms.uValley.value, {
+      //    r: 17/255,
+      //    g: 57/255,
+      //    b: 67/255,
+      // }, '<')
+      // .to(this.material.uniforms.uPeak.value, {
+      //    r: 255/255,
+      //    g: 255/255,
+      //    b: 255/255,
+      // }, '<')
+      // .to(this.material.uniforms.uStrength, {
+      //    value: 0.15,
+      // }, '<')
    }
 
    update() {
       this.material.uniforms.uTime.value = this.time.elapsed * 0.05
-      console.log(this.trackIdx)
    }
 }

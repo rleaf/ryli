@@ -34,7 +34,49 @@ export default {
       })
    },
 
+   watch: {
+      trackIdx() {
+         this.setSphereColor()
+      }
+   },
+
    methods: {
+      setSphereColor(rotate = true) {
+         const asset = this.assetsReverse[this.trackIdx]
+         console.log(asset)
+
+         const tl = gsap.timeline({
+            defaults: {
+               duration: 1,
+               ease: 'power2.inOut',
+            }
+         })
+
+         tl.to(this.experience.world.sphere.material.uniforms.uValley.value, {
+            r: asset.uValley.r,
+            g: asset.uValley.g,
+            b: asset.uValley.b,
+         })
+         .to(this.experience.world.sphere.material.uniforms.uPeak.value, {
+            r: asset.uPeak.r,
+            g: asset.uPeak.g,
+            b: asset.uPeak.b,
+         }, '<')
+
+         if (rotate) {
+            if (this.scrollSign > 0) {
+               tl.to(this.experience.world.sphere.mesh.rotation, {
+                  z: '+=1.5'
+               }, '<')
+            } else {
+               tl.to(this.experience.world.sphere.mesh.rotation, {
+                  z: '-=1.5'
+               }, '<')
+            }
+            
+         }
+
+      },
       setScrollEvent(e) {
          this.scrollSign = Math.sign(e.deltaY)
          if (!this.scrollTimeline.isActive()) {
@@ -52,7 +94,8 @@ export default {
                })
             }
 
-            this.experience.world.sphere.trackIdx = this.trackIdx
+            // Mutate sphere fragment
+
          }
       },
 
@@ -67,14 +110,15 @@ export default {
    },
 
    mounted() {
+      
       this.experience.camera.wobble = false
       this.experience.world.sphere.projectsView()
       this.experience.world.plane.initProjectView()
+      this.setSphereColor(false)
 
-      window.addEventListener('click', this.routeEvent)
+      // window.addEventListener('click', this.routeEvent)
       window.addEventListener('mousemove', this.intersectEvent)
       window.addEventListener('wheel', this.setScrollEvent)
-
       gsap.from('.projects-head h1', {
          duration: 1.0,
          opacity: 0,

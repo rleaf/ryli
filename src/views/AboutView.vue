@@ -24,10 +24,6 @@ export default {
 			duration: 1.0,
 			opacity: 0,
 			delay: 0.5,
-			// stagger: {
-			// 	amount: 0.5,
-			// 	from: 'random'
-			// },
 			ease: 'power2.inOut'
 		})
 	}

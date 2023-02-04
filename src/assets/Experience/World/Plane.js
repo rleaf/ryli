@@ -10,6 +10,7 @@ export default class Plane {
       this.experience = new Experience()
       this.sizes = this.experience.sizes
       this.assets = this.experience.resources.textures
+      this.assetsReverse = this.assets.slice().reverse()
       this.debug = this.experience.debug
       this.mouse = this.experience.mouse.pointer
       this.scene = this.experience.scene

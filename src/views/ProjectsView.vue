@@ -13,6 +13,8 @@ export default {
          upperBound: null,
          trackIdx: null,
          track: null,
+         intersectName: null,
+         scrollSign: 0
       }
    },
 
@@ -22,7 +24,7 @@ export default {
       this.group = this.experience.world.plane.group
       this.space = this.experience.world.plane.space
       this.upperBound = this.experience.world.plane.upperBound
-      this.trackIdx = this.experience.world.plane.trackIdx
+      this.trackIdx = 0
       this.track = this.experience.world.plane.track
       this.scrollTimeline = gsap.timeline({
          defaults: {
@@ -34,6 +36,7 @@ export default {
 
    methods: {
       setScrollEvent(e) {
+         this.scrollSign = Math.sign(e.deltaY)
          if (!this.scrollTimeline.isActive()) {
             // Only allow "scrolling" when: upperBound < pos.y <= 0
             if (e.deltaY > 0 && this.group.position.y >= this.upperBound && this.group.position.y < 0) {
@@ -49,16 +52,27 @@ export default {
                })
             }
 
+            this.experience.world.sphere.trackIdx = this.trackIdx
          }
+      },
+
+      intersectEvent() {
+         this.intersectName = this.experience.world.plane.intersectName
+         this.intersectName ? (document.body.style.cursor = 'pointer') : (document.body.style.cursor = 'default')
+      },
+
+      routeEvent() {
+         if (this.intersectName) this.$router.push({ name: this.intersectName.toLowerCase() })
       }
    },
 
    mounted() {
-      console.log(this.assetsReverse[this.trackIdx])
       this.experience.camera.wobble = false
       this.experience.world.sphere.projectsView()
       this.experience.world.plane.initProjectView()
 
+      window.addEventListener('click', this.routeEvent)
+      window.addEventListener('mousemove', this.intersectEvent)
       window.addEventListener('wheel', this.setScrollEvent)
 
       gsap.from('.projects-head h1', {
@@ -73,62 +87,89 @@ export default {
       this.experience.camera.wobble = true
       this.experience.world.plane.destroyProjectView()
       window.removeEventListener('wheel', this.setScrollEvent)
+      window.removeEventListener('click', this.routeEvent)
+      window.removeEventListener('mousemove', this.intersectEvent)
    },
 
    computed: {
-      title() {
-         if (this.$refs.title) {
-            gsap.from('.projects-head h1', {
-               duration: 0.5,
-               opacity: 0,
-               // x: '-=80%',
-               ease: 'power2.inOut'
-            })
+      slideFade() {
+         if (this.scrollSign > 0) {
+            return 'slide-down-fade'
+         } else {
+            return 'slide-up-fade'
          }
-
-         return this.assetsReverse[this.trackIdx].name
       }
+
    }
 }
 </script>
 
 <template>
-   <div class="projects-main">
-
-      <div>
-         <div class="projects-head">
-            <div class="fore">
-               <h1 ref="title">{{ title }}</h1>
+   <Transition :name="slideFade">
+      <div class="projects-main" :key="this.trackIdx">
+         <div>
+            <div class="projects-head">
+               <h1>{{ this.assetsReverse[this.trackIdx].name }}</h1>
             </div>
-            <h1 class="back">{{ this.assetsReverse[this.trackIdx].name }}</h1>
+            
+         </div>
+         <div class="projects-synopsis">
+            <div class="project-meta">
+               <div class="meta">
+                  <div class="meta-header">Timeline</div>
+                  {{ this.assetsReverse[this.trackIdx].timeline }} <br>
+                  {{ this.assetsReverse[this.trackIdx].timeline2 }}
+               </div>
+               <div class="meta">
+                  <div class="meta-header">Genre</div>
+                  {{ this.assetsReverse[this.trackIdx].genre }}
+               </div>
+               <div class="meta">
+                  <div class="meta-header">Technology</div>
+                  {{ this.assetsReverse[this.trackIdx].tech }}
+               </div>
+            </div>
+            <div class="projects-body">
+               {{ this.assetsReverse[this.trackIdx].body }}
+            </div>
          </div>
       </div>
-      <div class="projects-synopsis">
-         <div class="project-meta">
-            <div class="meta">
-               <div class="meta-header">Timeline</div>
-               {{ this.assetsReverse[this.trackIdx].timeline }} <br>
-               {{ this.assetsReverse[this.trackIdx].timeline2 }}
-            </div>
-            <div class="meta">
-               <div class="meta-header">Genre</div>
-               {{ this.assetsReverse[this.trackIdx].genre }}
-            </div>
-            <div class="meta">
-               <div class="meta-header">Technology</div>
-               {{ this.assetsReverse[this.trackIdx].tech }}
-            </div>
-         </div>
-         <div class="projects-body">
-            {{ this.assetsReverse[this.trackIdx].body }}
-         </div>
-      </div>
-
-   </div>
+   </Transition>
 </template>
 
 <style scoped>
-.meta-header {
+   h1 {
+   color: var(--ligh200);
+   }
+
+   .slide-down-fade-enter-active,
+   .slide-down-fade-leave-active {
+      transition: all 0.4s ease-in-out;
+   }
+
+   .slide-down-fade-enter-from {
+      opacity: 0;
+      transform: translateY(8rem);
+   }
+   .slide-down-fade-leave-to {
+      opacity: 0;
+      transform: translateY(-8rem);
+   }
+
+   .slide-up-fade-enter-active,
+   .slide-up-fade-leave-active {
+      transition: all 0.4s ease-in-out;
+   }
+
+   .slide-up-fade-enter-from {
+      opacity: 0;
+      transform: translateY(-8rem);
+   }
+   .slide-up-fade-leave-to {
+      opacity: 0;
+      transform: translateY(8rem);
+   }
+   .meta-header {
       font-size: .9rem;
       color: var(--light000);
       padding-bottom: 0.5rem;
@@ -165,11 +206,11 @@ export default {
       display: flex;
       align-items: center;
       flex-direction: column;
-      background: var(--dark0001);
+      /* background: var(--dark0001); */
       margin-left: 8%;
       /* height: 35vh; */
       width: 28vw;
-      bottom: calc(30vh - 10vmin);
+      top: calc(20vh + 25vmin);
    }
 
    .projects-head {

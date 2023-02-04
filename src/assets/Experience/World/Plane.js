@@ -86,6 +86,7 @@ export default class Plane {
          })
 
          this.mesh = new THREE.Mesh(this.geometry, this.material)
+         this.mesh.name = asset.name
          this.mesh.position.y = i * this.space
          this.group.add(this.mesh)
       }
@@ -112,21 +113,21 @@ export default class Plane {
    }
 
    setMouseEvent() {
-      function onMouseEvent(that) {
-         that.raycaster.setFromCamera(that.mouse, that.experience.camera.instance)
-         that.intersects = that.raycaster.intersectObjects(that.group.children)   
+      window.addEventListener('mousemove', () => {
+         this.raycaster.setFromCamera(this.mouse, this.experience.camera.instance)
+         this.intersects = this.raycaster.intersectObjects(this.group.children)   
          
-         if (that.intersects.length > 0) {
-            for(const intersect of that.intersects) {
-               // intersect.object.material.uniforms.uPerlinWeight.value = 0.4;
-               intersect.object.material.uniforms.uMouse.value = that.intersects[0].point
+         if (this.intersects.length > 0) {
+            this.intersectName = this.intersects[0].object.name
+            for(const intersect of this.intersects) {
+               intersect.object.material.uniforms.uMouse.value = this.intersects[0].point
                intersect.object.material.uniforms.uMouse.value.x -= .25
                intersect.object.material.uniforms.uMouse.value.z -= 2.
             }
+         } else {
+            this.intersectName = null
          }
-      }
-
-      window.addEventListener('mousemove', () => onMouseEvent(this))
+      })
    }
 
    update() {
@@ -134,6 +135,5 @@ export default class Plane {
          mesh.material.uniforms.uTime.value = this.time.elapsed * 0.2
          mesh.position.y += Math.sin(this.time.elapsed * 0.001) * 0.0002
       }
-      // console.log(this.group.position.y, this.trackIdx, this.upperBound)
    }
 }

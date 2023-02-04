@@ -8,9 +8,11 @@ export default class Box {
    constructor() {
 
       this.experience = new Experience()
+      this.assets = this.experience.resources.textures
       this.debug = this.experience.debug
       this.scene = this.experience.scene
       this.time = this.experience.time
+      this.trackIdx = 0
 
       if (this.debug) {
          this.debugFolder = this.debug.addFolder({
@@ -200,5 +202,6 @@ export default class Box {
 
    update() {
       this.material.uniforms.uTime.value = this.time.elapsed * 0.05
+      console.log(this.trackIdx)
    }
 }

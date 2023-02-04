@@ -17,7 +17,7 @@ const router = createRouter({
     {
       path: '/projects',
       name: 'projects',
-      component: () => import('../views/ProjectsView.vue')
+      component: () => import('../views/ProjectsView.vue'),
     },
     {
       path: '/blog',
@@ -29,6 +29,22 @@ const router = createRouter({
       name: 'food',
       component: () => import('../views/FoodView.vue')
     },
+    { 
+      path: '/projects/spotify', 
+      name: 'spotify',
+      component: () => import('../views/projects/SpotifyView.vue')
+    },
+    { 
+      path: '/projects/steam', 
+      name: 'steam',
+      component: () => import('../views/projects/SteamView.vue')
+    },
+    { 
+      path: '/projects/oscilla', 
+      name: 'oscilla',
+      component: () => import('../views/projects/OscillaView.vue')
+    }
+
   ]
 })
 

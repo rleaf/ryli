@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-   <ProjectTransition :duration="800"/>
+   <ProjectTransition :duration="1500"/>
    <div class="steam-main">
       Steam page
    </div>

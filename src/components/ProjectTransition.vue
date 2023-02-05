@@ -1,12 +1,31 @@
 <script>
+import gsap from 'gsap'
+
 export default {
    data() {
       return {
          bool: true,
+         node: null,
       }
    },
 
    mounted() {
+
+      this.node = this.$refs.node
+      const tl = gsap.timeline({
+         defaults: {
+            // Divide by 1000 for ms -> sec, multiply by 2 for 2 tweens
+            duration: this.duration / 2000,
+            ease: 'power4.inOut'
+         }
+      })
+
+      tl.from(this.node, {
+         x: '-100%',
+      })
+      .to(this.node, {
+         x: '-100%',
+      })
       window.setTimeout(() => {
          this.bool = false
       }, this.duration)
@@ -21,22 +40,10 @@ export default {
 </script>
 
 <template>
-   <Transition name="slide" appear>
-      <div class="transition" v-if="this.bool"></div>
-   </Transition>
+   <div class="transition" v-if="this.bool" ref="node"></div>
 </template>
 
 <style scoped>
-   .slide-enter-active,
-   .slide-leave-active {
-      transition: 0.5s ease;
-   }
-
-   .slide-enter-from,
-   .slide-leave-to {
-      transform: translateX(-100%);
-      }
-
    .transition {
       position: absolute;
       height: 100vh;

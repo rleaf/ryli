@@ -184,19 +184,6 @@ export default class Box {
          y: 0,
          z: 2
       }, '<')
-      // .to(this.material.uniforms.uValley.value, {
-      //    r: 17/255,
-      //    g: 57/255,
-      //    b: 67/255,
-      // }, '<')
-      // .to(this.material.uniforms.uPeak.value, {
-      //    r: 255/255,
-      //    g: 255/255,
-      //    b: 255/255,
-      // }, '<')
-      // .to(this.material.uniforms.uStrength, {
-      //    value: 0.15,
-      // }, '<')
    }
 
    update() {

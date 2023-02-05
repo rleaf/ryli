@@ -87,7 +87,7 @@ export default {
 </template>
 
 <style scoped>
-.slide-enter-active, .slide-leave-active {
+   .slide-enter-active, .slide-leave-active {
       transition: 0.5s ease;
    }
 

@@ -43,12 +43,11 @@ export default {
    methods: {
       setSphereColor(rotate = true) {
          const asset = this.assetsReverse[this.trackIdx]
-         console.log(asset)
 
          const tl = gsap.timeline({
             defaults: {
                duration: 1,
-               ease: 'power2.inOut',
+               ease: 'power2.out',
             }
          })
 
@@ -62,6 +61,12 @@ export default {
             g: asset.uPeak.g,
             b: asset.uPeak.b,
          }, '<')
+         .to(this.experience.world.sphere.material.uniforms.uDisplacementStrength, {
+            value: 0.75
+         }, '<')
+         .to(this.experience.world.sphere.material.uniforms.uDisplacementStrength, {
+            value: 0.25
+         }, '<0.2')
 
          if (rotate) {
             if (this.scrollSign > 0) {
@@ -116,7 +121,7 @@ export default {
       this.experience.world.plane.initProjectView()
       this.setSphereColor(false)
 
-      // window.addEventListener('click', this.routeEvent)
+      window.addEventListener('click', this.routeEvent)
       window.addEventListener('mousemove', this.intersectEvent)
       window.addEventListener('wheel', this.setScrollEvent)
       gsap.from('.projects-head h1', {
@@ -170,7 +175,10 @@ export default {
                </div>
                <div class="meta">
                   <div class="meta-header">Technology</div>
-                  {{ this.assetsReverse[this.trackIdx].tech }}
+                  <span v-for="(el, i) in this.assetsReverse[this.trackIdx].tech"
+                     :key="i">
+                        {{ el }}<br>
+                  </span>
                </div>
             </div>
             <div class="projects-body">

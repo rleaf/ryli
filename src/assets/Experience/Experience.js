@@ -21,7 +21,7 @@ export default class Experience {
       instance = this
 
       this.canvas = canvas
-      this.setDebug()
+      // this.setDebug()
       this.sizes = new Sizes()
       this.mouse = new Mouse()
       this.time = new Time()

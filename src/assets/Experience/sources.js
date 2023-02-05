@@ -8,7 +8,8 @@ export default {
       timeline: `Oct - Nov 2022`,
       timeline2: '(2 months)',
       genre: 'UX/UI Case Study',
-      tech: 'Figma, Illustrator',
+      // tech: 'Figma, Adobe Illustrator',
+      tech: ['Figma', 'Adobe Illustrator'],
       body: 'Brief synopsis about steam',
       cover: steamPath,
       uValley: {
@@ -26,8 +27,8 @@ export default {
       title: 'Oscilla',
       timeline: ` Oct - Nov 2022`,
       timeline2: '(2 months)',
-      genre: 'Full Stack Development',
-      tech: 'JavaScript',
+      genre: 'Graphic Design, Typography',
+      tech: ['Adobe Illustrator'],
       body: 'Brief synopsis about oscilla',
       cover: oscillaPath,
       uValley: {
@@ -45,8 +46,8 @@ export default {
       title: 'Spotify',
       timeline: `Oct - Nov 2022`,
       timeline2: '(2 months)',
-      genre: 'Full Stack Development',
-      tech: 'JavaScript',
+      genre: 'UX/UI Design',
+      tech: ['Adobe Illustrator'],
       body: 'Brief synopsis about spotify. Ooga booga, this is some filler to act as a placeholder while I work on the styling. It is almsot 1am and I should probably brush my teeth soon, but I am currently on a roll',
       cover: spotifyPath,
       uValley: {

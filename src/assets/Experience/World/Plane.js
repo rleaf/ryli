@@ -135,5 +135,6 @@ export default class Plane {
          mesh.material.uniforms.uTime.value = this.time.elapsed * 0.2
          mesh.position.y += Math.sin(this.time.elapsed * 0.001) * 0.0002
       }
+      // console.log(this.group)
    }
 }

@@ -14,7 +14,7 @@ export default {
          trackIdx: null,
          track: null,
          intersectName: null,
-         scrollSign: 0
+         scrollSign: 0,
       }
    },
 
@@ -98,9 +98,6 @@ export default {
                   y: this.track[this.trackIdx],
                })
             }
-
-            // Mutate sphere fragment
-
          }
       },
 
@@ -110,12 +107,13 @@ export default {
       },
 
       routeEvent() {
-         if (this.intersectName) this.$router.push({ name: this.intersectName.toLowerCase() })
+         if (this.intersectName) {
+            this.$router.push({ name: this.intersectName.toLowerCase() })
+         }
       }
    },
 
    mounted() {
-      
       this.experience.camera.wobble = false
       this.experience.world.sphere.projectsView()
       this.experience.world.plane.initProjectView()
@@ -143,9 +141,9 @@ export default {
    computed: {
       slideFade() {
          if (this.scrollSign > 0) {
-            return 'slide-down-fade'
+            return 'slide-down'
          } else {
-            return 'slide-up-fade'
+            return 'slide-up'
          }
       }
 
@@ -191,33 +189,31 @@ export default {
 
 <style scoped>
    h1 {
-   color: var(--ligh200);
+      color: var(--ligh200);
    }
 
-   .slide-down-fade-enter-active,
-   .slide-down-fade-leave-active {
-      transition: all 0.4s ease-in-out;
+   .slide-down-enter-active, .slide-down-leave-active {
+      transition: 0.4s ease-in-out;
    }
 
-   .slide-down-fade-enter-from {
+   .slide-down-enter-from {
       opacity: 0;
       transform: translateY(8rem);
    }
-   .slide-down-fade-leave-to {
+   .slide-down-leave-to {
       opacity: 0;
       transform: translateY(-8rem);
    }
 
-   .slide-up-fade-enter-active,
-   .slide-up-fade-leave-active {
-      transition: all 0.4s ease-in-out;
+   .slide-up-enter-active, .slide-up-leave-active {
+      transition: 0.4s ease-in-out;
    }
 
-   .slide-up-fade-enter-from {
+   .slide-up-enter-from {
       opacity: 0;
       transform: translateY(-8rem);
    }
-   .slide-up-fade-leave-to {
+   .slide-up-leave-to {
       opacity: 0;
       transform: translateY(8rem);
    }

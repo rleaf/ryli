@@ -42,6 +42,7 @@ export default class Box {
       this.uPeak.instance = new THREE.Color( this.uPeak.value )
 
       this.material = new THREE.ShaderMaterial({
+         transparent: true,
          vertexShader: vertexShader,
          fragmentShader: fragmentShader,
          uniforms: {
@@ -50,6 +51,7 @@ export default class Box {
             uStrength: { value: 0.15 },
             uFrequency: { value: 10 },
             uTime: { value: 0.0 },
+            uOpacity: { value: 1.0 },
             uDistortionFrequency: { value: 1.3 },
             uDistortionStrength: { value: 1.3 },
             uDisplacementFrequency: { value: 0.65 },
@@ -185,6 +187,14 @@ export default class Box {
          z: 2
       }, '<')
    }
+
+   // projectFocusView() {
+   //    gsap.to(this.mesh.position, {
+   //       z: 6,
+   //       duration: 0.75,
+   //       ease: 'power2.inOut'
+   //    })
+   // }
 
    update() {
       this.material.uniforms.uTime.value = this.time.elapsed * 0.05

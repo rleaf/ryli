@@ -34,10 +34,9 @@ void main() {
    // newPosition.y += sin(newPosition.x + 1.65) * 0.25;
    // newPosition.z += sin(newPosition.x * 2.5 + uTime * 0.005) * 0.1;
    // newPosition.y += sin(newPosition.z * 2.5 + uTime * 0.005) * 0.1;
-
-   vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);
+   // mat4 test = mat4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+   vec4 modelPosition = modelMatrix  * vec4(newPosition, 1.0);
    vec4 viewPosition = viewMatrix * modelPosition;
    
    gl_Position = projectionMatrix * viewPosition;
-   // gl_Position = projectionMatrix * vec4(position, 1.0);
 }

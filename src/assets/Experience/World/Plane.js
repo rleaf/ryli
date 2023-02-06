@@ -8,6 +8,7 @@ export default class Plane {
    constructor() {
 
       this.experience = new Experience()
+      this.camera = this.experience.camera.instance
       this.sizes = this.experience.sizes
       this.assets = this.experience.resources.textures
       this.assetsReverse = this.assets.slice().reverse()
@@ -65,6 +66,17 @@ export default class Plane {
             }
          }
       })
+   }
+
+   projectFocusView() {
+      // model matrix
+      console.log(this.mesh.matrixWorld)
+
+      // view matrix
+      console.log(this.camera.matrixWorldInverse)
+
+      // projection matrix
+      console.log(this.camera.projectionMatrix)
    }
 
    batchSetMesh() {

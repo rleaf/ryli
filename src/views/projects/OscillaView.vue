@@ -1,11 +1,6 @@
 <script>
-import ProjectTransition from '../../components/ProjectTransition.vue'
 
 export default {
-   components: {
-      ProjectTransition
-   },
-
    data() {
       return {
 
@@ -19,7 +14,6 @@ export default {
 </script>
 
 <template>
-   <ProjectTransition :duration="1500" />
    <div class="oscilla-main">
       Oscilla page
    </div>

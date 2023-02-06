@@ -32,7 +32,7 @@ const router = createRouter({
     { 
       path: '/projects/spotify', 
       name: 'spotify',
-      component: () => import('../views/projects/SpotifyView.vue')
+      component: () => import('../views/projects/SpotifyView.vue'),
     },
     { 
       path: '/projects/steam', 

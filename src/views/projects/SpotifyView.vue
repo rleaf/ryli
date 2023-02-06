@@ -1,25 +1,41 @@
 <script>
-import ProjectTransition from '../../components/ProjectTransition.vue'
+import Experience from '../../assets/Experience/Experience'
+import gsap from 'gsap'
 
 export default {
-   components: {
-      ProjectTransition
-   },
-
    data() {
       return {
-
+         experience: new Experience(),
       }
    },
 
+   
+   created() {
+      this.sphere = this.experience.world.sphere
+      this.plane = this.experience.world.plane
+   },
+   
    mounted() {
+      // this.sphere.projectFocusView()
+      this.plane.projectFocusView()
+   },
 
-   }
+   beforeUnmount() {
+      gsap.to(this.sphere.material.uniforms.uOpacity, {
+         value: '1',
+         duration: 0.75
+      })
+   },
+   
+   methods: {
+      setSphere() {
+
+      }
+   },
 }
 </script>
 
 <template>
-   <ProjectTransition :duration="1500" />
    <div class="spotify-main">
       Spotify page
    </div>

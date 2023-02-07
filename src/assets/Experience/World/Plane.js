@@ -16,7 +16,6 @@ export default class Plane {
       this.mouse = this.experience.mouse.pointer
       this.scene = this.experience.scene
       this.space = 1.8
-      this.trackIdx = 0
       this.track = []
       this.time = this.experience.time
       this.group = new THREE.Group()
@@ -70,7 +69,10 @@ export default class Plane {
 
    projectFocusView() {
       // model matrix
+      this.mat = this.mesh.matrixWorld * this.camera.matrixWorldInverse * this.camera.projectionMatrix
+
       console.log(this.mesh.matrixWorld)
+      console.log(this.material.uniforms.modelMatrix.value)
 
       // view matrix
       console.log(this.camera.matrixWorldInverse)

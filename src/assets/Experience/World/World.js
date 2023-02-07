@@ -1,6 +1,7 @@
 import Experience from "../Experience"
 import Sphere from './Sphere'
 import Plane from './Plane'
+import Backdrop from './ProjectBackdrop'
 
 export default class World {
    constructor() {
@@ -10,11 +11,13 @@ export default class World {
       this.scene = this.experience.scene
       this.sphere = new Sphere()
       this.plane = new Plane()
+      this.backdrop = new Backdrop()
 
    }
 
    update() {
       this.sphere.update()
       this.plane.update()
+      this.backdrop.update()
    }
 }

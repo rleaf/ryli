@@ -26,6 +26,18 @@ export default class Box {
       this.update()
    }
 
+   setSphere() {
+      this.setGeometry()
+      this.setMaterial()
+      this.setMesh()
+   }
+
+   destroySphere() {
+      this.scene.remove(this.mesh)
+      this.mesh.geometry.dispose()
+      this.mesh.material.dispose()
+   }
+
    setGeometry() {
       this.geometry = new THREE.SphereGeometry(2, 256, 256)
    }
@@ -188,13 +200,14 @@ export default class Box {
       }, '<')
    }
 
-   // projectFocusView() {
-   //    gsap.to(this.mesh.position, {
-   //       z: 6,
-   //       duration: 0.75,
-   //       ease: 'power2.inOut'
-   //    })
-   // }
+   projectFocusView() {
+      // gsap.to(this.mesh.position, {
+      //    x: 0,
+      //    z: 2,
+      //    duration: 0.75,
+      //    ease: 'power2.inOut'
+      // })
+   }
 
    update() {
       this.material.uniforms.uTime.value = this.time.elapsed * 0.05

@@ -6,34 +6,59 @@ import HelloWorld from './components/HelloWorld.vue'
 <script>
 // import { RouterLink, RouterView } from 'vue-router'
 import gsap from 'gsap'
-import Experience from './components/Experience.vue'
+import ExperienceVue from './components/Experience.vue'
+import Experience from './assets/Experience/Experience'
 import Nav from './components/Nav.vue'
 
 export default {
 	components: {
-		Experience,
+		ExperienceVue,
 		Nav
 	},
+
 	data() {
 		return {
-			transition: false
+			transitioning: false
 		}
 	},
 
 	watch: {
-		// $route(to, from) {
-		// 	console.log(to)
-		// 	console.log(from)
-		// 	const path = to.fullPath.split('/')
-		// 	if (from.name) {
-		// 		if (path.length === 3 && path[1] == 'projects') {
-		// 			this.tweenTransition()
-		// 		}
-		// 	}
-		// }
+		$route(to, from) {
+			this.toPath = to.fullPath.split('/')
+			this.fromPath = from.fullPath.split('/')
+
+			if (from.name) {
+				if (this.toPath[1] == 'projects' && this.fromPath[1] == 'projects') {
+					this.transitioning = true
+					setTimeout(() => {
+						this.transitioning = false
+					}, 750)
+					// this.tweenTransition()
+					this.projectViewSphere()
+				}
+			}
+		}
+	},
+
+	mounted() {
+		this.experience = new Experience()
+		console.log(this.$route)
+		this.sphere = this.experience.world.sphere
 	},
 
 	methods: {
+		projectViewSphere() {
+			gsap.to(this.sphere.mesh.rotation, {
+				z: -5,
+				duration: 1.25,
+				ease: 'power2.inOut'
+			})
+			gsap.to(this.sphere.material.uniforms.uOpacity, {
+				value: 0,
+				duration: 1.25,
+				ease: 'power2.inOut',
+			})
+		},
 		tweenTransition() {
 			const tl = gsap.timeline({
 				defaults: {
@@ -62,29 +87,49 @@ export default {
 		}
 	},
 
-	computed: {
-		projectTransition() {
-			const toDepth = this.$route.path.split('/')
-			const fromDepth = this.$route.path.split('/')
-			console.log(toDepth, fromDepth)
-		}
-	},
+	// computed: {
+	// 	transitionName() {
+	// 		if (this.toPath != this.fromPath) {
+	// 			return 'slide'
+	// 		}
+	// 	}
+	// }
+
 }
 </script>
 
 <template>
-	<Experience />
+	<ExperienceVue />
 	<Nav />
-	<div class="transition" v-show="transition" ref="transition"></div>
+	<!-- <div class="transition" v-show="transition" ref="transition"></div> -->
+	<!-- <Transition name="slide">
+		<div v-if="transitioning" class="testo"></div>
+	</Transition> -->
 	<RouterView />
+	<!-- <RouterView v-slot="{ Component}">
+		<Transition name="slide">
+			<component :is="Component" />
+		</Transition>
+	</RouterView> -->
 </template>
 
 <style scoped>
-   .transition {
-      position: absolute;
-      /* z-index: 1; */
+	.slide-enter-active, .slide-leave-active {
+		/* transition-delay: 0.5s; */
+		transition: 0.75s ease-in-out;
+	}
+
+	.slide-enter-from, .slide-leave-to {
+		transform: translateX(-100%);	
+		/* opacity: 0;	 */
+	}
+
+   .testo {
+      position: fixed;
+		overflow: hidden;
+      z-index: 1;
       height: 100vh;
-      width: 100vw;
+      width: 100%;
       background: var(--dark000);
    }
 </style>

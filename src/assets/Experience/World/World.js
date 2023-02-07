@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import Experience from "../Experience"
 import Sphere from './Sphere'
 import Plane from './Plane'
@@ -13,6 +14,7 @@ export default class World {
       this.plane = new Plane()
       this.backdrop = new Backdrop()
 
+      // this.scene.background = new THREE.Color(0x0e0e0e)
    }
 
    update() {

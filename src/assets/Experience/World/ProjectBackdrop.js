@@ -30,7 +30,7 @@ export default class ProjectBackDrop {
          fragmentShader: fragment,
          uniforms: {
             uBackdrop: { value: new THREE.TextureLoader().load(cat)},
-            uOpacity: { value: 1.0 }
+            uOpacity: { value: 0.0 }
          }
       })
    }
@@ -41,10 +41,25 @@ export default class ProjectBackDrop {
 
    addBackdrop() {
       this.scene.add(this.mesh)
+      gsap.to(this.material.uniforms.uOpacity, {
+         delay: 1,
+         value: 1.0,
+         duration: 0.5,
+         ease: 'power2.inOut'
+      })
+      
    }
    
    removeBackdrop() {
-      this.scene.remove(this.mesh, this.mesh2)
+      gsap.to(this.material.uniforms.uOpacity, {
+         value: 0.0,
+         duration: 0.75,
+         ease: 'power2.inOut',
+         onComplete: () => {
+            this.scene.remove(this.mesh)
+         }
+      })
+
    }
 
    update() {

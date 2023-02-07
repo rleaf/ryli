@@ -14,9 +14,25 @@ export default {
       this.sphere = this.experience.world.sphere
       this.backdrop = this.experience.world.backdrop
       this.plane = this.experience.world.plane
+
+      // if (this.sphere) {
+      //    // Just add sphere to all other pages that require sphere ???
+      //    this.experience.scene.remove(this.sphere.mesh)
+      // }
    },
    
    mounted() {
+      this.spinSphere() start here
+      // gsap.to(this.experience.scene.background, {
+      //    r: 0/255,
+      //    g: 54/255,
+      //    b: 21/255,
+      //    duration: 1.5,
+      //    ease: 'power2.inOut',
+      //    onComplete: () => {
+      //       this.backdrop.addBackdrop()
+      //    }
+      // })
       // gsap.to('.background', {
       //    opacity: 1,
       //    duration: 1.5,
@@ -25,14 +41,25 @@ export default {
       //       this.backdrop.addBackdrop()
       //    }
       // })
+      
       // Time the proc with tweenTransition() in App.vue
       // setTimeout(() => {
-         this.backdrop.addBackdrop()
+      this.backdrop.addBackdrop()
       // }, 750)
    },
 
    beforeUnmount() {
       this.setSphere()
+      // gsap.to(this.experience.scene.background, {
+      //    r: 14/255,
+      //    g: 14/255,
+      //    b: 14/255,
+      //    duration: 1.5,
+      //    ease: 'power2.inOut',
+      //    onComplete: () => {
+      //       this.backdrop.addBackdrop()
+      //    }
+      // })
 
       this.backdrop.removeBackdrop()
       // setTimeout(() => {
@@ -41,12 +68,26 @@ export default {
    
    methods: {
       setSphere() {
+         this.experience.scene.add(this.sphere.mesh)
          gsap.to(this.sphere.material.uniforms.uOpacity, {
             value: '1',
             duration: 1.25,
             ease: 'power2.inOut'
          })
-      }
+      },
+
+      spinSphere() {
+         gsap.to(this.sphere.mesh.rotation, {
+            z: -5,
+            duration: 1.25,
+            ease: 'power2.inOut'
+         })
+         gsap.to(this.sphere.material.uniforms.uOpacity, {
+            value: 0,
+            duration: 1.25,
+            ease: 'power2.inOut',
+         })
+      },
    },
 }
 </script>
@@ -74,7 +115,9 @@ export default {
 </template>
 
 <style scoped>
-
+   .tea{
+      color: rgb(14, 14, 14);
+   }
    h1 {
       color: var(--dark000);
       top: calc(50% - 20vmin / 2);
@@ -99,7 +142,7 @@ export default {
       top: 0;
       width: inherit;
       height: inherit;
-      z-index: -75;
+      z-index: -750;
       /* background: green; */
       background: rgb(78, 148, 105);
    }

@@ -18,7 +18,8 @@ export default {
 
 	data() {
 		return {
-			transitioning: false
+			toPath: null,
+			fromPath: null
 		}
 	},
 
@@ -29,11 +30,6 @@ export default {
 
 			if (from.name) {
 				if (this.toPath[1] == 'projects' && this.fromPath[1] == 'projects') {
-					this.transitioning = true
-					setTimeout(() => {
-						this.transitioning = false
-					}, 750)
-					// this.tweenTransition()
 					this.projectViewSphere()
 				}
 			}
@@ -42,7 +38,6 @@ export default {
 
 	mounted() {
 		this.experience = new Experience()
-		console.log(this.$route)
 		this.sphere = this.experience.world.sphere
 	},
 
@@ -87,13 +82,13 @@ export default {
 		}
 	},
 
-	// computed: {
-	// 	transitionName() {
-	// 		if (this.toPath != this.fromPath) {
-	// 			return 'slide'
-	// 		}
-	// 	}
-	// }
+	computed: {
+		routeTransition() {
+			if (this.fromPath) {
+				if (this.toPath[1] == 'projects' && this.fromPath[1] == 'projects') return 'toad'
+			}
+		}
+	}
 
 }
 </script>
@@ -101,35 +96,26 @@ export default {
 <template>
 	<ExperienceVue />
 	<Nav />
-	<!-- <div class="transition" v-show="transition" ref="transition"></div> -->
-	<!-- <Transition name="slide">
-		<div v-if="transitioning" class="testo"></div>
-	</Transition> -->
-	<RouterView />
-	<!-- <RouterView v-slot="{ Component}">
-		<Transition name="slide">
-			<component :is="Component" />
+	<RouterView v-slot="{ Component}">
+		<Transition :name="routeTransition">
+			<div :key="this.$route.name">
+				<component :is="Component" />
+			</div>
 		</Transition>
-	</RouterView> -->
+	</RouterView>
 </template>
 
 <style scoped>
-	.slide-enter-active, .slide-leave-active {
-		/* transition-delay: 0.5s; */
+	.toad-enter-active, .toad-leave-active {
 		transition: 0.75s ease-in-out;
 	}
 
-	.slide-enter-from, .slide-leave-to {
-		transform: translateX(-100%);	
-		/* opacity: 0;	 */
+	.toad-enter-active {
+		transition-delay: 0.5s;
 	}
 
-   .testo {
-      position: fixed;
-		overflow: hidden;
-      z-index: 1;
-      height: 100vh;
-      width: 100%;
-      background: var(--dark000);
-   }
+	.toad-enter-from, .toad-leave-to {
+		transform: translateY(100%);	
+		/* opacity: 0;	 */
+	}
 </style>

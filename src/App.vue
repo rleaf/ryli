@@ -19,7 +19,8 @@ export default {
 	data() {
 		return {
 			toPath: null,
-			fromPath: null
+			fromPath: null,
+			maskTransition: null
 		}
 	},
 
@@ -27,12 +28,6 @@ export default {
 		$route(to, from) {
 			this.toPath = to.fullPath.split('/')
 			this.fromPath = from.fullPath.split('/')
-
-			if (from.name) {
-				if (this.toPath[1] == 'projects' && this.fromPath[1] == 'projects') {
-					this.projectViewSphere()
-				}
-			}
 		}
 	},
 
@@ -54,32 +49,6 @@ export default {
 				ease: 'power2.inOut',
 			})
 		},
-		tweenTransition() {
-			const tl = gsap.timeline({
-				defaults: {
-					duration: 0.75,
-					ease: 'power4.inOut'
-				}
-			})
-
-			this.transition = true
-
-			tl.fromTo('.transition', {
-				delay: 1.5,
-				x: '-100%'
-			}, {
-				x: '0'
-			})
-			.fromTo('.transition', {
-				x: '0'
-			}, {
-				x: '-100%',
-				onComplete: () => {
-					this.transition = false
-				}
-			})
-			tl.invalidate()
-		}
 	},
 
 	computed: {
@@ -87,7 +56,7 @@ export default {
 			if (this.fromPath) {
 				if (this.toPath[1] == 'projects' && this.fromPath[1] == 'projects') return 'toad'
 			}
-		}
+		},
 	}
 
 }
@@ -96,7 +65,7 @@ export default {
 <template>
 	<ExperienceVue />
 	<Nav />
-	<RouterView v-slot="{ Component}">
+	<RouterView v-slot="{ Component }">
 		<Transition :name="routeTransition">
 			<div :key="this.$route.name">
 				<component :is="Component" />
@@ -107,15 +76,14 @@ export default {
 
 <style scoped>
 	.toad-enter-active, .toad-leave-active {
-		transition: 0.75s ease-in-out;
+		transition: 0.5s ease-in-out;
 	}
-
+	
 	.toad-enter-active {
-		transition-delay: 0.5s;
+		transition-delay: 0.75s;
 	}
 
 	.toad-enter-from, .toad-leave-to {
 		transform: translateY(100%);	
-		/* opacity: 0;	 */
 	}
 </style>

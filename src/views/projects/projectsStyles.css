@@ -1,0 +1,32 @@
+   h1 {
+      color: var(--light100);
+      top: calc(50% - 20vmin / 2);
+      filter: drop-shadow(0 0 1.5rem var(--dark000));
+      text-align: center;
+      -webkit-text-stroke-width: 0;
+   }
+
+   .fade-enter-active, .fade-leave-active {
+		transition: 0.5s ease-in-out;
+	}
+
+	.fade-enter-from, .fade-leave-to {
+		transform: translateX(-100%);	
+	}
+   .project-landing {
+      height: 100vh;
+      width: 100%;
+   }
+   .background {
+      position: absolute;
+      opacity: 1;
+      top: 0;
+      width: inherit;
+      height: inherit;
+      z-index: -75;
+   }
+   .project-study {
+      width: 100%;
+      color: var(--dark000);
+      background: var(--light000);
+   }

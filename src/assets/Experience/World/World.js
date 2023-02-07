@@ -14,7 +14,7 @@ export default class World {
       this.plane = new Plane()
       this.backdrop = new Backdrop()
 
-      // this.scene.background = new THREE.Color(0x0e0e0e)
+      // this.scene.background = new THREE.Color(0xffff00)
    }
 
    update() {

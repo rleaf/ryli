@@ -123,7 +123,7 @@ export default {
    }
    .routes {
       display: flex;
-      width: 100vw;
+      width: 100%;
       height: 100vh;
       overflow-y: scroll;
       background: var(--dark000);
@@ -135,6 +135,7 @@ export default {
 
    .nav-main {
       position: absolute;
+      width: 100%;
       z-index: 20;
    }
 

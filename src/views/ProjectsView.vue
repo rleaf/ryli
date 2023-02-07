@@ -20,12 +20,14 @@ export default {
 
    created() {
       this.assets = this.experience.world.plane.assets
-      this.assetsReverse = this.experience.world.plane.assetsReverse
-      this.group = this.experience.world.plane.group
-      this.space = this.experience.world.plane.space
-      this.upperBound = this.experience.world.plane.upperBound
+      this.sphere = this.experience.world.sphere
+      this.plane = this.experience.world.plane
+      this.assetsReverse = this.plane.assetsReverse
+      this.group = this.plane.group
+      this.space = this.plane.space
+      this.upperBound = this.plane.upperBound
       this.trackIdx = 0
-      this.track = this.experience.world.plane.track
+      this.track = this.plane.track
       this.scrollTimeline = gsap.timeline({
          defaults: {
             duration: 0.4,
@@ -37,7 +39,7 @@ export default {
    watch: {
       trackIdx() {
          this.setSphereColor()
-      }
+      },
    },
 
    methods: {
@@ -51,30 +53,30 @@ export default {
             }
          })
 
-         tl.to(this.experience.world.sphere.material.uniforms.uValley.value, {
+         tl.to(this.sphere.material.uniforms.uValley.value, {
             r: asset.uValley.r,
             g: asset.uValley.g,
             b: asset.uValley.b,
          })
-         .to(this.experience.world.sphere.material.uniforms.uPeak.value, {
+         .to(this.sphere.material.uniforms.uPeak.value, {
             r: asset.uPeak.r,
             g: asset.uPeak.g,
             b: asset.uPeak.b,
          }, '<')
-         .to(this.experience.world.sphere.material.uniforms.uDisplacementStrength, {
+         .to(this.sphere.material.uniforms.uDisplacementStrength, {
             value: 0.75
          }, '<')
-         .to(this.experience.world.sphere.material.uniforms.uDisplacementStrength, {
+         .to(this.sphere.material.uniforms.uDisplacementStrength, {
             value: 0.25
          }, '<0.2')
 
          if (rotate) {
             if (this.scrollSign > 0) {
-               tl.to(this.experience.world.sphere.mesh.rotation, {
+               tl.to(this.sphere.mesh.rotation, {
                   z: '+=1.5'
                }, '<')
             } else {
-               tl.to(this.experience.world.sphere.mesh.rotation, {
+               tl.to(this.sphere.mesh.rotation, {
                   z: '-=1.5'
                }, '<')
             }
@@ -82,6 +84,7 @@ export default {
          }
 
       },
+
       setScrollEvent(e) {
          this.scrollSign = Math.sign(e.deltaY)
          if (!this.scrollTimeline.isActive()) {
@@ -102,7 +105,7 @@ export default {
       },
 
       intersectEvent() {
-         this.intersectName = this.experience.world.plane.intersectName
+         this.intersectName = this.plane.intersectName
          this.intersectName ? (document.body.style.cursor = 'pointer') : (document.body.style.cursor = 'default')
       },
 
@@ -115,14 +118,16 @@ export default {
 
    mounted() {
       this.experience.camera.wobble = false
-      this.experience.world.sphere.projectsView()
-      this.experience.world.plane.initProjectView()
+      this.sphere.addScene()
+      this.sphere.projectsView()
+      this.plane.initProjectView()
       this.setSphereColor(false)
 
       window.addEventListener('click', this.routeEvent)
       window.addEventListener('mousemove', this.intersectEvent)
       window.addEventListener('wheel', this.setScrollEvent)
-      gsap.from('.projects-head h1', {
+
+      gsap.from('.projects-main', {
          duration: 1.0,
          opacity: 0,
          delay: 0.5,
@@ -132,10 +137,11 @@ export default {
    
    unmounted() {
       this.experience.camera.wobble = true
-      this.experience.world.plane.destroyProjectView()
+      this.plane.destroyProjectView()
       window.removeEventListener('wheel', this.setScrollEvent)
       window.removeEventListener('click', this.routeEvent)
       window.removeEventListener('mousemove', this.intersectEvent)
+      document.body.style.cursor = 'default'
    },
 
    computed: {
@@ -254,9 +260,7 @@ export default {
       display: flex;
       align-items: center;
       flex-direction: column;
-      /* background: var(--dark0001); */
-      margin-left: 8%;
-      /* height: 35vh; */
+      margin-left: 8vw;
       width: 28vw;
       top: calc(20vh + 25vmin);
    }
@@ -265,6 +269,6 @@ export default {
       position: absolute;
       width: calc(100% - 15vw);
       top: 20vh;
-      left: 8%;
+      left: 8vw;
    }
 </style>

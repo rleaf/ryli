@@ -11,7 +11,9 @@ export default {
 
 	mounted() {
 		this.experience = new Experience()
-		this.experience.world.sphere.aboutView()
+		this.sphere = this.experience.world.sphere
+		this.sphere.addScene()
+		this.sphere.aboutView()
 
 		gsap.from('.about-text', {
 			duration: 0.5,

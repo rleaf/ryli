@@ -21,14 +21,12 @@ export default {
 
 <style scoped>
    .text {
-      /* position: absolute; */
       font-size: 5rem;
    }
    .webgl {
       position: fixed;
       top: 0;
       left: 0;
-      /* outline: none; */
       z-index: -50;
    }
 </style>

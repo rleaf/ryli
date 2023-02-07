@@ -98,6 +98,9 @@ export default class Box {
    setMesh() {
       this.mesh = new THREE.Mesh(this.geometry, this.material)
       this.mesh.position.set(1.25, 0, 0)
+   }
+   
+   addScene() {
       this.scene.add(this.mesh)
    }
 
@@ -200,13 +203,31 @@ export default class Box {
       }, '<')
    }
 
-   projectFocusView() {
-      // gsap.to(this.mesh.position, {
-      //    x: 0,
-      //    z: 2,
-      //    duration: 0.75,
-      //    ease: 'power2.inOut'
-      // })
+   sphereSpin() {
+      const tl = gsap.timeline({
+         defaults: {
+            duration: 1.25,
+            ease: 'power2.inOut'
+         }
+      })
+
+      tl.to(this.mesh.rotation, {
+         y: 5,
+      })
+      .to(this.mesh.position, {
+         x: -15,
+      }, '<')
+      .to(this.material.uniforms.uOpacity, {
+         value: 0,
+      }, '<')
+   }
+
+   sphereFadeIn() {
+      gsap.to(this.material.uniforms.uOpacity, {
+         value: '1',
+         duration: 1.25,
+         ease: 'power2.inOut'
+      })
    }
 
    update() {

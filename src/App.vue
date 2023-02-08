@@ -1,10 +1,4 @@
-<!-- <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script> -->
-
 <script>
-// import { RouterLink, RouterView } from 'vue-router'
 import gsap from 'gsap'
 import ExperienceVue from './components/Experience.vue'
 import Experience from './assets/Experience/Experience'

@@ -26,8 +26,8 @@ export default class ProjectBackDrop {
 
    setBackdrop(assets) {
       this.texture = new THREE.TextureLoader().load(assets.texture)
-      this.backdropColor = new THREE.Color(assets.fore)
-      this.backdropColor2 = new THREE.Color(assets.back)
+      this.foreColor = new THREE.Color(assets.fore)
+      this.backColor = new THREE.Color(assets.back)
 
       this.setMaterial()
       this.setMesh()
@@ -45,70 +45,63 @@ export default class ProjectBackDrop {
          }
       })
 
-      this.fullMaterial = new THREE.ShaderMaterial({
+      this.foreMaterial = new THREE.ShaderMaterial({
          transparent: true,
          vertexShader: fullvertex,
          fragmentShader: fullfragment,
          uniforms: {
-            uColor: { value: this.backdropColor }
+            uColor: { value: this.foreColor }
          }
       })
 
-      this.fullMaterial2 = new THREE.ShaderMaterial({
+      this.backMaterial = new THREE.ShaderMaterial({
          transparent: true,
          vertexShader: fullvertex,
          fragmentShader: fullfragment,
          uniforms: {
-            uColor: { value: this.backdropColor2 }
+            uColor: { value: this.backColor }
          }
       })
    }
 
    setMesh() {
-      this.mesh = new THREE.Mesh(this.geometry, this.material)
-      this.mesh.renderOrder = 1
+      this.image = new THREE.Mesh(this.geometry, this.material)
+      this.image.renderOrder = 1
 
-      this.fullMesh = new THREE.Mesh(this.fullGeometry, this.fullMaterial)
-      this.fullMesh.position.y = -2
-      this.fullMesh.renderOrder = 2
+      this.foreMesh = new THREE.Mesh(this.fullGeometry, this.foreMaterial)
+      this.foreMesh.position.y = -2
+      this.foreMesh.renderOrder = 2
 
-      this.fullMesh2 = new THREE.Mesh(this.fullGeometry, this.fullMaterial2)
-      this.fullMesh2.position.y = -2
-      this.fullMesh2.renderOrder = 0
+      this.backMesh = new THREE.Mesh(this.fullGeometry, this.backMaterial)
+      this.backMesh.position.y = -2
+      this.backMesh.renderOrder = 0
    }
 
    backdropTransition() {
+      this.foreMesh.position.y = -2
+      this.backMesh.position.y = -2
+
+      this.scene.add(this.foreMesh)
+      this.scene.add(this.backMesh)
+      
       const tl = gsap.timeline({
          defaults: {
             duration: 1,
             ease: 'power2.inOut',
          }
       })
-      this.fullMesh.position.y = -2
-      this.fullMesh2.position.y = -2
 
-      // this.mesh.position.y = 0
-      // this.mesh.rotation.x = 0
-      
-      this.scene.add(this.fullMesh)
-      this.scene.add(this.fullMesh2)
-
-      tl.to(this.fullMesh.position, {
+      tl.to(this.foreMesh.position, {
          delay: 0.25,
          y: 0,
-         onComplete: () => {
-            this.scene.add(this.mesh)
-         }
+         onComplete: () => this.scene.add(this.image)
       })
-      .to(this.fullMesh2.position, {
+      .to(this.backMesh.position, {
          y: 0,
       }, '<')
-      .to(this.fullMesh.position, {
+      .to(this.foreMesh.position, {
          y: 2,
          delay: 0.45,
-         onComplete: () => {
-            this.scene.remove(this.fullMesh)
-         }
       })
    }
    
@@ -120,20 +113,20 @@ export default class ProjectBackDrop {
          }
       })
       
-      tl.to(this.material.uniforms.uOpacity, {
-         value: 0
+      tl.to(this.foreMesh.position, {
+         y: 0
       })
-      .to(this.mesh.rotation, {
-         x: Math.PI / 2,
-      }, '<')
-      .to(this.mesh.position, {
+      .to(this.foreMesh.position, {
          y: -2,
-         onComplete: () => {
-            this.scene.remove(this.mesh)
-         }
+         onComplete: () => this.scene.remove(this.foreMesh)
+      })
+      .to(this.image.position, {
+         y: -4,
+         onComplete: () => this.scene.remove(this.image)
       }, '<')
-      .to(this.fullMesh2.position, {
+      .to(this.backMesh.position, {
          y: -2,
+         onComplete: () => this.scene.remove(this.backMesh)
       }, '<')
    }
 

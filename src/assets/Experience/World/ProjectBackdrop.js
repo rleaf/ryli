@@ -13,19 +13,22 @@ export default class ProjectBackDrop {
 
       this.experience = new Experience()
       this.camera = this.experience.camera.instance
+      this.assets = this.experience.resources.textures
       this.scene = this.experience.scene
-      
+
       this.setGeometry()
       this.update()
    }
 
    setGeometry() {
-      this.geometry = new THREE.PlaneGeometry(3, 2, 32, 32)
-      this.fullGeometry = new THREE.PlaneGeometry(2, 2, 32, 32)
+      this.geometry = new THREE.PlaneGeometry(3, 2, 1, 1)
+      this.fullGeometry = new THREE.PlaneGeometry(2, 2, 1, 1)
    }
 
    setBackdrop(assets) {
-      this.texture = new THREE.TextureLoader().load(assets.texture)
+      const asset = this.assets.find(el => el.route == assets.textureName)
+
+      this.texture = asset.texture
       this.foreColor = new THREE.Color(assets.fore)
       this.backColor = new THREE.Color(assets.back)
 

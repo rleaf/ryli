@@ -7,11 +7,11 @@
    margin-bottom: 3rem;
 }
 
-.sideMedia {
+.side-media {
    width: 70%;
 }
 
-.sideText {
+.side-text {
    text-align: center;
    padding-right: 1rem;
    padding-left: 1rem;
@@ -113,6 +113,12 @@ section {
    padding-bottom: 5rem;
 }
 
+section ul li {
+   font-family: var(--sansType);
+   font-size: 1rem;
+   line-height: 2.0;
+}
+
 h1 {
    color: var(--light100);
    top: calc(50% - 20vmin / 2);
@@ -133,7 +139,7 @@ h3 {
 }
 
 h4 {
-   font-size: 1.25rem;
+   font-size: 1.55rem;
    font-family: var(--displayTypeMed);
 }
 

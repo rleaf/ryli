@@ -7,7 +7,6 @@ export default {
       return {
          experience: new Experience(),
          assets: null,
-         assetsReverse: null,
          group: null,
          space: null,
          upperBound: null,
@@ -22,7 +21,6 @@ export default {
       this.assets = this.experience.world.plane.assets
       this.sphere = this.experience.world.sphere
       this.plane = this.experience.world.plane
-      this.assetsReverse = this.plane.assetsReverse
       this.group = this.plane.group
       this.space = this.plane.space
       this.upperBound = this.plane.upperBound
@@ -44,7 +42,7 @@ export default {
 
    methods: {
       setSphereColor(rotate = true) {
-         const asset = this.assetsReverse[this.trackIdx]
+         const asset = this.assets[this.trackIdx]
 
          const tl = gsap.timeline({
             defaults: {
@@ -87,19 +85,24 @@ export default {
 
       setScrollEvent(e) {
          this.scrollSign = Math.sign(e.deltaY)
+
          if (!this.scrollTimeline.isActive()) {
-            // Only allow "scrolling" when: upperBound < pos.y <= 0
-            if (e.deltaY > 0 && this.group.position.y >= this.upperBound && this.group.position.y < 0) {
-               this.trackIdx++
-               this.scrollTimeline.to(this.group.position, {
-                  y: this.track[this.trackIdx],
-               })
+
+            if (e.deltaY > 0) {
+               if (this.group.position.y >= 0) {
+                  this.group.position.y < this.upperBound ? (this.trackIdx++) : (this.trackIdx = 0)
+                  this.scrollTimeline.to(this.group.position, {
+                     y: this.track[this.trackIdx],
+                  })
+               }
             }
-            if (e.deltaY < 0 && this.group.position.y > this.upperBound) {
-               this.trackIdx--
-               this.scrollTimeline.to(this.group.position, {
-                  y: this.track[this.trackIdx],
-               })
+            if (e.deltaY < 0) {
+               if (this.group.position.y <= this.upperBound) {
+                  this.group.position.y > 0 ? (this.trackIdx--) : (this.trackIdx = this.track.length - 1)
+                  this.scrollTimeline.to(this.group.position, {
+                     y: this.track[this.trackIdx],
+                  })
+               }
             }
          }
       },
@@ -162,7 +165,7 @@ export default {
       <div class="projects-main" :key="this.trackIdx">
          <div>
             <div class="projects-head">
-               <h1>{{ this.assetsReverse[this.trackIdx].name }}</h1>
+               <h1>{{ this.assets[this.trackIdx].name }}</h1>
             </div>
             
          </div>
@@ -170,24 +173,24 @@ export default {
             <div class="project-meta">
                <div class="meta">
                   <div class="meta-header">Timeline</div>
-                  <span v-for="(el, i) in this.assetsReverse[this.trackIdx].timeline" :key="i">
+                  <span v-for="(el, i) in this.assets[this.trackIdx].timeline" :key="i">
                      {{ el }}<br>
                   </span>
                </div>
                <div class="meta">
                   <div class="meta-header">Genre</div>
-                  {{ this.assetsReverse[this.trackIdx].genre }}
+                  {{ this.assets[this.trackIdx].genre }}
                </div>
                <div class="meta">
                   <div class="meta-header">Technology</div>
-                  <span v-for="(el, i) in this.assetsReverse[this.trackIdx].tech"
+                  <span v-for="(el, i) in this.assets[this.trackIdx].tech"
                      :key="i">
                         {{ el }}<br>
                   </span>
                </div>
             </div>
             <div class="projects-body">
-               {{ this.assetsReverse[this.trackIdx].body }}
+               {{ this.assets[this.trackIdx].body }}
             </div>
          </div>
       </div>
@@ -200,7 +203,10 @@ export default {
    }
 
    .slide-down-enter-active, .slide-down-leave-active {
-      transition: 0.4s ease-in-out;
+      transition: 0.2s ease-in-out;
+   }
+   .slide-down-enter-active {
+      transition-delay: 0.2s;
    }
 
    .slide-down-enter-from {
@@ -213,7 +219,11 @@ export default {
    }
 
    .slide-up-enter-active, .slide-up-leave-active {
-      transition: 0.4s ease-in-out;
+      transition: 0.2s ease-in-out;
+   }
+
+   .slide-up-enter-active {
+      transition-delay: 0.2s;
    }
 
    .slide-up-enter-from {
@@ -234,7 +244,6 @@ export default {
    }
 
    .meta {
-      word-break: break-word;
       width: 33%;
       font-size: .9rem;
       font-style: oblique;
@@ -245,6 +254,7 @@ export default {
       width: 80%;
       padding: 1rem 0;
    }
+
    .project-meta {
       width: 80%;
       font-family: var(--sansType);
@@ -254,22 +264,25 @@ export default {
       border-bottom: 1px solid;
       padding: 0.5rem 0;
       margin-top: 1rem;
-
    }
    .projects-synopsis {
-      position: absolute;
       display: flex;
-      align-items: center;
       flex-direction: column;
-      margin-left: 8vw;
-      width: 28vw;
-      top: calc(20vh + 25vmin);
+      width: 35vw;
    }
 
    .projects-head {
+      width: 50vw;
+      padding-bottom: 2rem;
+   }
+
+   .projects-main {
+      display: flex;
       position: absolute;
-      width: calc(100% - 15vw);
-      top: 20vh;
-      left: 8vw;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 8vw;
+      height: calc(100vh - 8rem);
+      overflow: hidden;
    }
 </style>

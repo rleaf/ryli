@@ -11,7 +11,6 @@ export default class Plane {
       this.camera = this.experience.camera.instance
       this.sizes = this.experience.sizes
       this.assets = this.experience.resources.textures
-      this.assetsReverse = this.assets.slice().reverse()
       this.debug = this.experience.debug
       this.mouse = this.experience.mouse.pointer
       this.scene = this.experience.scene
@@ -31,17 +30,18 @@ export default class Plane {
       this.setGeometry()
       this.batchSetMesh()
       this.setMouseEvent()
-      this.upperBound = -this.space * (this.group.children.length - 1)
 
       for (let i = 0; i < this.group.children.length; i++) {
-         this.track.push(this.upperBound + (this.space * i))
+         this.track.push(this.space * i)
       }
+
+      this.upperBound = this.track[this.track.length - 1]
 
       this.update()
    }
 
    initProjectView() {
-      this.group.position.set(0.55, (-this.group.children.length + 1) * this.space, 1.25)
+      this.group.position.set(0.55, 0, 1.25)
       this.scene.add(this.group)
 
       gsap.from(this.group.position, {
@@ -100,12 +100,11 @@ export default class Plane {
          })
 
          this.mesh = new THREE.Mesh(this.geometry, this.material)
-         this.mesh.name = asset.name
-         this.mesh.position.y = i * this.space
-         this.group.add(this.mesh)
-      }
 
-      this.group.position.set(0.55, (-this.group.children.length + 1) * this.space,1.25)
+         this.mesh.name = asset.route
+         this.mesh.position.y = i * -this.space
+         this.group.add(this.mesh)  
+      }
 
       if (this.debug) {
          this.debugFolder.addInput(
@@ -149,6 +148,5 @@ export default class Plane {
          mesh.material.uniforms.uTime.value = this.time.elapsed * 0.2
          mesh.position.y += Math.sin(this.time.elapsed * 0.001) * 0.0002
       }
-      // console.log(this.group)
    }
 }

@@ -11,8 +11,9 @@ export default class Resources {
    }
 
    setTextures() {
-		for (const [_, v] of Object.entries(this.sources)) {
+		for (const [k, v] of Object.entries(this.sources)) {
 			this.textures.push({
+				route: k,
 				name: v.title,
 				timeline: v.timeline,
 				timeline2: v.timeline2,

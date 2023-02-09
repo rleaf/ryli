@@ -60,25 +60,8 @@ export default {
 	<ExperienceVue />
 	<Nav />
 	<RouterView />
-	<!-- <RouterView v-slot="{ Component }">
-		<Transition :name="routeTransition">
-			<div :key="this.$route.name">
-				<component :is="Component" />
-			</div>
-		</Transition>
-	</RouterView> -->
 </template>
 
 <style scoped>
-	.toad-enter-active, .toad-leave-active {
-		transition: 0.5s ease-in-out;
-	}
-	
-	.toad-enter-active {
-		transition-delay: 0.75s;
-	}
 
-	.toad-enter-from, .toad-leave-to {
-		transform: translateY(100%);	
-	}
 </style>

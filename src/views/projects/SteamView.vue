@@ -1,7 +1,6 @@
 <script>
 import Experience from '../../assets/Experience/Experience'
 import BackdropFade from '../../components/BackdropFade.vue'
-import spotifyTexture from '../../assets/textures/steam_background.webp'
 import sources from '../../assets/Experience/sources'
 import util from './util/projects.js'
 import Flicking from "@egjs/vue3-flicking";
@@ -26,9 +25,9 @@ export default {
    data() {
       return {
          experience: new Experience(),
-         sources: sources,
+         source: sources.steam,
          assets: {
-            texture: spotifyTexture,
+            textureName: 'steam',
             fore: 0x0a0c0f,
             back: 0x171a21,
          },
@@ -74,17 +73,17 @@ export default {
             <div class="meta">
                <div>
                   <div class="meta-header">timeline</div>
-                  <span v-for="(el, i) in sources.steam.timeline" :key="i">
+                  <span v-for="(el, i) in source.timeline" :key="i">
                      {{ el }} <br>
                   </span>
                </div>
                <div>
                   <div class="meta-header">genre</div>
-                  {{ sources.steam.genre }}
+                  {{ source.genre }}
                </div>
                <div>
                   <div class="meta-header">technology</div>
-                  <span v-for="(el, i) in sources.steam.tech" :key="i">
+                  <span v-for="(el, i) in source.tech" :key="i">
                      {{ el }} <br>
                   </span>
                </div>
@@ -126,31 +125,33 @@ export default {
                <p>
                   Steam is a video game distribution service and storefront developed by <a href="https://www.valvesoftware.com/en/" target="_blank">Valve</a> that, in 2021, has been used by over
                   an estimated <a href="https://store.steampowered.com/news/group/4145017/view/3133946090937137590" target="_blank">132 million people</a>. Embedded with an abundance of features
-                  such as social networking, game streaming, digital rights management, an API for game developers, and much more, Steam is viewed by many as the default platform for gaming.
+                  such as social networking, game streaming, digital rights management, an API for game developers, and much more, Steam is viewed by many as the default platform for gaming on PC.
                </p>
             </section>
 
             <section id="problem">
                <h2>Problem</h2>
                <p>
-                  Steam is notoriously dense with information. Although this can be a great benefit, when paired with a cluttered UI the usability quickly deteriorates detrimenting UX. With the amount
+                  Steam is notoriously dense with information. Although this can be a great, when paired with a cluttered UI the usability quickly deteriorates detrimenting UX. With the amount
                   of features provided on Steam, basic navigation through the desktop application can be confusing at times and this is particularly evident within the Steam store.
-                  Because of the nature of the Steam store, which also acts as a stand-alone web app, information presented to users who use the desktop application can be redundant at times.
+                  Because the Steam store also acts as a stand-alone web app, information presented to users who use the desktop application can be redundant at times. Below highlights an example with the "Discovery Queue"
+                  and how it is accessable through three different routes on the same page. Another issue is that there are three panels for navigation.
                </p>
                <img class="image" src="../../assets/projects/steam/steampic.webp" alt="">
+               <p>
+                  
+               </p>
             </section>
 
             <section id="goals">
                <h2>Goals</h2>
                <p>
-                  Fundamentally, the Steam desktop application should feel like a desktop application and have its own autonomy. This can
-                  be accomplished by reducing reliance of the web app's navigation and providing
-                  features local to the desktop variation.
-                  The goals can be broadly summed up in three main points:
+                  Fundamentally, the Steam desktop application should feel like a desktop application and have its own autonomy. This can be accomplished by reducing reliance of the web app's navigation and providing
+                  features local to the desktop variation. The goals can be broadly summed up in three main points:
                   <ul>
-                     <li><p>Reduce overall clutter such as issues with redundancy</p></li>
-                     <li><p>Promote cohesion between desktop application and Steam store by homogenizing navigation</p></li>
-                     <li><p>Improve organization and navigation throughout the desktop application</p></li>
+                     <li>Reduce overall clutter such as issues with redundancy</li>
+                     <li>Promote cohesion between desktop application and Steam store by homogenizing navigation</li>
+                     <li>Improve organization and navigation throughout the desktop application</li>
                   </ul>
                </p>
             </section>
@@ -158,7 +159,7 @@ export default {
             <section id="research">
                <h2>Research</h2>
                <p>
-                  Looking at a handful of Steam's popular competitors, I focused on two: the Epic Games Launcher and GOG because they also have web stores accessible through
+                  Looking at Steam's popular competitors, I focused on the Epic Games Launcher and GOG because they also have web stores accessible through
                   the internet and desktop counterparts that act as a housing for the web store. Below are a handful of design observations I found.
                   <ul>
                      <li>
@@ -175,7 +176,7 @@ export default {
                            <img class="carousel-image" src="../../assets/projects/steam/gogNav.webp" alt="">
                            <span style="font-weight: bold; font-size: 0.9rem;">GOG</span>
                            <p>
-                              GOG fully excludes their web store navigation on their desktop application making the UI simpler.
+                              GOG fully removes their web store navigation on their desktop application.
                               Instead, at the top, there is a smaller navigation
                               that pertains to what section you're currently in.
                            </p>
@@ -210,8 +211,8 @@ export default {
             <section id="earlyideation">
                <h2>Early Ideation</h2>
                <p>
-                  Because of the massive amount of information and pages in Steam, the goal during the concept phase was to restrict wireframing to the main topics to not get quickly overwhelmed.
-                  These main topics focused primarily on the navigation, the store, and the library.
+                  Wireframing focused on navigation, the store, and the library.
+                  <!-- These main topics focused primarily on the navigation, the store, and the library. -->
                </p>
                <img class="image" src="../../assets/projects/steam/early0.webp" alt="">
                <span style="font-size: 15px; font-style: italic; display: block; text-align: center;">*All illustrations here are available to see directly in the
@@ -225,8 +226,8 @@ export default {
                   </p>
                   <img class="image" src="../../assets/projects/steam/early1.webp" alt="">
                   <p>
-                     I started by seeing what Steam would look like with a column navigation. An advantage of column navigation over the current horizontal "top bar" navigation is you can easily display more
-                     information to a user without things becoming too frustrating. The <span style="background-color: #b4f179;">free floating elements</span> are also moved over to the left hand side along with the new navigation.
+                     I started by seeing what Steam would look like with a column navigation. An advantage of column navigation over the current "top bar" navigation is you can display more
+                     information in nested components. The <span style="background-color: #b4f179;">free floating elements</span> are also moved over to the left hand side along with the new navigation.
                   </p>
                   <Flicking class="carousel" :options="{ circular: true }" :plugins="arr1">
                      <div class="panel">
@@ -248,13 +249,13 @@ export default {
                      </template>
                   </Flicking>
                   <p>
-                     An initial challenge for the new navigation was deciding which direction to go to present the information of
+                     An initial challenge for the new navigation was deciding which direction to go to present the <span style="background-color: #ffee6d;">information</span> of
                      <span style="background-color: #f4c997;">sub-navigable sections</span>. With concept 1 shown below,
                      the area used for navigating wouldn't broach into the <span style="background-color: #a8f4ef;">main window</span>,
                      however could be difficult to use
                      because the information would be disconnected making it unintuitive.
                   </p>
-                  <img class="carousel-image" src="../../assets/projects/steam/early4.webp" alt="">
+                  <img class="image" src="../../assets/projects/steam/early4.webp" alt="">
                   <p>
                      As a comprimise I went with concept 2 however the panels will only be actionable on hovering. This way information from <span style="background-color: #f4c997;">sub-navigable sections</span> are
                      less concrete and don't detract from the <span style="background-color: #a8f4ef;">main window</span> as much.
@@ -296,7 +297,7 @@ export default {
                   <h2>Library</h2>
                   <p>
                      Majority of the focus for the Library during the concept phase was thinking of a way to bake it into the sidebar as discussed in the <a href="#navigation">navigation</a> section.
-                     Having a column navigation allowed me to move the <span style="background-color: #f4c997;">What's New</span>- section from the <span style="background-color: #b4f179;">main window</span>
+                     Having a column navigation allowed me to move the <span style="background-color: #f4c997;">What's New</span> section from the <span style="background-color: #b4f179;">main window</span>
                      of the Library to the sidebar. This allowed more breathing room to see the game tiles better.
                   </p>
                   <img class="image" src="../../assets/projects/steam/early8.webp" alt="">
@@ -322,7 +323,7 @@ export default {
                         <li>friends</li>
                         <li>miscellaneous</li>
                      </ul>
-                     This section, An Overview, will focus on the first four. The following section, <a href="#closerlook">A Closer Look</a>,
+                     This section, An Overview, will focus on the first four. The following section, <a href="#acloserlook">A Closer Look</a>,
                      will highlight the various general changes.
                   </p>
                   <Flicking class="carousel" :options="{ circular: true }" :plugins="arr3">
@@ -373,7 +374,7 @@ export default {
                      </template>
                   </Flicking>
                   <div class="side">
-                     <div class="sideText">
+                     <div class="side-text">
                         <h4>A Cleaner & Simpler Navigation</h4>
                         <p>
                            The Store section in the new navigation unifies both the web store's and desktop's navigation presenting a
@@ -381,7 +382,7 @@ export default {
                            a tile system that appears on hover.
                         </p>
                      </div>
-                     <video autoplay loop muted src="../../assets/projects/steam/storevid.webm" alt="" class="sideMedia"></video>
+                     <video autoplay loop muted src="../../assets/projects/steam/storevid.webm" alt="" class="side-media"></video>
                   </div>
                   <Flicking class="carousel" :options="{ circular: true }" :plugins="arr4">
                      <div class="panel">
@@ -433,7 +434,7 @@ export default {
                      </template>
                   </Flicking>
                   <div class="side">
-                     <div class="sideText">
+                     <div class="side-text">
                         <h4>Improved Library Accessibility</h4>
                         <p>
                            A major goal for the Library page was to have it such that users could access their library from any page on
@@ -441,10 +442,10 @@ export default {
                            the Steam store and simultaneously check the games you own.
                         </p>
                      </div>
-                     <img src="../../assets/projects/steam/library5.webp" alt="" class="sideMedia">
+                     <img src="../../assets/projects/steam/library5.webp" alt="" class="side-media">
                   </div>
                   <div class="side">
-                     <div class="sideText">
+                     <div class="side-text">
                         <h4>Chatting With Others</h4>
                         <p>
                            Socializing with friends is an important feature in Steam. Because of this, the friends list is accessible
@@ -452,15 +453,15 @@ export default {
                            in the top right.
                         </p>
                      </div>
-                     <video autoplay loop muted src="../../assets/projects/steam/friends.webm" alt="" class="sideMedia"></video>
+                     <video autoplay loop muted src="../../assets/projects/steam/friends.webm" alt="" class="side-media"></video>
                   </div>
                </section>
    
                <section id="acloserlook">
                   <h3>A Closer Look</h3>
                   <div class="side">
-                     <img src="../../assets/projects/steam/status.webp" alt="" class="sideMedia" style="width: auto;">
-                     <div class="sideText">
+                     <img src="../../assets/projects/steam/status.webp" alt="" class="side-media" style="width: auto;">
+                     <div class="side-text">
                         <h4>Changing Your Status</h4>
                         <p>
                            Letting your friends know whether you're online, away, or unavailable is visually easier. Simply click on your
@@ -469,7 +470,7 @@ export default {
                      </div>
                   </div>
                   <div class="side">
-                     <div class="sideText">
+                     <div class="side-text">
                         <h4>Keep an Eye on Downloads</h4>
                         <p>
                            Actively view current downloads by clicking on the downloads progress bar in the bottom left. Convenient for
@@ -477,17 +478,17 @@ export default {
                            can drag Steam to another screen and still monitor downloads in peripheral.
                         </p>
                      </div>
-                     <video autoplay loop muted src="../../assets/projects/steam/downloads.webm" alt="" class="sideMedia"></video>
+                     <video autoplay loop muted src="../../assets/projects/steam/downloads.webm" alt="" class="side-media"></video>
                   </div>
                   <div class="side">
-                     <div class="sideText" style="max-width: 50%;">
+                     <div class="side-text" style="max-width: 50%;">
                         <h4>Dynamic Search</h4>
                         <p>
                            Instead of numerous search bars between main sections, there is only one and it is dynamic to the section you
                            are in.
                         </p>
                      </div>
-                     <video autoplay loop muted src="../../assets/projects/steam/searchbar.webm" alt="" class="sideMedia" style="width: auto;"></video>
+                     <video autoplay loop muted src="../../assets/projects/steam/searchbar.webm" alt="" class="side-media" style="width: auto;"></video>
                   </div>
                </section>
             </section>

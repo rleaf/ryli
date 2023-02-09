@@ -1,16 +1,15 @@
-import steamPath from '../textures/steamTexture.png'
-import oscillaPath from '../textures/oscillaTexture.png'
-import spotifyPath from '../textures/spotifyTexture.png'
+import steamPath from '../projects/threeTextures/steamTexture.png'
+import oscillaPath from '../projects/threeTextures/oscillaTexture.png'
+import spotifyPath from '../projects/threeTextures/spotifyTexture.png'
+import signPath from '../projects/threeTextures/signTexture.png'
 
 export default {
    steam: {
       title: 'Steam',
       timeline: ['2022', '2 months'],
-      timeline2: '(2 months)',
       genre: 'UX/UI Case Study',
-      // tech: 'Figma, Adobe Illustrator',
       tech: ['Adobe Illustrator', 'Figma'],
-      body: 'Brief synopsis about steam',
+      body: 'A case study and redesign of the Steam desktop application.',
       cover: steamPath,
       uValley: {
          r: 47/255,
@@ -26,10 +25,9 @@ export default {
    oscilla: {
       title: 'Oscilla',
       timeline: ['2022', '2 months'],
-      timeline2: '(2 months)',
       genre: 'Graphic Design, Typography',
       tech: ['Adobe Illustrator'],
-      body: 'Brief synopsis about oscilla',
+      body: 'A display typeface that oscillates between thick strokes and thin serifs.',
       cover: oscillaPath,
       uValley: {
          r: 8/255,
@@ -45,15 +43,11 @@ export default {
    spotify: {
       title: 'Spotify',
       timeline: ['2022', '2 months'],
-      timeline2: '(2 months)',
       genre: 'UX/UI Design',
       tech: ['Adobe Illustrator'],
       body: 'Brief synopsis about spotify. Ooga booga, this is some filler to act as a placeholder while I work on the styling. It is almsot 1am and I should probably brush my teeth soon, but I am currently on a roll',
       cover: spotifyPath,
       uValley: {
-         // r: 30/255,
-         // g: 215/255,
-         // b: 96/255,
          r: 0/255,
          g: 54/255,
          b: 21/255,
@@ -62,7 +56,24 @@ export default {
          r: 255/255,
          g: 255/255,
          b: 255/255,
-         
+      }
+   },
+   sign: {
+      title: 'Hand Gestures',
+      timeline: ['2021', '5 months'],
+      genre: 'Illustration',
+      tech: ['Adobe Illustrator', 'Adobe Photoshop'],
+      body: 'Brief synopsis about spotify. Ooga booga, this is some filler to act as a placeholder while I work on the styling. It is almsot 1am and I should probably brush my teeth soon, but I am currently on a roll',
+      cover: signPath,
+      uValley: {
+         r: 80/255,
+         g: 80/255,
+         b: 80/255,
+      },
+      uPeak: {
+         r: 255/255,
+         g: 255/255,
+         b: 255/255,
       }
    },
 }

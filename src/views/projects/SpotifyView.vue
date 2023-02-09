@@ -1,7 +1,6 @@
 <script>
 import Experience from '../../assets/Experience/Experience'
 import BackdropFade from '../../components/BackdropFade.vue'
-import spotifyTexture from '../../assets/textures/spotify_background.webp'
 import sources from '../../assets/Experience/sources'
 import util from './util/projects.js'
 
@@ -15,7 +14,7 @@ export default {
          experience: new Experience(),
          sources: sources,
          assets: {
-            texture: spotifyTexture,
+            textureName: 'spotify',
             fore: 0x168d40,
             back: 0x1DB954,
          }

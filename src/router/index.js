@@ -42,6 +42,11 @@ const router = createRouter({
       path: '/projects/oscilla', 
       name: 'oscilla',
       component: () => import('../views/projects/OscillaView.vue')
+    },
+    { 
+      path: '/projects/sign', 
+      name: 'sign',
+      component: () => import('../views/projects/SignView.vue')
     }
 
   ]

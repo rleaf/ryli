@@ -10,9 +10,6 @@ gsap.registerPlugin(ScrollTrigger)
 export default {
    mounted() {
       this.fade()
-      // Time with vue <Transition>'s
-      // setTimeout(() => {
-      // }, 1250)
    },
 
    methods: {

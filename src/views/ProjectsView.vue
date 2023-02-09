@@ -170,8 +170,9 @@ export default {
             <div class="project-meta">
                <div class="meta">
                   <div class="meta-header">Timeline</div>
-                  {{ this.assetsReverse[this.trackIdx].timeline }} <br>
-                  {{ this.assetsReverse[this.trackIdx].timeline2 }}
+                  <span v-for="(el, i) in this.assetsReverse[this.trackIdx].timeline" :key="i">
+                     {{ el }}<br>
+                  </span>
                </div>
                <div class="meta">
                   <div class="meta-header">Genre</div>

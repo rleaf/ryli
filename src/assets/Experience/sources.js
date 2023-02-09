@@ -5,11 +5,11 @@ import spotifyPath from '../textures/spotifyTexture.png'
 export default {
    steam: {
       title: 'Steam',
-      timeline: `Oct - Nov 2022`,
+      timeline: ['2022', '2 months'],
       timeline2: '(2 months)',
       genre: 'UX/UI Case Study',
       // tech: 'Figma, Adobe Illustrator',
-      tech: ['Figma', 'Adobe Illustrator'],
+      tech: ['Adobe Illustrator', 'Figma'],
       body: 'Brief synopsis about steam',
       cover: steamPath,
       uValley: {
@@ -25,7 +25,7 @@ export default {
    },
    oscilla: {
       title: 'Oscilla',
-      timeline: ` Oct - Nov 2022`,
+      timeline: ['2022', '2 months'],
       timeline2: '(2 months)',
       genre: 'Graphic Design, Typography',
       tech: ['Adobe Illustrator'],
@@ -44,7 +44,7 @@ export default {
    },
    spotify: {
       title: 'Spotify',
-      timeline: `Oct - Nov 2022`,
+      timeline: ['2022', '2 months'],
       timeline2: '(2 months)',
       genre: 'UX/UI Design',
       tech: ['Adobe Illustrator'],

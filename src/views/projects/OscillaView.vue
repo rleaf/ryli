@@ -55,5 +55,5 @@ export default {
 </template>
 
 <style scoped>
-@import url(./projectsStyles.css);
+@import url(./util/projectsStyles.css);
 </style>

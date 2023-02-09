@@ -134,7 +134,7 @@ export default {
    }
 
    .nav-main {
-      position: absolute;
+      position: fixed;
       width: 100%;
       z-index: 20;
    }

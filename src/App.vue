@@ -59,13 +59,14 @@ export default {
 <template>
 	<ExperienceVue />
 	<Nav />
-	<RouterView v-slot="{ Component }">
+	<RouterView />
+	<!-- <RouterView v-slot="{ Component }">
 		<Transition :name="routeTransition">
 			<div :key="this.$route.name">
 				<component :is="Component" />
 			</div>
 		</Transition>
-	</RouterView>
+	</RouterView> -->
 </template>
 
 <style scoped>

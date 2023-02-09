@@ -90,6 +90,12 @@ h2 {
 	font-size: 1.75rem;
 }
 
+h3 {
+	font-family: var(--displayTypeBold);
+	font-weight: normal;
+	font-size: 1.5rem;
+}
+
 .text-mask {
 	overflow: hidden;
 }

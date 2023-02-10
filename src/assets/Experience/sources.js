@@ -1,7 +1,7 @@
-import steamPath from '../projects/threeTextures/steamTexture.png'
+import steamPath from '../projects/threeTextures/steamTexture.webp'
 import oscillaPath from '../projects/threeTextures/oscillaTexture.png'
-import spotifyPath from '../projects/threeTextures/spotifyTexture.png'
-import signPath from '../projects/threeTextures/signTexture.png'
+import spotifyPath from '../projects/threeTextures/spotifyTexture.webp'
+import signPath from '../projects/threeTextures/signTexture.webp'
 
 export default {
    steam: {
@@ -66,9 +66,9 @@ export default {
       body: 'Brief synopsis about spotify. Ooga booga, this is some filler to act as a placeholder while I work on the styling. It is almsot 1am and I should probably brush my teeth soon, but I am currently on a roll',
       cover: signPath,
       uValley: {
-         r: 80/255,
-         g: 80/255,
-         b: 80/255,
+         r: 100/255,
+         g: 100/255,
+         b: 100/255,
       },
       uPeak: {
          r: 255/255,

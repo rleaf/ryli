@@ -15,11 +15,18 @@ export default {
          source: sources.sign,
          assets: {
             textureName: 'sign',
-            fore: 0x080d12,
-            back: 0x0f1b24,
+            fore: 0xc9c9c9,
+            back: 0xe4e4e4,
          }
       }
    },
+
+   methods: {
+      imageZoom(event) {
+         // https://stackoverflow.com/questions/53737648/how-get-clicked-item-in-vue
+         event.target.classList.toggle('zoom')
+      }
+   }, 
 
    created() {
       this.sphere = this.experience.world.sphere
@@ -47,7 +54,7 @@ export default {
 <template>
    <div class="project-main">
       <div class="project-landing">
-         <h1>Oscilla</h1>
+         <h1>Hand Gestures</h1>
          <BackdropFade />
       </div>
       <div class="study-main">
@@ -69,10 +76,6 @@ export default {
                      {{ el }} <br>
                   </span>
                </div>
-               <div>
-                  <div class="meta-header">Links</div>
-                  <a href="https://github.com/rleaf/Typefaces/tree/main/Oscilla" target="_blank">Download</a>
-               </div>
             </div>
             <nav>
                <ul>
@@ -87,52 +90,63 @@ export default {
             <section id="about">
                <h2>About The Project</h2>
                <p>
-                  Oscilla is a display typeface motivated by desiging glyphs that "oscilla"te between thick strokes and
-                  thin serifs. In
-                  total there are 62 glyphs. A free link to download is available
-                  at the bottom.
+                  I designed and illustrated 50 various hand gestures for <a href="https://titles.cognella.com/advanced-public-speaking-9781793513274" target="_blank"><i>"Advanced Public Speaking: Theory and Technique"</i></a>. The book involves
+                  incorporating these gestures into public speaking to increase effective communication. Original inspiration
+                  came from the American Sign Language, however many gestures have been redesigned to be more suitable
+                  for a presentation environment.
                </p>
-               <img src="../../assets/projects/oscilla/1.webp" class="image">
-               <img src="../../assets/projects/oscilla/3.webp" class="image">
-
-               <div class="side">
-                  <img src="../../assets/projects/oscilla/2.webp" alt="" class="side-media">
+               <img src="../../assets/projects/sign/mock.jpg" class="image">
+               <img src="../../assets/projects/sign/mock2.jpg" class="image">
+               <p class="sub-text">
+                  Mockups.
+               </p>
+            </section>
+            
+            <section id="creativeprocess">
+               <div class="side"> 
                   <div class="side-text">
-                     <h4>Descender Collision</h4>
+                     <h4>Problems & Resolutions</h4>
                      <p>
-                        Simple ligatures were added to prevent conflict between decenders.
+                        Before I could begin illustrating and designing the gestures, I needed to create them. The author marked the desired ASL signs to pull inspiration from, however also
+                           emphasized that if the sign wasn't intuitive in a presentation environment, to consider variations.
+                           <br>
+                           <br>
+                           An overlap I realized while creating the gestures
+                           was that most people, when they present actually use the <i>same</i> hand movements - or at the very least similar variations. The goal was to evenly incorporate the
+                           idiosyncratic movement that came with ASL while also maintaining the generality of "regular hand waving".
+                           <br>
+                           <br>
+                           I decided to used my arms as a model for the gestures and first trace everything in Photoshop. This helped tremendously speed up drawing all 50 gestures. To account for any awkward drawings
+                           that did not intuitively convey meaning or was too complex to be used in public speaking I frequently talked to other artists, designers, and the client.
                      </p>
                   </div>
+                  <img src="../../assets/projects/sign/trace2.jpg" class="side-media">
                </div>
+               <img src="../../assets/projects/sign/ps.jpg" class="image">
+               <p class="sub-text">
+                  The final draft of the 50 drawings prior to illustrating
+               </p>
             </section>
 
-            <section id="creativeprocess">
-               <h2>Creative Process</h2>
+            <section id="furtherimprovements">
+               <h2>Further Improvements</h2>
                <p>
-                  The key to designing a typeface is recycling assets to maintain continuity. Shown below is the main
-                  artboard that houses all of the unfinalized glyphs. Above and below any
-                  glyph are either assets or different designs for that glyph.
+                  Below are 55 illustrations of the final gestures. Arrows and a grey-to-white color change were added to help communicate <i>"where to start"</i> and <i>"how to move"</i>. I did not
+                  illustrate the finer characteristics of hands such as fingernails and knuckles to keep detail simple.
                </p>
-               <img src="../../assets/projects/oscilla/6.webp" class="image">
-               <img src="../../assets/projects/oscilla/5.webp" class="image">
-               <div class="side">
-                  <div class="side-text">
-                     <h4>Not too similar</h4>
-                     <p>
-                        Despite recycling, many glyphs have their own unique curves to accomodate for the transition
-                        between thick strokes and pointed serifs.
-                     </p>
-                  </div>
-                  <img src="../../assets/projects/oscilla/8.webp" alt="" class="side-media">
-               </div>
+               <img src="../../assets/projects/sign/illustrations1.jpg" class="image">
+               <img src="../../assets/projects/sign/illustrations2.jpg" class="image">
             </section>
 
             <section id="conclusion">
                <h2>Conclusion</h2>
                <p>
-                  Designing a typeface is always fun. Except for a handful of turbulent letters (looking at you M and
-                  it's Australian twin W), the process has been a
-                  way to relax. Oscilla is free to download on my Github - link in the sidebar.
+                  I was initially apprehensive doing this project because I did not have a lot familiarity with drawing; I'd like to believe that most artists are in the <i>"same boat"</i> on the topic of
+                  hands being one of the more difficult parts of a human body to draw. Before even thinking of using my own hands as a model, I started by searching <i>"*insert sign name here* ASL"</i> and tracing
+                  out the images I found. 
+                  <br><br>
+                  This process of tracing images I found online became very quickly problematic because it wasn't reliable. Different hand shapes and perspectives removed all cohesion between my drawings.
+                  After using my own hands as a model to create the gestures in a much more controlled environment, everything became more rhythmic.
                </p>
             </section>
          </div>

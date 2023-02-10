@@ -1,12 +1,14 @@
 <script>
 import Experience from '../../assets/Experience/Experience'
 import BackdropFade from '../../components/BackdropFade.vue'
+import ToTop from '../../components/ToTop.vue'
 import sources from '../../assets/Experience/sources'
 import util from './util/projects.js'
 
 export default {
    components: {
-      BackdropFade
+      BackdropFade,
+      ToTop
    },
 
    data() {
@@ -54,7 +56,7 @@ export default {
 <template>
    <div class="project-main">
       <div class="project-landing">
-         <h1>Hand Gestures</h1>
+         <h1>{{ source.title }}</h1>
          <BackdropFade />
       </div>
       <div class="study-main">
@@ -75,6 +77,10 @@ export default {
                   <span v-for="(el, i) in source.tech" :key="i">
                      {{ el }} <br>
                   </span>
+               </div>
+               <div>
+                  <div class="meta-header">links</div>
+                  <a href="https://titles.cognella.com/advanced-public-speaking-9781793513274" target="_blank">Book</a>
                </div>
             </div>
             <nav>
@@ -151,6 +157,7 @@ export default {
             </section>
          </div>
       </div>
+      <ToTop />
    </div>
 </template>
 
@@ -158,7 +165,7 @@ export default {
 @import url(./util/projectsStyles.css);
 
 .side-media {
-   max-width: 50%;
+   max-width: 40%;
 }
 
 .side-text {

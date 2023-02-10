@@ -1,6 +1,6 @@
 import steamPath from '../projects/threeTextures/steamTexture.webp'
 import oscillaPath from '../projects/threeTextures/oscillaTexture.png'
-import spotifyPath from '../projects/threeTextures/spotifyTexture.webp'
+import spotifyPath from '../projects/threeTextures/spotifyDeskTexture.webp'
 import signPath from '../projects/threeTextures/signTexture.webp'
 
 export default {
@@ -44,7 +44,7 @@ export default {
       title: 'Spotify',
       timeline: ['2022', '2 months'],
       genre: 'UX/UI Design',
-      tech: ['Adobe Illustrator'],
+      tech: ['Figma', 'Adobe Illustrator'],
       body: 'Brief synopsis about spotify. Ooga booga, this is some filler to act as a placeholder while I work on the styling. It is almsot 1am and I should probably brush my teeth soon, but I am currently on a roll',
       cover: spotifyPath,
       uValley: {

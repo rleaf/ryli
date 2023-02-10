@@ -1,6 +1,7 @@
 <script>
 import Experience from '../../assets/Experience/Experience'
 import BackdropFade from '../../components/BackdropFade.vue'
+import ToTop from '../../components/ToTop.vue'
 import sources from '../../assets/Experience/sources'
 import util from './util/projects.js'
 import Flicking from "@egjs/vue3-flicking";
@@ -19,6 +20,7 @@ import "@egjs/flicking-plugins/dist/arrow.css";
 export default {
    components: {
       BackdropFade,
+      ToTop,
       Flicking
    },
 
@@ -65,7 +67,7 @@ export default {
 <template>
    <div class="project-main">
       <div class="project-landing">
-         <h1>Steam</h1>
+         <h1>{{ source.title }}</h1>
          <BackdropFade />
       </div>
       <div class="study-main">
@@ -524,7 +526,7 @@ export default {
             </section>
          </div>
       </div>
-      
+      <ToTop />
    </div>
 </template>
 

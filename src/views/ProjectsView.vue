@@ -199,7 +199,7 @@ export default {
 
 <style scoped>
    h1 {
-      color: var(--ligh200);
+      color: var(--light200);
    }
 
    .slide-down-enter-active, .slide-down-leave-active {

@@ -45,7 +45,7 @@ export default {
       timeline: ['2022', '2 months'],
       genre: 'UX/UI Design',
       tech: ['Figma', 'Adobe Illustrator'],
-      body: 'Brief synopsis about spotify. Ooga booga, this is some filler to act as a placeholder while I work on the styling. It is almsot 1am and I should probably brush my teeth soon, but I am currently on a roll',
+      body: 'Simple designs added to Spotify Desktop to improve user experience.',
       cover: spotifyPath,
       uValley: {
          r: 0/255,
@@ -63,7 +63,7 @@ export default {
       timeline: ['2021', '5 months'],
       genre: 'Illustration',
       tech: ['Adobe Illustrator', 'Adobe Photoshop'],
-      body: 'Brief synopsis about spotify. Ooga booga, this is some filler to act as a placeholder while I work on the styling. It is almsot 1am and I should probably brush my teeth soon, but I am currently on a roll',
+      body: 'The process of drawing over 50 hand gesture illustrations for a book in public speaking.',
       cover: signPath,
       uValley: {
          r: 100/255,

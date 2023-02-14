@@ -18,7 +18,7 @@ export default {
 		gsap.from('.about-text', {
 			duration: 0.5,
 			y: '150%',
-			delay: 0.5,
+			delay: 1,
 			stagger: 0.1
 		})
 
@@ -167,7 +167,7 @@ export default {
 	}
 
 	.about-main {
-		padding-left: 8%
+		padding-left: 8vw;
 	}
 
 	.about-head {

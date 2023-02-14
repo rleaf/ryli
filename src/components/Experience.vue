@@ -4,7 +4,7 @@ import Experience from '../assets/Experience/Experience'
 export default {
    data() {
       return {
-         experience: null
+         experience: null,
       }
    },
 

@@ -87,6 +87,7 @@ export default {
                <ul>
                   <li><a href="#about">About The Project</a></li>
                   <li><a href="#creativeprocess">Creative Process</a></li>
+                  <li><a href="#furtherimprovements">Further Improvements</a></li>
                   <li><a href="#conclusion">Conclusion</a></li>
                </ul>
             </nav>

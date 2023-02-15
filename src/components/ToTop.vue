@@ -3,16 +3,17 @@ import { gsap } from "gsap";
 
 export default {
    mounted() {
-      window.addEventListener('wheel', this.toTop)
+      window.addEventListener('scroll', this.toTop)
    },
+
    unmounted() {
-      window.removeEventListener('wheel', this.toTop)
+      window.removeEventListener('scroll', this.toTop)
    },
 
    methods: {
       toTop() {
          if (window.scrollY > window.innerHeight) {
-            gsap.to('.to-top', { duration: .25, display: 'block', opacity: 1, bottom: 20 })
+            gsap.to('.to-top', { duration: .25, display: 'flex', opacity: 1, bottom: 20 })
          } else {
             gsap.to('.to-top', { duration: .25, display: 'none', opacity: 0, bottom: 0 })
          }
@@ -24,7 +25,6 @@ export default {
             behavior: 'smooth'
          });
 
-         document.querySelector('.to-top').style.opacity = 0
       }
    }
 }
@@ -33,34 +33,55 @@ export default {
 
 <template>
    <button class="to-top" @click="scrollToTop()">Go Back Top</button>
+   <div class="util-wrapper">
+   </div>
 </template>
 
 <style scoped>
+   .to-top {
+      position: fixed;
+      display: flex;
+      gap: .3rem;
+      width: auto;
+      flex-wrap: wrap;
+      margin-left: 5rem;
+      border: 1px solid var(--light500);
+      padding: 5px;
+      z-index: 25;
+      border-radius: 2px;
+   }
 
-button {
-   /* display: none; */
-   position: fixed;
-   margin-left: 5rem;
-   font-family: var(--sansType);
-   z-index: 25;
-   border: 1px solid var(--light500);
-   border-radius: 2px;
-   outline: none;
-   background-color: var(--light100);
-   color: var(--dark000);
-   cursor: pointer;
-   padding: 0.3rem 0.6rem;
-   font-size: 0.8rem;
-}
+   button {
+      font-family: var(--sansType);
+      border: 1px solid var(--light500);
+      border-radius: 2px;
+      outline: none;
+      background-color: transparent;
+      color: var(--dark000);
+      cursor: pointer;
+      height: 30px;
+      font-size: 0.8rem;
+   }
 
-button:hover {
-   transition: 0.25s;
-   background-color: var(--light200);
-}
+   .break {
+      width: 100%;
+   }
 
-/* .daymodeButton {
-   color: black !important;
-   background-color: #e0e0e0;
-   box-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-} */
+   button.theme {
+      padding: 0.3rem;
+   }
+   
+   .theme-icon {
+      background-color: var(--light000);
+      width: 20px;
+      height: 20px;
+      mask-image: url('../assets/svg/moon.svg');
+      mask-position: center;
+      mask-size: 60%;
+      mask-repeat: no-repeat;
+      -webkit-mask-image: url('../assets/svg/moon.svg');
+      -webkit-mask-position: center;
+      -webkit-mask-size: 85%;
+      -webkit-mask-repeat: no-repeat;
+   }
 </style>

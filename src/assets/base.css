@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap'); */
+
 @font-face {
 	font-family: 'Butler-Reg';
 	src: url('../assets/font/Butler.woff2') format('woff2');
@@ -49,14 +52,14 @@
 	--mobilePad: #050505;
 	--toc: #171717;
 
-	--serifType: 'Lora', sans-serif;
+	/* --serifType: 'EB Garamond', sans-serif; */
+	--serifType: 'Crimson Text', sans-serif;
 	--sansType: 'Open Sans', sans-serif;
 	--displayTypeReg: 'Butler', sans-serif;
 	--displayTypeMed: 'Butler-Med', sans-serif;
 	--displayTypeBold: 'Butler-Bold', sans-serif;
 
 	--typeSize: 1rem;
-	--testGrad: linear-gradient(#0f8001, var(--light200));
 }
 
 body {
@@ -70,6 +73,22 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.day {
+	/* Lazily recycling names for blog routes*/
+
+	/* BG */
+	--dark200: #fff; 
+
+	/* Header */
+	--light200: #0e0e0e;
+
+	/* Body type */
+	--light300: #000;
+
+	/* Nav burger */
+	--light000: #000;
 }
 
 h1 {

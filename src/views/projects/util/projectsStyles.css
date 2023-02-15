@@ -58,7 +58,8 @@
 
 .meta {
    display: flex;
-   font-size: 0.9rem;
+   font-size: .85rem;
+   font-family: var(--sansType);
    flex-wrap: wrap;
    justify-content: space-evenly;
    margin: 0 1rem;
@@ -73,7 +74,7 @@
 }
 
 .meta-header {
-   font-size: 0.8rem;
+   font-size: 0.9rem;
    text-decoration: underline;
    padding-bottom: 0.1rem;
    font-family: var(--sansType);
@@ -92,7 +93,7 @@ nav ul {
 nav ul a {
    color: var(--light400);
    font-size: 1rem;
-   font-family: var(--serifType);
+   font-family: var(--sansType);
    text-decoration: none;
    line-height: 1.75;
 }
@@ -104,6 +105,7 @@ a {
 
 a:hover {
    text-decoration: none;
+   transition: 0.25s;
    background: var(--light100);
 }
 
@@ -113,6 +115,7 @@ a:hover {
 }
 
 nav ul a:hover {
+   transition: 0.25s;
    background: var(--light100);
 }
 
@@ -204,7 +207,6 @@ p.sub-text {
    color: var(--dark000);
    background: var(--light000);
    display: flex;
-   gap: rem;
    padding: 0 5rem;
 }
 

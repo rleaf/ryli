@@ -107,15 +107,6 @@ export default {
 				</div>
 				<div class="text-mask">
 					<p class="about-text">
-						<!-- In the blog section, you'll find a lot of discussion affiliated to
-						machine learning.
-						Accompanied with those discussions, my <a href="#" target="_blank">GitHub</a> also has repositories showing
-						various models I've made. All of what I talk about
-						in my blogs and, in general, knowledge of machine learning is self taught. -->
-					</p>
-				</div>
-				<div class="text-mask">
-					<p class="about-text">
 						In the remaining time when I'm on cooldown from learning any of the above I enjoy
 						<a href='https://www.youtube.com/channel/UCe8X-Ib4hEc7keoBQ7cMdmA' target='_blank'><u><i>lifting</i></u></a>,
 						<a href='https://www.instagram.com/rylikefood/' target='_blank'><u><i>cooking</i></u></a>, practicing guitar & uke, and playing video games.
@@ -145,14 +136,13 @@ export default {
 
 	.tech-container ul {
 		font-family: var(--serifType);
-		/* text-decoration: none; */
 		list-style-type: none;
 	}
 	.tech-container li {
 		line-height: 1.5;
 	}
 	.about-text {
-		font-size: 1.5rem;
+		font-size: 1.75rem;
 	}
 
 	.about-text a {

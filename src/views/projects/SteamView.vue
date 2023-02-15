@@ -92,10 +92,10 @@ export default {
                <div>
                   <div class="meta-header">Links</div>
                   <a href="https://www.figma.com/file/IhXLtsI57GP0gw1iMC4snL/Steam?node-id=0%3A1&t=Oen9lS4G9X8Klnyi-1" target="_blank">Figma Project</a>
-                        <br>
-                        <a href="https://www.figma.com/proto/IhXLtsI57GP0gw1iMC4snL/Steam?page-id=0%3A1&node-id=11%3A5&viewport=2309%2C-2416%2C1.28&scaling=min-zoom&starting-point-node-id=11%3A5&show-proto-sidebar=1" target="_blank">Prototype</a>
-                        <br>
-                        <a href="https://www.figma.com/file/V7X0RJJZQ2zZwF4b4QCPB2/Steam?node-id=0%3A1&t=XgTeE8vkVg5GRuX7-1" target="_blank">FigJam</a>
+                  <br>
+                  <a href="https://www.figma.com/proto/IhXLtsI57GP0gw1iMC4snL/Steam?page-id=0%3A1&node-id=11%3A5&viewport=2309%2C-2416%2C1.28&scaling=min-zoom&starting-point-node-id=11%3A5&show-proto-sidebar=1" target="_blank">Prototype</a>
+                  <br>
+                  <a href="https://www.figma.com/file/V7X0RJJZQ2zZwF4b4QCPB2/Steam?node-id=0%3A1&t=XgTeE8vkVg5GRuX7-1" target="_blank">FigJam</a>
                </div>
             </div>
             <nav>

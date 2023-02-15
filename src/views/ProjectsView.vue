@@ -189,9 +189,9 @@ export default {
                   </span>
                </div>
             </div>
-            <div class="projects-body">
+            <p class="projects-body">
                {{ this.assets[this.trackIdx].body }}
-            </div>
+            </p>
          </div>
       </div>
    </Transition>
@@ -251,8 +251,8 @@ export default {
 
    .projects-body {
       font-size: 1.1rem;
+      font-family: var(--sansType);
       width: 80%;
-      padding: 1rem 0;
    }
 
    .project-meta {

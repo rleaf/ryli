@@ -1,5 +1,10 @@
+.blog-wrapper {
+   transition: color 0.5s, background-color 0.5s;
+}
+
 .blog-landing {
    height: 100vh;
+   background-color: var(--dark200);
 }
 
 .blog-main {
@@ -47,6 +52,10 @@ p.font-size-165 {
    font-size: 1.65rem;
 }
 
+section {
+   padding-bottom: 5rem;
+}
+
 nav {
    padding-top: 5vh;
 }
@@ -64,10 +73,20 @@ nav ul a {
    line-height: 1.75;
 }
 
+a:hover {
+   transition: 0.25s;
+   background: var(--dark400);
+}
+
+.active {
+   color: var(--light000);
+}
+
 h1 {
    font-size: 5rem;
    padding: 0 5rem;
    color: var(--light200);
+   padding-bottom: 2rem;
 }
 
 h2 {
@@ -77,5 +96,34 @@ h2 {
 }
 
 h3 {
-   padding-top: 4rem;
+   padding: 3rem 0;
+   padding-left: 5rem;
+   color: var(--light200);
+}
+
+h4 {
+   font-family: var(--displayTypeBold);
+   font-size: 2rem;
+}
+
+.day {
+
+   /* Landing BG */
+   --dark200: #fff;
+   
+   /* BG */
+   background-color: #fff;
+   
+   /* Nav */
+   --dark400: #ccc;
+
+   /* Header */
+   --light200: var(--dark100);
+   
+   /* Body type */
+   --light300: var(--dark000);
+   
+   /* Nav burger */
+   --light000: var(--dark000);
+   
 }

@@ -116,7 +116,7 @@ a:hover {
 
 nav ul a:hover {
    transition: 0.25s;
-   background: var(--light100);
+   background: var(--light200);
 }
 
 section {

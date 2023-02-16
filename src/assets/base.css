@@ -33,24 +33,9 @@
 	--dark0001: rgba(0, 0, 0, 0.25);
 	--dark100: hsl(0, 0%, 2%);
 	--dark200: hsl(0, 0%, 5%);
-	--dark300: hsl(0, 0%, 0%);
-	--dark400: hsl(0, 0%, 0%);
-	--dark500: hsl(0, 0%, 0%);
-	--dark600: hsl(0, 0%, 0%);
-	--dark700: hsl(0, 0%, 0%);
-	--dark800: hsl(0, 0%, 0%);
-
-	--black: #000000;
-	/* offWhite */
-	--primaryDark: #0e0e0e;
-	--scrollbarThumb: #3f3f3f;
-	/* --selection: #2c2c2c; */
-	--selection: rgba(44, 44, 44, 0.75);
-	--bgColor: #1d1d1d;
-	--codeblock: #131313;
-	--codeSnippet: #242424;
-	--mobilePad: #050505;
-	--toc: #171717;
+	--dark300: hsl(0, 0%, 10%);
+	--dark400: hsl(0, 0%, 20%);
+	--dark500: hsl(0, 0%, 30%);
 
 	/* --serifType: 'EB Garamond', sans-serif; */
 	--serifType: 'Crimson Text', sans-serif;
@@ -73,22 +58,6 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-.day {
-	/* Lazily recycling names for blog routes*/
-
-	/* BG */
-	--dark200: #fff; 
-
-	/* Header */
-	--light200: #0e0e0e;
-
-	/* Body type */
-	--light300: #000;
-
-	/* Nav burger */
-	--light000: #000;
 }
 
 h1 {

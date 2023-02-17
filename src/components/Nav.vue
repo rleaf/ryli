@@ -34,6 +34,17 @@ export default {
             ease: 'power4',
             stagger: 0.1
          })
+
+         if (this.menu) {
+            for (const k of Object.values(this.$refs)) {
+               console.log(k)
+               k.classList.add('day-nav')
+            }
+         } else {
+            for (const k of Object.values(this.$refs)) {
+               k.classList.remove('day-nav')
+            }
+         }
       }, 
    },
 
@@ -43,9 +54,9 @@ export default {
 <template>
    <div class="nav-main">
       <div class="burger" @click="this.menuToggle()" style="cursor: pointer;">
-         <span class="bread"></span>
-         <span class="bread"></span>
-         <span class="bread"></span>
+         <span class="bread" ref="top"></span>
+         <span class="bread" ref="mid"></span>
+         <span class="bread" ref="bot"></span>
       </div>
       <Transition name="slide">
          <div class="routes" v-if="this.menu">
@@ -97,6 +108,7 @@ export default {
    
    .contact {
       margin-top: auto;
+      font-size: 1.5rem;
       font-family: var(--serifType);
    }
    .nav-misc ul {
@@ -186,6 +198,8 @@ export default {
       transform-origin: bottom left;
    }
 
+   
+
    .burger {
       position: absolute;
       left: calc(calc(100vw - 40px) - 4rem);
@@ -204,6 +218,13 @@ export default {
       transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
          background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
          opacity 0.55s ease;
+   }
+   .day {
+      background: var(--dark000);
+   }
+
+   .day-nav {
+      background: var(--light000);
    }
 
    .burger span:first-child {

@@ -87,6 +87,9 @@ nav {
 
 nav ul {
    list-style-type: none;
+}
+
+nav > ul {
    padding-left: 2rem;
 }
 

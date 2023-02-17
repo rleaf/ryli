@@ -12,7 +12,7 @@ export default {
 
    mounted() {
       window.addEventListener('scroll', this.scroll)
-      this.body = document.querySelector('.body')
+      this.body = document.querySelector('.blog-body')
 
       if (JSON.parse(localStorage.getItem('theme'))) {
          this.theme = true
@@ -32,6 +32,10 @@ export default {
 
    unmounted() {
       window.removeEventListener('scroll', this.scroll)
+      const navBurger = document.querySelectorAll('.bread')
+      navBurger.forEach((node) => {
+         node.classList.remove('day')
+      })
    },
 
    props: {
@@ -84,6 +88,11 @@ export default {
          const utilWrapper = document.querySelector('.util-wrapper')
          utilWrapper.classList.toggle('day')
 
+         const navBurger = document.querySelectorAll('.bread')
+         navBurger.forEach((node) => {
+            node.classList.toggle('day')
+         })
+
          const themeButton = document.querySelector('.theme-icon')
          themeButton.classList.toggle('day-icon')
 
@@ -105,21 +114,27 @@ export default {
             this.typeSize === 2 ? (this.typeSize = 0) : (this.typeSize++)
          }
 
-         let x = document.querySelectorAll('.body p')
+         const p = document.querySelectorAll('.blog-body p')
+         const m = document.querySelectorAll('.math')
+
 
          if (this.typeSize === 0) {
-            x.forEach(el => el.classList.remove('font-size-165'))
+            p.forEach(el => el.classList.remove('font-size-165'))
+            m.forEach(el => el.classList.remove('math-155'))
          }
 
          if (this.typeSize === 1) {
-            x.forEach(el => el.classList.add('font-size-145'))
+            p.forEach(el => el.classList.add('font-size-145'))
+            m.forEach(el => el.classList.add('math-135'))
          }
 
          if (this.typeSize === 2) {
             if (!iter) {
-               x.forEach(el => el.classList.add('font-size-165'))
+               p.forEach(el => el.classList.add('font-size-165'))
+               m.forEach(el => el.classList.add('math-155'))
             }
-            x.forEach(el => el.classList.replace('font-size-145', 'font-size-165'))
+            p.forEach(el => el.classList.replace('font-size-145', 'font-size-165'))
+            m.forEach(el => el.classList.replace('math-135', 'math-155'))
          }
          
          localStorage.setItem('size', this.typeSize)

@@ -22,15 +22,20 @@
    display: flex;
    flex-direction: column;
    position: sticky;
-   top: 8vh;
-   height: 85vh;
-   width: 20%;
-   margin-top: 10vh;
+   top: 0;
+   height: 100vh;
+   width: 15%;
+   overflow-y: auto;
+   padding-right: 2vw;
 }
 
-.body {
-   width: 80%;
-   padding-left: 3vw;
+.sidebar::-webkit-scrollbar {
+   width: 5px;
+}
+
+.blog-body {
+   max-width: 1100px;
+   padding-left: 2vw;
    padding-top: 10vh;
 }
 
@@ -38,10 +43,46 @@
    font-family: var(--sansType);
 }
 
-.body p {
+.blog-body p {
    font-size: 1.25rem;
    line-height: 1.75;
    color: var(--light300);
+}
+
+.math {
+   /* mathjax yoinks x-height/leading from typeface? */
+   display: block;
+   width: 80%;
+   font-family: var(--serifType);
+   font-size: 1.2rem;
+   color: var(--light300);
+}
+
+.math-t {
+   padding-top: 4rem;
+}
+
+.math-b {
+   margin-bottom: 4rem;
+}
+
+.math-bt {
+   padding: 4rem 0;
+}
+
+.image {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 80%;
+   padding-top: 4rem;
+}
+
+.math-135 {
+   font-size: 1.35rem;
+}
+.math-155 {
+   font-size: 1.45rem;
 }
 
 p.font-size-145 {
@@ -52,12 +93,37 @@ p.font-size-165 {
    font-size: 1.65rem;
 }
 
+p.caption {
+   text-align: center;
+}
+
+p.caption a {
+   color: var(--light200);
+   text-decoration: underline;
+   font-style: oblique;
+   font-size: 1rem;
+}
+
+p.caption a:hover {
+   transition: color 0.25;
+   color: var(--light200);
+}
+
+.blog-body ul {
+   padding: 2rem 0;
+   padding-left: 5rem;
+}
+
+.blog-body ul li {
+   padding: 1rem 0;
+}
+
 section {
    padding-bottom: 5rem;
 }
 
 nav {
-   padding-top: 5vh;
+   padding-top: 1rem;
 }
 
 nav ul {
@@ -65,12 +131,21 @@ nav ul {
    padding-left: 2rem;
 }
 
+nav > ul {
+   padding-left: 0;
+}
+
 nav ul a {
    color: var(--light400);
-   font-size: 1rem;
+   font-size: 0.9rem;
    font-family: var(--sansType);
    text-decoration: none;
    line-height: 1.75;
+}
+
+a {
+   text-decoration: none;
+   color: var(--light500);
 }
 
 a:hover {
@@ -98,11 +173,13 @@ h2 {
 h3 {
    padding: 3rem 0;
    padding-left: 5rem;
+   font-size: 2rem;
    color: var(--light200);
 }
 
 h4 {
    font-family: var(--displayTypeBold);
+   color: var(--light200);
    font-size: 2rem;
 }
 

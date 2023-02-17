@@ -35,12 +35,13 @@
 	--dark200: hsl(0, 0%, 5%);
 	--dark300: hsl(0, 0%, 10%);
 	--dark400: hsl(0, 0%, 20%);
+	--dark4000: rgba(51, 51, 51, 0.5);
 	--dark500: hsl(0, 0%, 30%);
 
 	/* --serifType: 'EB Garamond', sans-serif; */
 	--serifType: 'Crimson Text', sans-serif;
 	--sansType: 'Open Sans', sans-serif;
-	--displayTypeReg: 'Butler', sans-serif;
+	--displayTypeReg: 'Butler-Reg', sans-serif;
 	--displayTypeMed: 'Butler-Med', sans-serif;
 	--displayTypeBold: 'Butler-Bold', sans-serif;
 
@@ -108,16 +109,16 @@ h3 {
 }
 
 ::-webkit-scrollbar-thumb {
-   background: var(--scrollbarThumb);
+   background: var(--light700);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-   background: var(--shadeWhite2);
+   background: var(--light600);
 }
 
 ::selection {
-  background: var(--selection); /* WebKit/Blink Browsers */
+  background: var(--dark4000); /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: var(--selection); /* Gecko Browsers */
+  background: var(--dark4000); /* Gecko Browsers */
 }

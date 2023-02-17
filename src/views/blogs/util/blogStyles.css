@@ -9,12 +9,16 @@
 
 .blog-main {
    display: flex;
+   /* justify-content: center; */
    padding: 0 5rem;
 }
 
 .blog-head {
    position: absolute;
    top: calc(50% - 20vmin / 2);
+   width: 70vw;
+   left: 50%;
+   transform: translateX(-50%);
    text-align: center;
 }
 
@@ -25,6 +29,7 @@
    top: 0;
    height: 100vh;
    width: 15%;
+   /* width: 30vw; */
    overflow-y: auto;
    padding-right: 2vw;
 }
@@ -34,7 +39,8 @@
 }
 
 .blog-body {
-   max-width: 1100px;
+   width: 80%;
+   max-width: 1200px;
    padding-left: 2vw;
    padding-top: 10vh;
 }
@@ -52,6 +58,16 @@
 .math {
    /* mathjax yoinks x-height/leading from typeface? */
    display: block;
+   padding-left: 2rem;
+   width: 80%;
+   font-family: var(--serifType);
+   font-size: 1.2rem;
+   color: var(--light300);
+}
+
+.math-inline {
+   display: inline;
+   padding-left: 2rem;
    width: 80%;
    font-family: var(--serifType);
    font-size: 1.2rem;
@@ -110,8 +126,7 @@ p.caption a:hover {
 }
 
 .blog-body ul {
-   padding: 2rem 0;
-   padding-left: 5rem;
+   padding: 0 3rem;
 }
 
 .blog-body ul li {
@@ -135,7 +150,7 @@ nav > ul {
    padding-left: 0;
 }
 
-nav ul a {
+nav ul li {
    color: var(--light400);
    font-size: 0.9rem;
    font-family: var(--sansType);
@@ -157,9 +172,22 @@ a:hover {
    color: var(--light000);
 }
 
+table {
+   margin: 3rem 0;
+   margin-left: 2rem;
+   font-size: 1.25rem;
+}
+
+table, td, th {
+   border-color: var(--light200);
+   border-collapse: collapse;
+}
+td, th {
+   padding: 0.75rem;
+}
+
 h1 {
    font-size: 5rem;
-   padding: 0 5rem;
    color: var(--light200);
    padding-bottom: 2rem;
 }

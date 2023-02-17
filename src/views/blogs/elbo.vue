@@ -3,7 +3,7 @@ import VueMathjax from 'vue-mathjax-next'
 import ContentsUtility from '../../components/ContentsUtility.vue'
 import blogs from '../../assets/blogs/blogs'
 import util from './util/util'
-import elbo from './util/latex/elbo'
+import latex from './util/latex/elbo'
 
 export default {
    components: {
@@ -12,17 +12,21 @@ export default {
    },
    data() {
       return {
-         latex: elbo
+         latex: latex
       }
    },
 
    created() {
       this.blog = blogs.find(el => el.route === 'elbo')
+      window.scrollTo(0, 0)
    },
-
+   
    mounted() {
       util.contentObserver()
       util.titleTween()
+
+      // this.$nextTick
+
    }
 }
 </script>
@@ -56,6 +60,7 @@ export default {
             </nav>
          </div>
          <div class="blog-body">
+
             <section id="introduction">
                <h2>Introduction</h2>
                <p>
@@ -74,6 +79,7 @@ export default {
                   By sewing together these sources, the different philosophies are packaged together and presented, hopefully, with a bow on top.
                </p>
             </section>
+
             <section id="elbo">
                <h2>Variational Lower Bound (or ELBO)</h2>
                <p>
@@ -135,6 +141,7 @@ export default {
                   <vm class="math" :formula='this.latex.encoderprior' />
                </div>
             </section>
+
             <section id="gradientflow">
                <h2>Gradient Flow</h2>
                <p>
@@ -182,9 +189,9 @@ export default {
                   </div>
                </section>
             </section>
+
          </div>
       </div>
-      
    </div>
 </template>
 

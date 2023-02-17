@@ -15,6 +15,7 @@ export default {
    created() {
       this.sphere = this.experience.world.sphere
       this.scene = this.experience.scene
+      window.scrollTo(0, 0)
    },
 
    mounted() {
@@ -66,13 +67,15 @@ export default {
          <div class="text-mask">
             <h2>A place for talking</h2>
          </div>
-         <h3>The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between.</h3>
+         <p>
+            The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between.
+         </p>
+         <!-- <h3>The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between.</h3> -->
          <input type="text" v-model="search" placeholder="Search..." />
       </div>
       <div class="blog-body">
          <div class="blog-post" v-for="blog in filteredBlogs" :key="blog.route">
             <router-link :to="{ name: `${blog.route}`}">{{ blog.title }}</router-link>
-            <!-- <a href="#">{{ blog.title }}</a> -->
             <p class="blog-date">
                {{ blog.date }}
             </p>
@@ -125,7 +128,6 @@ export default {
       font-style: oblique;
       color: var(--light000);
       border-bottom: 1px solid var(--light200);
-      /* border-radius: 5px; */
       font-size: 1.5rem;
    }
 
@@ -143,17 +145,18 @@ export default {
    }
 
    .blog-description {
-      /* font-size: 0.9rem; */
       margin-top: 0.5rem;
       color: var(--light100);
    }
 
    .blog-head {
-      /* position: relative; */
       padding-top: 20vh;
-      /* width: 45vw; */
       top: 20vh;
       left: 8%;
+   }
+
+   .blog-head > p {
+      font-size: 1.15rem;
    }
 
    .blog-text {

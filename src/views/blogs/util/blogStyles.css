@@ -1,15 +1,30 @@
 .blog-wrapper {
-   transition: color 0.5s, background-color 0.5s;
+   
+   /* For ContentsUtility buttons */
+   --blogType: 1.25rem;
+   --codeType: 1rem;
+   --header: var(--light200);
+   --codeBlockBG: var(--dark150);
+   --codeColor: var(--light200);
+   --bodyColorType: var(--light300);
+   --codeBG: var(--dark400);
+   --links: var(--light100);
+   --linksHover: var(--dark400);
+   --navLine: var(--light400);
+   --activeSection: var(--light000);
+   --tableBorder: var(--light200);
+   --sidebarHeader: var(--light200);
+   --sidebarButton: var(--light200);
+   --themeSVG: url('../../../assets/svg/moon.svg');
 }
 
 .blog-landing {
    height: 100vh;
-   background-color: var(--dark200);
 }
 
 .blog-main {
    display: flex;
-   /* justify-content: center; */
+   width: auto;
    padding: 0 5rem;
 }
 
@@ -29,7 +44,6 @@
    top: 0;
    height: 100vh;
    width: 15%;
-   /* width: 30vw; */
    overflow-y: auto;
    padding-right: 2vw;
 }
@@ -50,9 +64,9 @@
 }
 
 .blog-body p {
-   font-size: 1.25rem;
+   font-size: var(--blogType);
    line-height: 1.75;
-   color: var(--light300);
+   color: var(--bodyColorType);
 }
 
 .math {
@@ -61,17 +75,16 @@
    padding-left: 2rem;
    width: 80%;
    font-family: var(--serifType);
-   font-size: 1.2rem;
-   color: var(--light300);
+   font-size: var(--blogType);
+   color: var(--bodyColorType);
 }
 
 .math-inline {
    display: inline;
    padding-left: 2rem;
-   width: 80%;
    font-family: var(--serifType);
-   font-size: 1.2rem;
-   color: var(--light300);
+   font-size: var(--blogType);
+   color: var(--bodyColorType);
 }
 
 .math-t {
@@ -94,6 +107,13 @@
    padding-top: 4rem;
 }
 
+.code {
+   background: var(--codeBG);
+   border-radius: 5px;
+   font-family: "Fira code", "Fira Mono", "Consolas", "Menlo", Courier, monospace;
+   font-size: var(--codeType);
+}
+
 .math-135 {
    font-size: 1.35rem;
 }
@@ -114,7 +134,7 @@ p.caption {
 }
 
 p.caption a {
-   color: var(--light200);
+   color: var(--links);
    text-decoration: underline;
    font-style: oblique;
    font-size: 1rem;
@@ -122,7 +142,7 @@ p.caption a {
 
 p.caption a:hover {
    transition: color 0.25;
-   color: var(--light200);
+   color: var(--linksHover);
 }
 
 .blog-body ul {
@@ -151,25 +171,41 @@ nav > ul {
 }
 
 nav ul li {
-   color: var(--light400);
    font-size: 0.9rem;
    font-family: var(--sansType);
-   text-decoration: none;
    line-height: 1.75;
 }
 
-a {
+li a {
    text-decoration: none;
-   color: var(--light500);
+   color: var(--navLine);
+}
+
+.blog-body a {
+   text-decoration: underline;
+   color: var(--links);
 }
 
 a:hover {
    transition: 0.25s;
-   background: var(--dark400);
+   background: var(--linksHover);
 }
 
 .active {
-   color: var(--light000);
+   color: var(--activeSection);
+}
+
+.codeblock {
+   background: var(--codeBlockBG);
+   color: var(--codeColor);
+   max-width: max-content;
+   font-family: "Fira code", "Fira Mono", "Consolas", "Menlo", Courier, monospace;
+   font-size: 14px;
+   line-height: 1.5;
+   padding: 20px 10px;
+   margin-left: auto;
+   margin-right: auto;
+   border-radius: 7px;
 }
 
 table {
@@ -179,7 +215,7 @@ table {
 }
 
 table, td, th {
-   border-color: var(--light200);
+   color: var(--tableBorder);
    border-collapse: collapse;
 }
 td, th {
@@ -188,47 +224,41 @@ td, th {
 
 h1 {
    font-size: 5rem;
-   color: var(--light200);
+   color: var(--header);
    padding-bottom: 2rem;
+   -webkit-text-stroke-width: 0px;
 }
 
 h2 {
    font-size: 4rem;
    padding-left: 2rem;
-   color: var(--light200);
+   color: var(--header);
 }
 
 h3 {
    padding: 3rem 0;
    padding-left: 5rem;
    font-size: 2rem;
-   color: var(--light200);
+   color: var(--header);
 }
 
 h4 {
    font-family: var(--displayTypeBold);
-   color: var(--light200);
+   color: var(--header);
    font-size: 2rem;
 }
 
-.day {
-
-   /* Landing BG */
-   --dark200: #fff;
-   
-   /* BG */
-   background-color: #fff;
-   
-   /* Nav */
-   --dark400: #ccc;
-
-   /* Header */
-   --light200: var(--dark100);
-   
-   /* Body type */
-   --light300: var(--dark000);
-   
-   /* Nav burger */
-   --light000: var(--dark000);
-   
+.blog-day {
+   --header: var(--dark100);
+   --codeBlockBG: #292d3e;
+   --bodyColorType: var(--dark000);
+   --codeBG: var(--light200);
+   --links: var(--light500);
+   --linksHover: var(--light200);
+   --navLine: var(--light400);
+   --activeSection: var(--dark000);
+   --tableBorder: var(--dark000);
+   --sidebarHeader: var(--dark000);
+   --sidebarButton: var(--dark000);
+   --themeSVG: url('../../../assets/svg/sun.svg');
 }

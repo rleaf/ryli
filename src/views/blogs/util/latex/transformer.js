@@ -1,6 +1,6 @@
 export default {
-   PEsin: `$$PE_{(p, 2i)} = \\mathrm{sin}\\biggr(\\frac{p}{10000^a}\\biggl)$$`,
-   PEcos: `$$PE_{(p, 2i+1)} = \\mathrm{cos}\\biggr(\\frac{p}{10000^a}\\biggl)$$`,
+   PEsin: `$PE_{(p, 2i)} = \\mathrm{sin}\\biggr(\\frac{p}{10000^a}\\biggl)$`,
+   PEcos: `$PE_{(p, 2i+1)} = \\mathrm{cos}\\biggr(\\frac{p}{10000^a}\\biggl)$`,
    sdp: '$$SDP\\; Attention(Q, K, V) = Softmax_{d_k}\\biggl(\\frac{Q K^\\top}{\\sqrt{d_e}}\\biggr) V$$',
    transformerArch:
 `Transformer

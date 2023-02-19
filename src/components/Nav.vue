@@ -37,7 +37,6 @@ export default {
 
          if (this.menu) {
             for (const k of Object.values(this.$refs)) {
-               console.log(k)
                k.classList.add('day-nav')
             }
          } else {

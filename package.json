@@ -16,12 +16,14 @@
     "@egjs/vue-flicking": "^4.10.5",
     "@egjs/vue3-flicking": "^4.10.5",
     "gsap": "^3.11.4",
+    "prismjs": "^1.29.0",
     "three": "^0.149.0",
     "three-msdf-text-utils": "^1.0.0",
     "tweakpane": "^3.1.4",
     "vue": "^3.2.45",
     "vue-head": "github:MKGaru/vue-head#vue3",
     "vue-mathjax-next": "^0.0.4",
+    "vue-prism-editor": "^2.0.0-alpha.2",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

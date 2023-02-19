@@ -32,6 +32,7 @@ export default {
 
    unmounted() {
       window.removeEventListener('scroll', this.scroll)
+      document.body.classList.remove('bg-day')
       const navBurger = document.querySelectorAll('.bread')
       navBurger.forEach((node) => {
          node.classList.remove('day')
@@ -82,22 +83,17 @@ export default {
       changeTheme(bool=true) {
          if (bool) this.theme = !this.theme
 
-         const contentsHead = document.querySelector('.contents-head')
-         contentsHead.classList.toggle('day')
+         // Grab everything in blog
+         const body = document.querySelector('.blog-wrapper')
+         body.classList.toggle('blog-day')
 
-         const utilWrapper = document.querySelector('.util-wrapper')
-         utilWrapper.classList.toggle('day')
+         document.body.classList.toggle('bg-day')
 
+         // Nav
          const navBurger = document.querySelectorAll('.bread')
          navBurger.forEach((node) => {
             node.classList.toggle('day')
          })
-
-         const themeButton = document.querySelector('.theme-icon')
-         themeButton.classList.toggle('day-icon')
-
-         const body = document.querySelector('.blog-wrapper')
-         body.classList.toggle('day')
 
          localStorage.setItem('theme', JSON.stringify(this.theme))
       },
@@ -110,32 +106,14 @@ export default {
       },
       
       changeSize(iter=true) {
-         if (iter) {
-            this.typeSize === 2 ? (this.typeSize = 0) : (this.typeSize++)
-         }
+         if (iter) this.typeSize === 2 ? (this.typeSize = 0) : (this.typeSize++)
 
-         const p = document.querySelectorAll('.blog-body p')
-         const m = document.querySelectorAll('.math')
-
-
-         if (this.typeSize === 0) {
-            p.forEach(el => el.classList.remove('font-size-165'))
-            m.forEach(el => el.classList.remove('math-155'))
-         }
-
-         if (this.typeSize === 1) {
-            p.forEach(el => el.classList.add('font-size-145'))
-            m.forEach(el => el.classList.add('math-135'))
-         }
-
-         if (this.typeSize === 2) {
-            if (!iter) {
-               p.forEach(el => el.classList.add('font-size-165'))
-               m.forEach(el => el.classList.add('math-155'))
-            }
-            p.forEach(el => el.classList.replace('font-size-145', 'font-size-165'))
-            m.forEach(el => el.classList.replace('math-135', 'math-155'))
-         }
+         const sizeArray = ['1.25rem', '1.45rem', '1.65rem']
+         const codeArray = ['1rem', '1.3rem', '1.5rem']
+         
+         const size = document.querySelector('.blog-wrapper')
+         size.style.setProperty('--blogType', `${sizeArray[this.typeSize]}`)
+         size.style.setProperty('--codeType', `${codeArray[this.typeSize]}`)
          
          localStorage.setItem('size', this.typeSize)
       }
@@ -173,9 +151,14 @@ export default {
 </template>
 
 <style scoped>
+   /*********************************************************
+   Variables are adopted from ./blogs/util/blogStyles.css
+   *********************************************************/
+
    .contents-head {
       transition: color 0.5s;
       opacity: 0;
+      color: var(--sidebarHeader);
    }
 
    h4 {
@@ -184,12 +167,10 @@ export default {
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--light500);
       margin-bottom: 0;
-      color: var(--light200);
    }
 
    h3 {
       margin-bottom: 0;
-      color: var(--light200);
    }
 
    .util {
@@ -210,7 +191,7 @@ export default {
       border-radius: 2px;
       outline: none;
       background-color: transparent;
-      color: var(--light200);
+      color: var(--sidebarButton);
       cursor: pointer;
       height: 30px;
       font-size: 0.8rem;
@@ -225,26 +206,16 @@ export default {
    }
 
    .theme-icon {
-      background-color: var(--light000);
+      background-color: var(--sidebarButton);
       width: 20px;
       height: 20px;
-      mask-image: url('../assets/svg/moon.svg');
+      mask-image: var(--themeSVG);
       mask-position: center;
       mask-size: 60%;
       mask-repeat: no-repeat;
-      -webkit-mask-image: url('../assets/svg/moon.svg');
+      -webkit-mask-image: var(--themeSVG);
       -webkit-mask-position: center;
       -webkit-mask-size: 85%;
       -webkit-mask-repeat: no-repeat;
-   }
-
-   .day {
-      --light200: #000;
-   }
-
-   .day-icon {
-      background-color: var(--dark000);
-      mask-image: url('../assets/svg/moon.svg');
-      -webkit-mask-image: url('../assets/svg/sun.svg');
    }
 </style>

@@ -15,21 +15,12 @@ export default {
    created() {
       this.sphere = this.experience.world.sphere
       this.scene = this.experience.scene
-      window.scrollTo(0, 0)
    },
-
+   
    mounted() {
       this.scene.remove(this.sphere.mesh)
       this.sphere.geometry.dispose()
       this.sphere.material.dispose()
-
-      // gsap.from('.blog-text', {
-      //    duration: 0.5,
-      //    y: '200%',
-      //    delay: 1,
-      //    stagger: 0.1,
-      //    ease: 'power2.inOut'
-      // })
 
       gsap.from('.blog-head h2', {
          duration: 1,
@@ -45,6 +36,10 @@ export default {
          stagger: 0.1,
          ease: 'power2.inOut'
       })
+
+      setTimeout(() => {
+         window.scrollTo(0, 0)
+      }, 10)
    },
 
    unmounted() {
@@ -70,7 +65,6 @@ export default {
          <p>
             The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between.
          </p>
-         <!-- <h3>The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between.</h3> -->
          <input type="text" v-model="search" placeholder="Search..." />
       </div>
       <div class="blog-body">

@@ -55,20 +55,20 @@ export default {
                   The KL divergence of continuous distributions is:
                </p>
                <div class="math-b">
-                  <vm class="math" :formula='this.latex.dkl'></vm>
+                  <vm class="math" :formula='this.latex.dkl' />
                </div>
                <p>
                   The density function of the multivariate normal distribution is:
                </p>
                <div class="math-b">
-                  <vm class="math" :formula='this.latex.mvnormal'></vm>
+                  <vm class="math" :formula='this.latex.mvnormal' />
                </div>
                <p>
-                  Let <vm :formula='`$p(x)\\sim\\mathcal{N}(\\mu_1, \\Sigma_1)$`'></vm> and <vm :formula='`$q(x)\\sim\\mathcal{N}(\\mu_2, \\Sigma_2)$`'></vm>, both
-                  in <vm :formula='`$\\mathbb{R}^n$`'></vm>.
-                  The KL divergence between distribution <vm :formula='`$p(x)$`'></vm> and <vm :formula='`$q(x)$`'></vm> is:
+                  Let <vm :formula='`$p(x)\\sim\\mathcal{N}(\\mu_1, \\Sigma_1)$`' /> and <vm :formula='`$q(x)\\sim\\mathcal{N}(\\mu_2, \\Sigma_2)$`' />, both
+                  in <vm :formula='`$\\mathbb{R}^n$`' />.
+                  The KL divergence between distribution <vm :formula='`$p(x)$`' /> and <vm :formula='`$q(x)$`' /> is:
                </p>
-               <vm class="math" :formula='this.latex.ohboy'></vm>
+               <vm class="math" :formula='this.latex.ohboy' />
             </section>
 
             <section id="properties">
@@ -79,8 +79,8 @@ export default {
                         Eq (1): Definition of KL divergence
                      </li>
                      <li>
-                        Eq (2): Represent the integral as the expectation of continuous random variable <vm :formula='`$X$`'></vm> generated from distribution <vm :formula='`$p$`'></vm>.
-                        In other reads I usually denote with <vm :formula='`$\\mathbb{E}_{X\\,\\sim{\\,p}}$`'></vm>, however not here to keep things simple.
+                        Eq (2): Represent the integral as the expectation of continuous random variable <vm :formula='`$X$`' /> generated from distribution <vm :formula='`$p$`' />.
+                        In other reads I usually denote with <vm :formula='`$\\mathbb{E}_{X\\,\\sim{\\,p}}$`' />, however not here to keep things simple.
                         [<a href="https://en.wikipedia.org/wiki/Expected_value#Random_variables_with_density" target="_blank">Link</a>]
                      </li>
                      <li>
@@ -106,13 +106,13 @@ export default {
                         [<a href="https://en.wikipedia.org/wiki/Expected_value#Properties" target="_blank">Link</a>]
                      </li>
                      <li>
-                        Eq (10): <vm :formula='`$(x-\\mu)^\\top\\Sigma(x-\\mu)$`'></vm> is a real number, which can be interpreted as a 1x1 matrix, making it equal to its trace.
+                        Eq (10): <vm :formula='`$(x-\\mu)^\\top\\Sigma(x-\\mu)$`' /> is a real number, which can be interpreted as a 1x1 matrix, making it equal to its trace.
                      </li>
                      <li>
                         Eq (11): Use equation 16 of section 1.1 from the matrix cookbook. [<a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf" target="_blank">Link</a>]
                      </li>
                      <li>
-                        Eq (12): Distribute expectation again. For the middle term: <vm :formula='`$\\text{tr}(\\mathbb{E}(X)) = \\mathbb{E}(\\text{tr}(X))$`'></vm>, factor out the constant
+                        Eq (12): Distribute expectation again. For the middle term: <vm :formula='`$\\text{tr}(\\mathbb{E}(X)) = \\mathbb{E}(\\text{tr}(X))$`' />, factor out the constant
                         inverse covariance matrix, and then you are left with the definition of the covariance matrix. [<a href="https://en.wikipedia.org/wiki/Covariance_matrix#Definition" target="_blank">Link</a>].
                         Right hand term: distribute.
                      </li>
@@ -122,17 +122,17 @@ export default {
                      </li>
                      <li>
                         Eq (14): Middle term: the trace of the identity is equal to the dimension of the matrix. Right hand term: Use equation 377 of section 8.2 in the matrix cookbook linked in equation 11. Then take the
-                        expectation of <vm :formula='`$2x\\mu_2^\\top$`'></vm>, which is <vm :formula='`$2\\mu_1\\mu_2^\\top$`'></vm> since the expectation is generated from
-                        distribution <vm :formula='`$p$`'></vm>.
+                        expectation of <vm :formula='`$2x\\mu_2^\\top$`' />, which is <vm :formula='`$2\\mu_1\\mu_2^\\top$`' /> since the expectation is generated from
+                        distribution <vm :formula='`$p$`' />.
                      </li>
                      <li>
-                        Eq (15): Distribute <vm :formula='`$\\Sigma_2^{-1}$`'></vm> accordingly.
+                        Eq (15): Distribute <vm :formula='`$\\Sigma_2^{-1}$`' /> accordingly.
                      </li>
                      <li>
                         Eq (16): Factor right hand term.
                      </li>
                      <li>
-                        Eq (17): Factor out <vm :formula='`$1/2$`'></vm>. Reorder the right hand term via commutative properties.
+                        Eq (17): Factor out <vm :formula='`$1/2$`' />. Reorder the right hand term via commutative properties.
                      </li>
                      <li>
                         Eq (17.1): An alternative representation. Factor out -1 from both terms on the right hand side, which nullify. 
@@ -147,7 +147,7 @@ export default {
                   Starting from equation 11 defined above however we don't trace the right hand term in the expectation:
                </p>
                <div class="math-bt">
-                  <vm class="math" :formula='this.latex.alt'></vm>
+                  <vm class="math" :formula='this.latex.alt' />
                </div>
                <p>
                   Eq (12): Instead of expanding the right hand term as shown above, use equation 380 in section 8.2 of the <a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf" target="_blank">matrix cookbook</a>.

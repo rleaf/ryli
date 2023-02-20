@@ -98,7 +98,7 @@ export default {
                <section id="convForward">
                   <h3>Forward</h3>
                   <p>
-                     CNNs, similar to MLPs operate under the same archetype of <vm :formula='`$w^\\top x+b$`'></vm>, except are designed to <i>preserve spatial
+                     CNNs, similar to MLPs operate under the same archetype of <vm :formula='`$w^\\top x+b$`' />, except are designed to <i>preserve spatial
                      structure</i>. Because there is no dimension reduction, to deal with these high dimensional inputs, the weight matrix <i>w</i>, also frequently referred to as a <i>kernel</i>
                      or <i>filter</i> operates on a portion of the input by taking the dot product
                      then convolves/slides/translates to the next portion. The kernel usually extends to the full depth of the input; there are times
@@ -121,14 +121,14 @@ export default {
                <section id="convBack">
                   <h3>Backward</h3>
                   <p>
-                     Consider again thinking about the equation <vm :formula='`$f(x) = w^\\top x+b$`'></vm>. Looking at the equation, it is very easy to find the desired local gradients
+                     Consider again thinking about the equation <vm :formula='`$f(x) = w^\\top x+b$`' />. Looking at the equation, it is very easy to find the desired local gradients
                      and then simply multiply them by the upstream:
                   </p>
-                  <vm class="math" :formula='`$$\\frac{\\partial{L}}{\\partial{x}} = \\frac{\\partial{f}}{\\partial{x}} \\cdot upstream= w \\cdot dout$$`'></vm>
+                  <vm class="math" :formula='`$$\\frac{\\partial{L}}{\\partial{x}} = \\frac{\\partial{f}}{\\partial{x}} \\cdot upstream= w \\cdot dout$$`' />
                   <br>
-                  <vm class="math" :formula='`$$\\frac{\\partial{L}}{\\partial{w}} = \\frac{\\partial{f}}{\\partial{w}} \\cdot upstream= x \\cdot dout$$`'></vm>
+                  <vm class="math" :formula='`$$\\frac{\\partial{L}}{\\partial{w}} = \\frac{\\partial{f}}{\\partial{w}} \\cdot upstream= x \\cdot dout$$`' />
                   <br>
-                  <vm class="math" :formula='`$$\\frac{\\partial{L}}{\\partial{b}} = \\frac{\\partial{f}}{\\partial{b}} \\cdot upstream= dout$$`'></vm>
+                  <vm class="math" :formula='`$$\\frac{\\partial{L}}{\\partial{b}} = \\frac{\\partial{f}}{\\partial{b}} \\cdot upstream= dout$$`' />
                   <p>
                      The tricky part is thinking about the interaction between the tensor shapes. <i>"Okay...so we're indexing along dimension x and this 4x2x5x5 tensor multiples elementwise with this 2x3x3x3..."</i>
                      For more elaborate discussion, my post on
@@ -136,7 +136,7 @@ export default {
                      <router-link :to="{ name: 'rnn' }">recurrent neural networks</router-link> may be helpful.
                      Keeping it simple however, here are some "rules" which work well for me:
                      <ul>
-                        <li>Gradients, ie: <vm :formula='`$\\frac{\\partial{f}}{\\partial{x}}$`'></vm>, match dimensionality of what is being differentiated wrt to.</li>
+                        <li>Gradients, ie: <vm :formula='`$\\frac{\\partial{f}}{\\partial{x}}$`' />, match dimensionality of what is being differentiated wrt to.</li>
                         <li>Calculating the entire gradient is a running sum (note the <code class="code">+=</code> on lines 39, 46, and 47 where the gradient formulas are shown).</li>
                         <li>Make sure to properly "locate" where a gradient belongs. Consider what needs to be indexed in order to compute a gradient. For instance,
                         <code class="code">db</code> on line 39 <i>can</i> be next to <code class="code">dw</code> and <code>dx</code>,
@@ -171,11 +171,11 @@ export default {
                      An example below. Backpropagation through a single transformation can be broken down to two steps:
                      <br><br>
                      1) There is the local computation. For the convolutional backpass, this was
-                     computing the local jacobian for <vm :formula='`$f(x) = w^\\top x+b$`'></vm>. For ReLU, this means doing the same to the piecewise function which will provide 1's and 0's:
+                     computing the local jacobian for <vm :formula='`$f(x) = w^\\top x+b$`' />. For ReLU, this means doing the same to the piecewise function which will provide 1's and 0's:
                      <vm :formula='`$$f(x) = \\begin{cases} 
                                           x & \\text{if $x \\gt 0$} \\\\  
                                           0 & \\text{otherwise} \\\\  
-                                          \\end{cases} $$`'></vm>
+                                          \\end{cases} $$`' />
                      2) Multiply that local computation by the upstream. I use <code class="code">dout</code> to refer to the upstream.
                   </p>
                   <prism-editor class="codeblock" v-model="this.latex.reluBackwardsExample" :highlight="highlighter" :line-numbers="true" :readonly="true"></prism-editor>

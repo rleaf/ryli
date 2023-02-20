@@ -108,6 +108,7 @@
    margin-right: auto;
    max-width: 80%;
    padding-top: 4rem;
+   padding-bottom: 2rem;
 }
 
 .code {
@@ -135,7 +136,7 @@ p.font-size-165 {
 p.caption {
    font-size: 1rem;
    text-align: center;
-   padding-bottom: 4rem;
+   margin-top: 0;
 }
 
 p.caption a {

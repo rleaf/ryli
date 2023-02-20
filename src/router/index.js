@@ -104,7 +104,7 @@ const router = createRouter({
       meta: {
         title: 'Implementing K Nearest Neighbors on CIFAR-10'
       },
-      component: () => import('../views/blogs/knn_cifar.vue')
+      component: () => import('../views/blogs/knn.vue')
     },
     {
       path: '/blog/bnbackpass',

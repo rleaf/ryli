@@ -22,6 +22,9 @@
    height: 100vh;
 }
 
+.col {
+   color: #4692cf;
+}
 .blog-main {
    display: flex;
    width: auto;
@@ -130,7 +133,9 @@ p.font-size-165 {
 }
 
 p.caption {
+   font-size: 1rem;
    text-align: center;
+   padding-bottom: 4rem;
 }
 
 p.caption a {
@@ -142,10 +147,13 @@ p.caption a {
 
 p.caption a:hover {
    transition: color 0.25;
-   color: var(--linksHover);
+   background: var(--linksHover);
 }
 
 .blog-body ul {
+   font-size: var(--blogType);
+   line-height: 1.75;
+   color: var(--bodyColorType);
    padding: 0 3rem;
 }
 

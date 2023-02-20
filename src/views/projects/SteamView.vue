@@ -3,7 +3,7 @@ import Experience from '../../assets/Experience/Experience'
 import BackdropFade from '../../components/BackdropFade.vue'
 import ToTop from '../../components/ToTop.vue'
 import sources from '../../assets/Experience/sources'
-import util from './util/projects.js'
+import util from './util/util.js'
 import Flicking from "@egjs/vue3-flicking";
 import "@egjs/vue3-flicking/dist/flicking.css";
 import { Arrow } from "@egjs/flicking-plugins";

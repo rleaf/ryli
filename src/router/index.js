@@ -16,6 +16,12 @@ const router = createRouter({
         title: 'Hello there.',
       }
     },
+
+    {
+      path: "/:catchAll(.*)",
+      redirect: {name: 'home'}
+    },
+    
     {
       path: '/about',
       name: 'about',

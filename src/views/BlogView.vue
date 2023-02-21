@@ -22,34 +22,28 @@ export default {
       this.sphere.geometry.dispose()
       this.sphere.material.dispose()
 
-      gsap.from('.blog-head h2', {
-         duration: 1,
-         y: '200%',
-         delay: 0.5,
-         ease: 'power2.inOut'
-      })
-      gsap.from('.blog-head p', {
-         duration: 1,
-         y: '200%',
-         delay: 0.5,
-         ease: 'power2.inOut'
+      const tl = gsap.timeline({
+         defaults: {
+            duration: 1,
+            ease: 'power2inOut'
+         }
       })
 
-      gsap.from('.blog-post', {
-         duration: 1,
-         opacity: 0,
-         delay: 0.75,
-         stagger: 0.1,
-         ease: 'power2.inOut'
+      tl.from('.blog-head h2', {
+         yPercent: '200',
+         delay: 0.5,
       })
+      .from('.blog-head p', {
+         yPercent: '200'
+      }, '<+0.2')
+      .from('.blog-post', {
+         opacity: 0,
+         stagger: 0.1
+      }, '<+0.3')
 
       setTimeout(() => {
          window.scrollTo(0, 0)
       }, 10)
-   },
-
-   unmounted() {
-
    },
 
    computed: {

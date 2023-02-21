@@ -34,7 +34,6 @@ export default {
 
 <template>
 	<div class="about-main">
-
 		<div>
 			<div class="about-head">
 				<div class="fore">
@@ -42,11 +41,11 @@ export default {
 				</div>
 				<h1 class="back">About</h1>
 			</div>
-
 		</div>
 		<div class="about-words">
 			<div class="about-tech">
-				<!-- <div class="tech-container">
+				<!-- Poking around in the DOM?
+					<div class="tech-container">
 					<h2>Design</h2>
 					<ul>
 						<li>Typography</li>
@@ -101,7 +100,7 @@ export default {
 				</div>
 				<div class="text-mask">
 					<p class="about-text">
-						I have have worked on projects involved in UX/UI design & research, full stack development, graphic design & illustration,
+						I have have worked on projects involved in UX/UI design & research, full stack development, graphic design, illustration,
 						typography, creative web development, and machine learning. 
 					</p>
 				</div>
@@ -112,6 +111,11 @@ export default {
 						<a href='https://www.instagram.com/rylikefood/' target='_blank'><u><i>cooking</i></u></a>, practicing guitar & uke, and playing video games.
 					</p>
 				</div>
+				<div class="text-mask">
+					<p class="about-text">
+						This site serves as a place where I can showcase projects I have worked, discuss interesting topics, and stash recipes.
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -120,7 +124,7 @@ export default {
 <style scoped>
 	.about-words {
 		display: flex;
-		padding-top: 25vh;
+		padding-top: 20vh;
 	}
 	.about-tech {
 		display: flex;
@@ -149,10 +153,11 @@ export default {
 		color: var(--light000);
 	}
 
+	a:hover {
+		transition: 2.25s; 
+		background: var(--dark400);
+	}
 	.about-book {	
-		/* margin-left: auto; */
-		/* padding-top: 25vh;
-		padding-right: 7vw; */
 		width: 40%;
 	}
 

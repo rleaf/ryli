@@ -147,7 +147,7 @@ p.caption a {
 }
 
 p.caption a:hover {
-   transition: color 0.25;
+   transition: 0.25s;
    background: var(--linksHover);
 }
 

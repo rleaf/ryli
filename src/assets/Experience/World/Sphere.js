@@ -132,9 +132,9 @@ export default class Box {
          b: 0/255,
       }, '<')
       .to(this.material.uniforms.uPeak.value, {
-         r: 128/255,
-         g: 128/255,
-         b: 128/255,
+         r: 200/255,
+         g: 200/255,
+         b: 200/255,
       }, '<')
       .to(this.material.uniforms.uStrength, {
          value: 0.15,
@@ -150,9 +150,9 @@ export default class Box {
       })
 
       tl.to(this.mesh.position, {
-         x: -3,
-         y: 2,
-         z: -10,
+         x: -2,
+         y: -1.5,
+         z: 0,
       })
       .to(this.mesh.rotation, {
          y: 1.8,
@@ -232,5 +232,6 @@ export default class Box {
 
    update() {
       this.material.uniforms.uTime.value = this.time.elapsed * 0.05
+      // this.mesh.rotation.y = this.time.elapsed * 0.0001
    }
 }

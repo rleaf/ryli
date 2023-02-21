@@ -62,7 +62,6 @@
    font-family: var(--sansType);
    flex-wrap: wrap;
    justify-content: space-evenly;
-   margin: 0 1rem;
    padding: 2rem 0;
    gap: 1rem;
    border-top: 1px solid var(--dark000);
@@ -82,7 +81,7 @@
 }
 
 nav {
-   padding-top: 5vh;
+   padding-top: 2vh;
 }
 
 nav ul {
@@ -90,7 +89,7 @@ nav ul {
 }
 
 nav > ul {
-   padding-left: 2rem;
+   padding-left: 1rem;
 }
 
 nav ul a {
@@ -114,7 +113,6 @@ a:hover {
 
 .active {
    color: var(--dark000);
-   /* font-weight: bold; */
 }
 
 nav ul a:hover {
@@ -151,18 +149,22 @@ h3 {
    padding-left: 5rem;
 }
 
+h3.sidebar-title {
+   font-size: 2rem;
+   padding: 0;
+}
+
 h4 {
    font-size: 1.55rem;
    font-family: var(--displayTypeMed);
 }
 
-.contents {
+.sidebar {
    position: sticky;
-   top: 8vh;
-   /* height: 50%; */
-   height: 85vh;
-   width: 20%;
-   margin-top: 30vh;
+   top: 1vh;
+   /* overflow-y: scroll; */
+   height: 100vh;
+   width: 15%;
    padding-right: 2vw;
 }
 

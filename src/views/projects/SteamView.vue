@@ -71,7 +71,8 @@ export default {
          <BackdropFade />
       </div>
       <div class="study-main">
-         <div class="contents">
+         <div class="sidebar">
+            <h3 class="sidebar-title" >{{ source.title }}</h3>
             <div class="meta">
                <div>
                   <div class="meta-header">timeline</div>
@@ -98,6 +99,7 @@ export default {
                   <a href="https://www.figma.com/file/V7X0RJJZQ2zZwF4b4QCPB2/Steam?node-id=0%3A1&t=XgTeE8vkVg5GRuX7-1" target="_blank">FigJam</a>
                </div>
             </div>
+            <ToTop />
             <nav>
                <ul>
                   <li><a href="#introduction">Introduction</a></li>
@@ -526,7 +528,6 @@ export default {
             </section>
          </div>
       </div>
-      <ToTop />
    </div>
 </template>
 

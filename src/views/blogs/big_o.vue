@@ -171,55 +171,56 @@ export default {
                      where <vm :formula='`$n = n, n = n^2, n = n^3$`' />. We can assert:
                   </p>
                   <div class="n-container">
-                     <p>
+                     <p class="math-b">
                         When <vm :formula='`$g(n) = n$`' />
                      </p>
-                     <p>
-                        <vm :formula='`$f(n) = n^2+4n \\neq O(n)$`' /> because there exists no constant <i>c</i> such that <vm :formula='`$f(n)$`' />
+                     <p class="math-b">
+                        <vm class="math" :formula='`$f(n) = n^2+4n \\neq O(n)$`' />
+                         because there exists no constant <i>c</i> such that <vm :formula='`$f(n)$`' />
                         is always <vm :formula='`$\\leq c \\cdot g(n)$`' /> for large enough <vm :formula='`$n\\geq n_0$`' />. At no point, <vm :formula='`$n_0$`' />, will <vm :formula='`$g(n)$`' /> always
                         be an <i>upper bound</i> of <vm :formula='`$f(n)$`' />.
                      </p>
-                     <p>
-                        <vm :formula='`$f(n) = n^2+4n = \\Omega(n)$`' /> because there exists a constant, for example <vm :formula='`$c=5$`' />, such that <vm :formula='`$f(n)$`' />
+                     <p class="math-b">
+                        <vm class="math" :formula='`$f(n) = n^2+4n = \\Omega(n)$`' /> because there exists a constant, for example <vm :formula='`$c=5$`' />, such that <vm :formula='`$f(n)$`' />
                         is always <vm :formula='`$\\geq g(n)$`' /> when <vm :formula='`$n \\geq 5$`' />. There exists a point, <vm :formula='`$n_0$`' />, where <vm :formula='`$g(n)$`' />
                         will always be a <i>lower bound</i> for <vm :formula='`$f(n)$`' />. <a href="https://www.desmos.com/calculator/smr2bmhdew" target="_blank">Link</a> to graphing calculator for visualization.
                         Note I can pick <vm :formula='`$c=1$`' /> rendering this statement also true when <vm :formula='`$n \\geq 0$`' />.
                      </p>
                      <p>
-                        <vm :formula='`$f(n) = n^2+4n \\neq \\Theta(n)$`' /> because only <vm :formula='`$\\Omega$`' /> applies.
+                        <vm class="math" :formula='`$f(n) = n^2+4n \\neq \\Theta(n)$`' /> because only <vm :formula='`$\\Omega$`' /> applies.
                      </p>
                   </div>
                   <div class="n-container">
-                     <p>
+                     <p class="math-b">
                         When <vm :formula='`$g(n) = n^2$`' />
                      </p>
-                     <p>
-                        <vm :formula='`$f(n) = n^2+4n = O(n^2)$`' /> because there exists a constant, for example <vm :formula='`$c=2$`' />, such that <vm :formula='`$f(n) \\leq 2n^2$`' />
+                     <p class="math-b">
+                        <vm class="math" :formula='`$f(n) = n^2+4n = O(n^2)$`' /> because there exists a constant, for example <vm :formula='`$c=2$`' />, such that <vm :formula='`$f(n) \\leq 2n^2$`' />
                         for all <vm :formula='`$n \\geq 4$`' />. <a href="https://www.desmos.com/calculator/csj6cj3d4z" target="_blank">Link</a> to graphing calculator mapping the two functions showing this.
                         Again, we can pick any value for <i>c</i>, what matters is that there is some <i>c</i> that satisfies to <vm :formula='`$O(g(n))$`' />.
                      </p>
-                     <p>
-                        <vm :formula='`$n^2+4n = \\Omega(n^2)$`' /> because similarly to the above, we can pick <vm :formula='`$c = 1$`' />, enabling <vm :formula='`$f(n) \\geq c\\cdot g(n)$`' />
+                     <p class="math-b">
+                        <vm class="math" :formula='`$n^2+4n = \\Omega(n^2)$`' /> because similarly to the above, we can pick <vm :formula='`$c = 1$`' />, enabling <vm :formula='`$f(n) \\geq c\\cdot g(n)$`' />
                         for all <vm :formula='`$n \\gt 0$`' />.
                      </p>
                      <p>
-                        <vm :formula='`$n^2+4n = \\Theta(n^2)$`' /> because both <vm :formula='`$O(n^2)$`' /> and <vm :formula='`$\\Omega(n^2)$`' /> hold true.  
+                        <vm class="math" :formula='`$n^2+4n = \\Theta(n^2)$`' /> because both <vm :formula='`$O(n^2)$`' /> and <vm :formula='`$\\Omega(n^2)$`' /> hold true.  
                      </p>
                   </div>
                   <div class="n-container">
-                     <p>
+                     <p class="math-b">
                         When <vm :formula='`$g(n) = n^3$`' />
                      </p>
-                     <p>
-                        <vm :formula='`$f(n) = n^2+4n = O(n^3)$`' /> because there exists coefficients, <i>c</i>, with corresponding points, <i>n sub 0</i>, where "<i>c</i> times g of n" will <b>always</b> be an
+                     <p class="math-b">
+                        <vm class="math" :formula='`$f(n) = n^2+4n = O(n^3)$`' /> because there exists coefficients, <i>c</i>, with corresponding points, <i>n sub 0</i>, where "<i>c</i> times g of n" will <b>always</b> be an
                         <i>upper bound</i> of "f of n" for all <i>n</i> greater than <i>n sub 0</i>.
                      </p>
-                     <p>
-                        <vm :formula='`$n^2+4n \\neq \\Omega(n^3)$`' /> because there exists <b>no</b> coefficients, <i>c</i>, with corresponding points, <i>n sub 0</i>, where "<i>c</i> times g of n"
+                     <p class="math-b">
+                        <vm class="math" :formula='`$n^2+4n \\neq \\Omega(n^3)$`' /> because there exists <b>no</b> coefficients, <i>c</i>, with corresponding points, <i>n sub 0</i>, where "<i>c</i> times g of n"
                         will <b>always</b> be a <i>lower bound</i> of "f of n" for all <i>n</i> greater than <i>n sub 0</i>.
                      </p>
                      <p>
-                        <vm :formula='`$n^2+4n \\neq \\Theta(n^3)$`' /> because only "Oh of n cubed" holds true. 
+                        <vm class="math" :formula='`$n^2+4n \\neq \\Theta(n^3)$`' /> because only "Oh of n cubed" holds true. 
                      </p>
                   </div>
                   <p>

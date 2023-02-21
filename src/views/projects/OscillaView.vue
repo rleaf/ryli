@@ -53,7 +53,8 @@ export default {
             <BackdropFade />
          </div>
          <div class="study-main">
-            <div class="contents">
+            <div class="sidebar">
+               <h3 class="sidebar-title" >{{ source.title }}</h3>
                <div class="meta">
                   <div>
                      <div class="meta-header">timeline</div>
@@ -76,6 +77,7 @@ export default {
                      <a href="https://github.com/rleaf/Typefaces/tree/main/Oscilla" target="_blank">Download</a>
                   </div>
                </div>
+               <ToTop />
                <nav>
                   <ul>
                      <li><a href="#about">About The Project</a></li>
@@ -136,7 +138,6 @@ export default {
                </section>
             </div>
          </div>
-         <ToTop />
       </div>
 </template>
 

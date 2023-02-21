@@ -244,9 +244,10 @@ export default {
                   <vm :formula='`$d_{ff}$`' /> tensor back to a <vm :formula='`$d_{in}$`' /> dimensional tensor, another provided hyperparameter.
                   Retaining original shape is important as generally the feed forward nets will need to feed into another encoder or decoder block.
                </p>
-               <div class="math-t">
+               <div class="math-bt">
                   <vm class="math" :formula='`$$FFN(x) = max(0,\\;xW_1 + b_1)W_2 + b_2$$`' />
                </div>
+               <prism-editor class="codeblock" v-model="this.latex.mlp" :highlight="highlighter" :line-numbers="true" :readonly="true"></prism-editor>
             </section>
 
             <section id="blocks">

@@ -114,7 +114,9 @@ export default {
                   intermediate variable <vm :formula='this.latex.sigmoid'></vm>.
                   It looks like:
                </p>
-               <vm class="math" :formula='this.latex.dxhatdmufull'></vm>
+               <div class="math-b">
+                  <vm class="math" :formula='this.latex.dxhatdmufull'></vm>
+               </div>
                <p>
                   The full represetation without quotes:
                </p>
@@ -129,7 +131,9 @@ export default {
                   will instead be a conglomeration of intermediary functions. Below I integrate summations into the total derivative to reduce dimensionality as the betas all reference a scalar value for each feature
                   of the entire batch. (aka: Derivative of rank 2 tensor wrt rank 1 tensor goes through summation to produce a rank 1 tensor which matches dimensionality of what we're differentiating wrt to).
                </p>
-               <vm class="math" :formula='this.latex.dldxSimple1'></vm>
+               <div class="math-b">
+                  <vm class="math" :formula='this.latex.dldxSimple1'></vm>
+               </div>
                <p>
                   For clarity, you can rewrite redundant partials into a generalized form: <vm :formula='this.latex.redundant'></vm>
                </p>

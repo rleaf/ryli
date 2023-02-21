@@ -146,7 +146,13 @@ export default {
       font-size: 1.15rem;
    }
 
+   .blog-post a {
+      text-decoration: none;
+      font-weight: bold;
+   }
+
    .blog-description {
+      margin-left: 1.5rem;
       margin-top: 0.5rem;
       color: var(--light100);
    }

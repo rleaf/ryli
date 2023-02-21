@@ -59,8 +59,9 @@ export default {
          <h1>{{ source.title }}</h1>
          <BackdropFade />
       </div>
-      <div class="study-main">
-         <div class="contents">
+      <div class="study-main"> 
+         <div class="sidebar">
+            <h3 class="sidebar-title" >{{ source.title }}</h3>
             <div class="meta">
                <div>
                   <div class="meta-header">timeline</div>
@@ -83,6 +84,7 @@ export default {
                   <a href="https://titles.cognella.com/advanced-public-speaking-9781793513274" target="_blank">Book</a>
                </div>
             </div>
+            <ToTop />
             <nav>
                <ul>
                   <li><a href="#about">About The Project</a></li>
@@ -158,7 +160,7 @@ export default {
             </section>
          </div>
       </div>
-      <ToTop />
+      
    </div>
 </template>
 

@@ -32,23 +32,26 @@ export default {
 </script>
 
 <template>
-   <button class="to-top" @click="scrollToTop()">Go Back Top</button>
    <div class="util-wrapper">
+      <button class="to-top" @click="scrollToTop()">Go Back Top</button>
    </div>
 </template>
 
 <style scoped>
    .to-top {
-      position: fixed;
       display: flex;
       gap: .3rem;
       width: auto;
       flex-wrap: wrap;
-      margin-left: 5rem;
       border: 1px solid var(--light500);
       padding: 5px;
-      z-index: 25;
       border-radius: 2px;
+   }
+
+   .util-wrapper {
+      margin-top: 2vh;
+      z-index: 10;
+      height: 35px;
    }
 
    button {

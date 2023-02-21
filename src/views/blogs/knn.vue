@@ -232,13 +232,15 @@ export default {
                      <i>jth</i> training image and <i>ith</i> testing image two and populates the <code class="code">dists</code> tensor in its respective position.
                   </p>
                   <p>
-                     Here is a more optimal variation of finding the Euclidean distance that has no loops and instead makes use of broadcasting:
+                     Here is a more efficient variation of finding the Euclidean distance that has no loops and instead makes use of broadcasting:
                   </p>
                   <prism-editor class="codeblock" v-model="this.latex.no_loops" :highlight="highlighter" :line-numbers="true" :readonly="true"></prism-editor>
                   <p>
                      This procedure makes use of expanding the square in the Euclidean distance:
                   </p>
+                  <div class="math-b">
                      <vm class="math" :formula='this.latex.distributed_euclidean'></vm>
+                  </div>
                   <p>
                      On this no-loop variant of computing the Euclidean, we are evaluating all arithmetic independently and then compiling everything together so that it represents the right hand side of the formula above.
                      Instead of going through element by element, after we preprocess the inputs,

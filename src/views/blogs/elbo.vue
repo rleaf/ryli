@@ -151,7 +151,7 @@ export default {
                   to certain densities. To make sure our ducks are in a row:
                   <ul>
                      <li><b>Duck 1:</b> For reference, the lower variational bound referenced in eq 2.31 is: <vm :formula='this.latex.l1' /></li>
-                     <li><b>Duck 2:</b> The KL divergence between two multivariate gaussians simplifies to (<a href="/blog/kl-divergence-mv-gaussian" target="_blank">shown here</a>):
+                     <li><b>Duck 2:</b> The KL divergence between two multivariate gaussians simplifies to (<router-link :to="{ name: 'dklmvgaus' }">shown here</router-link>):
                      <vm :formula='`$$D_{\\mathbb{KL}}(q\\,||\\,p) \\triangleq \\frac{1}{2}\\Biggl(\\log\\Bigl(\\frac{\\det{(\\Sigma_2)}}{\\det{(\\Sigma_1)}}\\Bigr) - n +
                         \\text{tr}\\bigl(\\Sigma^{-1}_2\\Sigma_1\\bigr)+\\bigl(\\mu_2-\\mu_1\\bigr)^\\top\\Sigma^{-1}_2\\bigl(\\mu_2-\\mu_1\\bigr)\\Biggr)$$`' /></li>
                   </ul>

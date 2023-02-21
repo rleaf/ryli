@@ -255,23 +255,35 @@ export default {
                   <p>
                      Let random variable <vm :formula="`$X=\\{1, 2, 3, 4\\}$`" /> and
                   </p>
-                  <p>
-                     <vm class="math-inline" :formula='`$p(x) = \\begin{cases} 
-                     0.15 & \\text{if}\\; x = 1 \\\\  
-                     0.30 & \\text{if}\\; x = 2 \\\\  
-                     0.20 & \\text{if}\\; x = 3 \\\\  
-                     0.35 & \\text{if}\\; x = 4 \\\\  
-                     \\end{cases} \\qquad$`' />
-                     <vm class="math-inline" :formula='`$q(x) = \\begin{cases} 
-                     0.25 & \\text{if}\\; x = 1 \\\\  
-                     0.10 & \\text{if}\\; x = 2 \\\\  
-                     0.40 & \\text{if}\\; x = 3 \\\\  
-                     0.25 & \\text{if}\\; x = 4 \\\\  
-                     \\end{cases} $`' />
-                  </p>
+                  <vm class="math-inline" :formula='`$p(x) = \\begin{cases} 
+                  0.15 & \\text{if}\\; x = 1 \\\\  
+                  0.30 & \\text{if}\\; x = 2 \\\\  
+                  0.20 & \\text{if}\\; x = 3 \\\\  
+                  0.35 & \\text{if}\\; x = 4 \\\\  
+                  \\end{cases} \\qquad$`' />
+                  <vm class="math-inline" :formula='`$q(x) = \\begin{cases} 
+                  0.25 & \\text{if}\\; x = 1 \\\\  
+                  0.10 & \\text{if}\\; x = 2 \\\\  
+                  0.40 & \\text{if}\\; x = 3 \\\\  
+                  0.25 & \\text{if}\\; x = 4 \\\\  
+                  \\end{cases} $`' />
                   <div class="math-bt">
                      <vm class="math" :formula='this.latex.crossEntropyExample1' />
                      <vm class="math" :formula='this.latex.crossEntropyExample2' />
+                  </div>
+                  <p>
+                     Unless <vm :formula="`$q(x)=p(x)$`" />, <vm :formula="`$\\mathbb{H}(p, q) \\neq \\mathbb{H}(q, p)$`" />. Introducing a third distribution which will be <i>very</i>
+                     similar to <vm :formula="`$p(x)$`" /> to better illustrate the lower bounds of cross entropy, let
+                  </p>
+                  <vm class="math" :formula='`$$z(x) = \\begin{cases} 
+                  0.17 & \\text{if}\\; x = 1 \\\\  
+                  0.28 & \\text{if}\\; x = 2 \\\\  
+                  0.20 & \\text{if}\\; x = 3 \\\\  
+                  0.35 & \\text{if}\\; x = 4 \\\\  
+                  \\end{cases}$$`' />
+                  <div class="math-bt">
+                     <vm class="math" :formula='this.latex.crossEntropyExample3' />
+                     <vm class="math" :formula='this.latex.crossEntropyExample4' />
                   </div>
                   <p>
                      It may be discussed later, but the difference between <vm :formula="`$\\mathbb{H}(p, z)$`" /> and <vm :formula="`$\\mathbb{H}(p)$`" />

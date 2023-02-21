@@ -17,6 +17,28 @@ export default {
       PrismEditor,
       'vm': VueMathjax
    },
+
+   head: {
+      meta: [
+         {
+            name: 'author',
+            content: 'Ryan Lin'
+         },
+         {
+            name: 'description',
+            content: `A discussion about the philosophy of a recurrent neural network and both it's forward and backward transformations. Accompanied with code, mathematical explanation, and visuals, I go into detail about the popular transformations and focus heavily on the intuition behind some operations.`,
+         },
+         {
+            name: 'keywords',
+            content: 'recurrent neural network, rnn, math, differentiation, forward pass, backward pass, computational graph, derivatives, pain, gradients, python, machine learning, ml, artificial intelligence, ai'
+         },
+         {
+            property: 'og:description',
+            content: `A discussion about the philosophy of a recurrent neural network and both it's forward and backward transformations. Accompanied with code, mathematical explanation, and visuals, I go into detail about the popular transformations and focus heavily on the intuition behind some operations.`,
+         }
+      ]
+   },
+
    data() {
       return {
          latex: latex

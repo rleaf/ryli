@@ -17,6 +17,28 @@ export default {
       PrismEditor,
       'vm': VueMathjax
    },
+
+   head: {
+      meta: [
+         {
+            name: 'author',
+            content: 'Ryan Lin'
+         },
+         {
+            name: 'description',
+            content: `I explain 3.5 different procedures, along with my own experiences, on learning how to derive the quadratic form x^tAx.`,
+         },
+         {
+            name: 'keywords',
+            content: 'math, derivative, differentiation, quadratic form, linear algebra, calculus, vector calculus, matrix calculus, jacobian, frechet derivative, chain rule, total derivative, pain'
+         },
+         {
+            property: 'og:description',
+            content: `I explain 3.5 different procedures, along with my own experiences, on learning how to derive the quadratic form x^tAx.`,
+         }
+      ]
+   },
+   
    data() {
       return {
          latex: latex

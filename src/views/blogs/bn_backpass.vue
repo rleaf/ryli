@@ -17,6 +17,26 @@ export default {
       PrismEditor,
       'vm': VueMathjax
    },
+   head: {
+      meta: [
+         {
+            name: 'author',
+            content: 'Ryan Lin'
+         },
+         {
+            name: 'description',
+            content: `An explanation on providing faster means to derive the gradient of the batch normalization process. A step by step walkthrough through all of the needed math with some code.`
+         },
+         {
+            name: 'keywords',
+            content: 'batch normalization, derivative, gradient, shortcut, neural networks, machine learning, artificial intelligence, ai, ml, backpropagation, backwards pass, regularization, optimization'
+         },
+         {
+            property: 'og:description',
+            content: `An explanation on providing faster means to derive the gradient of the batch normalization process. A step by step walkthrough through all of the needed math with some code.`
+         }
+      ]
+   },
    data() {
       return {
          latex: latex

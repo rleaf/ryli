@@ -17,6 +17,26 @@ export default {
       PrismEditor,
       'vm': VueMathjax
    },
+   head: {
+      meta: [
+         {
+            name: 'author',
+            content: 'Ryan Lin'
+         },
+         {
+            name: 'description',
+            content: `A discussion about both the forward and backward pass of a convolutional neural network. Accompanied with code, mathematical explanation, and visuals, I go into detail about the popular transformations.`,
+         },
+         {
+            name: 'keywords',
+            content: 'convolutional neural networks, cnn, neural network, gradient, forward pass, backward pass, cnn transformations, computer vision'
+         },
+         {
+            property: 'og:description',
+            content: `A discussion about both the forward and backward pass of a convolutional neural network. Accompanied with code, mathematical explanation, and visuals, I go into detail about the popular transformations.`,
+         }
+      ]
+   },
    data() {
       return {
          latex: latex

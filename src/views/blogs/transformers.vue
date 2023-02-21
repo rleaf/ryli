@@ -17,6 +17,28 @@ export default {
       PrismEditor,
       'vm': VueMathjax
    },
+
+   head: {
+      meta: [
+         {
+            name: 'author',
+            content: 'Ryan Lin'
+         },
+         {
+            name: 'description',
+            content: `A thorough breakdown on the operations and overall construction of a Transformer neural network. I show code for each module of the Transformer while also explaining the purpose of each one.`,
+         },
+         {
+            name: 'keywords',
+            content: 'transformer, neural network, machine learning, attention, self attention, scaled dot product'
+         },
+         {
+            property: 'og:description',
+            content: `A thorough breakdown on the operations and overall construction of a Transformer neural network. I show code for each module of the Transformer while also explaining the purpose of each one.`,
+         }
+      ]
+   },
+
    data() {
       return {
          latex: latex

@@ -10,6 +10,28 @@ export default {
       ContentsUtility,
       'vm': VueMathjax
    },
+
+   head: {
+      meta: [
+         {
+            name: 'author',
+            content: 'Ryan Lin'
+         },
+         {
+            name: 'description',
+            content: `An explanation on entropy from a Machine Learning perspective. I incorporate philosophy drawn from Claude Shannon's "A Mathematical Theory of Communication" and provides examples, while walking through the math, of the different types of entropy.`,
+         },
+         {
+            name: 'keywords',
+            content: 'entropy in machine learning, entropy, machine learning, self information, cross entropy, cross entropy loss, joint entropy, conditional entropy, kullback leibler divergence, kl divergence, relative entropy'
+         },
+         {
+            property: 'og:description',
+            content: `An explanation on entropy from a Machine Learning perspective. I incorporate philosophy drawn from Claude Shannon's "A Mathematical Theory of Communication" and provides examples, while walking through the math, of the different types of entropy.`,
+         }
+      ]
+   },
+   
    data() {
       return {
          latex: latex

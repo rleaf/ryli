@@ -17,6 +17,27 @@ export default {
       PrismEditor,
       'vm': VueMathjax
    },
+   head: {
+      meta: [
+         {
+            name: 'author',
+            content: 'Ryan Lin'
+         },
+         {
+            name: 'description',
+            content: `A beginners introduction to Big "Oh" notation and time complexity. Understanding how asymptotic growth represents algorithm efficiency while providing examples in math, code, and *literally* plain english to aid intuition.`
+         },
+         {
+            name: 'keywords',
+            content: 'big oh, big o, big omega, big theta, algorithms, time complexity, asymptotic growth, functions, efficiency, code, dev, introductory, beginner'
+         },
+         {
+            property: 'og:description',
+            content: `A beginners introduction to Big "Oh" notation and time complexity. Understanding how asymptotic growth represents algorithm efficiency while providing examples in math, code, and *literally* plain english to aid intuition.`
+         },
+
+      ]
+   },
    data() {
       return {
          latex: latex
@@ -149,8 +170,6 @@ export default {
                      Let's use the simple quadratic function <vm :formula='`$f(n) = n^2+4n$`' /> as an example  for now. I will be using 3 examples for <vm :formula='`$g(n)$`' />
                      where <vm :formula='`$n = n, n = n^2, n = n^3$`' />. We can assert:
                   </p>
-                  <!-- <div class="math-b">
-                  </div> -->
                   <div class="n-container">
                      <p>
                         When <vm :formula='`$g(n) = n$`' />

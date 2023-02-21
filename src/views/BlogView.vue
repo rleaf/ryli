@@ -25,7 +25,13 @@ export default {
       gsap.from('.blog-head h2', {
          duration: 1,
          y: '200%',
-         delay: 0.25,
+         delay: 0.5,
+         ease: 'power2.inOut'
+      })
+      gsap.from('.blog-head p', {
+         duration: 1,
+         y: '200%',
+         delay: 0.5,
          ease: 'power2.inOut'
       })
 
@@ -62,10 +68,12 @@ export default {
          <div class="text-mask">
             <h2>A place for talking</h2>
          </div>
-         <p>
-            The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between.
-         </p>
-         <input type="text" v-model="search" placeholder="Search..." />
+         <div class="text-mask">
+            <p>
+               The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between.
+            </p>
+         </div>
+         <!-- <input type="text" v-model="search" placeholder="Search..." /> -->
       </div>
       <div class="blog-body">
          <div class="blog-post" v-for="blog in filteredBlogs" :key="blog.route">
@@ -149,7 +157,7 @@ export default {
       left: 8%;
    }
 
-   .blog-head > p {
+   .blog-head p {
       font-size: 1.15rem;
    }
 

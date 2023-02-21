@@ -10,6 +10,28 @@ export default {
       ContentsUtility,
       'vm': VueMathjax
    },
+   
+   head: {
+      meta: [
+         {
+            name: 'author',
+            content: 'Ryan Lin'
+         },
+         {
+            name: 'description',
+            content: 'An step by step on the KL divergence between two mv gaussian distributions.'
+         },
+         {
+            name: 'keywords',
+            content: 'kl divergence, multivariate gaussian, multivariate normal, distribution, entropy, information theory'
+         },
+         {
+            property: 'og:description',
+            content: 'An step by step on the KL divergence between two mv gaussian distributions.'
+         }
+      ]
+   },
+
    data() {
       return {
          latex: latex

@@ -17,6 +17,28 @@ export default {
       PrismEditor,
       'vm': VueMathjax
    },
+
+   head: {
+      meta: [
+         {
+            name: 'author',
+            content: 'Ryan Lin'
+         },
+         {
+            name: 'description',
+            content: `A beginners introduction to kNN classification by implementing it on the CIFAR-10 dataset. I thoroughly walk through each of the operations behind the entire kNN process with code, visuals, and math.`,
+         },
+         {
+            name: 'keywords',
+            content: 'knn, classification, k nearest neighbors, cifar 10, artificial intelligence, ai, machine learning, ml, introduction, beginners, python, cross validation'
+         },
+         {
+            property: 'og:description',
+            content: `A beginners introduction to kNN classification by implementing it on the CIFAR-10 dataset. I thoroughly walk through each of the operations behind the entire kNN process with code, visuals, and math.`,
+         }
+      ]
+   },
+
    data() {
       return {
          latex: latex

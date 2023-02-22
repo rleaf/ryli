@@ -29,6 +29,7 @@ export default {
             }
          }
       }
+
       this.filter = this.tags.slice()
    },
    
@@ -58,8 +59,6 @@ export default {
          opacity: 0,
          stagger: 0.1
       }, '<+0.3')
-      
-      
 
       setTimeout(() => {
          window.scrollTo(0, 0)
@@ -68,16 +67,8 @@ export default {
 
    methods: {
       filterClick(tag) {
-         const idx = this.filter.indexOf(tag)
-
-         if (idx > -1) {
-            this.filter.splice(idx, 1)
-         } else {
-            this.filter.push(tag)
-         }
-
-         console.log('filter', this.filter)
-         console.log('tags', this.tags)
+         const idx = this.filter.indexOf(tag)         
+         idx > -1 ? (this.filter.splice(idx, 1)) : (this.filter.push(tag))
       }
    },
 

@@ -8,6 +8,8 @@ export default {
       return {
          experience: new Experience(),
          search: '',
+         tags: [],
+         filter: null,
          blogs: blogs
       }
    },
@@ -15,6 +17,19 @@ export default {
    created() {
       this.sphere = this.experience.world.sphere
       this.scene = this.experience.scene
+
+      for (let i = 0; i < blogs.length; i++) {
+         const blog = blogs[i]
+
+         if (blog.tags) {
+            for (let j = 0; j < blog.tags.length; j++) {
+               const tag = blog.tags[j];
+
+               if (!this.tags.includes(tag)) this.tags.push(tag)
+            }
+         }
+      }
+      this.filter = this.tags.slice()
    },
    
    mounted() {
@@ -33,6 +48,9 @@ export default {
          yPercent: '200',
          delay: 0.5,
       })
+      .from('.blog-tags-filter', {
+         yPercent: '200'
+      }, '<+0.2')
       .from('.blog-head p', {
          yPercent: '200'
       }, '<+0.2')
@@ -40,17 +58,32 @@ export default {
          opacity: 0,
          stagger: 0.1
       }, '<+0.3')
+      
+      
 
       setTimeout(() => {
          window.scrollTo(0, 0)
       }, 10)
    },
 
+   methods: {
+      filterClick(tag) {
+         const idx = this.filter.indexOf(tag)
+
+         if (idx > -1) {
+            this.filter.splice(idx, 1)
+         } else {
+            this.filter.push(tag)
+         }
+
+         console.log('filter', this.filter)
+         console.log('tags', this.tags)
+      }
+   },
+
    computed: {
       filteredBlogs() {
-         return this.blogs.filter(post => {
-            return post.title.toLowerCase().includes(this.search.toLowerCase())
-         })
+         return this.blogs.filter(post => post.tags.some(r => this.filter.includes(r)))
       }
    },
 }
@@ -64,10 +97,17 @@ export default {
          </div>
          <div class="text-mask">
             <p>
-               The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between.
+               <!-- The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between. -->
+               It helps to understand material when I'm able to write about it. Below are topics I find interesting.
             </p>
          </div>
-         <!-- <input type="text" v-model="search" placeholder="Search..." /> -->
+         <div class="text-mask">
+            <div class="blog-tags-filter">
+               <button :class="{ true: this.filter.includes(tag) }" @click="filterClick(tag)" v-for="tag in this.tags.sort()" :key="tag" >
+                  {{ tag }}
+               </button>
+            </div>
+         </div>
       </div>
       <div class="blog-body">
          <div class="blog-post" v-for="blog in filteredBlogs" :key="blog.route">
@@ -78,6 +118,11 @@ export default {
             <p class="blog-description">
                {{ blog.summary }}
             </p>
+            <div class="blog-tags">
+               <span v-for="tag in blog.tags.sort()" :key="tag">
+                  {{ tag }}
+               </span>
+            </div>
          </div>
       </div>
    </div>
@@ -85,6 +130,45 @@ export default {
 
 <style scoped>
 
+   .blog-tags-filter {
+      display: flex;
+      width: 800px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 5rem;
+      border-top: 1px solid var(--light200);
+      padding: 1rem 0;
+   }
+
+   .blog-tags-filter button {
+      transition: 0.1s ease-in;
+      border: 1px solid var(--light700);
+      background: transparent;
+      font-family: var(--serifType);
+      color: var(--light700);
+      border-radius: 3px;
+      padding: 0.1rem 0.3rem;
+      font-size: 1.1rem;
+   }
+
+   button.true {
+      border-color: var(--light200);
+      color: var(--light200);
+   }
+
+   .blog-tags {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+   }
+   .blog-tags span {
+      border: 1px solid var(--light200);
+      border-radius: 3px;
+      padding: 0.1rem 0.3rem;
+      font-size: 0.95rem;
+   }
    .blog-main {
       padding-left: 8vw;
    }
@@ -105,7 +189,8 @@ export default {
 
    .blog-body {
       width: 800px;
-      padding-top: 10vh;
+      padding-top: 5vh;
+      padding-bottom: 10vh;
    }
 
    .blog-body a {

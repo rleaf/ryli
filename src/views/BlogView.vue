@@ -49,7 +49,7 @@ export default {
          yPercent: '200',
          delay: 0.5,
       })
-      .from('.blog-tags-filter', {
+      .from('.tags-wrapper', {
          yPercent: '200'
       }, '<+0.2')
       .from('.blog-head p', {
@@ -89,14 +89,19 @@ export default {
          <div class="text-mask">
             <p>
                <!-- The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between. -->
-               It helps to understand material when I'm able to write about it. Below are topics I find interesting.
+               It helps to understand material when I'm able to write about it.
             </p>
          </div>
          <div class="text-mask">
-            <div class="blog-tags-filter">
-               <button :class="{ true: this.filter.includes(tag) }" @click="filterClick(tag)" v-for="tag in this.tags.sort()" :key="tag" >
-                  {{ tag }}
-               </button>
+            <div class="tags-wrapper">
+               <p>
+                  Topics are organized by:
+               </p>
+               <div class="blog-tags-filter">
+                  <button :class="{ true: this.filter.includes(tag) }" @click="filterClick(tag)" v-for="tag in this.tags.sort()" :key="tag" >
+                     {{ tag }}
+                  </button>
+               </div>
             </div>
          </div>
       </div>
@@ -121,15 +126,18 @@ export default {
 
 <style scoped>
 
+   .tags-wrapper {
+      /* margin-top: 5rem; */
+      border-bottom: 1px solid var(--light200);
+      padding-bottom: 5vh;
+      width: 800px;
+
+   }
    .blog-tags-filter {
       display: flex;
-      width: 800px;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-top: 5rem;
-      border-top: 1px solid var(--light200);
-      padding: 1rem 0;
    }
 
    .blog-tags-filter button {
@@ -180,7 +188,7 @@ export default {
 
    .blog-body {
       width: 800px;
-      padding-top: 5vh;
+      padding-top: 2vh;
       padding-bottom: 10vh;
    }
 

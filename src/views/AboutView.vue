@@ -113,7 +113,7 @@ export default {
 				</div>
 				<div class="text-mask">
 					<p class="about-text">
-						This site serves as a place where I can showcase projects I have worked, discuss interesting topics, and stash recipes.
+						This site serves as a place where I can showcase projects I have worked on, discuss interesting topics, and stash recipes.
 					</p>
 				</div>
 			</div>

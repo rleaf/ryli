@@ -1,9 +1,28 @@
+import aramstatsPath from '../projects/threeTextures/steamTexture.webp'
 import steamPath from '../projects/threeTextures/steamTexture.webp'
 import oscillaPath from '../projects/threeTextures/oscillaTexture.png'
 import spotifyPath from '../projects/threeTextures/spotifyDeskTexture.webp'
 import signPath from '../projects/threeTextures/signTexture.webp'
 
 export default {
+   aramstats: {
+      title: 'Aram Stats',
+      timeline: ['2023', '3 months'],
+      genre: 'Web Development',
+      tech: ['MEVN Stack', 'AWS', 'Figma'],
+      body: 'Aramstats is a website that parses a players data to provide insightful statistics.',
+      cover: aramstatsPath,
+      uValley: {
+         r: 31/255,
+         g: 42/255,
+         b: 66/255,
+      },
+      uPeak: {
+         r: 255/255,
+         g: 255/255,
+         b: 255/255,
+      }
+   },
    steam: {
       title: 'Steam',
       timeline: ['2022', '2 months'],

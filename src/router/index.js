@@ -59,20 +59,28 @@ const router = createRouter({
       Project routes
     ****************************/
 
+   { 
+     path: '/projects/aramstats', 
+     name: 'aramstats',
+     component: () => import('../views/projects/AramStatsView.vue'),
+     meta: {
+       title: 'Aram Stats',
+     }
+   },
+   { 
+     path: '/projects/steam', 
+     name: 'steam',
+     component: () => import('../views/projects/SteamView.vue'),
+     meta: {
+       title: 'Steam Case Study',
+     }
+   },
     { 
       path: '/projects/spotify', 
       name: 'spotify',
       component: () => import('../views/projects/SpotifyView.vue'),
       meta: {
         title: 'Spotify Desktop',
-      }
-    },
-    { 
-      path: '/projects/steam', 
-      name: 'steam',
-      component: () => import('../views/projects/SteamView.vue'),
-      meta: {
-        title: 'Steam Case Study',
       }
     },
     { 

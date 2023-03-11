@@ -101,7 +101,9 @@ export default {
                   <li><a href="#development">Development</a></li>
                   <ul>
                      <li><a href="#frontend">The Front End</a></li>
+                     <li><a href="#backend">The Back End</a></li>
                   </ul>
+                  <li><a href="#conclusion">Conclusion</a></li>
                </ul>
             </nav>
          </div>
@@ -110,8 +112,8 @@ export default {
             <section id="introduction">
                <h2>Introduction</h2>
                <p>
-                  This project came to be because I wanted to learn more about backend technologies. There can be a lot of different moving parts in building a website and, in the case for
-                  Aramstats, familiarizing myself further with third party APIs, databases, and backend frameworks was the primary motivation. Typically my project writeups
+                  This project came to be because I wanted to learn more about back-end technologies. There can be a lot of different moving parts in building a website and, in the case for
+                  Aramstats, familiarizing myself further with third party APIs, databases, and back-end frameworks was the primary motivation. Typically my project writeups
                   are designed to be "presentation oriented", with the intentions of showcasing my work. This writeup will be a little different because
                   a lot of what this project is about is what I've learned coding-wise.
                   I do discuss 
@@ -252,24 +254,63 @@ export default {
             <section id="development">
                <h2>Development</h2>
                <p>
-                  Aramstats is built atop a MEVN (MongoDB, Express.js, Vue.js, Node.js) stack. The site is hosted on an AWS t2 micro instance. A GitHub repository is
+                  Aramstats is built atop a MEVN (MongoDB, Express.js, Vue.js, Node.js) stack and is hosted on an AWS t2 micro instance. A GitHub repository is
                   available to look through in a link to the left. Writing-wise, this section serves mainly as a critique into the decision making in coding Aramstats.
                </p>
 
                <section id="frontend">
                   <h3>The Front End</h3>
                   <p>
-                     I think Aramstats is the first time I've used Vite.js (Vue 3). Still using Vue's Options API over the newer Composition API, developing the front-end
-                     is a lot of fun. I did get stuck however when trying to decide how the front-end would handle a response from the back-end. At first, I intended to have three
-                     different routes the website would navigate to depending on the response from the back-end: a successful response that would take you to a profile, a 
-                     loading response to show to the user while a profile is being parsed, and a "Does Not Exist" response for when a user has entered an invalid name. Instead
-                     I decided it would be easier and cleaner to conditionally render each one of these routes as components on the same page.
+                     Navigationally, the front-end of the website is quite simple and stays in line with the lofi wireframe in <a href="#design">Design</a>.
+                     Additional components were needed to error handle 4xx and 5xx responses from the back-end, but majority of the work is in the 
+                     <a href="https://github.com/rleaf/aramstats/blob/main/src/components/User/UserReady.vue" target="_blank">User Ready Page</a> and its child components.
+                     When the back-end returns a successful response the User Ready Page is the main component that renders all the information and displays a profile overview providing
+                     information such as Summoner information, champion stats, challenges, data visualizations, and more. A lot of the information is modularized in the code to keep
+                     a tidy environment.
                   </p>
                   <p>
-                     ##########################
-                     Another library I wanted to learn was D3.js, which is used to produce different data visualizations. Currently the site uses a bar chart and a histogram
+                     D3.js was used to create the stacked bar plot and histogram and are <a href="https://github.com/rleaf/aramstats/blob/main/src/components/StackedBarplot.vue" target="_blank">here</a>
+                     and <a href="https://github.com/rleaf/aramstats/blob/main/src/components/Histogram.vue" target="_blank">here</a> respectively. The bar plot shows a player's preference towards the type of
+                     champions they play and the histogram displays a distribution for stats such as "damage per minute" for any subset of champions they have played.
                   </p>
                </section>
+
+               <section id="backend">
+                  <h3>The Back End</h3>
+                  <p>
+                     Along with Express.js to create the back-end API, a forked version of the <a href="https://github.com/rleaf/twisted" target="_blank">Twisted</a> LoL wrapper was used to pull data from the
+                     Riot API (as of time of writing, the main branch doesn't support some of the endpoints I use, specifically <a href="https://developer.riotgames.com/apis#lol-challenges-v1" target="_blank">challenges</a>).
+                     The flow of the back-end is illustrated in the <a href="#userflow">user flow</a>, however for more detail the back-end currently operates broadly as such:
+                     <ul class="numbers-list">
+                        <li>A get request is received from the front-end.</li>
+                        <li>Check to see if the summoner exists in Riot API.</li>
+                        <i style="line-height: 2rem;">If summoner exists:</i>
+                        <li>Pull all ARAM match ids and create a new collection for that summoner in MongoDB.</li>
+                        <li>Iterate and parse over the match list. All relevant data Aramstats uses are written to corresponding documents within the summoner collection.</li>
+                        <li>Compute the average stats from the previous step.</li>
+                        <li>Send response.</li>
+                     </ul>
+                  </p>
+                  <p>
+                     Updating a Summoner profile interacts with the database similarly. The main difference is that instead of going through an initial parse through the entire match list
+                     a "last match id" entry, from the previous update, is used as a beginning index to parse only the subsequent matches since the last update.
+                  </p>
+                  <p>
+                     Deciding how to structure the data inside the database was the largest thought. Currently, in each Summoner collection, there are N+1 documents, where N is
+                     the total champions played in a player's match history and the remaining +1 is a document to store Summoner information.
+                     <a href="http://aramstats.lol/api/summoners/na/night%20owl" target="_blank">Here's</a> an example of what my Summoner collection looks like in the database.
+                     You'll notice the first object in the array is the +1 extra document I was referring to and all remaining are objects particular to a champion. As I 
+                     thought of new stats to display in the front-end, the back-end went through several iterations to write/update the appropiate information.
+                  </p>
+               </section>
+            </section>
+
+            <section id="conclusion">
+               <h2>Conclusion</h2>
+               <p>
+                  Like I stated in the <a href="#introduction">Introduction</a>, this project was all about learning more about back-end development. Even on the first iteration
+                  of this site, where there was minimal functionality in the front-end, Aramstats was already a success. 
+               </p>
             </section>
          </div>
       </div>

@@ -13,7 +13,7 @@ export default {
    components: {
       BackdropFade,
       ToTop,
-      Flicking
+      Flicking,
    },
 
    data() {
@@ -27,6 +27,7 @@ export default {
          },
          arr0: [new Arrow()],
          arr1: [new Arrow()],
+         arr2: [new Arrow()],
       }
    },
 
@@ -114,7 +115,7 @@ export default {
                <p>
                   This project came to be because I wanted to learn more about back-end technologies. There can be a lot of different moving parts in building a website and, in the case for
                   Aramstats, familiarizing myself further with third party APIs, databases, and back-end frameworks was the primary motivation. Typically my project writeups
-                  are designed to be "presentation oriented", with the intentions of showcasing my work. This writeup will be a little different because
+                  are designed to be "presentation oriented" with the intentions of showcasing my work. This writeup will be a little different because
                   a lot of what this project is about is what I've learned coding-wise.
                   I do discuss 
                   some of the other moving parts such as UI & UX in the <a href="#design">Design</a> section.
@@ -122,8 +123,8 @@ export default {
                <p>
                   <i>All Random All Mid</i>, or ARAM, is a popular gamemode in <a href="https://www.leagueoflegends.com/en-us/" target="_blank">League of Legends</a>. At a top level, ARAM consists of 10 players in a
                   5v5 format. Each player is randomly selected a champion to play as where each champion has unique abilities and interactions. Winning is secured by destroying the base of the opposing team. Five members
-                  on a team have to work together with their selected champion to outperform and defeat the opposing team. Similarly to chess, on how you could evaluate a players performance based off how many pieces they
-                  capture, you can evaluate a players performance in a game of ARAM based off various statistics. The goal of Aramstats
+                  on a team have to work together with their selected champion to outperform and defeat the opposing team. Similarly to chess, on how you could evaluate a player's performance based off how many pieces they
+                  capture, you can evaluate a player's performance in a game of ARAM based off various statistics such as kills, deaths, assists, damage done etc... The goal of Aramstats
                   is to parse all available ARAM games in the Riot API of a player and return insightful statistics.
                </p>
             </section>
@@ -131,10 +132,10 @@ export default {
             <section id="design">
                <h2>Design</h2>
                <p>
-                  Probably similar to many other web developers and their own process, my project did not initially start in the UX / UI pipeline with
+                  Tragically similar to many other web developers and their own process, my project did not initially start in the UX / UI pipeline with
                   prototypes, wireframes, and mockups. Instead I jumped straight into coding the front and back-end before finally thinking
-                  <i>"Hm. Maybe I should have done some prototypes"</i>. I don't regret the process however because I wanted to get to creating the back-end API as soon as possible,
-                  but, in retrospect, I would have saved a couple of hours of frustration and thinking if I worked more with design tools such as Figma or Illustrator instead of doing everything
+                  <i>"Hm! Maybe I should have done some prototypes!"</i> I don't regret the process because I wanted to get to creating the back-end API as soon as possible,
+                  but, in retrospect, I would have saved a couple of hours of frustration and thinking if I worked more with design tools such as Figma or Illustrator in the beginning instead of doing everything
                   immediately in HTML and CSS.
                </p>
                <p>
@@ -145,7 +146,7 @@ export default {
                   <h3>Early Ideation</h3>
                   <p>
                      Fundamentally, the site layout is very simple and only constituted two main pages: a landing page and a profile (or "Main" as referenced below in the picture) page.
-                     The landing page, as show below on the first slide, composed of a couple elements with the most important being the search bar to lookup a players profile.
+                     The landing page, shown below on the first slide, is composed of a couple elements with the most important being the search bar to lookup a players profile.
                      Upon entering a valid username, the back-end would get to work with pulling the appropiate data from the third party API and then, once finished, would
                      send a response to render the information on the profile page.
                   </p>
@@ -181,7 +182,7 @@ export default {
                         <li>
                            The <span style="background-color: #aafdfc;">player-based information</span>, mentioned above, was further organized into panels that a user could click 
                            through to access specific information. The "Overview" panel displays the aforementioned holistic information about a Summoner while
-                           the "Compare" panel displays tiles that provided further insight and data visualization for Champion specific performances.
+                           the "Compare" panel displays tiles that provided further insight and data visualization for champion specific performances.
                         </li>
                         <li>
                            Each <span style="background-color: #f3d09f;">champion row</span> is composed of the average stats a player has for that champion. In it, a player can see
@@ -189,7 +190,7 @@ export default {
                         </li>
                         <li>
                            Clicking on a specific <span style="background-color: #f3d09f;">champion row</span> in "champion-based information" expanded a total match history of that particular champion.
-                           This is shown either in the Figma file or on the third slide below. Each match row listed the stats a player had from a particular game, the items purchased,
+                           This is shown both in the Figma file and on the third slide below. Each match row listed the stats a player had from a particular game, the items purchased,
                            and the date that game was played.
                         </li>
                      </ul>
@@ -263,31 +264,56 @@ export default {
                   <p>
                      Navigationally, the front-end of the website is quite simple and stays in line with the lofi wireframe in <a href="#design">Design</a>.
                      Additional components were needed to error handle 4xx and 5xx responses from the back-end, but majority of the work is in the 
-                     <a href="https://github.com/rleaf/aramstats/blob/main/src/components/User/UserReady.vue" target="_blank">User Ready Page</a> and its child components.
+                     <a href="https://github.com/rleaf/aramstats/blob/main/src/components/User/UserReady.vue" target="_blank">User Ready Page</a> and the components it uses.
                      When the back-end returns a successful response the User Ready Page is the main component that renders all the information and displays a profile overview providing
-                     information such as Summoner information, champion stats, challenges, data visualizations, and more. A lot of the information is modularized in the code to keep
-                     a tidy environment.
+                     information such as Summoner information, champion stats, challenges, data visualizations, and more. A lot of the code is modularized into their own
+                     components to keep a tidy environment.
                   </p>
                   <p>
                      D3.js was used to create the stacked bar plot and histogram and are <a href="https://github.com/rleaf/aramstats/blob/main/src/components/StackedBarplot.vue" target="_blank">here</a>
-                     and <a href="https://github.com/rleaf/aramstats/blob/main/src/components/Histogram.vue" target="_blank">here</a> respectively. The bar plot shows a player's preference towards the type of
+                     and <a href="https://github.com/rleaf/aramstats/blob/main/src/components/Histogram.vue" target="_blank">here</a> respectively on GitHub. The bar plot shows a player's preference towards the type of
                      champions they play and the histogram displays a distribution for stats such as "damage per minute" for any subset of champions they have played.
                   </p>
+                  <Flicking class="carousel" :options="{ circular: true }" :plugins="arr2">
+                     <div class="panel">
+                        <video autoplay loop muted class="carousel-video"  src="../../assets/projects/aramstats/front-end0.webm" />
+                        <span style="font-weight: bold; font-size: 0.9rem;">(1/2) Overview Panel Interactivity</span>
+                        <p>
+                           You can mouse-over the stacked bar plot to see a more descriptive breakdown of the subclasses and their popularity. A
+                           <a href="https://github.com/rleaf/aramstats/blob/main/src/assets/aram_champ_classes.js" target="_blank">table</a> referencing
+                           all champion sub-classes is available in the top right to see champion subclasses.
+                        </p>
+                     </div>
+                     <div class="panel">
+                        <video autoplay loop muted class="carousel-video" style="width: 100%;" src="../../assets/projects/aramstats/front-end1.webm" />
+                        <span style="font-weight: bold; font-size: 0.9rem;">(2/2) Champion Panel Interactivity</span>
+                        <p>
+                           Entering any champion name on the left returns a: mythic winrate, keystone winrate, and currently a DPM histogram in the middle. On the right you can
+                           enter any subset of champions and compare the data visually to the entry on the left. The purpose of this comparison was to allow a user to see how well
+                           they perform on a particular champion of a class by comparing that champion to the entire class.
+                        </p>
+                     </div>
+                     <template #viewport>
+                        <span class="flicking-arrow-prev"></span>
+                        <span class="flicking-arrow-next"></span>
+                     </template>
+                  </Flicking>
                </section>
 
                <section id="backend">
                   <h3>The Back End</h3>
                   <p>
                      Along with Express.js to create the back-end API, a forked version of the <a href="https://github.com/rleaf/twisted" target="_blank">Twisted</a> LoL wrapper was used to pull data from the
-                     Riot API (as of time of writing, the main branch doesn't support some of the endpoints I use, specifically <a href="https://developer.riotgames.com/apis#lol-challenges-v1" target="_blank">challenges</a>).
+                     Riot API (as of time of writing, the main branch doesn't support some of the endpoints I use - specifically <a href="https://developer.riotgames.com/apis#lol-challenges-v1" target="_blank">challenges</a>).
                      The flow of the back-end is illustrated in the <a href="#userflow">user flow</a>, however for more detail the back-end currently operates broadly as such:
                      <ul class="numbers-list">
                         <li>A get request is received from the front-end.</li>
                         <li>Check to see if the summoner exists in Riot API.</li>
                         <i style="line-height: 2rem;">If summoner exists:</i>
                         <li>Pull all ARAM match ids and create a new collection for that summoner in MongoDB.</li>
-                        <li>Iterate and parse over the match list. All relevant data Aramstats uses are written to corresponding documents within the summoner collection.</li>
-                        <li>Compute the average stats from the previous step.</li>
+                        <li>Iterate and parse over each match of the match id list. All relevant data Aramstats uses are written to corresponding documents within the summoner collection.</li>
+                        <li>Compute the average stats from the previous step for each champion.</li>
+                        <li>Pull challenge information from Riot API and write it to database.</li>
                         <li>Send response.</li>
                      </ul>
                   </p>
@@ -296,11 +322,10 @@ export default {
                      a "last match id" entry, from the previous update, is used as a beginning index to parse only the subsequent matches since the last update.
                   </p>
                   <p>
-                     Deciding how to structure the data inside the database was the largest thought. Currently, in each Summoner collection, there are N+1 documents, where N is
+                     Deciding how to structure the data inside the database was the largest thought. There are currently N+1 documents in each Summoner collection where N is
                      the total champions played in a player's match history and the remaining +1 is a document to store Summoner information.
                      <a href="http://aramstats.lol/api/summoners/na/night%20owl" target="_blank">Here's</a> an example of what my Summoner collection looks like in the database.
-                     You'll notice the first object in the array is the +1 extra document I was referring to and all remaining are objects particular to a champion. As I 
-                     thought of new stats to display in the front-end, the back-end went through several iterations to write/update the appropiate information.
+                     You'll notice the first object in the array is the +1 extra document I was referring to and all remaining are objects are particular to a champion.
                   </p>
                </section>
             </section>
@@ -308,8 +333,12 @@ export default {
             <section id="conclusion">
                <h2>Conclusion</h2>
                <p>
-                  Like I stated in the <a href="#introduction">Introduction</a>, this project was all about learning more about back-end development. Even on the first iteration
-                  of this site, where there was minimal functionality in the front-end, Aramstats was already a success. 
+                  Aramstats is a continual work in progress. Like I stated in the <a href="#introduction">Introduction</a>, this project was all about learning more about back-end development so even on the
+                  first iteration of this site, where there was minimal functionality in the front-end, I was pretty happy with the result. I'm showcasing this project now because I think Aramstats is at a passable
+                  build point. If you're reading this noticeably into the future there may be a couple of visual or functional differences with what you see here and what exists currently on the site.
+               </p>
+               <p>
+                  Hosting is about $10/month for AWS and $2 for the first year on Namecheap.
                </p>
             </section>
          </div>

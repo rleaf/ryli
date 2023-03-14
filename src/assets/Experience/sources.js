@@ -1,4 +1,4 @@
-import aramstatsPath from '../projects/threeTextures/steamTexture.webp'
+import aramstatsPath from '../projects/threeTextures/aramstatsTexture.webp'
 import steamPath from '../projects/threeTextures/steamTexture.webp'
 import oscillaPath from '../projects/threeTextures/oscillaTexture.png'
 import spotifyPath from '../projects/threeTextures/spotifyDeskTexture.webp'
@@ -9,7 +9,7 @@ export default {
       title: 'Aram Stats',
       timeline: ['2023', '3 months'],
       genre: 'Web Development',
-      tech: ['MEVN Stack', 'AWS', 'Figma'],
+      tech: ['MEVN Stack', 'D3.js', 'AWS', 'Figma'],
       body: 'Aramstats is a website that parses a players data to provide insightful statistics.',
       cover: aramstatsPath,
       uValley: {

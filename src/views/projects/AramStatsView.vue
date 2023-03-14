@@ -82,11 +82,11 @@ export default {
                </div>
                <div>
                   <div class="meta-header">Links</div>
-                  <a href="https://github.com/rleaf/aramstats" target="_blank">GitHub Repository</a>
+                  <a href="http://aramstats.lol/" target="_blank">Website</a>
+                  <br>
+                  <a href="https://github.com/rleaf/aramstats" target="_blank">GitHub Repo</a>
                   <br>
                   <a href="https://www.figma.com/file/pKzDOt9SRG9xx6W74YmBMD/aramstats?node-id=0%3A1&t=uAMzCzuDjY9yoY3A-1/" target="_blank">Figma</a>
-                  <br>
-                  <a href="http://aramstats.lol/" target="_blank">Website</a>
                </div>
             </div>
             <ToTop />
@@ -115,7 +115,7 @@ export default {
                <p>
                   This project came to be because I wanted to learn more about back-end technologies. There can be a lot of different moving parts in building a website and, in the case for
                   Aramstats, familiarizing myself further with third party APIs, databases, and back-end frameworks was the primary motivation. Typically my project writeups
-                  are designed to be "presentation oriented" with the intentions of showcasing my work. This writeup will be a little different because
+                  are designed to be "presentation oriented" with the intentions of showcasing my work, however this writeup will be a little different because
                   a lot of what this project is about is what I've learned coding-wise.
                   I do discuss 
                   some of the other moving parts such as UI & UX in the <a href="#design">Design</a> section.
@@ -140,12 +140,12 @@ export default {
                </p>
                <p>
                   The design assets in this section, specifically <a href="#earlyideation">Early Ideation</a>, are examples of me taking a step back to ensure a palettable
-                  user interface. Clicking through the Figma file, available on the left, is encouraged.
+                  user interface. Clicking through the Figma file, available through the link on the left, is encouraged.
                </p>
                <section id="earlyideation">
                   <h3>Early Ideation</h3>
                   <p>
-                     Fundamentally, the site layout is very simple and only constituted two main pages: a landing page and a profile (or "Main" as referenced below in the picture) page.
+                     Fundamentally the site layout is very simple and only constituted two main pages: a landing page and a profile (or "Main" as referenced below in the picture) page.
                      The landing page, shown below on the first slide, is composed of a couple elements with the most important being the search bar to lookup a players profile.
                      Upon entering a valid username, the back-end would get to work with pulling the appropiate data from the third party API and then, once finished, would
                      send a response to render the information on the profile page.
@@ -177,7 +177,7 @@ export default {
                      <ul>
                         <li>
                            The color palette was inspired from the "Howling Abyss", the location ARAM games are played. A moodboard is available in the
-                           Figma link to the left.
+                           Figma link.
                         </li>
                         <li>
                            The <span style="background-color: #aafdfc;">player-based information</span>, mentioned above, was further organized into panels that a user could click 
@@ -189,9 +189,9 @@ export default {
                            the average amount of damage they've done, win/loss ratio, and more.
                         </li>
                         <li>
-                           Clicking on a specific <span style="background-color: #f3d09f;">champion row</span> in "champion-based information" expanded a total match history of that particular champion.
-                           This is shown both in the Figma file and on the third slide below. Each match row listed the stats a player had from a particular game, the items purchased,
-                           and the date that game was played.
+                           Clicking on a specific <span style="background-color: #f3d09f;">champion row</span> in "champion-based information" expanded a total match history of that particular champion,
+                           shown in the third slide below. Each match row lists information such as the stats a player had from a particular game, the items purchased,
+                           the date that game was played, and whether they won or loss that game.
                         </li>
                      </ul>
                      
@@ -220,7 +220,7 @@ export default {
                <section id="userflow">
                   <h3>User Flow</h3>
                   <p>
-                     An enlarged user flow is available in the Figma file to look at. In it you can visually follow
+                     An enlarged user flow is available in the Figma link to look at. In it you can visually follow
                      and track the interactions available on the website.
                   </p>
                   <img class="max-image" src="../../assets/projects/aramstats/final3.webp">
@@ -229,15 +229,15 @@ export default {
                <section id="finaldesign">
                   <h3>Final Design</h3>
                   <p>
-                     A link to the website is available to the left to click through. Visually, the final design of the site is similar to the early concept, but a lot of more
-                     information is presented to the user.
+                     A link to the website is available to click through. Visually the final design of the site is similar to the early concept, but a lot of more
+                     information is presented to the user and some rough edges from the previous iteration have being sanded down.
                   </p>
                   <video autoplay loop muted src="../../assets/projects/aramstats/final0.webm" alt="" class="max-image"></video>
                   
                   <img class="image" src="../../assets/projects/aramstats/final1.webp">
                   <p>
                      More information, such as kill participation, damage share,
-                     and per-minute stats were added. The excess information required a
+                     and "per-minute" stats were added. The excess information required a
                      slight redesign of the information layout, which the process can be seen in the Figma project file.
                   </p>
                   <div class="side">
@@ -256,7 +256,7 @@ export default {
                <h2>Development</h2>
                <p>
                   Aramstats is built atop a MEVN (MongoDB, Express.js, Vue.js, Node.js) stack and is hosted on an AWS t2 micro instance. A GitHub repository is
-                  available to look through in a link to the left. Writing-wise, this section serves mainly as a critique into the decision making in coding Aramstats.
+                  available to look through in a link to the left. Hosting is about $10/month for AWS and $2 for the first year on Namecheap.
                </p>
 
                <section id="frontend">
@@ -304,7 +304,7 @@ export default {
                   <h3>The Back End</h3>
                   <p>
                      Along with Express.js to create the back-end API, a forked version of the <a href="https://github.com/rleaf/twisted" target="_blank">Twisted</a> LoL wrapper was used to pull data from the
-                     Riot API (as of time of writing, the main branch doesn't support some of the endpoints I use - specifically <a href="https://developer.riotgames.com/apis#lol-challenges-v1" target="_blank">challenges</a>).
+                     Riot API. As of time of writing the main branch doesn't support some of the endpoints I use, specifically <a href="https://developer.riotgames.com/apis#lol-challenges-v1" target="_blank">lol-challenges-v1</a>.
                      The flow of the back-end is illustrated in the <a href="#userflow">user flow</a>, however for more detail the back-end currently operates broadly as such:
                      <ul class="numbers-list">
                         <li>A get request is received from the front-end.</li>
@@ -318,14 +318,15 @@ export default {
                      </ul>
                   </p>
                   <p>
-                     Updating a Summoner profile interacts with the database similarly. The main difference is that instead of going through an initial parse through the entire match list
-                     a "last match id" entry, from the previous update, is used as a beginning index to parse only the subsequent matches since the last update.
+                     Updating a Summoner profile interacts with the database similarly. The main difference is that instead of going through an initial parse through the entire match list,
+                     a "last match id" entry from the previous update is used as a beginning index to parse only the subsequent matches since the last update.
                   </p>
                   <p>
                      Deciding how to structure the data inside the database was the largest thought. There are currently N+1 documents in each Summoner collection where N is
                      the total champions played in a player's match history and the remaining +1 is a document to store Summoner information.
                      <a href="http://aramstats.lol/api/summoners/na/night%20owl" target="_blank">Here's</a> an example of what my Summoner collection looks like in the database.
-                     You'll notice the first object in the array is the +1 extra document I was referring to and all remaining are objects are particular to a champion.
+                     You'll notice the first object in the array is the +1 extra document I was referring to and all remaining are objects are particular to a champion. Each champion document
+                     contains the matches where the user has played that champion.
                   </p>
                </section>
             </section>
@@ -333,12 +334,9 @@ export default {
             <section id="conclusion">
                <h2>Conclusion</h2>
                <p>
-                  Aramstats is a continual work in progress. Like I stated in the <a href="#introduction">Introduction</a>, this project was all about learning more about back-end development so even on the
-                  first iteration of this site, where there was minimal functionality in the front-end, I was pretty happy with the result. I'm showcasing this project now because I think Aramstats is at a passable
-                  build point. If you're reading this noticeably into the future there may be a couple of visual or functional differences with what you see here and what exists currently on the site.
-               </p>
-               <p>
-                  Hosting is about $10/month for AWS and $2 for the first year on Namecheap.
+                  Aramstats is a continual work in progress. Like I stated in the <a href="#introduction">Introduction</a> this project was all about learning more about back-end development, so even on the
+                  first iteration of this site when there was minimal functionality to the front-end, I was already happy with the result. The most challenging point in this project will probably always
+                  be the very beginning, when I began downloading all of the node modules, setting up the boilerplate, and learning about the various libraries and middleware used. 
                </p>
             </section>
          </div>

@@ -34,117 +34,42 @@ export default {
 
 <template>
 	<div class="about-main">
-		<div>
-			<div class="about-head">
-				<div class="fore">
-					<h1>About</h1>
-				</div>
-				<h1 class="back">About</h1>
+		<div class="about-head">
+			<div class="fore">
+				<h1>About</h1>
 			</div>
+			<h1 class="back">About</h1>
 		</div>
-		<div class="about-words">
-			<div class="about-tech">
-				<!-- Poking around in the DOM?
-					<div class="tech-container">
-					<h2>Design</h2>
-					<ul>
-						<li>Typography</li>
-						<li>Figma</li>
-						<li>InVision</li>
-						<li>UX/UI</li>
-						<ul>
-							<li>Research</li>
-							<li>Wireframing</li>
-							<li>Prototyping</li>
-						</ul>
-						<li>Adobe CC</li>
-						<ul>
-							<li>PhotoShop</li>
-							<li>Illustrator</li>
-							<li>After Efects</li>
-							<li>InDesign</li>
-						</ul>
-					</ul>
-				</div>
-				<div class="tech-container">
-					<h2>Development</h2>
-					<ul>
-						<li>HTML & CSS</li>
-						<li>Mongo DB</li>
-						<li>GLSL</li>
-						<li>AWS</li>
-						<li>Python</li>
-						<ul>
-							<li>PyTorch</li>
-							<li>Pandas</li>
-							<li>NumPy</li>
-							<li>Matplotlib</li>
-						</ul>
-						<li>JavaScript</li>
-						<ul>
-							<li>Vue.js</li>
-							<li>Express.js</li>
-							<li>Node.js</li>
-							<li>Three.js</li>
-							<li>D3.js</li>
-							<li>GSAP</li>
-						</ul>
-					</ul>
-				</div> -->
+		<div class="about-book">
+			<div class="text-mask">
+				<p class="about-text">
+					Hello. My name is Ryan Lin and I am currently based in the New York metropolitan area.
+				</p>
 			</div>
-			<div class="about-book">
-				<div class="text-mask">
-					<p class="about-text">
-						Hello. My name is Ryan Lin and I am currently based in the New York metropolitan area.
-					</p>
-				</div>
-				<div class="text-mask">
-					<p class="about-text">
-						I have have worked on projects involved in UX/UI design & research, full stack development, graphic design, illustration,
-						typography, creative web development, and machine learning. 
-					</p>
-				</div>
-				<div class="text-mask">
-					<p class="about-text">
-						In the remaining time when I'm on cooldown from learning any of the above I enjoy
-						<a href='https://www.youtube.com/channel/UCe8X-Ib4hEc7keoBQ7cMdmA' target='_blank'><u><i>lifting</i></u></a>,
-						<a href='https://www.instagram.com/rylikefood/' target='_blank'><u><i>cooking</i></u></a>, practicing guitar & uke, and playing video games.
-					</p>
-				</div>
-				<div class="text-mask">
-					<p class="about-text">
-						This site serves as a place where I can showcase projects I have worked on, discuss interesting topics, and stash recipes.
-					</p>
-				</div>
+			<div class="text-mask">
+				<p class="about-text">
+					I have have worked on projects involved in UX/UI design & research, full stack development, graphic design, illustration,
+					typography, creative web development, and machine learning. 
+				</p>
+			</div>
+			<div class="text-mask">
+				<p class="about-text">
+					In the remaining time when I'm on cooldown from any of the above I enjoy
+					<a href='https://www.youtube.com/channel/UCe8X-Ib4hEc7keoBQ7cMdmA' target='_blank'><u><i>lifting</i></u></a>,
+					<a href='https://www.instagram.com/rylikefood/' target='_blank'><u><i>cooking</i></u></a>, practicing guitar & uke, and playing video games.
+				</p>
+			</div>
+			<div class="text-mask">
+				<p class="about-text">
+					This site serves as a place where I can showcase projects I have worked on, discuss interesting topics, and stash recipes.
+				</p>
 			</div>
 		</div>
 	</div>
 </template>
 
 <style scoped>
-	.about-words {
-		display: flex;
-		padding-top: 20vh;
-	}
-	.about-tech {
-		display: flex;
-		padding-top: 20vh;
-		padding-left: 5rem;
-		width: 40%;
-		gap: 10px;
-	}
 
-	.tech-container {
-		width: 30%;
-	}
-
-	.tech-container ul {
-		font-family: var(--serifType);
-		list-style-type: none;
-	}
-	.tech-container li {
-		line-height: 1.5;
-	}
 	.about-text {
 		font-size: 1.75rem;
 	}
@@ -159,15 +84,18 @@ export default {
 	}
 	.about-book {	
 		width: 40%;
+		padding-top: 15vh;
 	}
 
 	.about-main {
-		padding-left: 8vw;
+		display: flex;
+		flex-direction: row;
 	}
 
 	.about-head {
-		position: absolute;
-		width: calc(100% - 15vw);
+		position: relative;
+		width: 50vw;
+		height: 200px;
 		top: 20vh;
 		left: 8%;
 	}

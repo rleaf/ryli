@@ -256,7 +256,7 @@ export default {
                <h2>Development</h2>
                <p>
                   Aramstats is built atop a MEVN (MongoDB, Express.js, Vue.js, Node.js) stack and is hosted on an AWS t2 micro instance. A GitHub repository is
-                  available to look through in a link to the left. Hosting is about $10/month for AWS and $2 for the first year on Namecheap.
+                  available to look through in a link to the left. Hosting is about $10/month for the EC2 and elastic IP and about $2 for the first year on Namecheap.
                </p>
 
                <section id="frontend">

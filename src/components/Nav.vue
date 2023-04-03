@@ -32,7 +32,7 @@ export default {
             duration: 1.5,
             y: '100%',
             ease: 'power4',
-            stagger: 0.1
+            stagger: 0.15
          })
 
          if (this.menu) {

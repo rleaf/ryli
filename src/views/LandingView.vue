@@ -1,5 +1,7 @@
 <script>
 import Experience from '../assets/Experience/Experience'
+import gsap from 'gsap'
+
 export default {
    data() {
       return {
@@ -12,6 +14,19 @@ export default {
       this.sphere = this.experience.world.sphere
       this.sphere.addScene()
       this.sphere.landingView()
+
+      const tl = gsap.timeline({
+         defaults: {
+            duration: 2,
+            delay: 0.5,
+            ease: 'power2.inOut',
+            opacity: 0
+         }
+      })
+
+      tl.from('.fore', {})
+         .from('.back', {}, 0)
+
    }
 }
 </script>
@@ -21,7 +36,7 @@ export default {
    <div class="landing-head">
       <div class="fore">
          <h1>Ryan Lin</h1>
-         <h2>Design & Development.</h2>
+         <h2>Design & Development</h2>
       </div>
       <h1 class="back">Ryan Lin</h1>
    </div>

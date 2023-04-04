@@ -79,7 +79,7 @@ export default {
 	}
 
 	a:hover {
-		transition: 2.25s; 
+		transition: .75s; 
 		background: var(--dark400);
 	}
 	.about-book {	

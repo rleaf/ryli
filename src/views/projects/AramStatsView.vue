@@ -113,8 +113,8 @@ export default {
             <section id="introduction">
                <h2>Introduction</h2>
                <p>
-                  This project came to be because I wanted to learn more about back-end technologies. There can be a lot of different moving parts in building a website and, in the case for
-                  Aramstats, familiarizing myself further with third party APIs, databases, and back-end frameworks was the primary motivation. Typically my project writeups
+                  This project came as ane excuse to delve into back-end technologies. There can be a lot of different moving parts in building a website and, in the case for
+                  Aramstats, bettering my understanding with third party APIs, databases, and back-end frameworks was the primary motivation. Typically my project writeups
                   are designed to be "presentation oriented" with the intentions of showcasing my work, however this writeup will be a little different because
                   a lot of what this project is about is what I've learned coding-wise.
                   I do discuss 
@@ -126,6 +126,10 @@ export default {
                   on a team have to work together with their selected champion to outperform and defeat the opposing team. Similarly to chess, on how you could evaluate a player's performance based off how many pieces they
                   capture, you can evaluate a player's performance in a game of ARAM based off various statistics such as kills, deaths, assists, damage done etc... The goal of Aramstats
                   is to parse all available ARAM games in the Riot API of a player and return insightful statistics.
+               </p>
+               <p>
+                  <a href="http://aramstats.lol/na/night%20owl" target="_blank">Here</a> is an example of my Aramstats profile. Alternatively you can search for it
+                  by clicking the website link to the left and searching "Night Owl" in North America.
                </p>
             </section>
             

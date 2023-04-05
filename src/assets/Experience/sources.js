@@ -26,7 +26,7 @@ export default {
    steam: {
       title: 'Steam',
       timeline: ['2022', '2 months'],
-      genre: 'UX/UI Case Study',
+      genre: 'UX/UI Design',
       tech: ['Adobe Illustrator', 'Figma'],
       body: 'A case study and redesign of the Steam desktop application.',
       cover: steamPath,

@@ -246,4 +246,43 @@ export default {
    .bottom {
       transform: translateY(-6px) rotate(-45deg);
    }
+
+   @media screen and (max-width: 890px) {
+      .routes {
+         flex-direction: column;
+      }
+
+      nav {
+         width: 100vw;
+         border: none;
+         margin-bottom: 1rem;
+      }
+
+      nav a {
+         line-height: 1.25;
+      }
+
+      ul {
+         padding-left: 0;
+      }
+
+      .nav-misc {
+         padding-top: 0;
+         padding-bottom: 0;
+         padding-left: 5rem;
+         gap: 30px;
+      }
+
+      .nav-misc ul {
+         margin: 0;
+         padding-left: 0;
+      }
+
+      .nav-misc h2 {
+         margin: 0.75rem;
+      }
+      .nav-misc a {
+         font-size: 1.5rem;
+      }
+   }
 </style>

@@ -50,4 +50,11 @@ export default {
       left: 15vw;
    }
    
+   @media screen and (max-width: 950px) {
+      .landing-head {
+         top: 20vh;
+         /* transform: translateX(-50%);
+         left: 50vw; */
+      }
+   }
 </style>

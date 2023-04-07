@@ -285,4 +285,33 @@ export default {
       height: calc(100vh - 8rem);
       overflow: hidden;
    }
+
+   @media screen and (max-width: 1100px) {
+      .projects-main {
+         width: 100vw;
+         align-items: center;
+         padding-left: 0;;
+      }
+      .projects-synopsis {
+         width: 50vw;
+      }
+
+      .projects-head {
+         text-align: center;
+         width: 100%;
+         text-shadow: #0f0f0f 0 0 25px;
+         padding-bottom: 5rem;
+      }
+
+      .projects-head > h1 {
+         font-size: 7rem;
+      }
+      .projects-synopsis {
+         transition: 0.5s;
+         align-items: center;
+         width: 80vw;
+         background: rgba(0, 0, 0, 0.4);
+      }
+
+   }
 </style>

@@ -99,4 +99,23 @@ export default {
 		top: 20vh;
 		left: 8%;
 	}
+
+	@media screen and (max-width: 1200px) {
+		.about-text {
+			font-size: 1.5rem;
+		}
+	}
+
+	@media screen and (max-width: 1100px) {
+		.about-main {
+			flex-direction: column;
+			align-content: center;
+		}
+
+		.about-book {
+			width: 80%;
+			padding-top: 20vh;
+			padding-left: 10vw;
+		}
+	}
 </style>

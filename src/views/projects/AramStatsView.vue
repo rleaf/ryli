@@ -113,7 +113,7 @@ export default {
             <section id="introduction">
                <h2>Introduction</h2>
                <p>
-                  This project came as ane excuse to delve into back-end technologies. There can be a lot of different moving parts in building a website and, in the case for
+                  This project came as an excuse to delve into back-end technologies. There can be a lot of different moving parts in building a website and, in the case for
                   Aramstats, bettering my understanding with third party APIs, databases, and back-end frameworks was the primary motivation. Typically my project writeups
                   are designed to be "presentation oriented" with the intentions of showcasing my work, however this writeup will be a little different because
                   a lot of what this project is about is what I've learned coding-wise.

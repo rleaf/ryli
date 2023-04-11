@@ -8,9 +8,9 @@
    padding-top: 7vh;
 }
 
-.side-media {
+/* .side-media {
    width: 70%;
-}
+} */
 
 .side-text {
    text-align: center;
@@ -298,6 +298,12 @@ p.sub-text {
       padding: 0 8vw;
    }
 
+   .image {
+      padding: 0;
+      padding-top: 1rem;
+      max-width: 100%;
+   }
+
    .sidebar-title {
       visibility: hidden;
    }
@@ -364,13 +370,13 @@ p.sub-text {
       flex-direction: column;
    }
 
-   .side-text {
+   /* .side-text {
       max-width: 100%;
-   }
+   } */
 
-   .side-media {
+   /* .side-media {
       width: 95%;
-   }
+   } */
 
    .util-wrapper {
       position: fixed;

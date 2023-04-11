@@ -350,5 +350,21 @@ export default {
 
 <style scoped>
    @import url(./util/projectsStyles.css);
+      .side-media {
+         max-width: 60%;
+      }
 
+      .side-text {
+         max-width: 30%;
+      }
+
+      @media screen and (max-width: 1200px) {
+      .side-media {
+         max-width: 90%;
+      }
+
+      .side-text {
+         max-width: 100%;
+      }
+   }
 </style>

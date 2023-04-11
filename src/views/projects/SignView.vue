@@ -174,4 +174,14 @@ export default {
 .side-text {
    max-width: 40%;
 }
+
+@media screen and (max-width: 1200px) {
+   .side-media {
+      max-width: 90%;
+   }
+
+   .side-text {
+      max-width: 100%;
+   }
+}
 </style>

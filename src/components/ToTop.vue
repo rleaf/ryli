@@ -55,6 +55,7 @@ export default {
    }
 
    button {
+      opacity: 0;
       font-family: var(--sansType);
       border: 1px solid var(--light500);
       border-radius: 2px;
@@ -86,5 +87,11 @@ export default {
       -webkit-mask-position: center;
       -webkit-mask-size: 85%;
       -webkit-mask-repeat: no-repeat;
+   }
+
+   @media screen and (max-width: 1200px) {
+      .util-wrapper button {
+         background-color: var(--light000);
+      }
    }
 </style>

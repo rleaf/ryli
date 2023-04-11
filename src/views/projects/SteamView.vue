@@ -464,7 +464,7 @@ export default {
                <section id="acloserlook">
                   <h3>A Closer Look</h3>
                   <div class="side">
-                     <img src="../../assets/projects/steam/status.webp" alt="" class="side-media" style="width: auto;">
+                     <img src="../../assets/projects/steam/status.webp" alt="" class="side-media">
                      <div class="side-text">
                         <h4>Changing Your Status</h4>
                         <p>
@@ -492,7 +492,7 @@ export default {
                            are in.
                         </p>
                      </div>
-                     <video autoplay loop muted src="../../assets/projects/steam/searchbar.webm" alt="" class="side-media" style="width: auto;"></video>
+                     <video autoplay loop muted src="../../assets/projects/steam/searchbar.webm" alt="" class="side-media"></video>
                   </div>
                </section>
             </section>

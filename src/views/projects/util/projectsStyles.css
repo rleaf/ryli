@@ -287,8 +287,19 @@ p.sub-text {
 }
 
 @media screen and (max-width: 1200px) {
+
+   h1 {
+      font-size: 7rem;
+      top: 30vh;
+   }
+
    .study-main {
       flex-direction: column;
+      padding: 0 8vw;
+   }
+
+   .sidebar-title {
+      visibility: hidden;
    }
 
    .sidebar {
@@ -300,4 +311,71 @@ p.sub-text {
    .meta div {
       flex: 1 1 auto;
    }
+
+   .study {
+      width: 100%;
+      padding-left: 0;
+   }
+
+   .carousel-image {
+      width: 95%;
+   }
+
+   .carousel-video {
+      width: 95%;
+   }
+
+   ul .carousel {
+      position: relative;
+      width: 85vw;
+      margin: 0 auto;
+      left: 50%;
+      transform: translateX(-50%);
+   }
+
+   section ul {
+      padding-left: 0;
+   }
+
+   nav {
+      padding-top: 10vh;
+   }
+
+   ul {
+      width: 245px;
+      margin: auto;
+   }
+
+   h2 {
+      font-size: 3rem;
+      padding-left: 0;
+   }
+
+   h3 {
+      font-size: 2rem;
+      padding-left: 0;
+   }
+
+   .panel > p {
+      width: 90%;
+   }
+
+   .side {
+      flex-direction: column;
+   }
+
+   .side-text {
+      max-width: 100%;
+   }
+
+   .side-media {
+      width: 95%;
+   }
+
+   .util-wrapper {
+      position: fixed;
+      bottom: 2vh;
+      margin: 0
+   }
+
 }

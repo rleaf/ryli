@@ -285,3 +285,19 @@ p.sub-text {
 .numbers-list {
    list-style-type: decimal;
 }
+
+@media screen and (max-width: 1200px) {
+   .study-main {
+      flex-direction: column;
+   }
+
+   .sidebar {
+      position: static;
+      width: 100%;
+      height: auto;
+   }
+
+   .meta div {
+      flex: 1 1 auto;
+   }
+}

@@ -286,7 +286,7 @@ export default {
       overflow: hidden;
    }
 
-   @media screen and (max-width: 1100px) {
+   @media screen and (max-width: 1200px) {
       .projects-main {
          width: 100vw;
          align-items: center;
@@ -310,7 +310,7 @@ export default {
          transition: 0.5s;
          align-items: center;
          width: 80vw;
-         background: rgba(0, 0, 0, 0.4);
+         background: rgba(0, 0, 0, 0.5);
       }
 
    }

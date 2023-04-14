@@ -96,13 +96,13 @@ h3 {
 
 
 .fore {
-	position: absolute;
+	position: relative;
 	z-index: -1;
 }
 
 .back {
-	position: absolute;
-	top: 0;
+	position: relative;
+	margin-top: -11rem;
 	color: var(--light200);
 	z-index: -75;
 }

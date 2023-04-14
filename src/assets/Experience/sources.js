@@ -10,7 +10,7 @@ export default {
       timeline: ['2023', '3 months'],
       genre: 'Web Development',
       tech: ['MEVN Stack', 'D3.js', 'AWS', 'Figma'],
-      body: `Aramstats is a website that parses a player's ARAM data to provide insightful statistics.`,
+      body: `Aramstats is a full-stack website that parses a player's data pertaining to the ARAM game mode in League of Legends to provide insightful statistics.`,
       cover: aramstatsPath,
       uValley: {
          r: 31/255,

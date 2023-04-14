@@ -17,11 +17,10 @@ export default {
 
       const tl = gsap.timeline({
          defaults: {
-            duration: 1.5,
+            duration: 2,
             delay: 0.2,
             ease: 'power2.inOut',
-            // opacity: 0,
-            y: '150%',
+            y: '100%',
          }
       })
 
@@ -29,8 +28,8 @@ export default {
          .from('.back', {}, 0)
 
       gsap.from('.landing-head h2', {
-         duration: 1.25,
-         delay: 1,
+         duration: 1,
+         delay: 1.5,
          opacity: 0,
          ease: 'power2.inOut',
          x: '5%'

@@ -57,10 +57,27 @@ export default {
       top: calc(50% - 20vmin / 2);
       left: 15vw;
    }
+
+   .fore, .back {
+      /* top: -20vh; */
+   }
    
    @media screen and (max-width: 950px) {
       .landing-head {
          top: 20vh;
+      }
+
+      h1 {
+         font-size: 6rem;
+      }
+
+      .back {
+         margin-top: -7.2rem;
+         height: 8rem;
+      }
+
+      .text-mask {
+         height: auto;
       }
    }
 </style>

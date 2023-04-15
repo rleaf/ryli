@@ -206,6 +206,10 @@ export default {
       z-index: 1;
    }
 
+   @media screen and (max-width: 950px) {
+      
+   }
+
    .bread {
       left: 50% - 13px;
       background: var(--light000);
@@ -247,7 +251,11 @@ export default {
       transform: translateY(-6px) rotate(-45deg);
    }
 
-   @media screen and (max-width: 890px) {
+   @media screen and (max-width: 950px) {
+
+      .burger {
+         left: calc(100vw - 20vw);
+      }
       .routes {
          flex-direction: column;
       }
@@ -256,21 +264,32 @@ export default {
          width: 100vw;
          border: none;
          margin-bottom: 1rem;
+         padding-left: 15vw;
       }
 
       nav a {
          line-height: 1.25;
+         font-size: 8vh;
       }
 
       ul {
          padding-left: 0;
       }
 
+      .nav-misc ul > div {
+         display: inline-block;
+      }
+
       .nav-misc {
          padding-top: 0;
          padding-bottom: 0;
-         padding-left: 5rem;
-         gap: 30px;
+         padding-left: 15vw;
+         /* padding-left: 5rem; */
+         /* gap: 10px; */
+      }
+
+      .contact {
+         font-size: 1.25rem;
       }
 
       .nav-misc ul {

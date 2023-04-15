@@ -35,9 +35,9 @@ export default {
 <template>
 	<div class="about-main">
 		<div class="about-head">
-			<div class="fore">
-				<h1>About</h1>
-			</div>
+			<!-- <div class="fore">
+			</div> -->
+			<h1 class="fore">About</h1>
 			<h1 class="back">About</h1>
 		</div>
 		<div class="about-book">
@@ -116,6 +116,16 @@ export default {
 			width: 80%;
 			padding-top: 20vh;
 			padding-left: 10vw;
+		}
+	}
+
+	@media screen and (max-width: 950px) {
+		h1 {
+			font-size: 6rem;
+		}
+
+		.back {
+			margin-top: -7.2rem;
 		}
 	}
 </style>

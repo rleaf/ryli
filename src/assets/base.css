@@ -54,12 +54,18 @@ body {
 	color: var(--light200);
 	min-height: 100vh;
 	background: var(--dark200);
-	transition: color 0.5s, background-color 0.5s;
+	transition: color 0.5s, background 0.5s;
 	font-family: var(--serifType);
 	font-size: var(--typeSize);
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (max-width: 950px) {
+	body {
+		min-height: 100%;
+	}
 }
 
 .bg-day {
@@ -94,14 +100,16 @@ h3 {
 	overflow: hidden;
 }
 
+.fore, .back {
+	position: relative;
+	/* width: 80vw; */
+}
 
 .fore {
-	position: relative;
 	z-index: -1;
 }
 
 .back {
-	position: relative;
 	margin-top: -11rem;
 	color: var(--light200);
 	z-index: -75;

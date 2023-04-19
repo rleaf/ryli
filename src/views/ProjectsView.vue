@@ -14,6 +14,8 @@ export default {
          track: null,
          intersectName: null,
          scrollSign: 0,
+         touchStart: 0,
+         touchEnd: 0,
       }
    },
 
@@ -83,6 +85,13 @@ export default {
 
       },
 
+      mobileScroll(ev) {
+         this.touchEnd = ev.changedTouches[0].clientY
+         const e = {}
+         this.touchEnd - this.touchStart > 0 ? (e.deltaY = -1) : (e.deltaY = 1)
+         this.setScrollEvent(e)
+      },
+
       setScrollEvent(e) {
          this.scrollSign = Math.sign(e.deltaY)
 
@@ -130,6 +139,12 @@ export default {
       window.addEventListener('mousemove', this.intersectEvent)
       window.addEventListener('wheel', this.setScrollEvent)
 
+      // mobile
+      window.addEventListener('touchstart', (e) => {
+         this.touchStart = e.changedTouches[0].clientY
+      })
+      window.addEventListener('touchend', this.mobileScroll)
+
       gsap.from('.projects-main', {
          duration: 1.0,
          opacity: 0,
@@ -145,6 +160,9 @@ export default {
       window.removeEventListener('click', this.routeEvent)
       window.removeEventListener('mousemove', this.intersectEvent)
       document.body.style.cursor = 'default'
+
+      // window.removeEventListener('touchstart')
+      window.removeEventListener('touchend', this.mobileScroll)
    },
 
    computed: {
@@ -292,19 +310,21 @@ export default {
          align-items: center;
          padding-left: 0;;
       }
-      .projects-synopsis {
-         width: 50vw;
-      }
 
+      .projects-meta {
+         flex-wrap: wrap;
+      }
       .projects-head {
          text-align: center;
          width: 100%;
          text-shadow: #0f0f0f 0 0 25px;
-         padding-bottom: 5rem;
+         /* padding-bottom: 5rem; */
       }
 
       .projects-head > h1 {
-         font-size: 7rem;
+         font-size: 5rem;
+         padding: 0 1rem;
+         padding-top: 7rem;
       }
       .projects-synopsis {
          transition: 0.5s;
@@ -312,6 +332,11 @@ export default {
          width: 80vw;
          background: rgba(0, 0, 0, 0.5);
       }
+   }
 
+   @media screen and (max-width: 900px) {
+      .projects-synopsis {
+         width: 100vw;
+      }
    }
 </style>

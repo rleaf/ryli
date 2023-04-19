@@ -58,9 +58,6 @@ export default {
       left: 15vw;
    }
 
-   .fore, .back {
-      /* top: -20vh; */
-   }
    
    @media screen and (max-width: 950px) {
       .landing-head {

@@ -263,8 +263,10 @@ export default {
       nav {
          width: 100vw;
          border: none;
-         margin-bottom: 1rem;
-         padding-left: 15vw;
+         /* margin-bottom: 0;
+         margin-top: 0;
+         padding-left: 0; */
+         /* overflow: clip; */
       }
 
       nav a {

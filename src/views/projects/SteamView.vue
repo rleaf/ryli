@@ -535,14 +535,14 @@ export default {
    @import url(./util/projectsStyles.css);
 
    .side-media {
-         max-width: 70%;
-      }
+      max-width: 70%;
+   }
 
-      .side-text {
-         max-width: 20%;
-      }
+   .side-text {
+      max-width: 20%;
+   }
 
-      @media screen and (max-width: 1200px) {
+   @media screen and (max-width: 1200px) {
       .side-media {
          max-width: 90%;
       }
@@ -550,5 +550,5 @@ export default {
       .side-text {
          max-width: 100%;
       }
-}
+   }
 </style>

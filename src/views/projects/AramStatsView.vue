@@ -95,8 +95,9 @@ export default {
                   <li><a href="#introduction">Introduction</a></li>
                   <li><a href="#design">Design</a></li>
                   <ul>
-                     <li><a href="#earlyideation">Early Ideation</a></li>
+                     <li><a href="#inspiration">Inspiration</a></li>
                      <li><a href="#userflow">User Flow</a></li>
+                     <li><a href="#earlyideation">Early Ideation</a></li>
                      <li><a href="#finaldesign">Final Design</a></li>
                   </ul>
                   <li><a href="#development">Development</a></li>
@@ -112,14 +113,14 @@ export default {
          <div class="study">
             <section id="introduction">
                <h2>Introduction</h2>
-               <p>
+               <!-- <p>
                   This project came as an excuse to delve into back-end technologies. There can be a lot of different moving parts in building a website and, in the case for
-                  Aramstats, bettering my understanding with third party APIs, databases, and back-end frameworks was the primary motivation. Typically my project writeups
+                  Aramstats, improving understanding with third party APIs, databases, and back-end frameworks was a primary motivation. Typically my project writeups
                   are designed to be "presentation oriented" with the intentions of showcasing my work, however this writeup will be a little different because
                   a lot of what this project is about is what I've learned coding-wise.
                   I do discuss 
                   some of the other moving parts such as UI & UX in the <a href="#design">Design</a> section.
-               </p>
+               </p> -->
                <p>
                   <i>All Random All Mid</i>, or ARAM, is a popular gamemode in <a href="https://www.leagueoflegends.com/en-us/" target="_blank">League of Legends</a>. At a top level, ARAM consists of 10 players in a
                   5v5 format. Each player is randomly selected a champion to play as where each champion has unique abilities and interactions. Winning is secured by destroying the base of the opposing team. Five members
@@ -136,16 +137,66 @@ export default {
             <section id="design">
                <h2>Design</h2>
                <p>
-                  Tragically similar to many other web developers and their own process, my project did not initially start in the UX / UI pipeline with
+                  The design pipeline can be broken down to several stages all discussed in their corresponding sections:
+                  <ul>
+                     <li>Stage 1: <a href="#inspiration">Inspiration</a></li>
+                     <li>Stage 2: <a href="#userflow">User Flow</a></li>
+                     <li>Stage 3: <a href="#earlyideation">Ideation</a></li>
+                     <li>Stage 4: <a href="#finaldesign">Final Design</a></li>
+                  </ul>
+               </p>
+               <!-- <p>
+                  Tragically similar to many other web developers and their own process, the project did not initially start in the UX / UI pipeline with
                   prototypes, wireframes, and mockups. Instead I jumped straight into coding the front and back-end before finally thinking
                   <i>"Hm! Maybe I should have done some prototypes!"</i> I don't regret the process because I wanted to get to creating the back-end API as soon as possible,
                   but, in retrospect, I would have saved a couple of hours of frustration and thinking if I worked more with design tools such as Figma or Illustrator in the beginning instead of doing everything
                   immediately in HTML and CSS.
-               </p>
+               </p> -->
                <p>
+                  Setting up some base scaffolding for the design of the website helped streamline the development of the website so I could spend less time tinkering
+                  with CSS and more time working on other components such as the backend.
+               </p>
+               <!-- <p>
                   The design assets in this section, specifically <a href="#earlyideation">Early Ideation</a>, are examples of me taking a step back to ensure a palettable
                   user interface. Clicking through the Figma file, available through the link on the left, is encouraged.
-               </p>
+               </p> -->
+
+               <section id="inspiration">
+                  <h3>Inspiration</h3>
+                  <p>
+                     Inspiration was dedicated to setting up an environment to get the design going and selecting an appropiate color palette. A simple moodboard was created using
+                     various artworks of the Howlying Abyss where some images were then pixelated to sample colors from.
+                  </p>
+                  <img class="image" src="../../assets/projects/aramstats/moodboard.webp" alt="">
+                  <p class="sub-text">
+                     Moodboard
+                  </p>
+
+                  <div class="side">
+                     <img class="side-media" src="../../assets/projects/aramstats/palette.webp" alt="">
+                     <div class="side-text">
+                        <p>
+                           Some of the palettes created from moodboard sampling. Different background colors were used too, available to see in the Figma file.
+                        </p>
+                     </div>
+                  </div>
+
+               </section>
+
+               <section id="userflow">
+                  <h3>User Flow</h3>
+                  <p>
+                     Although the user flow is catered to design, information flow between the frontend, backend, and Riot API is also illustrated to show how the site functions.
+                  </p>
+                  <img class="max-image" src="../../assets/projects/aramstats/final3.webp">
+                  <p class="sub-text">
+                     Enlarged user flow available to see in figma link.
+                  </p>
+                  <!-- <span style="font-size: 15px; font-style: italic; display: block; text-align: center;">*All illustrations here are available to see directly in the
+                     <a class="metaLinks2" href="https://www.figma.com/file/V7X0RJJZQ2zZwF4b4QCPB2/Steam?node-id=0%3A1&t=XgTeE8vkVg5GRuX7-1" target="_blank">FigJam</a> file.
+                  </span> -->
+               </section>
+
                <section id="earlyideation">
                   <h3>Early Ideation</h3>
                   <p>
@@ -157,7 +208,7 @@ export default {
                   <Flicking class="carousel" :options="{ circular: true }" :plugins="arr0">
                      <div class="panel">
                         <img class="carousel-image" src="../../assets/projects/aramstats/landingpage.webp">
-                        <span style="font-weight: bold; font-size: 0.9rem;">Landing page</span>
+                        <span style="font-weight: bold; font-size: 0.9rem;">(1/2) Landing page</span>
                         <p>
                            On landing, there would be three main elements: <span style="background-color: #b4f881;">a navigation</span>,
                            <span style="background-color: #f4c4fb;">a title</span>, and a <span style="background-color: #f5ea35;">a search bar</span>. 
@@ -165,7 +216,7 @@ export default {
                      </div>
                      <div class="panel">
                         <img class="carousel-image" src="../../assets/projects/aramstats/mainpage.webp">
-                        <span style="font-weight: bold; font-size: 0.9rem;">Profile page</span>
+                        <span style="font-weight: bold; font-size: 0.9rem;">(2/2) Profile page</span>
                         <p>
                            The main page that displays a players "Summoner" profile is broken into two main components: <span style="background-color: #aafdfc;">player-based information</span>,
                            and <span style="background-color: #f3d09f;">champion-based information</span>.
@@ -179,10 +230,6 @@ export default {
                   <p>
                      Below is an early concept that eventually made its way to being shipped. Some of the major additions to get to this point were:
                      <ul>
-                        <li>
-                           The color palette was inspired from the "Howling Abyss", the location ARAM games are played. A moodboard is available in the
-                           Figma link.
-                        </li>
                         <li>
                            The <span style="background-color: #aafdfc;">player-based information</span>, mentioned above, was further organized into panels that a user could click 
                            through to access specific information. The "Overview" panel displays the aforementioned holistic information about a Summoner while
@@ -220,30 +267,23 @@ export default {
                      </template>
                   </Flicking>
                </section>
-
-               <section id="userflow">
-                  <h3>User Flow</h3>
-                  <p>
-                     An enlarged user flow is available in the Figma link to look at. In it you can visually follow
-                     and track the interactions available on the website.
-                  </p>
-                  <img class="max-image" src="../../assets/projects/aramstats/final3.webp">
-               </section>
                
                <section id="finaldesign">
                   <h3>Final Design</h3>
                   <p>
                      A link to the website is available to click through. Visually the final design of the site is similar to the early concept, but a lot of more
-                     information is presented to the user and some rough edges from the previous iteration have being sanded down.
+                     information is presented to the user and some rough edges from the previous iteration have being sanded down. On page load the
+                     <span style="background-color: #aafdfc;">player-based information</span>, mentioned above, presents "life-time" stats of all data stored in the Riot API along with a
+                     stacked barplot that shows a distribution of a player's preference for the genre of champion they prefer playing. The barplot, along with other data visualizations on other panels
+                     are interactive and are shown in <a href="#frontend">The Front End</a> section.
                   </p>
-                  <video autoplay loop muted src="../../assets/projects/aramstats/final0.webm" alt="" class="max-image"></video>
+                  <video autoplay loop muted src="../../assets/projects/aramstats/final0.webm" alt="" class="max-image" style="padding-bottom: 3rem;"></video>
                   
-                  <img class="image" src="../../assets/projects/aramstats/final1.webp">
                   <p>
-                     More information, such as kill participation, damage share,
-                     and "per-minute" stats were added. The excess information required a
-                     slight redesign of the information layout, which the process can be seen in the Figma project file.
+                     More information, such as kill participation, damage share, and "per-minute" stats were added. The excess information required a slight redesign of the
+                     information layout from the initial concept, where the process can be seen in the Figma file.
                   </p>
+                  <img class="image" src="../../assets/projects/aramstats/final1.webp">
                   <div class="side">
                      <div class="side-text">
                         <h4>Sorting</h4>
@@ -350,15 +390,15 @@ export default {
 
 <style scoped>
    @import url(./util/projectsStyles.css);
-      .side-media {
-         max-width: 60%;
-      }
+   .side-media {
+      max-width: 70%;
+   }
 
-      .side-text {
-         max-width: 30%;
-      }
+   .side-text {
+      max-width: 20%;
+   }
 
-      @media screen and (max-width: 1200px) {
+   @media screen and (max-width: 1200px) {
       .side-media {
          max-width: 90%;
       }

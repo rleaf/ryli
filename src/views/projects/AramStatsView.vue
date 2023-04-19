@@ -378,12 +378,6 @@ export default {
             <section id="conclusion">
                <h2>Conclusion</h2>
                <p>
-                  <!-- This project came as an excuse to delve into back-end technologies. There can be a lot of different moving parts in building a website and, in the case for
-                     Aramstats, improving understanding with third party APIs, databases, and back-end frameworks was a primary motivation. Typically my project writeups
-                     are designed to be "presentation oriented" with the intentions of showcasing my work, however this writeup will be a little different because
-                     a lot of what this project is about is what I've learned coding-wise.
-                     I do discuss 
-                     some of the other moving parts such as UI & UX in the <a href="#design">Design</a> section. -->
                   Aramstats came as an excuse to delve into back-end technologies. There can be a lot of different moving parts in building a website and, in the case for
                   Aramstats, improving understanding with third party APIs, databases, and back-end frameworks was a primary motivation. While the site may undergo improvements every
                   now and then, it has been fully functional since its initial release and provided hundreds of users with insight to their playstyle.

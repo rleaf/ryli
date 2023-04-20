@@ -45,11 +45,6 @@ export default {
       util.contentObserver()
       util.titleTween()
 
-      this.$gtag.time({
-         'name': 'load',
-         'value': 3549,
-         'event_category': 'JS Dependencies'
-      })
    },
 
    beforeUnmount() {

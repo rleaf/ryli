@@ -23,9 +23,7 @@ export default {
             y: '100%',
          }
       })
-
-      this.$gtag.pageview(this.$route)
-
+      
       tl.from('.fore', {})
          .from('.back', {}, 0)
 

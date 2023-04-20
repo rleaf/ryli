@@ -89,7 +89,8 @@ export default {
          <div class="text-mask">
             <p>
                <!-- The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between. -->
-               It helps to understand material when I'm able to write about it.
+               It helps to understand material when I'm able to write about it. All math related topics, along with some ml topics, are intended be viewed on wide
+               screens due to how the math renders.
             </p>
          </div>
          <div class="text-mask">
@@ -239,6 +240,7 @@ export default {
       padding-top: 20vh;
       top: 20vh;
       left: 8%;
+      width: 80vw;
    }
 
    .blog-head p {
@@ -247,5 +249,38 @@ export default {
 
    .blog-text {
       font-size: 1.75rem;
+   }
+
+   @media screen and (max-width: 950px) {
+
+      .blog-main {
+         padding: 0 8vw;
+      }
+
+      nav {
+         margin: auto;
+      }
+      
+      .blog-head {
+         padding-top: 10vh;
+      }
+      
+      h2 {
+         padding-left: 0rem;
+         /* font-size: 5rem; */
+      }
+
+      .blog-body {
+         width: 100%;
+      }
+
+      .blog-post {
+         padding-top: 7vh;
+      }
+
+      .blog-date {
+         float: none;
+         padding-top: 0.5rem;
+      }
    }
 </style>

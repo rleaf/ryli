@@ -347,18 +347,18 @@ p.sub-text {
    }
 
    ul {
-      width: 245px;
+      width: max-content;
       margin: auto;
    }
 
    h2 {
-      font-size: 3rem;
+      font-size: 2rem;
       padding-left: 0;
    }
 
    h3 {
-      font-size: 2rem;
-      padding-left: 0;
+      font-size: 1.5rem;
+      padding-left: 1rem;
    }
 
    .panel > p {

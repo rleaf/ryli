@@ -1,5 +1,8 @@
 <script>
 import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
    data() {
@@ -11,7 +14,21 @@ export default {
    },
 
    mounted() {
-      window.addEventListener('scroll', this.scroll)
+      this.tl = gsap.timeline({
+         defaults: {
+            scrollTrigger: {
+               trigger: '.blog-landing',
+               scrub: true,
+               start: '80%',
+               end: '100%'
+            }
+         }
+      })
+
+      this.tl.to('.util-wrapper', {
+         opacity: 1
+      })
+
       this.body = document.querySelector('.blog-body')
 
       if (JSON.parse(localStorage.getItem('theme'))) {
@@ -31,7 +48,6 @@ export default {
    },
 
    unmounted() {
-      window.removeEventListener('scroll', this.scroll)
       document.body.classList.remove('bg-day')
       const navBurger = document.querySelectorAll('.bread')
       navBurger.forEach((node) => {
@@ -44,35 +60,6 @@ export default {
    },
 
    methods: {
-      scroll() {
-
-         this.tl = gsap.timeline({
-            defaults: {
-               duration: 0.25
-            }
-         })
-
-         if (window.scrollY > window.innerHeight) {
-            this.tl.to('.util-wrapper', {
-               duration: .25,
-               opacity: 1,
-            })
-            .to('.contents-head', {
-               duration: .25,
-               opacity: 1,
-            }, '<')
-         } else {
-            this.tl.to('.util-wrapper', {
-               duration: .25,
-               opacity: 0,
-            })
-            .to('.contents-head', {
-               duration: .25,
-               opacity: 0,
-            }, '<')
-         }
-      },
-
       scrollToTop() {
          window.scrollTo({
             top: 0,
@@ -179,6 +166,7 @@ export default {
       margin-top: 8px;
    }
    .util-wrapper {
+      opacity: 0;
       border-bottom: 1px solid var(--light500);
       padding-bottom: 1rem;
       margin-top: 2vh;
@@ -186,6 +174,7 @@ export default {
    }
 
    .util-wrapper button {
+      transition: 0.5s;
       font-family: var(--sansType);
       border: 1px solid var(--light500);
       border-radius: 2px;
@@ -217,5 +206,18 @@ export default {
       -webkit-mask-position: center;
       -webkit-mask-size: 85%;
       -webkit-mask-repeat: no-repeat;
+   }
+
+   @media screen and (max-width: 950px) {
+      .util-wrapper {
+         position: fixed;
+         bottom: 2vh;
+         margin: 0;
+         border: 0;
+      }
+
+      .util-wrapper button {
+         background-color: var(--button);
+      }
    }
 </style>

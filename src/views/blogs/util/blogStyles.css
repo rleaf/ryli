@@ -16,6 +16,7 @@
    --sidebarHeader: var(--light200);
    --sidebarButton: var(--light200);
    --themeSVG: url('../../../assets/svg/moon.svg');
+   --button: var(--dark200);
 }
 
 .blog-landing {
@@ -269,5 +270,69 @@ h4 {
    --tableBorder: var(--dark000);
    --sidebarHeader: var(--dark000);
    --sidebarButton: var(--dark000);
+   --button: var(--light000);
    --themeSVG: url('../../../assets/svg/sun.svg');
+}
+
+@media screen and (max-width: 950px) {
+
+   .blog-head {
+      top: 20vh;
+      width: 100vw;
+   }
+
+   nav ul {
+      width: max-content;
+      margin: auto;
+      /* margin-top: -20vh; */
+   }
+
+   nav ul li {
+      font-size: 1rem;
+   }
+
+   h1 {
+      font-size: 3.5rem;
+   }
+
+   h2 {
+      font-size: 2rem;
+      padding-left: 0;
+   }
+
+   h3 {
+      font-size: 1.5rem;
+      padding-left: 1rem;
+   }
+   .blog-main {
+      flex-direction: column;
+      padding: 0 8vw;
+   }
+
+   .sidebar {
+      width: 100%;
+      position: static;
+      height: auto;
+   }
+
+   .blog-body {
+      width: 100%;
+   }
+
+   .math {
+      width: 100%;
+      height: auto;
+      overflow-x: scroll;
+      padding: 1rem 0;
+   }
+
+   .blog-body ul {
+      padding: 0 1rem;
+   }
+
+   .codeblock {
+      max-width: 100%;
+      font-size: 13px;
+      padding: 20px 0;
+   }
 }

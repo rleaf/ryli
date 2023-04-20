@@ -28,6 +28,9 @@ export default {
       this.tl.to('.util-wrapper', {
          opacity: 1
       })
+      .to('.contents-head', {
+         opacity: 1
+      })
 
       this.body = document.querySelector('.blog-body')
 

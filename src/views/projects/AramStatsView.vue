@@ -44,6 +44,12 @@ export default {
 
       util.contentObserver()
       util.titleTween()
+
+      this.$gtag.time({
+         'name': 'load',
+         'value': 3549,
+         'event_category': 'JS Dependencies'
+      })
    },
 
    beforeUnmount() {
@@ -72,7 +78,9 @@ export default {
                </div>
                <div>
                   <div class="meta-header">genre</div>
-                  {{ source.genre }}
+                  <span v-for="(el, i) in source.genre" :key="i">
+                     {{ el }} <br>
+                  </span>
                </div>
                <div>
                   <div class="meta-header">technology</div>

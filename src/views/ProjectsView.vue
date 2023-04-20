@@ -137,7 +137,10 @@ export default {
 
       window.addEventListener('click', this.routeEvent)
       window.addEventListener('mousemove', this.intersectEvent)
-      window.addEventListener('wheel', this.setScrollEvent)
+
+      setTimeout(() => {
+         window.addEventListener('wheel', this.setScrollEvent)
+      }, 1500)
 
       // mobile
       window.addEventListener('touchstart', (e) => {
@@ -197,7 +200,11 @@ export default {
                </div>
                <div class="meta">
                   <div class="meta-header">Genre</div>
-                  {{ this.assets[this.trackIdx].genre }}
+                  <span v-for="(el, i) in this.assets[this.trackIdx].genre"
+                     :key="i">
+                        {{ el }}<br>
+                  </span>
+                  <!-- {{ this.assets[this.trackIdx].genre }} -->
                </div>
                <div class="meta">
                   <div class="meta-header">Technology</div>

@@ -7,8 +7,8 @@ import signPath from '../projects/threeTextures/signTexture.webp'
 export default {
    aramstats: {
       title: 'Aram Stats',
-      timeline: ['2023', '3 months'],
-      genre: 'Web Development',
+      timeline: ['2023', '4 months +'],
+      genre: ['Web Development', 'UX/UI Design'],
       tech: ['MEVN Stack', 'D3.js', 'AWS', 'Figma'],
       body: `Aramstats is a full-stack website that parses a player's data pertaining to the ARAM game mode in League of Legends to provide insightful statistics.`,
       cover: aramstatsPath,
@@ -26,7 +26,7 @@ export default {
    steam: {
       title: 'Steam',
       timeline: ['2022', '2 months'],
-      genre: 'UX/UI Design',
+      genre: ['UX/UI Design'],
       tech: ['Adobe Illustrator', 'Figma'],
       body: 'A case study and redesign of the Steam desktop application.',
       cover: steamPath,
@@ -44,7 +44,7 @@ export default {
    oscilla: {
       title: 'Oscilla',
       timeline: ['2022', '2 months'],
-      genre: 'Graphic Design, Typography',
+      genre: ['Graphic Design', 'Typography'],
       tech: ['Adobe Illustrator'],
       body: 'A display typeface that oscillates between thick strokes and thin serifs.',
       cover: oscillaPath,
@@ -62,7 +62,7 @@ export default {
    spotify: {
       title: 'Spotify',
       timeline: ['2022', '2 months'],
-      genre: 'UX/UI Design',
+      genre: ['UX/UI Design'],
       tech: ['Figma', 'Adobe Illustrator'],
       body: 'Simple designs added to Spotify Desktop to improve user experience.',
       cover: spotifyPath,
@@ -80,7 +80,7 @@ export default {
    sign: {
       title: 'Hand Gestures',
       timeline: ['2021', '5 months'],
-      genre: 'Illustration',
+      genre: ['Illustration'],
       tech: ['Adobe Illustrator', 'Adobe Photoshop'],
       body: 'The process of drawing over 50 hand gesture illustrations for a book in public speaking.',
       cover: signPath,

@@ -131,6 +131,7 @@ section ul li {
    font-family: var(--sansType);
    font-size: 1rem;
    line-height: 2.0;
+   /* width: 100%; */
 }
 
 h1 {
@@ -339,7 +340,7 @@ p.sub-text {
    }
 
    section ul {
-      padding-left: 0;
+      padding-left: 2rem;
    }
 
    nav {
@@ -347,7 +348,6 @@ p.sub-text {
    }
 
    ul {
-      width: max-content;
       margin: auto;
    }
 

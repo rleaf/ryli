@@ -15,24 +15,36 @@ export default {
       this.sphere.addScene()
       this.sphere.landingView()
 
+      const ran = 80
       const tl = gsap.timeline({
          defaults: {
-            duration: 2,
-            delay: 0.2,
-            ease: 'power2.inOut',
-            y: '100%',
+            duration: 3,
+            delay: 0.5,
+            ease: 'power3'
          }
       })
       
-      tl.from('.fore', {})
-         .from('.back', {}, 0)
+      tl.from('.l1 h1', {y: gsap.utils.random(-ran, ran)})
+        .from('.l2 h1', {y: gsap.utils.random(-ran, ran)}, 0)
+        .from('.l3 h1', {y: gsap.utils.random(-ran, ran)}, 0)
+        .from('.l4 h1', {y: gsap.utils.random(-ran, ran)}, 0)
+        .from('.l5 h1', {y: gsap.utils.random(-ran, ran)}, 0)
+        .from('.l6 h1', {y: gsap.utils.random(-ran, ran)}, 0)
+        .from('.l7 h1', {y: gsap.utils.random(-ran, ran)}, 0)
 
+      gsap.from('.l h1', {
+         duration: 3,
+         delay: .7,
+         opacity: 0,
+         ease: 'power1'
+      })
+         
       gsap.from('.landing-head h2', {
          duration: 1,
-         delay: 1.5,
+         delay: 2,
          opacity: 0,
          ease: 'power2.inOut',
-         x: '5%'
+         x: '7%'
       })
    }
 }
@@ -41,10 +53,38 @@ export default {
 <template>
    
    <div class="landing-head">
-      <div class="text-mask">
+      <!-- <div class="text-mask">
          <h1 class="fore">Ryan Lin</h1>
          <h1 class="back">Ryan Lin</h1>
-      </div>
+      </div> -->
+      <span class="l l1">
+         <h1 class="fore">R</h1>
+         <h1 class="back">R</h1>
+      </span>
+      <span class="l l2">
+         <h1 class="fore">y</h1>
+         <h1 class="back">y</h1>
+      </span>
+      <span class="l l3">
+         <h1 class="fore">a</h1>
+         <h1 class="back">a</h1>
+      </span>
+      <span class="l l4" style="margin-right: 30px;">
+         <h1 class="fore">n</h1>
+         <h1 class="back">n</h1>
+      </span>
+      <span class="l l5">
+         <h1 class="fore">L</h1>
+         <h1 class="back">L</h1>
+      </span>
+      <span class="l l6">
+         <h1 class="fore">i</h1>
+         <h1 class="back">i</h1>
+      </span>
+      <span class="l l7">
+         <h1 class="fore">n</h1>
+         <h1 class="back">n</h1>
+      </span>
       <h2>Design & Development</h2>
    </div>
 </template>
@@ -56,6 +96,10 @@ export default {
       /* width: calc(100% - 15vw); */
       top: calc(50% - 20vmin / 2);
       left: 15vw;
+   }
+
+   .l {
+      display: inline-block;
    }
 
    

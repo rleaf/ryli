@@ -65,9 +65,9 @@ export default class Box {
             uTime: { value: 0.0 },
             uOpacity: { value: 1.0 },
             uDistortionFrequency: { value: 1.3 },
-            uDistortionStrength: { value: 1.3 },
-            uDisplacementFrequency: { value: 0.65 },
-            uDisplacementStrength: { value: 0.25 },
+            uDistortionStrength: { value: 2.0 },
+            uDisplacementFrequency: { value: 0.25 },
+            uDisplacementStrength: { value: 0.65 },
          },
       })
 

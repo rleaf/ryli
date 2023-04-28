@@ -20,7 +20,6 @@ void main() {
     displacementPosition += perlin4d(vec4(displacementPosition * uDistortionFrequency, uTime * 0.003)) * uDistortionStrength;
 
     float perlinStrength = perlin4d(vec4(displacementPosition * uDistortionFrequency, uTime * 0.003)) * uDisplacementStrength;
-    // float perlinStrength = perlin4d(vec4(position *  uDistortionFrequency, uTime * 0.001))* uDisplacementStrength;
 
     vec3 newPosition = position;
     newPosition += normal * perlinStrength;
@@ -36,4 +35,5 @@ void main() {
     vPerlinStrength = perlinStrength;
     
     gl_Position = projectedPosition;
+    // gl_Position = vec4(position, 1.0) * modelMatrix * viewMatrix * projectionMatrix;
 }

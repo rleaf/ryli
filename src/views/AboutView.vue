@@ -48,7 +48,7 @@ export default {
 			</div>
 			<div class="text-mask">
 				<p class="about-text">
-					I have have worked on projects involved in UX/UI design & research, full stack development, graphic design, illustration,
+					I have worked on projects involved in UX/UI design & research, full stack development, graphic design, illustration,
 					typography, creative web development, and machine learning. 
 				</p>
 			</div>

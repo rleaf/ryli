@@ -165,7 +165,8 @@ h4 {
 
 .sidebar {
    position: sticky;
-   top: 1vh;
+   top: 10vh;
+   margin-top: 30vh;
    /* overflow-y: scroll; */
    height: 100vh;
    width: 15%;
@@ -173,7 +174,7 @@ h4 {
 }
 
 .study {
-   width: 80%;
+   width: inherit;
    max-width: 1100px;
    padding-left: 2vw;
    padding-top: 10vh;
@@ -224,10 +225,11 @@ p.sub-text {
 }
 
 .study-main {
+   display: flex;
+   justify-content: space-around;
    width: auto;
    color: var(--dark000);
    background: var(--light000);
-   display: flex;
    padding: 0 5rem;
 }
 
@@ -239,19 +241,28 @@ p.sub-text {
    transform: translateX(-100%);	
 }
 
+
 .project-landing {
    height: 100vh;
    width: 100%;
 }
 
-.background {
+.bg {
+   position: absolute;
+   z-index: -60;
+   top: 0;
+   width: 100%;
+   height: 100vh;
+}
+
+/* .background {
    position: absolute;
    background: var(--dark000);
    opacity: 0;
    top: 0;
    width: inherit;
    height: inherit;
-}
+} */
 
 .code {
    background: var(--codeBG);
@@ -312,6 +323,7 @@ p.sub-text {
       position: static;
       width: 100%;
       height: auto;
+      margin-top: 0;
    }
 
    .meta div {

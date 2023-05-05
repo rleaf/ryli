@@ -39,7 +39,7 @@ export default {
    mounted() {
       this.sphere.sphereSpin()
       this.backdrop.setBackdrop(this.assets)
-      this.backdrop.backdropTransition()
+      this.backdrop.backdropTransition(this.assets)
 
       util.contentObserver()
       util.titleTween()

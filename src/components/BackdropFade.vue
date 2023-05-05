@@ -36,7 +36,7 @@ export default {
    .background {
       position: absolute;
       background: var(--dark000);
-      opacity: 0.5;
+      opacity: 0;
       top: 0;
       width: inherit;
       height: inherit;

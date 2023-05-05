@@ -38,13 +38,14 @@ export default {
 
    watch: {
       trackIdx() {
-         this.setSphereColor()
+         this.setColors()
       },
    },
 
    methods: {
-      setSphereColor(rotate = true) {
+      setColors(rotate = true) {
          const asset = this.assets[this.trackIdx]
+         // this.experience.world.bg()
 
          const tl = gsap.timeline({
             defaults: {
@@ -133,7 +134,7 @@ export default {
       this.sphere.addScene()
       this.sphere.projectsView()
       this.plane.initProjectView()
-      this.setSphereColor(false)
+      this.setColors(false)
 
       window.addEventListener('click', this.routeEvent)
       window.addEventListener('mousemove', this.intersectEvent)

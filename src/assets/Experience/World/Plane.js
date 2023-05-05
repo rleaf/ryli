@@ -28,8 +28,8 @@ export default class Plane {
       }
 
       this.setGeometry()
-      this.batchSetMesh()
       this.setMouseEvent()
+      this.batchSetMesh()
 
       for (let i = 0; i < this.group.children.length; i++) {
          this.track.push(this.space * i)
@@ -41,6 +41,7 @@ export default class Plane {
    }
 
    initProjectView() {
+      
       this.group.position.set(0.55, 0, 1.25)
       this.scene.add(this.group)
 
@@ -82,6 +83,10 @@ export default class Plane {
    }
 
    batchSetMesh() {
+      // let vid = document.querySelector('.vid')
+      // vid.play()
+      // this.videoTexture = new THREE.VideoTexture(vid)
+
       for (const [i, asset] of this.assets.entries()) {
          this.material = new THREE.ShaderMaterial({
             vertexShader: vertex,

@@ -28,6 +28,7 @@ export default {
          arr0: [new Arrow()],
          arr1: [new Arrow()],
          arr2: [new Arrow()],
+         vidBool: false
       }
    },
 
@@ -36,15 +37,28 @@ export default {
       this.backdrop = this.experience.world.backdrop
       this.plane = this.experience.world.plane
    },
-
+   
    mounted() {
       this.sphere.sphereSpin()
-      this.backdrop.setBackdrop(this.assets)
+      
+      const video = document.querySelector('.project-landing video')
+
+      this.backdrop.setBackdrop(this.assets, video)
       this.backdrop.backdropTransition()
+
+      // setTimeout(() => {
+      //    this.vidBool = true
+      // }, 1250)
 
       util.contentObserver()
       util.titleTween()
 
+   },
+
+   methods: {
+      cb() {
+         this.vidBool = true
+      }
    },
 
    beforeUnmount() {
@@ -60,6 +74,7 @@ export default {
       <div class="project-landing">
          <h1>{{ source.title }}</h1>
          <BackdropFade />
+         <video class="vid" src="../../assets/projects/threeTextures/ye.mp4" autoplay loop muted style="display: none;"></video>
       </div>
       <div class="study-main">
          <div class="sidebar">
@@ -96,6 +111,9 @@ export default {
             <nav>
                <ul>
                   <li><a href="#introduction">Introduction</a></li>
+                  <ul>
+                     <a href="#contents">Contents</a>
+                  </ul>
                   <li><a href="#design">Design</a></li>
                   <ul>
                      <li><a href="#inspiration">Inspiration</a></li>
@@ -116,24 +134,26 @@ export default {
          <div class="study">
             <section id="introduction">
                <h2>Introduction</h2>
-               <!-- <p>
-                  This project came as an excuse to delve into back-end technologies. There can be a lot of different moving parts in building a website and, in the case for
-                  Aramstats, improving understanding with third party APIs, databases, and back-end frameworks was a primary motivation. Typically my project writeups
-                  are designed to be "presentation oriented" with the intentions of showcasing my work, however this writeup will be a little different because
-                  a lot of what this project is about is what I've learned coding-wise.
-                  I do discuss 
-                  some of the other moving parts such as UI & UX in the <a href="#design">Design</a> section.
-               </p> -->
+               <p></p>
                <p>
                   <i>All Random All Mid</i>, or ARAM, is a popular gamemode in <a href="https://www.leagueoflegends.com/en-us/" target="_blank">League of Legends</a>. At a top level, ARAM consists of 10 players in a
                   5v5 format. Each player is randomly selected a champion to play as where each champion has unique abilities and interactions. Winning is secured by destroying the base of the opposing team. Five members
-                  on a team have to work together with their selected champion to outperform and defeat the opposing team. Similarly to chess, on how you could evaluate a player's performance based off how many pieces they
-                  capture, you can evaluate a player's performance in a game of ARAM based off various statistics such as kills, deaths, assists, damage done etc... The goal of Aramstats
-                  is to parse all available ARAM games in the Riot API of a player and return insightful statistics.
+                  on a team have to work together with their selected champion to outperform and defeat the opposing team. Similarly to how you can evaluate a player's performance in chess based off how many pieces they
+                  capture, you can evaluate a player's performance in a game of ARAM based off various statistics such as kills, deaths, assists, damage done, etc... Aramstats is a website that allows a player to
+                  parse all their available ARAM games in the Riot API and return insightful statistics.
                </p>
                <p>
                   <a href="http://aramstats.lol/na/night%20owl" target="_blank">Here</a> is an example of my Aramstats profile. Alternatively you can search for it
                   by clicking the website link to the left and searching "Night Owl" in North America.
+               </p>
+               <h3 id="contents">Contents</h3>
+               <p>
+                  This study is structured into two main categories: a <a href="#design">Design</a> section and a <a href="development">Development</a> section.
+               </p>
+               <p>
+                  The design section focuses on answering big questions pertaining to UI/UX such as <i>"How can I layout the information to be presentable to the user?"</i>. I will also discuss the iterative UI changes since the site
+                  went public. I will explain these things by first talking about the site's current UI iteration as of time of writing, and then moving onwards to discussing its older versions and reasons for changing.
+
                </p>
             </section>
             
@@ -410,4 +430,22 @@ export default {
          max-width: 100%;
       }
    }
+
+   /* test styles */
+
+   /* .project-landing video {
+      position: absolute;
+      z-index: -51;
+      top: 0;
+      filter: brightness(0.4) blur(3px);
+      width: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+   
+   .webgl {
+      filter: brightness(0.4) blur(3px);
+   } */
+
 </style>

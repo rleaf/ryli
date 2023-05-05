@@ -10,7 +10,8 @@ export default {
 
    mounted() {
       this.experience = new Experience(document.querySelector('canvas.webgl'))
-   }
+   },
+
 }
 </script>
 
@@ -28,5 +29,9 @@ export default {
       top: 0;
       left: 0;
       z-index: -50;
+   }
+
+   .blur {
+      filter: blur(4px) brightness(0.8);
    }
 </style>

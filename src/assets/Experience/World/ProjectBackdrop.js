@@ -25,8 +25,16 @@ export default class ProjectBackDrop {
       this.fullGeometry = new THREE.PlaneGeometry(2, 2, 1, 1)
    }
 
-   setBackdrop(assets) {
+   setBackdrop(assets, video) {
       const asset = this.assets.find(el => el.route == assets.textureName)
+
+      this.vidBool = false
+
+      if (video) {
+         video.play()
+         this.videoTexture = new THREE.VideoTexture(video)
+         this.vidBool = true
+      }
 
       this.texture = asset.texture
       this.foreColor = new THREE.Color(assets.fore)
@@ -51,20 +59,44 @@ export default class ProjectBackDrop {
       this.foreMaterial = new THREE.ShaderMaterial({
          transparent: true,
          vertexShader: fullvertex,
-         fragmentShader: fullfragment,
+         fragmentShader: `
+            varying vec2 vUv;
+            uniform vec3 uColor;
+
+            void main() {
+               gl_FragColor = vec4(uColor, 1.0);
+            }`,
          uniforms: {
             uColor: { value: this.foreColor }
          }
       })
 
-      this.backMaterial = new THREE.ShaderMaterial({
-         transparent: true,
-         vertexShader: fullvertex,
-         fragmentShader: fullfragment,
-         uniforms: {
-            uColor: { value: this.backColor }
-         }
-      })
+      if (this.vidBool) {
+         this.backMaterial = new THREE.ShaderMaterial({
+            transparent: true,
+            vertexShader: fullvertex,
+            fragmentShader: fullfragment,
+            uniforms: {
+               uVideo: { value: this.videoTexture }
+            }
+         })
+      } else {
+         this.backMaterial = new THREE.ShaderMaterial({
+            transparent: true,
+            vertexShader: fullvertex,
+            fragmentShader: `
+            varying vec2 vUv;
+            uniform vec3 uColor;
+
+            void main() {
+               gl_FragColor = vec4(uColor, 1.0);
+            }`,
+            uniforms: {
+               uColor: { value: this.backColor }
+            }
+         })
+
+      }
    }
 
    setMesh() {
@@ -83,10 +115,11 @@ export default class ProjectBackDrop {
    backdropTransition() {
       this.foreMesh.position.y = -2
       this.backMesh.position.y = -2
+      this.flag = false
 
       this.scene.add(this.foreMesh)
       this.scene.add(this.backMesh)
-      
+
       const tl = gsap.timeline({
          defaults: {
             duration: 1,
@@ -97,7 +130,13 @@ export default class ProjectBackDrop {
       tl.to(this.foreMesh.position, {
          delay: 0.25,
          y: 0,
-         onComplete: () => this.scene.add(this.image)
+         onComplete: () => {
+            if (!this.vidBool) {
+               this.scene.add(this.image)
+            } else {
+               this.experience.canvas.classList.add('blur')
+            }
+         }
       })
       .to(this.backMesh.position, {
          y: 0,
@@ -117,7 +156,8 @@ export default class ProjectBackDrop {
       })
       
       tl.to(this.foreMesh.position, {
-         y: 0
+         y: 0,
+         onComplete: () => this.experience.canvas.classList.remove('blur')
       })
       .to(this.foreMesh.position, {
          y: -2,
@@ -125,7 +165,9 @@ export default class ProjectBackDrop {
       })
       .to(this.image.position, {
          y: -4,
-         onComplete: () => this.scene.remove(this.image)
+         onComplete: () => {
+            this.scene.remove(this.image)
+         }
       }, '<')
       .to(this.backMesh.position, {
          y: -2,

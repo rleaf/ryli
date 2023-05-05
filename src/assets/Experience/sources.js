@@ -1,4 +1,4 @@
-import aramstatsPath from '../projects/threeTextures/aramstatsTexture.webp'
+import aramstatsPath from '../projects/threeTextures/aramStatsTexture.webp'
 import steamPath from '../projects/threeTextures/steamTexture.webp'
 import oscillaPath from '../projects/threeTextures/oscillaTexture.png'
 import spotifyPath from '../projects/threeTextures/spotifyDeskTexture.webp'
@@ -11,6 +11,7 @@ export default {
       genre: ['Web Development', 'UX/UI Design'],
       tech: ['MEVN Stack', 'D3.js', 'AWS', 'Figma'],
       body: `Aramstats is a full-stack website that parses a player's data pertaining to the ARAM game mode in League of Legends to provide insightful statistics.`,
+      backgroundColor: 0x1f2a42,
       cover: aramstatsPath,
       uValley: {
          r: 31/255,
@@ -29,6 +30,7 @@ export default {
       genre: ['UX/UI Design'],
       tech: ['Adobe Illustrator', 'Figma'],
       body: 'A case study and redesign of the Steam desktop application.',
+      backgroundColor: 0x171a21,
       cover: steamPath,
       uValley: {
          r: 47/255,

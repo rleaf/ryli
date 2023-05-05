@@ -20,6 +20,7 @@ export default class Resources {
 				genre: v.genre,
 				tech: v.tech,
 				body: v.body,
+				backgroundColor: v.backgroundColor,
 				texture: this.loader.load(v.cover),
 				uValley: v.uValley,
 				uPeak: v.uPeak

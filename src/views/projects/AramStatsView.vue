@@ -28,6 +28,8 @@ export default {
          arr0: [new Arrow()],
          arr1: [new Arrow()],
          arr2: [new Arrow()],
+         arr3: [new Arrow()],
+         arr4: [new Arrow()],
          vidBool: false
       }
    },
@@ -112,19 +114,21 @@ export default {
                <ul>
                   <li><a href="#introduction">Introduction</a></li>
                   <ul>
-                     <a href="#contents">Contents</a>
+                     <li><a href="#what">What is it?</a></li>
                   </ul>
                   <li><a href="#design">Design</a></li>
                   <ul>
                      <li><a href="#inspiration">Inspiration</a></li>
-                     <li><a href="#userflow">User Flow</a></li>
+                     <!-- <li><a href="#userflow">User Flow</a></li> -->
                      <li><a href="#earlyideation">Early Ideation</a></li>
+                     <li><a href="#previousdesigns">Previous Designs</a></li>
                      <li><a href="#finaldesign">Final Design</a></li>
                   </ul>
                   <li><a href="#development">Development</a></li>
                   <ul>
                      <li><a href="#frontend">The Front End</a></li>
                      <li><a href="#backend">The Back End</a></li>
+                     <li><a href="#future">Future</a></li>
                   </ul>
                   <li><a href="#conclusion">Conclusion</a></li>
                </ul>
@@ -136,153 +140,96 @@ export default {
                <h2>Introduction</h2>
                <p></p>
                <p>
-                  <i>All Random All Mid</i>, or ARAM, is a popular gamemode in <a href="https://www.leagueoflegends.com/en-us/" target="_blank">League of Legends</a>. At a top level, ARAM consists of 10 players in a
-                  5v5 format. Each player is randomly selected a champion to play as where each champion has unique abilities and interactions. Winning is secured by destroying the base of the opposing team. Five members
-                  on a team have to work together with their selected champion to outperform and defeat the opposing team. Similarly to how you can evaluate a player's performance in chess based off how many pieces they
-                  capture, you can evaluate a player's performance in a game of ARAM based off various statistics such as kills, deaths, assists, damage done, etc... Aramstats is a website that allows a player to
-                  parse all their available ARAM games in the Riot API and return insightful statistics.
+                  This study is structured into two main sections: a <a href="#design">Design</a> section and a <a href="development">Development</a> section.
                </p>
                <p>
-                  <a href="http://aramstats.lol/na/night%20owl" target="_blank">Here</a> is an example of my Aramstats profile. Alternatively you can search for it
-                  by clicking the website link to the left and searching "Night Owl" in North America.
-               </p>
-               <h3 id="contents">Contents</h3>
-               <p>
-                  This study is structured into two main categories: a <a href="#design">Design</a> section and a <a href="development">Development</a> section.
+                  The design section focuses on answering big questions pertaining to UI/UX and walks through concept phases such as wireframing. I also spend some time explaining iterative changes made to the UI since the site
+                  went public - how the site looked on release, versus now, as of time of writing and provide the reasons on why these changes were made.
                </p>
                <p>
-                  The design section focuses on answering big questions pertaining to UI/UX such as <i>"How can I layout the information to be presentable to the user?"</i>. I will also discuss the iterative UI changes since the site
-                  went public. I will explain these things by first talking about the site's current UI iteration as of time of writing, and then moving onwards to discussing its older versions and reasons for changing.
+                  The development section focuses on everything affiliated to the code and technology used to get the site up and running. Similarly to the design section, I will talk about choices made and their reasoning along with other
+                  concepts such as future proofing.
+               </p>
 
-               </p>
+               <section id="what">
+                  <h3>What is it?</h3>
+                  <p>
+                     Aramstats is a website that allows a player to parse all their available ARAM games in the Riot API and return insightful statistics.
+                     <i>All Random All Mid</i>, or ARAM, is a popular gamemode in <a href="https://www.leagueoflegends.com/en-us/" target="_blank">League of Legends</a>. At a top level, ARAM consists of 10 players in a
+                     5v5 format. Each player is randomly selected a champion to play where each champion has unique abilities and interactions. Winning is secured by destroying the base of the opposing team. Five members
+                     on a team have to work together with their selected champion to outperform and defeat the opposing team. Similarly to how you could evaluate a player's performance in chess based off how many pieces they
+                     capture or how many home runs a player hits in a game of baseball, you can evaluate a player's performance in a game of ARAM based off various statistics such as kills, deaths, assists, damage done, etc... 
+                  </p>
+                  <p>
+                     <a href="http://aramstats.lol/na/night%20owl" target="_blank">Here</a> is an example of my Aramstats profile. Alternatively you can search for it
+                     by clicking the website link to the left and searching "Night Owl" in North America.
+                  </p>
+               </section>
             </section>
             
             <section id="design">
                <h2>Design</h2>
-               <p>
-                  The design pipeline can be broken down to several stages all discussed in their corresponding sections:
-                  <ul>
-                     <li>Stage 1: <a href="#inspiration">Inspiration</a></li>
-                     <li>Stage 2: <a href="#userflow">User Flow</a></li>
-                     <li>Stage 3: <a href="#earlyideation">Ideation</a></li>
-                     <li>Stage 4: <a href="#finaldesign">Final Design</a></li>
-                  </ul>
-               </p>
-               <!-- <p>
-                  Tragically similar to many other web developers and their own process, the project did not initially start in the UX / UI pipeline with
-                  prototypes, wireframes, and mockups. Instead I jumped straight into coding the front and back-end before finally thinking
-                  <i>"Hm! Maybe I should have done some prototypes!"</i> I don't regret the process because I wanted to get to creating the back-end API as soon as possible,
-                  but, in retrospect, I would have saved a couple of hours of frustration and thinking if I worked more with design tools such as Figma or Illustrator in the beginning instead of doing everything
-                  immediately in HTML and CSS.
-               </p> -->
-               <p>
-                  Setting up some base scaffolding for the design of the website helped streamline the development of the website so I could spend less time tinkering
-                  with CSS and more time working on other components such as the backend.
-               </p>
-               <!-- <p>
-                  The design assets in this section, specifically <a href="#earlyideation">Early Ideation</a>, are examples of me taking a step back to ensure a palettable
-                  user interface. Clicking through the Figma file, available through the link on the left, is encouraged.
-               </p> -->
 
                <section id="inspiration">
                   <h3>Inspiration</h3>
                   <p>
-                     Inspiration was dedicated to setting up an environment to get the design going and selecting an appropiate color palette. A simple moodboard was created using
-                     various artworks of the Howlying Abyss where some images were then pixelated to sample colors from.
+                     I used a moodboard to help establish a design environment. The "Howling Abyss", the location ARAM games are played, is a dilapidated bridge located inside a ravine surrounded by a wintery biome.
+                     Colors to help promote the aesthetic were sampled from the moodboard. The moodboard is available to see at higher resolution in the Figma link to the left.
                   </p>
                   <img class="image" src="../../assets/projects/aramstats/moodboard.webp" alt="">
                   <p class="sub-text">
-                     Moodboard
+                     Moodboard of the Howling Abyss
                   </p>
-
-                  <div class="side">
-                     <img class="side-media" src="../../assets/projects/aramstats/palette.webp" alt="">
-                     <div class="side-text">
-                        <p>
-                           Some of the palettes created from moodboard sampling. Different background colors were used too, available to see in the Figma file.
-                        </p>
-                     </div>
-                  </div>
-
-               </section>
-
-               <section id="userflow">
-                  <h3>User Flow</h3>
-                  <p>
-                     Although the user flow is catered to design, information flow between the frontend, backend, and Riot API is also illustrated to show how the site functions.
-                  </p>
-                  <img class="max-image" src="../../assets/projects/aramstats/final3.webp">
+                  <img class="image" src="../../assets/projects/aramstats/palette.webp" alt="">
                   <p class="sub-text">
-                     Enlarged user flow available to see in figma link.
+                     Color palettes
                   </p>
-                  <!-- <span style="font-size: 15px; font-style: italic; display: block; text-align: center;">*All illustrations here are available to see directly in the
-                     <a class="metaLinks2" href="https://www.figma.com/file/V7X0RJJZQ2zZwF4b4QCPB2/Steam?node-id=0%3A1&t=XgTeE8vkVg5GRuX7-1" target="_blank">FigJam</a> file.
-                  </span> -->
                </section>
+
+               <!-- <section id="userflow">
+                  <h3>User Flow</h3>
+                  <img class="max-image" src="../../assets/projects/aramstats/second3.webp">
+                  <p class="sub-text">
+                     A user flow was created for the first UI of Aramstats. It shows all navigation Enlarged user flow available to see in figma link.
+                  </p>
+               </section> -->
 
                <section id="earlyideation">
                   <h3>Early Ideation</h3>
                   <p>
-                     Fundamentally the site layout is very simple and only constituted two main pages: a landing page and a profile (or "Main" as referenced below in the picture) page.
-                     The landing page, shown below on the first slide, is composed of a couple elements with the most important being the search bar to lookup a players profile.
-                     Upon entering a valid username, the back-end would get to work with pulling the appropiate data from the third party API and then, once finished, would
-                     send a response to render the information on the profile page.
+                     The site layout is very simple and constitutes two main pages. First there is a landing page, shown below on the first slide, that
+                     only has a couple of elements with the most important being the search bar to lookup a players profile.
+                     Upon a successful response from the backend, the user would then be routed to the second main page, the profile page (called "User Ready Page" in image below).
+                  </p>
+                  <p>
+                     Majority of UI/UX on this project was dedicated to the profile page. The layout is organized into two main columns shown below in <span style="background-color: #f4c6f3;">pink</span>
+                     and <span style="background-color: #cbc0f6;">purple</span>. The reason for a side-by-side layout is to convenience interactions with elements when scrolling. There are over 160 champions
+                     available to a player, so it's probable for a single profile to render a lot of <span style="background-color: #f3d09f;">champion elements</span> to the DOM.
+                     A side-by-side layout would allow a user to scroll through their <span style="background-color: #f3d09f;">stats</span> for various champions and
+                     have the information in the <span style="background-color: #f4c6f3;">left hand column</span> remain sticky so they're always visible to the user.
+                     All <span style="background-color: #f3d09f;">champion elements</span> have a button that will conditionally render <span style="background-color: #f5ea35;">match information</span>.
+                     Match information is visually indented to indicate that it is a subset of information.
+                  </p>
+                  <p>
+                     Buttons were added to the top of the <span style="background-color: #cbc0f6;">main content element</span> to organize information to the user.
+                     Other benefits the buttons provided were creating a more breathable UI so info wouldn't be too cramped and to allow for easy implementation of future panels. 
                   </p>
                   <Flicking class="carousel" :options="{ circular: true }" :plugins="arr0">
                      <div class="panel">
-                        <img class="carousel-image" src="../../assets/projects/aramstats/landingpage.webp">
+                        <img class="carousel-image" src="../../assets/projects/aramstats/new/landing_wf.webp">
                         <span style="font-weight: bold; font-size: 0.9rem;">(1/2) Landing page</span>
                         <p>
-                           On landing, there would be three main elements: <span style="background-color: #b4f881;">a navigation</span>,
-                           <span style="background-color: #f4c4fb;">a title</span>, and a <span style="background-color: #f5ea35;">a search bar</span>. 
+                        On landing, there would be three main elements: <span style="background-color: #b4f881;">a navigation</span>,
+                        <span style="background-color: #f4c4fb;">a title</span>, and a <span style="background-color: #f5ea35;">a search bar</span>. Upon entering a profile name and region, the user would hit
+                        the "enter" key to request the relevant data from the backend API.
                         </p>
                      </div>
                      <div class="panel">
-                        <img class="carousel-image" src="../../assets/projects/aramstats/mainpage.webp">
+                        <img class="carousel-image" src="../../assets/projects/aramstats/new/user_ready_wf.webp">
                         <span style="font-weight: bold; font-size: 0.9rem;">(2/2) Profile page</span>
                         <p>
-                           The main page that displays a players "Summoner" profile is broken into two main components: <span style="background-color: #aafdfc;">player-based information</span>,
-                           and <span style="background-color: #f3d09f;">champion-based information</span>.
+                           On a successful response, the User Ready Page would render.
                         </p>
-                     </div>
-                     <template #viewport>
-                        <span class="flicking-arrow-prev"></span>
-                        <span class="flicking-arrow-next"></span>
-                     </template>
-                  </Flicking>
-                  <p>
-                     Below is an early concept that eventually made its way to being shipped. Some of the major additions to get to this point were:
-                     <ul>
-                        <li>
-                           The <span style="background-color: #aafdfc;">player-based information</span>, mentioned above, was further organized into panels that a user could click 
-                           through to access specific information. The "Overview" panel displays the aforementioned holistic information about a Summoner while
-                           the "Compare" panel displays tiles that provided further insight and data visualization for champion specific performances.
-                        </li>
-                        <li>
-                           Each <span style="background-color: #f3d09f;">champion row</span> is composed of the average stats a player has for that champion. In it, a player can see
-                           the average amount of damage they've done, win/loss ratio, and more.
-                        </li>
-                        <li>
-                           Clicking on a specific <span style="background-color: #f3d09f;">champion row</span> in "champion-based information" expanded a total match history of that particular champion,
-                           shown in the third slide below. Each match row lists information such as the stats a player had from a particular game, the items purchased,
-                           the date that game was played, and whether they won or loss that game.
-                        </li>
-                     </ul>
-                     
-                     
-                  </p>
-                  <Flicking class="carousel" :options="{ circular: true }" :plugins="arr1">
-                     <div class="panel">
-                        <img class="carousel-image" src="../../assets/projects/aramstats/early0.webp">
-                        <span style="font-weight: bold; font-size: 0.9rem;">(1/3) Landing page</span>
-                     </div>
-                     <div class="panel">
-                        <img class="carousel-image" src="../../assets/projects/aramstats/early1.webp">
-                        <span style="font-weight: bold; font-size: 0.9rem;">(2/3) Main page</span>
-                     </div>
-                     <div class="panel">
-                        <img class="carousel-image" src="../../assets/projects/aramstats/early2.webp">
-                        <span style="font-weight: bold; font-size: 0.9rem;">(3/3) Total Match History</span>
                      </div>
                      <template #viewport>
                         <span class="flicking-arrow-prev"></span>
@@ -290,32 +237,152 @@ export default {
                      </template>
                   </Flicking>
                </section>
+
+
+               <section id="previousdesigns">
+                  <h3>Previous Designs</h3>
+                  <p>
+                     Below is the first concept that made its way to being shipped. At this point Aramstats was only 2 months old and the purpose was to, relatively quickly, provide a service that players
+                     could use to search their profile. Although basic design choices are present such as buttons and a color palette, a heavy majority of the workload was focused on backend development.
+
+                  </p>
+
+                  <Flicking class="carousel" :options="{ circular: true }" :plugins="arr1">
+                     <div class="panel">
+                        <img class="carousel-image" src="../../assets/projects/aramstats/early0.webp">
+                        <span style="font-weight: bold; font-size: 0.9rem;">(1/3) Landing page</span>
+                        <p>
+                           The evolution of the landing page has remained largely unchanged.
+                        </p>
+                     </div>
+                     <div class="panel">
+                        <img class="carousel-image" src="../../assets/projects/aramstats/early1.webp">
+                        <span style="font-weight: bold; font-size: 0.9rem;">(2/3) Profile page</span>
+                        <p>
+                           Instead of a side-by-side, the initial layout was top-down. Some elements were not fully implemented at this point such as the empty box below the "Overview" button.
+                        </p>
+                     </div>
+                     <div class="panel">
+                        <img class="carousel-image" src="../../assets/projects/aramstats/early2.webp">
+                        <span style="font-weight: bold; font-size: 0.9rem;">(3/3) Total Match History</span>
+                        <p>
+                           Champion elements were clickable to display match level data. Information was structured similarly to a spreadsheet.
+                        </p>
+                     </div>
+                     <template #viewport>
+                        <span class="flicking-arrow-prev"></span>
+                        <span class="flicking-arrow-next"></span>
+                     </template>
+                  </Flicking>
+
+                  <p>
+                     The second design that made its way to being shipped sanded down on the rough edges of "incompleteness" present in the first UI. This second iteration displayed more information to a user while
+                     dramatically improving how information looked by vertically structuring information and incorporating styles to visually discern detail from each other.
+                  </p>
+                  <Flicking class="carousel" :options="{ circular: true }" :plugins="arr3">
+                        <div class="panel">
+                           <video autoplay loop muted controls src="../../assets/projects/aramstats/second0.webm" alt="" class="carousel-image"></video>
+                           <span style="font-weight: bold; font-size: 0.9rem;">(1/2) Video of second UI</span>
+                           <p>
+                              Video showcasing the second UI. Aramstats was ~3 months old at this point and, in this build, there were no "empty" elements present in the first UI. Fullscreen recommended.
+                           </p>
+                        </div>
+                        <div class="panel">
+                           <img class="carousel-image" src="../../assets/projects/aramstats/second1.webp">
+                           <span style="font-weight: bold; font-size: 0.9rem;">(2/2) Expanded Champion history</span>
+                           <p>
+                              "per minute" information was addded for every stat. All minor information and units were shaded to better contrast information.
+                           </p>
+                        </div>
+                        <template #viewport>
+                           <span class="flicking-arrow-prev"></span>
+                           <span class="flicking-arrow-next"></span>
+                        </template>
+                     </Flicking>
+                     <div class="side">
+                        <div class="side-text">
+                           <h4>Improved Sorting</h4>
+                           <p>
+                              Users could sort their champions played, ascending or descending, by any stat available.
+                           </p>
+                        </div>
+                        <img class="side-media" src="../../assets/projects/aramstats/second2.webp">
+                     </div>
+                     <p>
+                        Elements at the top of the page, above the champion information, are interactive and provided more insight for a user. General statistics such as overall winrate, multikill derivatives, and total
+                        games played were immediately displayed to user on page load.
+                     </p>
+                     <Flicking class="carousel" :options="{ circular: true }" :plugins="arr2">
+                        <div class="panel">
+                           <video autoplay loop muted class="carousel-video"  src="../../assets/projects/aramstats/front-end0.webm" />
+                           <span style="font-weight: bold; font-size: 0.9rem;">(1/2) Overview Panel Interactivity</span>
+                           <p>
+                              You can mouse-over the stacked bar plot to see a more descriptive breakdown of the subclasses and their popularity. A
+                              <a href="https://github.com/rleaf/aramstats/blob/main/src/assets/aram_champ_classes.js" target="_blank">table</a> referencing
+                              all champion sub-classes is available in the top right to see champion subclasses.
+                           </p>
+                        </div>
+                        <div class="panel">
+                           <video autoplay loop muted class="carousel-video" style="width: 100%;" src="../../assets/projects/aramstats/front-end1.webm" />
+                           <span style="font-weight: bold; font-size: 0.9rem;">(2/2) Champion Panel Interactivity</span>
+                           <p>
+                              Entering any champion name on the left returns a: mythic winrate, keystone winrate, and a DPM histogram in the middle. On the right you can
+                              enter any subset of champions and compare the data visually to the entry on the left.
+                           </p>
+                        </div>
+                        <template #viewport>
+                           <span class="flicking-arrow-prev"></span>
+                           <span class="flicking-arrow-next"></span>
+                        </template>
+                     </Flicking>
+               </section>
+               
                
                <section id="finaldesign">
                   <h3>Final Design</h3>
-                  <p>
-                     A link to the website is available to click through. Visually the final design of the site is similar to the early concept, but a lot of more
-                     information is presented to the user and some rough edges from the previous iteration have being sanded down. On page load the
-                     <span style="background-color: #aafdfc;">player-based information</span>, mentioned above, presents "life-time" stats of all data stored in the Riot API along with a
-                     stacked barplot that shows a distribution of a player's preference for the genre of champion they prefer playing. The barplot, along with other data visualizations on other panels
-                     are interactive and are shown in <a href="#frontend">The Front End</a> section.
+                  <img class="max-image" src="../../assets/projects/aramstats/final_landing.webp" />
+                  <p class="sub-text">
+                     Landing page
                   </p>
-                  <video autoplay loop muted src="../../assets/projects/aramstats/final0.webm" alt="" class="max-image" style="padding-bottom: 3rem;"></video>
-                  
-                  <p>
-                     More information, such as kill participation, damage share, and "per-minute" stats were added. The excess information required a slight redesign of the
-                     information layout from the initial concept, where the process can be seen in the Figma file.
-                  </p>
-                  <img class="image" src="../../assets/projects/aramstats/final1.webp">
+                  <video autoplay loop muted controls class="max-image" src="../../assets/projects/aramstats/final6.webm" />
+                  <p class="sub-text">Video showcasing the final design. Fullscreen recommended</p>
+
                   <div class="side">
                      <div class="side-text">
-                        <h4>Sorting</h4>
+                        <h4>Expanded History</h4>
                         <p>
-                           A more organized and visually cleaner sorting panel was introduced to accomodate the increased information.
+                           Clicking the button on the left of each champion tile expanded a player's history with that champion.
                         </p>
                      </div>
-                     <img class="side-media" src="../../assets/projects/aramstats/final2.webp">
+                     <img class="side-media" src="../../assets/projects/aramstats/final4.webp">
                   </div>
+
+                  <Flicking class="carousel" :options="{ circular: true }" :plugins="arr4">
+                     <div class="panel">
+                        <img class="carousel-image"  src="../../assets/projects/aramstats/final2.webp" />
+                        <span style="font-weight: bold; font-size: 0.9rem;">(1/3) Overview Panel Interactivity</span>
+                        <p>
+                           Mousing over the class distribution in the summoner panel provides a more detailed breakdown of champion preferences.
+                        </p>
+                     </div>
+                     <div class="panel">
+                        <img class="carousel-image"  src="../../assets/projects/aramstats/final5.webp" />
+                        <span style="font-weight: bold; font-size: 0.9rem;">(2/3) Champion Panel Interactivity</span>
+                     </div>
+                     <div class="panel">
+                        <img class="carousel-image"  src="../../assets/projects/aramstats/final3.webp" />
+                        <span style="font-weight: bold; font-size: 0.9rem;">(3/3) Challenge Tokens</span>
+                     </div>
+                     <template #viewport>
+                        <span class="flicking-arrow-prev"></span>
+                        <span class="flicking-arrow-next"></span>
+                     </template>
+                  </Flicking>
+
+                  <!-- <p>
+                     Some of the major design changes not discussed in <a href="#earlyideation">Early Ideation</a> were:
+                  </p> -->
+
                </section>
             </section>
 
@@ -337,48 +404,34 @@ export default {
                      components to keep a tidy environment.
                   </p>
                   <p>
+                     The <a href="https://github.com/rleaf/aramstats/blob/main/src/views/UserView.vue" target="_blank">User View</a> is the component that controls what to render based off the response from the backend.
+                     While no response is received, the <a href="https://github.com/rleaf/aramstats/blob/main/src/components/User/UserLoading.vue" target="_blank">User Loading</a> compoment is displayed to indicate to
+                     the user that the site is operating on getting the requested info. The third possible route from this component is the
+                     <a href="https://github.com/rleaf/aramstats/blob/main/src/components/User/UserError.vue" target="_blank">User Error</a> component, which handles 404, 403, a 504 responses from the backend.
+                  </p>
+                  <p>
                      D3.js was used to create the stacked bar plot and histogram and are <a href="https://github.com/rleaf/aramstats/blob/main/src/components/StackedBarplot.vue" target="_blank">here</a>
                      and <a href="https://github.com/rleaf/aramstats/blob/main/src/components/Histogram.vue" target="_blank">here</a> respectively on GitHub. The bar plot shows a player's preference towards the type of
-                     champions they play and the histogram displays a distribution for stats such as "damage per minute" for any subset of champions they have played.
+                     champions they play and takes in, as an argument, an array of objects computed on its <a href="https://github.com/rleaf/aramstats/blob/main/src/components/Panels/SummonerPanel.vue" target="_blank">parent component</a>.
+                     The histogram displays a distribution for stats such as "damage per minute" for any champion a user has played. The information it renders is mutable and changes for different champion searches.
                   </p>
-                  <Flicking class="carousel" :options="{ circular: true }" :plugins="arr2">
-                     <div class="panel">
-                        <video autoplay loop muted class="carousel-video"  src="../../assets/projects/aramstats/front-end0.webm" />
-                        <span style="font-weight: bold; font-size: 0.9rem;">(1/2) Overview Panel Interactivity</span>
-                        <p>
-                           You can mouse-over the stacked bar plot to see a more descriptive breakdown of the subclasses and their popularity. A
-                           <a href="https://github.com/rleaf/aramstats/blob/main/src/assets/aram_champ_classes.js" target="_blank">table</a> referencing
-                           all champion sub-classes is available in the top right to see champion subclasses.
-                        </p>
-                     </div>
-                     <div class="panel">
-                        <video autoplay loop muted class="carousel-video" style="width: 100%;" src="../../assets/projects/aramstats/front-end1.webm" />
-                        <span style="font-weight: bold; font-size: 0.9rem;">(2/2) Champion Panel Interactivity</span>
-                        <p>
-                           Entering any champion name on the left returns a: mythic winrate, keystone winrate, and currently a DPM histogram in the middle. On the right you can
-                           enter any subset of champions and compare the data visually to the entry on the left. The purpose of this comparison was to allow a user to see how well
-                           they perform on a particular champion of a class by comparing that champion to the entire class.
-                        </p>
-                     </div>
-                     <template #viewport>
-                        <span class="flicking-arrow-prev"></span>
-                        <span class="flicking-arrow-next"></span>
-                     </template>
-                  </Flicking>
                </section>
 
                <section id="backend">
                   <h3>The Back End</h3>
                   <p>
-                     Along with Express.js to create the back-end API, a forked version of the <a href="https://github.com/rleaf/twisted" target="_blank">Twisted</a> LoL wrapper was used to pull data from the
-                     Riot API. As of time of writing the main branch doesn't support some of the endpoints I use, specifically <a href="https://developer.riotgames.com/apis#lol-challenges-v1" target="_blank">lol-challenges-v1</a>.
-                     The flow of the back-end is illustrated in the <a href="#userflow">user flow</a>, however for more detail the back-end currently operates broadly as such:
+                     I used Express.js to create the <a href="https://github.com/rleaf/aramstats/tree/main/backend" target="_blank">backend</a> API such that the frontend, database, and the Riot API could communicate with each other.
+                     A forked version of the <a href="https://github.com/rleaf/twisted" target="_blank">Twisted</a> API wrapper I worked on was used to pull data from the
+                     Riot database. As of time of writing the main branch doesn't support some of the endpoints I use, specifically <a href="https://developer.riotgames.com/apis#lol-challenges-v1" target="_blank">lol-challenges-v1</a>.
+                  </p>
+                  <p>
+                     The back-end operates broadly as such:
                      <ul class="numbers-list">
                         <li>A get request is received from the front-end.</li>
                         <li>Check to see if the summoner exists in Riot API.</li>
                         <i style="line-height: 2rem;">If summoner exists:</i>
                         <li>Pull all ARAM match ids and create a new collection for that summoner in MongoDB.</li>
-                        <li>Iterate and parse over each match of the match id list. All relevant data Aramstats uses are written to corresponding documents within the summoner collection.</li>
+                        <li>Iterate and parse over each match of the match id list. All relevant data Aramstats uses are written to corresponding documents within the summoner collection to MongoDB servers.</li>
                         <li>Compute the average stats from the previous step for each champion.</li>
                         <li>Pull challenge information from Riot API and write it to database.</li>
                         <li>Send response.</li>
@@ -394,6 +447,19 @@ export default {
                      <a href="http://aramstats.lol/api/summoners/na/night%20owl" target="_blank">Here's</a> an example of what my Summoner collection looks like in the database.
                      You'll notice the first object in the array is the +1 extra document I was referring to and all remaining are objects are particular to a champion. Each champion document
                      contains the matches where the user has played that champion.
+                  </p>
+               </section>
+
+               <section id="future">
+                  <h3>Future</h3>
+                  <p>
+                     I've incorporated Google Analytics roughly 2 weeks ago on April 19, and the site has already reached over 100 unique visitors. These numbers are not that laudable, but what is worth
+                     focusing on is that I will soon max out the available space on my current, free, MongoDB subscription. As of time of writing I'm at 455.6 of the available 512 MB.
+                  </p>
+                  <p>
+                     As it stands, this is the current and largest problem I'm facing with Aramstats. Other platforms offer a similarly free base tier with limited resources up to a a 1024 MB, however this is
+                     not a resolution, but a band-aid fix. I want to keep this site running, as it has been fun working on, however I'd like to minimize the cost where possible. I do have some ideas to combat
+                     these issues and if I implement them, I'll be sure to talk about them here.
                   </p>
                </section>
             </section>
@@ -430,22 +496,4 @@ export default {
          max-width: 100%;
       }
    }
-
-   /* test styles */
-
-   /* .project-landing video {
-      position: absolute;
-      z-index: -51;
-      top: 0;
-      filter: brightness(0.4) blur(3px);
-      width: auto;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-   }
-   
-   .webgl {
-      filter: brightness(0.4) blur(3px);
-   } */
-
 </style>

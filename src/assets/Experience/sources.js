@@ -14,9 +14,9 @@ export default {
       backgroundColor: 0x1f2a42,
       cover: aramstatsPath,
       uValley: {
-         r: 31/255,
-         g: 42/255,
-         b: 66/255,
+         r: 28/255,
+         g: 37/255,
+         b: 56/255,
       },
       uPeak: {
          r: 255/255,

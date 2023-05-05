@@ -44,6 +44,7 @@
    margin-right: auto;
    padding-bottom: 1rem;
    width: 85%;
+   pointer-events: none;
 }
 
 .carousel-video {
@@ -223,7 +224,6 @@ p.sub-text {
    max-width: 100%;
    padding-top: 3rem;
    padding-bottom: 1rem;
-
 }
 
 .study-main {

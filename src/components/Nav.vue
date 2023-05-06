@@ -139,10 +139,10 @@ export default {
       width: 100%;
       overflow-y: scroll;
       height: 100vh;
-      /* background: var(--dark000); */
-      background: radial-gradient(#000 10%, #181818);
+      background: var(--dark000);
+      /* background: radial-gradient(#000 10%, #181818);
       background-size: 400% 400%;
-      animation: gradient 15s ease-in-out infinite;
+      animation: gradient 15s ease-in-out infinite; */
    }
 
    @keyframes gradient {

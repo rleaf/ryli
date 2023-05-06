@@ -281,7 +281,7 @@ export default {
                   </p>
                   <Flicking class="carousel" :options="{ circular: true }" :plugins="arr3">
                         <div class="panel">
-                           <video autoplay loop muted controls src="../../assets/projects/aramstats/second0.webm" alt="" class="carousel-image"></video>
+                           <video autoplay loop muted controls src="../../assets/projects/aramstats/second0.webm" alt="" class="carousel-video"></video>
                            <span style="font-weight: bold; font-size: 0.9rem;">(1/2) Video of second UI</span>
                            <p>
                               Video showcasing the second UI. Aramstats was ~3 months old at this point and, in this build, there were no "empty" elements present in the first UI. Fullscreen recommended.
@@ -344,7 +344,7 @@ export default {
                   <p class="sub-text">
                      Landing page
                   </p>
-                  <video autoplay loop muted controls class="max-image" src="../../assets/projects/aramstats/final6.webm" />
+                  <video autoplay loop muted controls class="carousel-video" src="../../assets/projects/aramstats/final6.webm" />
                   <p class="sub-text">Video showcasing the final design. Fullscreen recommended</p>
 
                   <div class="side">

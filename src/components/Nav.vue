@@ -132,12 +132,29 @@ export default {
       padding-top: 5rem;
       padding-bottom: 5rem;
    }
+
+
    .routes {
       display: flex;
       width: 100%;
-      height: 100vh;
       overflow-y: scroll;
-      background: var(--dark000);
+      height: 100vh;
+      /* background: var(--dark000); */
+      background: radial-gradient(#000 10%, #181818);
+      background-size: 400% 400%;
+      animation: gradient 15s ease-in-out infinite;
+   }
+
+   @keyframes gradient {
+      0% {
+         background-position: 0% 50%;
+      }
+      50% {
+         background-position: 100% 50%;
+      }
+      100% {
+         background-position: 0% 50%;
+      }
    }
 
    .routes::-webkit-scrollbar {

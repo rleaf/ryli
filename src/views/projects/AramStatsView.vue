@@ -197,7 +197,7 @@ export default {
                <section id="earlyideation">
                   <h3>Early Ideation</h3>
                   <p>
-                     The site layout is very simple and constitutes two main pages. First there is a landing page, shown below on the first slide, that
+                     The site layout is very simple and is comprised of two main pages. The first is the landing page, shown below on the first slide, that
                      only has a couple of elements with the most important being the search bar to lookup a players profile.
                      Upon a successful response from the backend, the user would then be routed to the second main page, the profile page (called "User Ready Page" in image below).
                   </p>

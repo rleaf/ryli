@@ -14,10 +14,11 @@ export default {
          const path = to.path.split('/').slice(1)
          
          if (path[0] === 'projects' && path.length > 1) {
-            console.log('toad')
             window.addEventListener('scroll', this.burgerEvent)
          } else {
             window.removeEventListener('scroll', this.burgerEvent)
+            const bread = document.querySelectorAll('.bread')
+            bread.forEach(node => node.classList.remove('day'))
          }
       }
    },
@@ -25,7 +26,6 @@ export default {
    methods: {
 
       burgerEvent() {
-         console.log('frog')
          const burger = document.querySelectorAll('.bread')
 
          if (window.scrollY > window.innerHeight) {

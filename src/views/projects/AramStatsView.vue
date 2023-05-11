@@ -48,19 +48,8 @@ export default {
       this.backdrop.setBackdrop(this.assets, video)
       this.backdrop.backdropTransition()
 
-      // setTimeout(() => {
-      //    this.vidBool = true
-      // }, 1250)
-
       util.contentObserver()
       util.titleTween()
-
-   },
-
-   methods: {
-      cb() {
-         this.vidBool = true
-      }
    },
 
    beforeUnmount() {

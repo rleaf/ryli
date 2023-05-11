@@ -9,7 +9,7 @@ export default {
          experience: new Experience(),
          search: '',
          tags: [],
-         filter: null,
+         filter: [],
          blogs: blogs
       }
    },
@@ -30,7 +30,7 @@ export default {
          }
       }
 
-      this.filter = this.tags.slice()
+      // this.filter = this.tags.slice()
    },
    
    mounted() {
@@ -74,7 +74,9 @@ export default {
 
    computed: {
       filteredBlogs() {
-         return this.blogs.filter(post => post.tags.some(r => this.filter.includes(r)))
+         return (this.filter.length === 0) ?
+         this.blogs : 
+         this.blogs.filter(post => post.tags.some(r => this.filter.includes(r)))
       }
    },
 }
@@ -88,15 +90,14 @@ export default {
          </div>
          <div class="text-mask">
             <p>
-               <!-- The things I write will usually be about math, food, music, design, machine learning, dev, and everything in between. -->
-               It helps to understand material when I'm able to write about it. All math related topics, along with some ml topics, are intended be viewed on wide
-               screens due to how the math renders.
+               It helps to understand material when I'm able to write about it. Viewing math related topics, along with some ml topics, on a wide screen is recommended
+               due to mathjax rendering.
             </p>
          </div>
          <div class="text-mask">
             <div class="tags-wrapper">
                <p>
-                  Topics are organized by:
+                  Topics include:
                </p>
                <div class="blog-tags-filter">
                   <button :class="{ true: this.filter.includes(tag) }" @click="filterClick(tag)" v-for="tag in this.tags.sort()" :key="tag" >
@@ -245,6 +246,7 @@ export default {
 
    .blog-head p {
       font-size: 1.15rem;
+      max-width: 900px;
    }
 
    .blog-text {

@@ -257,15 +257,6 @@ p.sub-text {
    height: 100vh;
 }
 
-/* .background {
-   position: absolute;
-   background: var(--dark000);
-   opacity: 0;
-   top: 0;
-   width: inherit;
-   height: inherit;
-} */
-
 .code {
    background: var(--codeBG);
    border-radius: 5px;
@@ -306,9 +297,14 @@ p.sub-text {
       top: 30vh;
    }
 
+   /* video {
+      object-fit: none;
+   } */
+
    .study-main {
       flex-direction: column;
-      padding: 0 8vw;
+      padding: 0;
+      overflow-x: hidden;
    }
 
    .image {
@@ -328,6 +324,10 @@ p.sub-text {
       margin-top: 0;
    }
 
+   .meta {
+      padding: 1.5rem;
+   }
+
    .meta div {
       flex: 1 1 auto;
    }
@@ -337,8 +337,12 @@ p.sub-text {
       padding-left: 0;
    }
 
+   .carousel {
+      width: 100%;
+   }
+
    .carousel-image {
-      width: 95%;
+      width: 100%;
    }
 
    .carousel-video {
@@ -353,12 +357,18 @@ p.sub-text {
       transform: translateX(-50%);
    }
 
+   .study > section {
+      padding: 0 5vw;
+   }
+
    section ul {
       padding-left: 2rem;
    }
 
    nav {
-      padding-top: 10vh;
+      /* padding-top: 5vh; */
+      padding: 5vh 20vw;
+      /* text-align: center; */
    }
 
    ul {
@@ -366,13 +376,15 @@ p.sub-text {
    }
 
    h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
+      margin-top: 5rem;
       padding-left: 0;
    }
 
-   h3 {
-      font-size: 1.5rem;
-      padding-left: 1rem;
+   .study h3 {
+      font-size: 2rem;
+      margin-top: 5rem;
+      padding-left: 3vw;
    }
 
    .panel > p {
@@ -383,18 +395,10 @@ p.sub-text {
       flex-direction: column;
    }
 
-   /* .side-text {
-      max-width: 100%;
-   } */
-
-   /* .side-media {
-      width: 95%;
-   } */
-
    .util-wrapper {
       position: fixed;
       bottom: 2vh;
-      margin: 0
+      margin-left: 4vw;
    }
 
 }

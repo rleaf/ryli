@@ -9,7 +9,36 @@ export default {
       }
    },
 
+   watch: {
+      $route(to) {
+         const path = to.path.split('/').slice(1)
+         
+         if (path[0] === 'projects' && path.length > 1) {
+            console.log('toad')
+            window.addEventListener('scroll', this.burgerEvent)
+         } else {
+            window.removeEventListener('scroll', this.burgerEvent)
+         }
+      }
+   },
+
    methods: {
+
+      burgerEvent() {
+         console.log('frog')
+         const burger = document.querySelectorAll('.bread')
+
+         if (window.scrollY > window.innerHeight) {
+            burger.forEach((node) => {
+               node.classList.add('day')
+            })
+         } else {
+            burger.forEach((node) => {
+               node.classList.remove('day')
+            })
+         }
+      },
+
       async menuToggle() {
          this.menu = !this.menu
 
@@ -45,7 +74,7 @@ export default {
             }
          }
       }, 
-   },
+   }
 
 }
 </script>
@@ -275,15 +304,13 @@ export default {
       }
       .routes {
          flex-direction: column;
+         overflow-x: hidden;
       }
 
       nav {
          width: 100vw;
          border: none;
-         /* margin-bottom: 0;
-         margin-top: 0;
-         padding-left: 0; */
-         /* overflow: clip; */
+         margin-bottom: 5vh;
       }
 
       nav a {

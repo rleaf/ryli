@@ -30,7 +30,25 @@ function titleTween() {
    })
 }
 
+function navColor() {
+   const landing = document.querySelector('.project-landing')
+   const burger = document.querySelectorAll('.bread')
+
+   window.addEventListener('scroll', () => {
+      if (window.scrollY > landing.offsetHeight) {
+         burger.forEach((node) => {
+            node.classList.add('day')
+         })
+      } else {
+         burger.forEach((node) => {
+            node.classList.remove('day')
+         })
+      }
+   })
+}
+
 export default {
    contentObserver,
-   titleTween
+   titleTween,
+   navColor
 }

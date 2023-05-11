@@ -69,22 +69,25 @@ export default {
          <h1 class="fore">a</h1>
          <h1 class="back">a</h1>
       </span>
-      <span class="l l4" style="margin-right: 30px;">
+      <span class="l l4">
          <h1 class="fore">n</h1>
          <h1 class="back">n</h1>
       </span>
-      <span class="l l5">
-         <h1 class="fore">L</h1>
-         <h1 class="back">L</h1>
-      </span>
-      <span class="l l6">
-         <h1 class="fore">i</h1>
-         <h1 class="back">i</h1>
-      </span>
-      <span class="l l7">
-         <h1 class="fore">n</h1>
-         <h1 class="back">n</h1>
-      </span>
+
+      <div class="last-name">
+         <span class="l l5">
+            <h1 class="fore">L</h1>
+            <h1 class="back">L</h1>
+         </span>
+         <span class="l l6">
+            <h1 class="fore">i</h1>
+            <h1 class="back">i</h1>
+         </span>
+         <span class="l l7">
+            <h1 class="fore">n</h1>
+            <h1 class="back">n</h1>
+         </span>
+      </div>
       <h2>Design & Development</h2>
    </div>
 </template>
@@ -96,12 +99,17 @@ export default {
       /* width: calc(100% - 15vw); */
       top: calc(50% - 20vmin / 2);
       left: 15vw;
+      overflow: hidden;
    }
 
    .l {
       display: inline-block;
    }
 
+   .last-name {
+      display: inline-block;
+      margin-left: 30px;
+   }
    
    @media screen and (max-width: 950px) {
       .landing-head {
@@ -110,6 +118,10 @@ export default {
 
       h1 {
          font-size: 6rem;
+      }
+
+      .last-name {
+         margin-left: 0;
       }
 
       .back {

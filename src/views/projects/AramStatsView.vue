@@ -117,7 +117,7 @@ export default {
                   <ul>
                      <li><a href="#frontend">The Front End</a></li>
                      <li><a href="#backend">The Back End</a></li>
-                     <li><a href="#future">Future</a></li>
+                     <li><a href="#updates">Updates</a></li>
                   </ul>
                   <li><a href="#conclusion">Conclusion</a></li>
                </ul>
@@ -136,8 +136,7 @@ export default {
                   went public - how the site looked on release, versus now, as of time of writing and provide the reasons on why these changes were made.
                </p>
                <p>
-                  The development section focuses on everything affiliated to the code and technology used to get the site up and running. Similarly to the design section, I will talk about choices made and their reasoning along with other
-                  concepts such as future proofing.
+                  The development section focuses on everything affiliated to the code and technology used to get the site up and running. Similarly to the design section, I will talk about choices made and their reasoning.
                </p>
 
                <section id="what">
@@ -378,7 +377,7 @@ export default {
             <section id="development">
                <h2>Development</h2>
                <p>
-                  Aramstats is built atop a MEVN (MongoDB, Express.js, Vue.js, Node.js) stack and is hosted on an AWS t2 micro instance. A GitHub repository is
+                  Aramstats is built atop a MEVN (MongoDB Atlas, Express.js, Vue.js, Node.js) stack and is hosted on an AWS t2 micro instance. A GitHub repository is
                   available to look through in a link to the left. Hosting is about $10/month for the EC2 and elastic IP and about $2 for the first year on Namecheap.
                </p>
 
@@ -439,16 +438,21 @@ export default {
                   </p>
                </section>
 
-               <section id="future">
-                  <h3>Future</h3>
-                  <p>
-                     I've incorporated Google Analytics roughly 2 weeks ago on April 19, and the site has already reached over 100 unique visitors. These numbers are not that laudable, but what is worth
-                     focusing on is that I will soon max out the available space on my current, free, MongoDB subscription. As of time of writing I'm at 455.6 of the available 512 MB.
+               <section id="updates">
+                  <h3>Updates</h3>
+                  <p style="font-weight: bold;">
+                     5/5/23
                   </p>
                   <p>
-                     As it stands, this is the current and largest problem I'm facing with Aramstats. Other platforms offer a similarly free base tier with limited resources up to a a 1024 MB, however this is
-                     not a resolution, but a band-aid fix. I want to keep this site running, as it has been fun working on, however I'd like to minimize the cost where possible. I do have some ideas to combat
-                     these issues and if I implement them, I'll be sure to talk about them here.
+                     I've incorporated Google Analytics roughly 2 weeks ago on April 19 and the site has already reached over 100 users. These numbers are not that laudable but what is worth
+                     focusing on is that I will soon max out the available space on my current, free, MongoDB Atlas subscription. As of time of writing I'm at 455.6 of the available 512 MB.
+                  </p>
+                  <p style="font-weight: bold;">
+                     5/11/23
+                  </p>
+                  <p>
+                     The Mongo database has been moved from the cloud to my old laptop. The laptop runs on Ubuntu Server (can dual boot to Windows 10 just in case) and offers drastically more
+                     storage. Since 5/5, the user count has doubled and database is ~535 MB with over 530 users having parsed their summoner profile.
                   </p>
                </section>
             </section>

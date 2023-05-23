@@ -3,6 +3,24 @@ import Experience from '../assets/Experience/Experience'
 import gsap from 'gsap'
 
 export default {
+
+   head: {
+      meta: [
+         {
+            name: 'author',
+            content: 'Ryan Lin'
+         },
+         {
+            name: 'description',
+            content: `Hello, my name is Ryan Lin and I do design and development. This site serves as a place where I can showcase projects I have worked on, discuss interesting topics, and stash recipes.`
+         },
+         {
+            property: 'og:description',
+            content: `Hello, my name is Ryan Lin and I do design and development. This site serves as a place where I can showcase projects I have worked on, discuss interesting topics, and stash recipes.`
+         }
+      ]
+   },
+
    data() {
       return {
 

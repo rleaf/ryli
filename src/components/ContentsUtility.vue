@@ -96,9 +96,9 @@ export default {
       },
       
       changeSize(iter=true) {
-         if (iter) this.typeSize === 2 ? (this.typeSize = 0) : (this.typeSize++)
+         if (iter) this.typeSize === 3 ? (this.typeSize = 0) : (this.typeSize++)
 
-         const sizeArray = ['1.25rem', '1.45rem', '1.65rem']
+         const sizeArray = ['1.25rem', '1.35rem', '1.45rem', '1.55rem']
          const codeArray = ['1rem', '1.3rem', '1.5rem']
          
          const size = document.querySelector('.blog-wrapper')
@@ -115,7 +115,7 @@ export default {
       },
 
       size() {
-         const table = ['+0rem', '+.2rem', '+.4rem']
+         const table = ['+0rem', '+.1rem', '+.2rem', '+.3rem']
          return table[this.typeSize]
       }
    }

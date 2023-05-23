@@ -86,7 +86,8 @@
 }
 
 nav {
-   padding-top: 2vh;
+   margin-top: 2vh;
+   border-top: 1px solid tomato;
 }
 
 nav ul {

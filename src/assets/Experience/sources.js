@@ -1,10 +1,28 @@
 import aramstatsPath from '../projects/threeTextures/aramStatsTexture.webp'
 import steamPath from '../projects/threeTextures/steamTexture.webp'
 import oscillaPath from '../projects/threeTextures/oscillaTexture.png'
-import spotifyPath from '../projects/threeTextures/spotifyDeskTexture.webp'
+import spotifyPath from '../projects/threeTextures/signTexture.webp'
 import signPath from '../projects/threeTextures/signTexture.webp'
 
 export default {
+   spotify: {
+      title: 'Spotify',
+      timeline: ['2022', '2 months'],
+      genre: ['UX/UI Design'],
+      tech: ['Figma'],
+      body: 'WOOOWWW',
+      cover: spotifyPath,
+      uValley: {
+         r: 0/255,
+         g: 54/255,
+         b: 21/255,
+      },
+      uPeak: {
+         r: 255/255,
+         g: 255/255,
+         b: 255/255,
+      }
+   },
    aramstats: {
       title: 'Aram Stats',
       timeline: ['2023', '4 months +'],
@@ -61,24 +79,6 @@ export default {
          b: 255/255,
       }
    },
-   // spotify: {
-   //    title: 'Spotify',
-   //    timeline: ['2022', '2 months'],
-   //    genre: ['UX/UI Design'],
-   //    tech: ['Figma', 'Adobe Illustrator'],
-   //    body: 'Simple designs added to Spotify Desktop to improve user experience.',
-   //    cover: spotifyPath,
-   //    uValley: {
-   //       r: 0/255,
-   //       g: 54/255,
-   //       b: 21/255,
-   //    },
-   //    uPeak: {
-   //       r: 255/255,
-   //       g: 255/255,
-   //       b: 255/255,
-   //    }
-   // },
    sign: {
       title: 'Hand Gestures',
       timeline: ['2021', '5 months'],

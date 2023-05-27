@@ -92,12 +92,8 @@ export default {
                </div>
                <div>
                   <div class="meta-header">Links</div>
-                  <a href="http://aramstats.lol/" target="_blank">Website</a>
+                  <a href="https://docs.google.com/spreadsheets/d/1q4M7g4D-aJEBAxI9SHTROjkjTC3FK4_XNm9g2e7DTrA/edit?usp=sharing" target="_blank">Pain Points</a>
                   <br>
-                  <a href="https://github.com/rleaf/aramstats" target="_blank">GitHub Repo</a>
-                  <br>
-                  <a href="https://www.figma.com/file/pKzDOt9SRG9xx6W74YmBMD/aramstats?node-id=0%3A1&t=uAMzCzuDjY9yoY3A-1/"
-                     target="_blank">Figma</a>
                </div>
             </div>
             <ToTop />
@@ -108,6 +104,9 @@ export default {
                      <li><a href="#biases">Biases</a></li>
                   </ul>
                   <li><a href="#currentlayout">Current Layout</a></li>
+                  <ul>
+                     <li><a href="#painpoints">Pain Points</a></li>
+                  </ul>
                   <li><a href="#sidebar">Sidebar</a></li>
                   <ul>
                      <li><a href="#library">Your Library</a></li>
@@ -140,8 +139,10 @@ export default {
             <section id="biases">
                <h3>Biases</h3>
                <p>
-                  Before digging into UX/UI, I want to address two biases. One is that online discussion, certainly Reddit, is prone to bandwagoning. I believe this system not only promotes
-                  messages that others may find agreeable, but also demotes messages that others may find disagreeable. This means that there could be comments in favor of the new Spotify UI,
+                  Before digging into UX/UI, I want to address two biases. Because I'm using criticism and feedback from forum discussions on Reddit, it's
+                  important to acknowledge a lot of posts, what users are reading, are prone to bandwagoning. This system not only promotes
+                  messages that others may find agreeable, but also demotes messages that others may find disagreeable because everyone is able to moderate visibility of posts or comments
+                  via upvotes/downvotes. This means that there could be comments in favor of the new Spotify UI,
                   however they are drowned out by the ubiquity of more upvoted comments against the new UI. The second bias is that I, Ryan Lin, have been using Spotify since August 7th, 2015.
                   I’ve never had significant issue with the UX, but have certainly developed opinions over the years on things I’d like to see introduced. I feel addressing these biases
                   now will help to critique the Spotify UX more impartially. 
@@ -181,39 +182,72 @@ export default {
                   <span class="flicking-arrow-next"></span>
                </template>
             </Flicking>
+
+            <section id="painpoints">
+               <h3>Pain Points</h3>
+               <p>
+                  Looking through the Reddit and Spotify Community discussions, I sifted through over 300 comments for pain points users faced when interacting with the new UI.
+                  Many of the comments were excluded from the data below for being vitriolic or ad hominem. Upon finishing, I totalled 168 unique instances where users
+                  expressed frustrations related to UX/UI. Many of the comments had dozens of likes on the Spotify forums or hundreds of upvotes on their respective subreddits.
+                  Below is an overall summary, however a more comprehensive list of these pain points is available
+                  <a href="https://docs.google.com/spreadsheets/d/1q4M7g4D-aJEBAxI9SHTROjkjTC3FK4_XNm9g2e7DTrA/edit?usp=sharing" target="_blank">here</a> to look at and
+                  also in the sidebar. 
+               </p>
+               <p>
+                  There were 15 groups of recurring pain points in the 300 comments. A group is multiple pain points mentioned together by one user or pain points that are 
+                  similar to one another.
+                  The colors for each pain point below correspond to the colors in the pie chart.
+                  <ul>
+                     <li><span style="background-color: #4385f580">~30%</span> of recorded pain points state the new UI has become too "cluttered", "clunky", and feels overall "unfinished".</li>
+                     <li><span style="background-color: #e9433580;">~24%</span> of recorded pain points are about sequestering a user's library to the sidebar. 
+                        <br> 
+                        <i>“...[the] library is what I care most about, yet it is confined to a small portion of the screen...”</i>
+                        <br>
+                        Although users can expand their library rightwards, they have stated it is not good enough.
+                     </li>
+                     <li><span style="background-color: #fcbd0380;">~14%</span> of recorded pain points are the inability to easily organize a user's library. Although custom ordering is available, the density of elements
+                        such as the pill menu make it challenging. Other related frustrations were anchoring "Liked Songs" and "Your Episodes" to the top when filtering
+                        by playlists and the inability to custom sort other media such as albums.</li>
+                  </ul>
+               </p>
+               <img class="image" src="../../assets/projects/spotify/chart.webp" alt="">
+               <p class="sub-text">
+                  Pie chart visualizing ubiquity of pain points. Link in sidebar.
+               </p>
+               <p>
+                  Of the ~300 comments, resolutions to improve UX involved changing to the compact library view, minimizing the social tab, and even switching to alternative platforms
+                  such as Apple Music or Tidal. There was a shared consensus from the users that desktop applications should not adhere to mobile UI standards and that, by homogenizing the two,
+                  detriments overall UX.
+               </p>
+               <p>
+                  
+               </p>
+            </section>
          </section>
 
          <section id="sidebar">
             <h2>Sidebar</h2>
             <p>
-               The sidebar is both the <span style="background-color: #fff79990;">navigation tile</span> and the <span style="background-color: #f5989d90;">library tile</span>.
+               The sidebar is both the navigation tile and the library tile.
                Functionally each one behaves differently where the navigation tile allows a user to traverse to
-               their “Home” or “Search” page, which upon clicking either button mutates the <span style="background-color: #82ca9c90;">main window tile</span>. The library tile allows a user to traverse through their library,
-               which instead of initially mutating the main window tile, is immediately viewable inside the library tile. Clicking on any content in a user's library then pushes content to the
+               their Home or Search page displayed in the main window tile and the library tile allows a user to traverse through their library,
+               which instead of initially mutating the main window tile is immediately viewable inside the library tile itself. Clicking on any content in a user's library then pushes content to the
                main window tile.
             </p>
 
             <section id="library">
                <h3>Your Library</h3>
                <p>
-                  The library tile handles the bulk of user interactions. It is the primary interface for how a user will access their Podcasts & Shows,
+                  The library tile handles the bulk of user interactions. As shown by the distribution of pain points, it is the primary interface for how a user will access their Podcasts & Shows,
                   Audiobooks, Albums, and Playlists and, because of this, must be intuitive to the user. A lot of how to ameliorate intuition for UI is subjective -
                   what characteristics of UI I personally resonate with will be different from what you resonate with because we have different backgrounds and familiarity.
                   Despite that subjectivity, I do believe there are certain design patterns that can be interpreted empirically to aid intuition for the majority of users.
-               </p>
-               <p>
-                  The following mockups adhere to the priorities shown below in the first slide and the previously mentioned design patterns to aid intuition for users.
-                  In the base archetype for the mockups,
-                  the <span style="background-color: #8781bd90">pill menu</span> and the <span style="background-color: #6dcff690">sort dropdown menu</span> are embedded inside the
-                  <span style="background-color: #82ca9c90;">content window</span> and the <span style="background-color: #f6967990;">buttons</span> occupy the space where the dropdown menu was prior.
-                  These changes offer more vertical space for the content window by removing the pill menu and evenly distribute content information to help organize a user’s library.
-                  Instead of five elements clustered together at the top of the library tile, there are only three elements.
-                  A lofi wireframe of these changes are shown below on the fifth slide.
+                  The goal of the mockups for the library tile in this section is to adhere to the priorities shown below in the first slide and resolve the affiliated pain points mentioned above.
                </p>
                <Flicking class="carousel" :options="{ circular: true }" :plugins="arr1">
                   <div class="panel">
                      <img class="image" src="../../assets/projects/spotify/4x.webp">
-                     <span style="font-weight: bold; font-size: 0.9rem;">(1/5) Landing</span>
+                     <span style="font-weight: bold; font-size: 0.9rem;">(1/4) Landing</span>
                      <p>
                         A hierarchy establishing levels of importance of certain actions over others. Viewing the content, a user's library, takes precedence followed by
                         filtering, ordering, or searching a library. On the bottom are utility features such as creating playlists or folders and expanding the library.
@@ -221,30 +255,23 @@ export default {
                   </div>
                   <div class="panel">
                      <img class="image" src="../../assets/projects/spotify/4.webp">
-                     <span style="font-weight: bold; font-size: 0.9rem;">(2/5) Landing</span>
+                     <span style="font-weight: bold; font-size: 0.9rem;">(2/4) Landing</span>
                      <p>
-                        The general appearance of a user's library.
+                        The current appearance of a user's library.
                      </p>
                   </div>
                   <div class="panel">
                      <img class="image" src="../../assets/projects/spotify/41.webp">
-                     <span style="font-weight: bold; font-size: 0.9rem;">(3/5) Segregating the layout</span>
+                     <span style="font-weight: bold; font-size: 0.9rem;">(3/4) Segregating the layout</span>
                      <p>
                         Breaking down the elements of the library tile.
                      </p>
                   </div>
                   <div class="panel">
                      <img class="image" src="../../assets/projects/spotify/42.webp">
-                     <span style="font-weight: bold; font-size: 0.9rem;">(4/5) Segregating the layout</span>
+                     <span style="font-weight: bold; font-size: 0.9rem;">(4/4) Segregating the layout</span>
                      <p>
-                        A user's library represented as a lofi wireframe.
-                     </p>
-                  </div>
-                  <div class="panel">
-                     <img class="image" src="../../assets/projects/spotify/43.webp">
-                     <span style="font-weight: bold; font-size: 0.9rem;">(5/5) Segregating the layout</span>
-                     <p>
-                        Lofi wireframe of the various changes mentioned above.
+                        A user's library represented as a lofi wireframe. This wireframe will be used as a starting point to build the new mockups.
                      </p>
                   </div>
                   <template #viewport>
@@ -252,6 +279,46 @@ export default {
                      <span class="flicking-arrow-next"></span>
                   </template>
                </Flicking>
+               <p>
+                  The first goal is reducing the density and confusion at the top of the library tile by moving around some of the features. The <span style="background-color: #8781bd90">pill menu</span>
+                  (using colors on third slide above) specifically becomes difficult to interact with unless the library tile is wide enough. Another issue users have expressed is the complex
+                  taskflow when interacting with the pill menu to filter their library. A popular example is the ability to custom sort playlists, where that option is only available if a user is
+                  already filtering by playlists. Moving the functionality of the pill menu to be embedded inside the <span style="background-color: #82ca9c90;">content window</span> circumvents
+                  these taskflow issues, reduces complexity at the top of the library tile, and provides more vertical space for a user to interact with their library.
+                  <!-- Using the color scheme on the third slide, the various changes involve moving
+                  the <span style="background-color: #8781bd90">pill menu</span> and the <span style="background-color: #6dcff690">sort dropdown menu</span> to be embedded inside the
+                  <span style="background-color: #82ca9c90;">content window</span> and the <span style="background-color: #f6967990;">buttons</span> occupy the space where the dropdown menu was prior.
+                  The goal of these changes is to offer more vertical space for the content window and evenly distribute content information to help organize a user’s library.
+                  Instead of five elements clustered together at the top of the library tile, there are only three elements.
+                  A lofi wireframe of these changes are shown below on the fifth slide. -->
+               </p>
+               <p>
+                  The wireframe below on the second slide shows these changes. The library, by default, shows all content organized by type: Podcasts & Shows, Audiobooks, Albums, and Playlists.
+                  Each section would be truncatable and have their own sorting dropdown menu for further sorting.
+                  
+                  <!-- Another level of hierarchy is introduced and now a user is freely able to filter their library
+                  by Podcasts & Shows, Audiobooks, Albums, and Playlists.  -->
+               </p>
+               <Flicking class="carousel" :options="{ circular: true }" :plugins="arr2">
+                     <div class="panel">
+                        <img class="image" src="../../assets/projects/spotify/42.webp">
+                        <span style="font-weight: bold; font-size: 0.9rem;">(1/2)</span>
+                        <p>
+                           Starting point wireframe
+                        </p>
+                     </div>
+                     <div class="panel">
+                        <img class="image" src="../../assets/projects/spotify/5.webp">
+                        <span style="font-weight: bold; font-size: 0.9rem;">(2/2)</span>
+                        <p>
+                           Embedding pill menu functionality into the content window of the library tile.
+                        </p>
+                     </div>
+                     <template #viewport>
+                        <span class="flicking-arrow-prev"></span>
+                        <span class="flicking-arrow-next"></span>
+                     </template>
+                  </Flicking>
             </section>
          </section>
 

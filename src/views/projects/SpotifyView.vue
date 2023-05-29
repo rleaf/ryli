@@ -110,7 +110,9 @@ export default {
                   </ul>
                   <li><a href="#sidebar">Sidebar</a></li>
                   <ul>
-                     <li><a href="#library">Your Library</a></li>
+                     <li><a href="#library">Library Tile</a></li>
+                     <li><a href="#navigation">Navigation Tile</a></li>
+                     <li><a href="#libraryandnav">Library & Navigation</a></li>
                   </ul>
                </ul>
             </nav>
@@ -237,19 +239,20 @@ export default {
             </p>
 
             <section id="library">
-               <h3>Your Library</h3>
+               <h3>Library Tile</h3>
                <p>
                   The library tile handles the bulk of user interactions. As shown by the distribution of pain points, it is the primary interface for how a user will access their Podcasts & Shows,
                   Audiobooks, Albums, and Playlists and, because of this, must be intuitive to the user. A lot of how to ameliorate intuition for UI is subjective -
                   what characteristics of UI I personally resonate with will be different from what you resonate with because we have different backgrounds and familiarity.
-                  Despite that subjectivity, I do believe there are certain design patterns that can be interpreted empirically to aid intuition for the majority of users.
+                  Despite that subjectivity I do believe there are certain design patterns that can aid intuition for the majority of users.
                   The goal of the mockups for the library tile in this section is to adhere to the priorities shown below in the first slide and resolve the affiliated pain points mentioned above.
                </p>
                <p>
                   The priorities comprise the major interactions with the library tile. Following general consensus from feedback on discussion about the new UI,
-                  improving capability to view what is in a user's library such as playlists or albums ranks as the most important priority. Following are the mutable actions a user has
+                  improving capability to view what is in a user's library such as playlists or albums ranks at the top. Following are the mutable actions a user has
                   on their library such as creating a playlist/folder, any means of filtering content, any means of sorting content, searching content, and pinning content. At the bottom,
-                  is the priority to change the width of the library tile. This ranks last because, as you will see, I reintroduce the capability to view library contents on the main tile.
+                  is the ability to change the width of the library tile. This ranks last because, as you will see, I reintroduce the capability to view library contents on the main tile.
+                  Note - you still can view library contents on the main tile via hotkeys such as alt+shift+4, however many users did not know this making it unintuitive.
                </p>
                <Flicking class="carousel" :options="{ circular: true }" :plugins="arr1">
                   <div class="panel">
@@ -297,38 +300,28 @@ export default {
                <p>
                   A possible resolution to many of these problems is to
                   move the functionality of the pill menu to be embedded inside the <span style="background-color: #82ca9c90;">content window</span>. This circumvents
-                  these taskflow issues, segregates the dynamic functionality of filtering and sorting, reduces complexity at the top of the library tile, and provides more vertical space for a user to interact with their library.
-                  Lastly, the <span style="background-color: #C9844B90">buttons</span> have been moved to the row below to bring emphasis back to the "Your Library" header.
-                  The wireframe below on the second slide shows these changes. The library, by default, would show all content organized by type: Podcasts & Shows, Audiobooks, Albums, and Playlists.
-                  Each section would be truncatable and have their own sorting dropdown menu for further sorting.
+                  these taskflow issues, segregates the dynamic functionality of filtering and sorting, reduces complexity at the top of the library tile, default organizes a user's library,
+                  and provides more vertical space for a user to interact with their library.
+                  Lastly, the <span style="background-color: #C9844B90">buttons</span> have been moved to the row below to bring emphasis back to the "Your Library" header. A downside
+                  to this resolution is that by interspersing the pill menu functionality inside the content window, content is further spaced out. Although the content window itself
+                  is taller, a marginal more amount of scrolling is required.
+                  The wireframes below shows these changes. Each section would be truncatable and have their own sorting dropdown menu for further sorting.
                </p>
                <Flicking class="carousel" :options="{ circular: true }" :plugins="arr2">
                   <div class="panel">
-                     <img class="image" src="../../assets/projects/spotify/42.webp">
-                     <span style="font-weight: bold; font-size: 0.9rem;">(1/4)</span>
+                     <img class="image" src="../../assets/projects/spotify/45.webp">
+                     <span style="font-weight: bold; font-size: 0.9rem;">(1/2) Lofi wireframes</span>
                      <p>
-                        Starting point wireframe.
-                     </p>
-                  </div>
-                  <div class="panel">
-                     <img class="image" src="../../assets/projects/spotify/5.webp">
-                     <span style="font-weight: bold; font-size: 0.9rem;">(2/4) Proposed wireframe</span>
-                     <p>
-                        Embedding pill menu functionality into the content window of the library tile.
-                     </p>
-                  </div>
-                  <div class="panel">
-                     <img class="image" src="../../assets/projects/spotify/4.webp">
-                     <span style="font-weight: bold; font-size: 0.9rem;">(3/4) Current UI</span>
-                     <p>
-                        What my Spotify looks like.
+                        Left-hand side: Starting point wireframe <br>
+                        Right-hand side: Proposed wireframe
                      </p>
                   </div>
                   <div class="panel">
                      <img class="image" src="../../assets/projects/spotify/44.webp">
-                     <span style="font-weight: bold; font-size: 0.9rem;">(4/4) Proposed mockup</span>
+                     <span style="font-weight: bold; font-size: 0.9rem;">(2/2) Hifi wireframes</span>
                      <p>
-                        Hifi wireframe from slide 2.
+                        Left-hand side: What my Spotify looks like <br>
+                        Right-hand side: Proposed wireframe
                      </p>
                   </div>
                   <template #viewport>
@@ -337,26 +330,58 @@ export default {
                   </template>
                </Flicking>
                <p>
-                  Superfluous text in library contents, such as indicating what type the item is (playlist, album, podcast, etc...), can be omitted to improve overall
-                  clarity because of organization. An extra consideration for users is to allow for multiple ways to view library content.
-               </p>
-               <img class="image" src="../../assets/projects/spotify/6.webp" alt="">
-               <p class="sub-text">
-                  Three possible ways to display library content, each with different amount of total elements. I'm introducing "Simplified View" because some users
+                  Because content is already organized by type, superfluous text in library contents such as (playlist, album, podcast, etc...), can be omitted to improve overall
+                  clarity. An extra consideration is to allow users to set how many elements an item can have.
+                  Below are three possible ways to display library content, each with different amount of total elements. I'm introducing "Simplified View" because some users
                   don't need to see the creator as it can also be redundant. An example being my personal library tile - I don't need to see my name.
                </p>
+               <img class="image" src="../../assets/projects/spotify/6.webp" alt="">
                <img class="max-image" src="../../assets/projects/spotify/61.webp" alt="">
-               <p class="sub-text">
+               <p class="sub-text" style="margin-bottom: 8rem;">
                   Wireframes of each representation. 
                </p>
                <p>
-                  Another variation, more-so a design decision, is to remove the horizontal rows segregating each library section. The current Spotify branding has sections that
-                  use horizontal rows and sections that do not so both designs are viable.
+                  A variation, more-so a design decision, is to remove the horizontal rows segregating each library section. The current Spotify branding has some sections that
+                  use horizontal rows and some sections that do not, so both designs are viable. Although there are less elements on-screen, it may be difficult to immediately discern
+                  sections from each other in the library without horizontal rows. The compact view has added vertical rows to provide structure.
                </p>
                <img class="max-image" src="../../assets/projects/spotify/7.webp" alt="">
                <p class="sub-text">
-                  Although there are less elements on-screen, it may be difficult to immediately discern sections from each other in the library without horizontal rows. The compact view
-                  has added vertical rows to provide structure.
+                  Design variation removing horizontal rows.
+               </p>
+               <div class="side" style="justify-content: space-around;">
+                  <div class="side-text">
+                     <h4>Colored Folders</h4>
+                     <p>
+                        Colored folders can be used to help distinguish from each other. Users have mentioned how it can be difficult when they have many folders.
+                     </p>
+                  </div>
+                  <img src="../../assets/projects/spotify/71.webp" alt="" class="side-media">
+               </div>
+            </section>
+
+            <section id="navigation">
+               <h3>Navigation Tile</h3>
+               <p>
+                  Main navigation throughout Spotify, excluding the library, is done visually with the navigation tile; it is a very simple tile made up of two buttons
+                  "Home" and "Search".
+                  Clicking either button immediately
+                  mutates the main window tile and highlights the button text in white. Hotkeys to aid navigation are available
+                  where the mapping can be seen via <code class="code">ctrl + /</code>.
+                  Although a significant portion of the criticism mentioned having difficulties "navigating", a lot of these comments seemed to be towards
+                  the library tile. I believe, because of the tile's simplicity, not much work is required and the intended goals have been accomplished without being
+                  frustrating to use.
+               </p>
+               <p>
+               </p>
+            </section>
+
+            <section id="libraryandnav">
+               <h3>Library & Navigation</h3>
+               <p>
+                  What I'd like to do is try and introduce some of the navigation tile's simplicity back into the library tile. It's immediately understood that clicking on a
+                  button in the navigation tile routes to a new window on the main tile. Clicking on the "Your Library" button in the library tile however shrinks/expands the tile.
+                  
                </p>
             </section>
          </section>

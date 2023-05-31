@@ -112,8 +112,9 @@ export default {
                   <ul>
                      <li><a href="#library">Library Tile</a></li>
                      <li><a href="#navigation">Navigation Tile</a></li>
-                     <li><a href="#libraryandnav">Library & Navigation</a></li>
+                     <li><a href="#libraryandnav">Bringing it All Together</a></li>
                   </ul>
+                  <li><a href="#mainwindow">Main Window</a></li>
                </ul>
             </nav>
          </div>
@@ -377,14 +378,55 @@ export default {
             </section>
 
             <section id="libraryandnav">
-               <h3>Library & Navigation</h3>
+               <h3>Bringing it All Together</h3>
                <p>
-                  What I'd like to do is try and introduce some of the navigation tile's simplicity back into the library tile. It's immediately understood that clicking on a
-                  button in the navigation tile routes to a new window on the main tile. Clicking on the "Your Library" button in the library tile however shrinks/expands the tile.
-                  
+                  An overwhelming majority of the comments in the Spotify and Reddit discussions state frustrations when interacting with the sidebar. Although a lot of these
+                  frustrations are directed specifically towards the library tile, I think they can be subsided by addressing the sidebar as a whole. Since
+                  the latest update the sidebar has gained a lot of functionality where much of it, arguable all, is dedicated to improving UX for the library tile. An example is
+                  shown below, where you can minimize/shrink and maximize/expand the library. If a user wanted, they could have the sidebar constitute a majority of the app's
+                  real estate. Although this may improve usability for the library tile, the navigation tile wastes a significant amount of space and the main window tile is
+                  forced into a mobile-esque UI, which was a prominent pain point. Conversely, by minimizing the sidebar, pain points are still evident because UX for the library
+                  tile deteriorates and the main window tile occupies majority of the screen, where users have stated the main window tile to be "useless".
                </p>
+               <Flicking class="carousel" :options="{ circular: true }" :plugins="arr3">
+                     <div class="panel">
+                        <img class="image" src="../../assets/projects/spotify/8.webp">
+                        <span style="font-weight: bold; font-size: 0.9rem;">(1/2)</span>
+                        <p>
+                           Minimized sidebar.
+                        </p>
+                     </div>
+                     <div class="panel">
+                        <img class="image" src="../../assets/projects/spotify/81.webp">
+                        <span style="font-weight: bold; font-size: 0.9rem;">(2/2)</span>
+                        <p>
+                           Maximized sidebar.
+                        </p>
+                     </div>
+                     <template #viewport>
+                        <span class="flicking-arrow-prev"></span>
+                        <span class="flicking-arrow-next"></span>
+                     </template>
+                  </Flicking>
+               <p>
+                  The priority of the sidebar is very brief: access content. To improve the UX of the sidebar,
+                  I believe the buttons: "Home", "Search", and "Your Library" should behave similarly and
+                  route to a new page to be displayed on the main window tile.
+                  Two of the three buttons, "Home" and "Search", already do this and having the "Your Library" button follow suit
+                  will preclude all of the previously mentioned pain points and offer strong possibilities for improving UX. Specifically, I will be changing the functionality
+                  of the "Your Library" button so it also routes to a new page on the main window tile. Hifi wireframes will be shown in the <a href="#mainwindow">main window</a> section.
+               </p>
+               <img class="max-image" src="../../assets/projects/spotify/83.png" alt="">
             </section>
          </section>
+
+         <section id="mainwindow">
+            <h2>Main Window</h2>
+            <p>
+               The main window tile occupies the largest amount of space and showcases
+            </p>
+         </section>
+            
 
       </div>
    </div>

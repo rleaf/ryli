@@ -112,9 +112,12 @@ export default {
                   <ul>
                      <li><a href="#library">Library Tile</a></li>
                      <li><a href="#navigation">Navigation Tile</a></li>
-                     <li><a href="#libraryandnav">Bringing it All Together</a></li>
+                     <li><a href="#sidebartogether">Bringing it All Together</a></li>
                   </ul>
-                  <li><a href="#mainwindow">Main Window</a></li>
+                  <li><a href="#mainwindow">Main Window Tile</a></li>
+                  <ul>
+                     <li><a href="#sharingpriorities">Sharing Priorities</a></li>
+                  </ul>
                </ul>
             </nav>
          </div>
@@ -159,7 +162,7 @@ export default {
             <p>
                The current Spotify UI organizes information with tiles. There are three tiles: a <span style="background-color: #fff79990;">navigation tile</span> situated at
                the top-left, a <span style="background-color: #f5989d90;">library tile</span> situated to the
-               left under the <span style="background-color: #fff79990;">navigation</span>, and a <span style="background-color: #82ca9c90;">main window tile</span> which matches the combined height of both the other two tiles and takes up the remaining rightwards real-estate. 
+               left under the <span style="background-color: #fff79990;">navigation</span>, and a <span style="background-color: #82ca9c90;">main window tile</span> which matches the combined height of both the other two tiles and takes up the remaining rightwards real estate. 
                Outside of those three tiles occupying the negative space you’ll find the <span style="background-color: #6dcff690;">controls</span> 
                for the current song anchored to the bottom with the classic Play/Pause, Next,
                Previous, Loop, etc…, buttons along with the <span style="background-color: #6dcff690;">Windows title bar</span> anchored to the top where application routes such as “File”, “Edit”, “View”, “Playback”, and “Help” are
@@ -198,18 +201,21 @@ export default {
                   also in the sidebar. 
                </p>
                <p>
-                  Of the 168 instances, I split the pain points into 15 groups. A group is multiple pain points mentioned together by one user or pain points that are 
+                  I split the pain points into 15 groups. A group is multiple pain points mentioned together by one user or are 
                   similar to one another.
                   The colors for each pain point below correspond to the colors in the pie chart.
+               </p>
+               <p>
+                  Of the 168 recorded pain points:
                   <ul>
-                     <li><span style="background-color: #4385f580">~30%</span> of recorded pain points state the new UI has become too "cluttered", "clunky", and feels overall "unfinished".</li>
-                     <li><span style="background-color: #e9433580;">~24%</span> of recorded pain points are about sequestering a user's library to the sidebar. 
+                     <li><span style="background-color: #4385f580">~30%</span> state the new UI has become too "cluttered", "clunky", and feels overall "unfinished".</li>
+                     <li><span style="background-color: #e9433580;">~24%</span>  are frustrations from sequestering a user's library to the sidebar. 
                         <br> 
                         <i>“...[the] library is what I care most about, yet it is confined to a small portion of the screen...”</i>
                         <br>
                         Although users can expand their library rightwards, they have stated it is not good enough.
                      </li>
-                     <li><span style="background-color: #fcbd0380;">~14%</span> of recorded pain points are the inability to easily organize a user's library. Although custom ordering is available, the density of elements
+                     <li><span style="background-color: #fcbd0380;">~14%</span> are about the inability to easily organize a user's library. Although custom ordering is available, the density of elements
                         such as the pill menu make it challenging. Other related frustrations were anchoring "Liked Songs" and "Your Episodes" to the top when filtering
                         by playlists and the inability to custom sort other media such as albums.</li>
                   </ul>
@@ -295,22 +301,26 @@ export default {
                   the <span style="background-color: #8781bd90">pill menu</span>
                   specifically becomes challenging to interact with unless the library tile is wide enough.
                   Another issue users have expressed about the pill menu is the complex
-                  taskflow when interacting with it to filter library content. An example I saw multiple times is the ability to <span style="background-color: #50BCCB90;">custom sort</span> playlists, where that option is only available if a user is
+                  taskflow when interacting with it to filter library content. There were many comments stating the inability
+                  to <span style="background-color: #50BCCB90;">custom sort</span> playlists, where that option is only available if a user is
                   already <span style="background-color: #8781bd90">filtering</span> by playlists. This means that what you're able to sort by in the <span style="background-color: #50BCCB90;">dropdown menu</span> dynamically changes based on what you're filtering by in the pill menu. 
                </p>
                <p>
                   A possible resolution to many of these problems is to
                   move the functionality of the pill menu to be embedded inside the <span style="background-color: #82ca9c90;">content window</span>. This circumvents
-                  these taskflow issues, segregates the dynamic functionality of filtering and sorting, reduces complexity at the top of the library tile, default organizes a user's library,
+                  taskflow issues, segregates the dynamic functionality between filtering and sorting, reduces complexity at the top of the library tile, organizes a user's library,
                   and provides more vertical space for a user to interact with their library.
-                  Lastly, the <span style="background-color: #C9844B90">buttons</span> have been moved to the row below to bring emphasis back to the "Your Library" header. A downside
-                  to this resolution is that by interspersing the pill menu functionality inside the content window, content is further spaced out. Although the content window itself
-                  is taller, a marginal more amount of scrolling is required.
-                  The wireframes below shows these changes. Each section would be truncatable and have their own sorting dropdown menu for further sorting.
+                  Each section in the content window would be truncatable and have their own sorting dropdown menu for further sorting.
+                  A downside to this resolution is that by interspersing the pill menu functionality inside the content window content is further spaced out.
+                  The second change is to remove the <span style="background-color: #C9844B90">Expand</span> button and to group the <span style="background-color: #D57FD990;">Search</span>
+                  with the <span style="background-color: #C9844B90">Create Playlist/Folder</span> button to be in the same row as the <span style="background-color: #C0B83290">title</span>.
+                  Functionality for viewing a user's library in a larger window will be handled by the main window tile and is initially discussed in
+                  <a href="#sidebartogether">Bringing it All Together</a>.
+                  The wireframes below shows these changes.
                </p>
                <Flicking class="carousel" :options="{ circular: true }" :plugins="arr2">
                   <div class="panel">
-                     <img class="image" src="../../assets/projects/spotify/45.webp">
+                     <img class="image" src="../../assets/projects/spotify/45.png">
                      <span style="font-weight: bold; font-size: 0.9rem;">(1/2) Lofi wireframes</span>
                      <p>
                         Left-hand side: Starting point wireframe <br>
@@ -318,7 +328,7 @@ export default {
                      </p>
                   </div>
                   <div class="panel">
-                     <img class="image" src="../../assets/projects/spotify/44.webp">
+                     <img class="image" src="../../assets/projects/spotify/44.png">
                      <span style="font-weight: bold; font-size: 0.9rem;">(2/2) Hifi wireframes</span>
                      <p>
                         Left-hand side: What my Spotify looks like <br>
@@ -333,20 +343,20 @@ export default {
                <p>
                   Because content is already organized by type, superfluous text in library contents such as (playlist, album, podcast, etc...), can be omitted to improve overall
                   clarity. An extra consideration is to allow users to set how many elements an item can have.
-                  Below are three possible ways to display library content, each with different amount of total elements. I'm introducing "Simplified View" because some users
+                  Below are three possible ways to display library content, each with a different amount of total elements. I'm introducing "Simplified View" because some users
                   don't need to see the creator as it can also be redundant. An example being my personal library tile - I don't need to see my name.
                </p>
                <img class="image" src="../../assets/projects/spotify/6.webp" alt="">
-               <img class="max-image" src="../../assets/projects/spotify/61.webp" alt="">
+               <img class="max-image" src="../../assets/projects/spotify/61.png" alt="">
                <p class="sub-text" style="margin-bottom: 8rem;">
                   Wireframes of each representation. 
                </p>
                <p>
-                  A variation, more-so a design decision, is to remove the horizontal rows segregating each library section. The current Spotify branding has some sections that
-                  use horizontal rows and some sections that do not, so both designs are viable. Although there are less elements on-screen, it may be difficult to immediately discern
+                  An alternative design is to remove the horizontal rows segregating each library section since the current Spotify branding has some sections that
+                  use horizontal rows and some sections that do not. Although there are less elements on-screen, it may be difficult to immediately discern
                   sections from each other in the library without horizontal rows. The compact view has added vertical rows to provide structure.
                </p>
-               <img class="max-image" src="../../assets/projects/spotify/7.webp" alt="">
+               <img class="max-image" src="../../assets/projects/spotify/7.png" alt="">
                <p class="sub-text">
                   Design variation removing horizontal rows.
                </p>
@@ -357,7 +367,7 @@ export default {
                         Colored folders can be used to help distinguish from each other. Users have mentioned how it can be difficult when they have many folders.
                      </p>
                   </div>
-                  <img src="../../assets/projects/spotify/71.webp" alt="" class="side-media">
+                  <img src="../../assets/projects/spotify/71.png" alt="" class="side-media">
                </div>
             </section>
 
@@ -369,7 +379,7 @@ export default {
                   Clicking either button immediately
                   mutates the main window tile and highlights the button text in white. Hotkeys to aid navigation are available
                   where the mapping can be seen via <code class="code">ctrl + /</code>.
-                  Although a significant portion of the criticism mentioned having difficulties "navigating", a lot of these comments seemed to be towards
+                  Although a significant portion of the criticism mentioned having difficulties "navigating", a lot of these comments seemed to be about
                   the library tile. I believe, because of the tile's simplicity, not much work is required and the intended goals have been accomplished without being
                   frustrating to use.
                </p>
@@ -377,54 +387,95 @@ export default {
                </p>
             </section>
 
-            <section id="libraryandnav">
+            <section id="sidebartogether">
                <h3>Bringing it All Together</h3>
                <p>
                   An overwhelming majority of the comments in the Spotify and Reddit discussions state frustrations when interacting with the sidebar. Although a lot of these
                   frustrations are directed specifically towards the library tile, I think they can be subsided by addressing the sidebar as a whole. Since
                   the latest update the sidebar has gained a lot of functionality where much of it, arguable all, is dedicated to improving UX for the library tile. An example is
-                  shown below, where you can minimize/shrink and maximize/expand the library. If a user wanted, they could have the sidebar constitute a majority of the app's
-                  real estate. Although this may improve usability for the library tile, the navigation tile wastes a significant amount of space and the main window tile is
+                  shown below, where you can minimize/shrink and maximize/expand the entire sidebar. If a user wanted, they could have the sidebar constitute a majority of the app's
+                  real estate. Although the expanded view may improve usability for the library tile, the navigation tile wastes a significant amount of space and the main window tile is
                   forced into a mobile-esque UI, which was a prominent pain point. Conversely, by minimizing the sidebar, pain points are still evident because UX for the library
                   tile deteriorates and the main window tile occupies majority of the screen, where users have stated the main window tile to be "useless".
                </p>
                <Flicking class="carousel" :options="{ circular: true }" :plugins="arr3">
-                     <div class="panel">
-                        <img class="image" src="../../assets/projects/spotify/8.webp">
-                        <span style="font-weight: bold; font-size: 0.9rem;">(1/2)</span>
-                        <p>
-                           Minimized sidebar.
-                        </p>
-                     </div>
-                     <div class="panel">
-                        <img class="image" src="../../assets/projects/spotify/81.webp">
-                        <span style="font-weight: bold; font-size: 0.9rem;">(2/2)</span>
-                        <p>
-                           Maximized sidebar.
-                        </p>
-                     </div>
-                     <template #viewport>
-                        <span class="flicking-arrow-prev"></span>
-                        <span class="flicking-arrow-next"></span>
-                     </template>
-                  </Flicking>
+                  <div class="panel">
+                     <img class="image" src="../../assets/projects/spotify/8.webp">
+                     <span style="font-weight: bold; font-size: 0.9rem;">(1/2)</span>
+                     <p>
+                        Minimized sidebar.
+                     </p>
+                  </div>
+                  <div class="panel">
+                     <img class="image" src="../../assets/projects/spotify/81.webp">
+                     <span style="font-weight: bold; font-size: 0.9rem;">(2/2)</span>
+                     <p>
+                        Maximized sidebar.
+                     </p>
+                  </div>
+                  <template #viewport>
+                     <span class="flicking-arrow-prev"></span>
+                     <span class="flicking-arrow-next"></span>
+                  </template>
+               </Flicking>
                <p>
-                  The priority of the sidebar is very brief: access content. To improve the UX of the sidebar,
-                  I believe the buttons: "Home", "Search", and "Your Library" should behave similarly and
-                  route to a new page to be displayed on the main window tile.
-                  Two of the three buttons, "Home" and "Search", already do this and having the "Your Library" button follow suit
-                  will preclude all of the previously mentioned pain points and offer strong possibilities for improving UX. Specifically, I will be changing the functionality
-                  of the "Your Library" button so it also routes to a new page on the main window tile. Hifi wireframes will be shown in the <a href="#mainwindow">main window</a> section.
+                  I believe it does not take much for the sidebar to have a successful UX because its list of priorities are very brief: to access content. This simplicity can
+                  be reflected in the UI by having the main buttons in the sidebar "Home", "Search", and "Your Library" behave similarly. To accomplish this, all three buttons
+                  will route to content to be displayed on the main window tile. Specifically, by changing the functionality of the "Your Library" button to follow in suit of
+                  the other two, this precludes all of the previously mentioned pain points and offer strong possibilities for improving UX.
+                  The sidebar will be able to focus on its own set of priorities and streamline UX by allowing the main window tile to
+                  handle the expanded view of a user's library. Assets showing the two together will be in the <a href="#mainwindow">main window</a> section.
                </p>
                <img class="max-image" src="../../assets/projects/spotify/83.png" alt="">
             </section>
          </section>
 
          <section id="mainwindow">
-            <h2>Main Window</h2>
+            <h2>Main Window Tile</h2>
             <p>
-               The main window tile occupies the largest amount of space and showcases
+               The main window tile occupies the largest amount of space and, just as the sidebar is responsible for accessing content, the main window
+               is responsible for displaying content.
+
+
+               <!-- In the above sections I discuss removing the capability to mutate the width of the sidebar to view a user's extended library and provide multiple reasons how this
+               improves UX. By  -->
+               To keep discussion in scope I will be focusing on the UX of viewing a user's library on the main window tile and not the UX of the
+               alternate routes "Home" and "Search".
+               <!-- so to keep scope for this read this section will only be focusing on improving UX through the relationship between the library tile and main window tile. -->
+               As mentioned above, removing the capability to expand the sidebar and instead using the main window tile to view library contents
+               cuts down on many of the pain points.
             </p>
+            <!-- <Flicking class="carousel" :options="{ circular: true }" :plugins="arr4">
+               <div class="panel">
+                  <img class="image" src="../../assets/projects/spotify/9.png">
+                  <span style="font-weight: bold; font-size: 0.9rem;">(1/2)</span>
+                  <p>
+                     Home view.
+                  </p>
+               </div>
+               <div class="panel">
+                  <img class="image" src="../../assets/projects/spotify/91.png">
+                  <span style="font-weight: bold; font-size: 0.9rem;">(2/2)</span>
+                  <p>
+                     Search view.
+                  </p>
+               </div>
+               <template #viewport>
+                  <span class="flicking-arrow-prev"></span>
+                  <span class="flicking-arrow-next"></span>
+               </template>
+            </Flicking> -->
+
+            <section id="sharingpriorities">
+               <h3>Sharing priorities</h3>
+               <p>
+                  <!-- Nearly a quarter of pain points are about the change relegating a user's library to the sidebar. To resolve this I'd like to restore the capability to
+                  view the library, as a whole, in the main window tile. In the <a href="#librarytile">Library Tile</a> section I state that viewing library contents is
+                  the top priority. However this becomes problematic if it is the only way to view libray contents
+                  because the sidebar has limited space to display content unlike the main window. By allowing users to view content on the main window -->
+
+               </p>
+            </section>
          </section>
             
 

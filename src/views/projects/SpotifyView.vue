@@ -420,7 +420,7 @@ export default {
                </Flicking>
                <p>
                   I believe it does not take much for the sidebar to have a successful UX because its list of priorities are very brief: to access content. This simplicity can
-                  be reflected in the UI by having the main buttons in the sidebar "Home", "Search", and "Your Library" behave similarly. To accomplish this, all three buttons
+                  be reflected in the UI by having the main buttons in the sidebar "Home", "Search", and "Your Library" have similar taskflows. To accomplish this, all three buttons
                   will route to content to be displayed on the main window tile. Specifically, by changing the functionality of the "Your Library" button to follow in suit of
                   the other two, this precludes all of the previously mentioned pain points and offer strong possibilities for improving UX.
                   The sidebar will be able to focus on its own set of priorities and streamline UX by allowing the main window tile to
@@ -434,28 +434,41 @@ export default {
             <h2>Main Window Tile</h2>
             <p>
                The main window tile occupies the largest amount of space and, just as the sidebar is responsible for accessing content, the main window
-               is responsible for displaying content.
+               is responsible for displaying content. To keep discussion in scope I will be focusing on the UX of viewing a user's library on the main window
+               tile and not the UX of the alternate routes "Home" and "Search". 
 
-
-               <!-- In the above sections I discuss removing the capability to mutate the width of the sidebar to view a user's extended library and provide multiple reasons how this
-               improves UX. By  -->
-               To keep discussion in scope I will be focusing on the UX of viewing a user's library on the main window tile and not the UX of the
-               alternate routes "Home" and "Search".
-               <!-- so to keep scope for this read this section will only be focusing on improving UX through the relationship between the library tile and main window tile. -->
-               As mentioned above, removing the capability to expand the sidebar and instead using the main window tile to view library contents
-               cuts down on many of the pain points.
+               <!-- As mentioned above, removing the capability to expand the sidebar and instead using the main window tile to view library contents
+               cuts down on many of the pain points. -->
             </p>
-            <!-- <Flicking class="carousel" :options="{ circular: true }" :plugins="arr4">
+            <p>
+               Currently if a user wants to view their library on the main window tile they have to use the hotkeys
+               <code class="code">alt + shift + 1</code> through <code class="code">alt + shift + 4</code>. Using colors on the second slide below, each hotkey
+               corresponds to a <span style="background-color: #268D3290;">section</span>
+               where <span style="background-color: #A726A890;">content</span> is displayed using tiles
+               as shown on the first slide. Instead of structuring the library in the main window to begin by displaying 
+               <span style="background-color: #268D3290;">section content</span>,
+               I'd like to incorporate a more holistic
+               experience and embed all of the <span style="background-color: #30288F90;">library</span> itself. This way when a user clicks on the "Your Library" button in the
+               sidebar they are routed to a view in the main window with more autonomy similar to "Home" and "Search". A lofi wireframe of the new library is shown on the third slide.
+            </p>
+            <Flicking class="carousel" :options="{ circular: true }" :plugins="arr4">
                <div class="panel">
-                  <img class="image" src="../../assets/projects/spotify/9.png">
-                  <span style="font-weight: bold; font-size: 0.9rem;">(1/2)</span>
+                  <img class="image" src="../../assets/projects/spotify/11.png">
+                  <span style="font-weight: bold; font-size: 0.9rem;">(1/3)</span>
                   <p>
                      Home view.
                   </p>
                </div>
                <div class="panel">
-                  <img class="image" src="../../assets/projects/spotify/91.png">
-                  <span style="font-weight: bold; font-size: 0.9rem;">(2/2)</span>
+                  <img class="image" src="../../assets/projects/spotify/12.png">
+                  <span style="font-weight: bold; font-size: 0.9rem;">(2/3)</span>
+                  <p>
+                     Search view.
+                  </p>
+               </div>
+               <div class="panel">
+                  <img class="image" src="../../assets/projects/spotify/13.png">
+                  <span style="font-weight: bold; font-size: 0.9rem;">(3/3)</span>
                   <p>
                      Search view.
                   </p>
@@ -464,18 +477,8 @@ export default {
                   <span class="flicking-arrow-prev"></span>
                   <span class="flicking-arrow-next"></span>
                </template>
-            </Flicking> -->
+            </Flicking>
 
-            <section id="sharingpriorities">
-               <h3>Sharing priorities</h3>
-               <p>
-                  <!-- Nearly a quarter of pain points are about the change relegating a user's library to the sidebar. To resolve this I'd like to restore the capability to
-                  view the library, as a whole, in the main window tile. In the <a href="#librarytile">Library Tile</a> section I state that viewing library contents is
-                  the top priority. However this becomes problematic if it is the only way to view libray contents
-                  because the sidebar has limited space to display content unlike the main window. By allowing users to view content on the main window -->
-
-               </p>
-            </section>
          </section>
             
 

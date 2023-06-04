@@ -30,6 +30,7 @@ export default {
          arr2: [new Arrow()],
          arr3: [new Arrow()],
          arr4: [new Arrow()],
+         arr5: [new Arrow()],
          vidBool: false
       }
    },
@@ -478,7 +479,34 @@ export default {
                   <span class="flicking-arrow-next"></span>
                </template>
             </Flicking>
-
+            <p>
+               Although having the entirety of a user's library available on one screen provides a more robust experience versus having to view sections individually,
+               users with large libraries are inconvenienced because the amount of scrolling required to traverse to the bottom. This is easily fixed by allowing the pill menu to
+               mutate the visibility of content shown in the second slide below. When clicking on a pill, instead of behaving as a subroute system to show specific content, they
+               simply toggle content. This way users can exclude categories that they may not use while being able to view everything else at once. Special tiles such as "Liked Songs" and "Your Episodes"
+               have also been changed to reduce space. Instead of standing out by occupying two tiles worth of space, they are the same size as every tile with their background having a unique gradient.
+            </p>
+            <Flicking class="carousel" :options="{ circular: true }" :plugins="arr5">
+               <div class="panel">
+                  <video autoplay loop muted src="../../assets/projects/spotify/1.webm" alt="" class="carousel-image" />
+                  <span style="font-weight: bold; font-size: 0.9rem;">(1/2)</span>
+                  <p>
+                     Home view.
+                  </p>
+               </div>
+               <div class="panel">
+                  <video autoplay loop muted src="../../assets/projects/spotify/2.webm" alt="" class="carousel-image" />
+                  <span style="font-weight: bold; font-size: 0.9rem;">(2/2)</span>
+                  <p>
+                     Search view.
+                  </p>
+               </div>
+               <template #viewport>
+                  <span class="flicking-arrow-prev"></span>
+                  <span class="flicking-arrow-next"></span>
+               </template>
+            </Flicking>
+            <!-- <img class="max-image" src="../../assets/projects/spotify/14.png" alt=""> -->
          </section>
             
 

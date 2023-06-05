@@ -435,7 +435,9 @@ export default {
             <h2>Main Window Tile</h2>
             <p>
                The main window tile occupies the largest amount of space and, just as the sidebar is responsible for accessing content, the main window
-               is responsible for displaying content. To keep discussion in scope I will be focusing on the UX of viewing a user's library on the main window
+               is responsible for displaying content. More effectively utilizing these responsibilities by incorporating a robust library experience inside
+               the main window tile can address roughly 50% of recorded pain points.
+               To keep discussion in scope I will be focusing on the UX of viewing a user's library on the main window
                tile and not the UX of the alternate routes "Home" and "Search". 
 
                <!-- As mentioned above, removing the capability to expand the sidebar and instead using the main window tile to view library contents
@@ -484,7 +486,7 @@ export default {
                users with large libraries are inconvenienced because the amount of scrolling required to traverse to the bottom. This is easily fixed by allowing the pill menu to
                mutate the visibility of content shown in the second slide below. When clicking on a pill, instead of behaving as a subroute system to show specific content, they
                simply toggle content. This way users can exclude categories that they may not use while being able to view everything else at once. Special tiles such as "Liked Songs" and "Your Episodes"
-               have also been changed to reduce space. Instead of standing out by occupying two tiles worth of space, they are the same size as every tile with their background having a unique gradient.
+               have also been changed to reduce space but still visually standout by having a distinct gradient background.
             </p>
             <Flicking class="carousel" :options="{ circular: true }" :plugins="arr5">
                <div class="panel">
@@ -506,7 +508,14 @@ export default {
                   <span class="flicking-arrow-next"></span>
                </template>
             </Flicking>
-            <!-- <img class="max-image" src="../../assets/projects/spotify/14.png" alt=""> -->
+            <p>
+               This new layout also simplifies the taskflow for viewing different content. Since all content is immediately available users can view a playlist or podcast in their first click
+               instead of having to use the pill menu to traverse through different sections.
+            </p>
+            <img class="max-image" src="../../assets/projects/spotify/15.png" alt="">
+            <p class="sub-text">
+               The "Library Information Structure 2.0" to be compared to the second slide on the previous carousel.
+            </p>
          </section>
             
 

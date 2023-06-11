@@ -31,6 +31,7 @@ export default {
          arr3: [new Arrow()],
          arr4: [new Arrow()],
          arr5: [new Arrow()],
+         arr6: [new Arrow()],
          vidBool: false
       }
    },
@@ -113,12 +114,12 @@ export default {
                   <ul>
                      <li><a href="#library">Library Tile</a></li>
                      <li><a href="#navigation">Navigation Tile</a></li>
-                     <li><a href="#sidebartogether">Bringing it All Together</a></li>
+                     <li><a href="#sidebartogether">Sidebar as a Whole</a></li>
                   </ul>
                   <li><a href="#mainwindow">Main Window Tile</a></li>
-                  <ul>
-                     <li><a href="#sharingpriorities">Sharing Priorities</a></li>
-                  </ul>
+                  <li><a href="#albumart">Album Art</a></li>
+                  <li><a href="#futureideas">Future Ideas</a></li>
+                  <li><a href="#finaldesign">Final Design</a></li>
                </ul>
             </nav>
          </div>
@@ -316,7 +317,7 @@ export default {
                   The second change is to remove the <span style="background-color: #C9844B90">Expand</span> button and to group the <span style="background-color: #D57FD990;">Search</span>
                   with the <span style="background-color: #C9844B90">Create Playlist/Folder</span> button to be in the same row as the <span style="background-color: #C0B83290">title</span>.
                   Functionality for viewing a user's library in a larger window will be handled by the main window tile and is initially discussed in
-                  <a href="#sidebartogether">Bringing it All Together</a>.
+                  <a href="#sidebartogether">Sidebar as a Whole</a>.
                   The wireframes below shows these changes.
                </p>
                <Flicking class="carousel" :options="{ circular: true }" :plugins="arr2">
@@ -389,7 +390,7 @@ export default {
             </section>
 
             <section id="sidebartogether">
-               <h3>Bringing it All Together</h3>
+               <h3>Sidebar as a Whole</h3>
                <p>
                   An overwhelming majority of the comments in the Spotify and Reddit discussions state frustrations when interacting with the sidebar. Although a lot of these
                   frustrations are directed specifically towards the library tile, I think they can be subsided by addressing the sidebar as a whole. Since
@@ -445,13 +446,14 @@ export default {
             </p>
             <p>
                Currently if a user wants to view their library on the main window tile they have to use the hotkeys
-               <code class="code">alt + shift + 1</code> through <code class="code">alt + shift + 4</code>. Using colors on the second slide below, each hotkey
+               <code class="code">alt + shift + 1</code> through <code class="code">alt + shift + 4</code>. Using the colors on the slides below, each hotkey
                corresponds to a <span style="background-color: #268D3290;">section</span>
                where <span style="background-color: #A726A890;">content</span> is displayed using tiles
                as shown on the first slide. Instead of structuring the library in the main window to begin by displaying 
                <span style="background-color: #268D3290;">section content</span>,
                I'd like to incorporate a more holistic
-               experience and embed all of the <span style="background-color: #30288F90;">library</span> itself. This way when a user clicks on the "Your Library" button in the
+               experience and embed all of the <span style="background-color: #30288F90;">library</span> where the layout can be seen on the second slide.
+               This way when a user clicks on the "Your Library" button in the
                sidebar they are routed to a view in the main window with more autonomy similar to "Home" and "Search". A lofi wireframe of the new library is shown on the third slide.
             </p>
             <Flicking class="carousel" :options="{ circular: true }" :plugins="arr4">
@@ -485,22 +487,22 @@ export default {
                Although having the entirety of a user's library available on one screen provides a more robust experience versus having to view sections individually,
                users with large libraries are inconvenienced because the amount of scrolling required to traverse to the bottom. This is easily fixed by allowing the pill menu to
                mutate the visibility of content shown in the second slide below. When clicking on a pill, instead of behaving as a subroute system to show specific content, they
-               simply toggle content. This way users can exclude categories that they may not use while being able to view everything else at once. Special tiles such as "Liked Songs" and "Your Episodes"
+               simply toggle content. This way users can exclude categories that they may not use while being able to view multiple shelves at once. Special tiles such as "Liked Songs" and "Your Episodes"
                have also been changed to reduce space but still visually standout by having a distinct gradient background.
             </p>
             <Flicking class="carousel" :options="{ circular: true }" :plugins="arr5">
                <div class="panel">
                   <video autoplay loop muted src="../../assets/projects/spotify/1.webm" alt="" class="carousel-image" />
-                  <span style="font-weight: bold; font-size: 0.9rem;">(1/2)</span>
+                  <span style="font-weight: bold; font-size: 0.9rem;">(1/2) Prototype</span>
                   <p>
-                     Home view.
+                     Showing how a user can scroll through their entire library.
                   </p>
                </div>
                <div class="panel">
                   <video autoplay loop muted src="../../assets/projects/spotify/2.webm" alt="" class="carousel-image" />
-                  <span style="font-weight: bold; font-size: 0.9rem;">(2/2)</span>
+                  <span style="font-weight: bold; font-size: 0.9rem;">(2/2) Prototype</span>
                   <p>
-                     Search view.
+                     Users are easily able to filter through content by interacting with the pill menu.
                   </p>
                </div>
                <template #viewport>
@@ -513,12 +515,76 @@ export default {
                instead of having to use the pill menu to traverse through different sections.
             </p>
             <img class="max-image" src="../../assets/projects/spotify/15.png" alt="">
-            <p class="sub-text">
+            <p class="sub-text" style="margin-bottom: 4rem;">
                The "Library Information Structure 2.0" to be compared to the second slide on the previous carousel.
             </p>
          </section>
+         
+         <section id="albumart">
+            <h2>Album Art</h2>
+            <p>
+               The music bar is anchored to the bottom of the app and houses the controls for listening to media. Despite remaining largely unchanged many users have addressed the new
+               expanded album art to be a pain point because it is visually awkward with the sidebar and it occupies valuable space in the library tile shown below.
+               Comments have stressed that they enjoy the experience of having the album art expanded however by reducing the space for the library tile it becomes difficult to
+               interact with the library tile.
+            </p>
+            <video autoplay loop muted src="../../assets/projects/spotify/4.webm" alt="" class="max-image" />
+            <p class="sub-text" style="margin-bottom: 5rem;">
+               Current UI for expanded album art.
+            </p>
+            <p>
+               The wireframe below shows the proposed change to help resolve this pain point. The current interaction is in <span style="background-color: #1F1BC860;">blue</span>
+               and the proposed interaction is in <span style="background-color: #C22A2760;">red</span>. When clicking on the minimized album art, instead of intruding upwards
+               into the library tile, the album art can appear on the right hand side in the main window tile with the same sliding transition. This change allows users to easily
+               navigate through their library tile while when album art is expanded and also visually disconnects the album art from the sidebar so it will look less awkward and not
+               "misaligned".
+               The second slide shows this change.
+            </p>
+            <Flicking class="carousel" :options="{ circular: true }" :plugins="arr6">
+               <div class="panel">
+                     <img class="carousel-image" src="../../assets/projects/spotify/16.png" alt="">
+                     <span style="font-weight: bold; font-size: 0.9rem;">(1/2)</span>
+                     <p>
+                        Wireframe
+                     </p>
+                  </div>
+                  <div class="panel">
+                     <video autoplay loop muted src="../../assets/projects/spotify/5.webm" alt="" class="carousel-image" />
+                     <span style="font-weight: bold; font-size: 0.9rem;">(2/2)</span>
+                     <p>
+                        Simple Prototype using assets from the above sections
+                     </p>
+                  </div>
+                  <template #viewport>
+                     <span class="flicking-arrow-prev"></span>
+                     <span class="flicking-arrow-next"></span>
+                  </template>
+               </Flicking>
+         </section>
             
+         <section id="futureideas">
+            <h2>Future Ideas</h2>
+            <p>
+               This section walks off the beaten path and is more of an aside to discuss concepts that I personally think would strongly benefit the Spotify desktop UX.
+               Because of this, assets shown in this section will not be in the <a href="#finaldesign">Final Design</a>.
+            </p>
+         </section>
 
+         <section id="finaldesign">
+            <h2>Final Design</h2>
+            <p>
+               The goals of this project were to:
+               <ul>
+                  <li>Find prominent pain points users were facing with the new desktop Spotify UI.</li>
+                  <li>Propose changes and explain how they can resolve the pain points.</li>
+                  <li>Create wireframes & prototypes to help visualize the proposals.</li>
+               </ul>
+            </p>
+            <p>
+               
+            </p>
+         </section>
+      
       </div>
    </div>
 </div></template>

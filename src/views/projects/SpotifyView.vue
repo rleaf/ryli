@@ -140,19 +140,15 @@ export default {
                the thirteenth top post in the past year which has also been stickied, is a psa that discusses
                <a href="https://www.reddit.com/r/spotify/comments/138f5gk/psa_how_to_get_spotify_desktop_back_to_the_old/" target="_blank">how to get the old layout back</a>.
             </p>
-            <p>
-               This read is organized by discussion on elements I find to have close association with each other. Prerequisite information is interspersed throughout
-               to improve clarity. As such, there are 5 sections: the bias, introduction to the current UI, the sidebar tiles, the main tile, the negative space elements, and overall cohesion.
-            </p>
 
             <section id="biases">
                <h3>Biases</h3>
                <p>
-                  Before digging into UX/UI, I want to address two biases. Because I'm using criticism and feedback from forum discussions on Reddit, it's
-                  important to acknowledge a lot of posts, what users are reading, are prone to bandwagoning. This system not only promotes
-                  messages that others may find agreeable, but also demotes messages that others may find disagreeable because everyone is able to moderate visibility of posts or comments
+                  Before digging into UX/UI I want to address two biases. Because I'm using criticism and feedback from discussions on Reddit it's
+                  important to acknowledge a lot of posts, what users read, are prone to bandwagoning. This system not only promotes
+                  messages that others may find agreeable but also demotes messages that others may find disagreeable because everyone is able to moderate visibility of posts or comments
                   via upvotes/downvotes. This means that there could be comments in favor of the new Spotify UI,
-                  however they are drowned out by the ubiquity of more upvoted comments against the new UI. The second bias is that I, Ryan Lin, have been using Spotify since August 7th, 2015.
+                  however they may be drowned out by more upvoted comments against the new UI. The second bias is that I, Ryan Lin, have been using Spotify since 2013.
                   I’ve never had significant issue with the UX, but have certainly developed opinions over the years on things I’d like to see introduced. I feel addressing these biases
                   now will help to critique the Spotify UX more impartially. 
                </p>
@@ -203,8 +199,8 @@ export default {
                   also in the sidebar. 
                </p>
                <p>
-                  I split the pain points into 15 groups. A group is multiple pain points mentioned together by one user or are 
-                  similar to one another.
+                  I organized the pain points into 15 groups where each group consists of pain points mentioned together by one user or are 
+                  similar.
                   The colors for each pain point below correspond to the colors in the pie chart.
                </p>
                <p>
@@ -229,7 +225,7 @@ export default {
                <p>
                   Of the ~300 comments, resolutions to improve UX involved changing to the compact library view, downgrading to a previous version, minimizing the social tab, and switching to alternative platforms
                   such as Apple Music or Tidal. There was a shared consensus from the users that desktop applications should not adhere to mobile UI standards and that, by homogenizing the two,
-                  detriments desktop UX.
+                  detriments the desktop UX.
                </p>
                <p>
                   
@@ -301,9 +297,9 @@ export default {
                <p>
                   The first goal is reducing the density and confusion at the top of the library tile by moving around some of the features. Using colors on third slide above,
                   the <span style="background-color: #8781bd90">pill menu</span>
-                  specifically becomes challenging to interact with unless the library tile is wide enough.
-                  Another issue users have expressed about the pill menu is the complex
-                  taskflow when interacting with it to filter library content. There were many comments stating the inability
+                  becomes challenging to interact with unless the library tile is wide enough.
+                  Users have also stated the pill menu to have a complex
+                  taskflow to filter library content. There were many comments stating the inability
                   to <span style="background-color: #50BCCB90;">custom sort</span> playlists, where that option is only available if a user is
                   already <span style="background-color: #8781bd90">filtering</span> by playlists. This means that what you're able to sort by in the <span style="background-color: #50BCCB90;">dropdown menu</span> dynamically changes based on what you're filtering by in the pill menu. 
                </p>
@@ -314,8 +310,8 @@ export default {
                   and provides more vertical space for a user to interact with their library.
                   Each section in the content window would be truncatable and have their own sorting dropdown menu for further sorting.
                   A downside to this resolution is that by interspersing the pill menu functionality inside the content window content is further spaced out.
-                  The second change is to remove the <span style="background-color: #C9844B90">Expand</span> button and to group the <span style="background-color: #D57FD990;">Search</span>
-                  with the <span style="background-color: #C9844B90">Create Playlist/Folder</span> button to be in the same row as the <span style="background-color: #C0B83290">title</span>.
+                  The second change is to remove the <span style="background-color: #C9844B90">expand</span> button and to group the <span style="background-color: #D57FD990;">search</span>
+                  with the <span style="background-color: #C9844B90">create playlist/folder</span> button to be in the same row as the <span style="background-color: #C0B83290">title</span>.
                   Functionality for viewing a user's library in a larger window will be handled by the main window tile and is initially discussed in
                   <a href="#sidebartogether">Sidebar as a Whole</a>.
                   The wireframes below shows these changes.
@@ -393,8 +389,8 @@ export default {
                <h3>Sidebar as a Whole</h3>
                <p>
                   An overwhelming majority of the comments in the Spotify and Reddit discussions state frustrations when interacting with the sidebar. Although a lot of these
-                  frustrations are directed specifically towards the library tile, I think they can be subsided by addressing the sidebar as a whole. Since
-                  the latest update the sidebar has gained a lot of functionality where much of it, arguable all, is dedicated to improving UX for the library tile. An example is
+                  frustrations are directed specifically towards the library tile, I think they can be resolved by addressing the sidebar as a whole. Since
+                  the latest update the sidebar has gained a lot of functionality where much of it, arguable all, is dedicated to the UX for the library tile. An example is
                   shown below, where you can minimize/shrink and maximize/expand the entire sidebar. If a user wanted, they could have the sidebar constitute a majority of the app's
                   real estate. Although the expanded view may improve usability for the library tile, the navigation tile wastes a significant amount of space and the main window tile is
                   forced into a mobile-esque UI, which was a prominent pain point. Conversely, by minimizing the sidebar, pain points are still evident because UX for the library

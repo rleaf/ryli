@@ -1,16 +1,16 @@
 import aramstatsPath from '../projects/threeTextures/aramStatsTexture.webp'
 import steamPath from '../projects/threeTextures/steamTexture.webp'
 import oscillaPath from '../projects/threeTextures/oscillaTexture.png'
-import spotifyPath from '../projects/threeTextures/signTexture.webp'
+import spotifyPath from '../projects/threeTextures/spotifyTexture.webp'
 import signPath from '../projects/threeTextures/signTexture.webp'
 
 export default {
    spotify: {
       title: 'Spotify',
-      timeline: ['2022', '2 months'],
+      timeline: ['2023', '4 months'],
       genre: ['UX/UI Design'],
       tech: ['Figma'],
-      body: 'WOOOWWW',
+      body: 'A case study delving into the Spotify desktop UX since the recent UI overhaul.',
       cover: spotifyPath,
       uValley: {
          r: 0/255,

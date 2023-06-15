@@ -22,8 +22,8 @@ export default {
          source: sources.spotify,
          assets: {
             textureName: 'spotify',
-            fore: 0x0f141f,
-            back: 0x1f2a42,
+            fore: 0x168d40,
+            back: 0x1DB954,
          },
          arr0: [new Arrow()],
          arr1: [new Arrow()],
@@ -67,8 +67,7 @@ export default {
       <div class="project-landing">
          <h1>{{ source.title }}</h1>
          <BackdropFade />
-         <!-- <video class="vid" src="../../assets/projects/threeTextures/ye.mp4" autoplay loop muted
-            style="display: none;"></video> -->
+         <video class="vid" src="../../assets/projects/threeTextures/spotifySplash.webm" autoplay loop muted style="display: none;"></video>
       </div>
       <div class="study-main">
          <div class="sidebar">
@@ -97,6 +96,8 @@ export default {
                   <a href="https://docs.google.com/spreadsheets/d/1q4M7g4D-aJEBAxI9SHTROjkjTC3FK4_XNm9g2e7DTrA/edit?usp=sharing" target="_blank">Pain Points</a>
                   <br>
                   <a href="https://www.figma.com/file/EZx6ZGUI9Iu5BIe3l1QSSR/Spotify?type=design&node-id=1%3A3&t=FtafiWyuAYSGzaDJ-1" target="_blank">Figma</a>
+                  <br>
+                  <a href="https://www.figma.com/proto/EZx6ZGUI9Iu5BIe3l1QSSR/Spotify?type=design&node-id=386-3197&scaling=min-zoom&page-id=338%3A2583&starting-point-node-id=386%3A3197" target="_blank">Prototype</a>
                </div>
             </div>
             <ToTop />
@@ -118,7 +119,7 @@ export default {
                   </ul>
                   <li><a href="#mainwindow">Main Window Tile</a></li>
                   <li><a href="#albumart">Album Art</a></li>
-                  <li><a href="#futureideas">Future Ideas</a></li>
+                  <!-- <li><a href="#futureideas">Future Ideas</a></li> :) -->
                   <li><a href="#finaldesign">Final Design</a></li>
                </ul>
             </nav>
@@ -145,12 +146,12 @@ export default {
                <h3>Biases</h3>
                <p>
                   Before digging into UX/UI I want to address two biases. Because I'm using criticism and feedback from discussions on Reddit it's
-                  important to acknowledge a lot of posts, what users read, are prone to bandwagoning. This system not only promotes
+                  important to acknowledge that a lot of posts, what users read, are prone to bandwagoning. This system not only promotes
                   messages that others may find agreeable but also demotes messages that others may find disagreeable because everyone is able to moderate visibility of posts or comments
                   via upvotes/downvotes. This means that there could be comments in favor of the new Spotify UI,
-                  however they may be drowned out by more upvoted comments against the new UI. The second bias is that I, Ryan Lin, have been using Spotify since 2013.
-                  I’ve never had significant issue with the UX, but have certainly developed opinions over the years on things I’d like to see introduced. I feel addressing these biases
-                  now will help to critique the Spotify UX more impartially. 
+                  however they may be drowned out by more upvoted comments against the new UI. The second bias is that I have been using Spotify since 2013.
+                  Although I’ve never had significant issue with the UX, I've certainly developed opinions over the years on things I’d like to see introduced. I feel addressing these biases
+                  now will help to critique the Spotify desktop UX more impartially. 
                </p>
             </section>
          </section>
@@ -192,15 +193,14 @@ export default {
                <h3>Pain Points</h3>
                <p>
                   Looking through the Reddit and Spotify Community discussions, I sifted through over 300 comments for pain points users faced when interacting with the new UI.
-                  Many of the comments were excluded from the data below for being vitriolic or ad hominem. Upon finishing, I totalled 168 unique instances where users
+                  Upon finishing I totalled 168 unique instances where users
                   expressed frustrations related to UX/UI. Many of the comments had dozens of likes on the Spotify forums or hundreds of upvotes on their respective subreddits.
                   Below is an overall summary, however a more comprehensive list of these pain points is available
                   <a href="https://docs.google.com/spreadsheets/d/1q4M7g4D-aJEBAxI9SHTROjkjTC3FK4_XNm9g2e7DTrA/edit?usp=sharing" target="_blank">here</a> to look at and
                   also in the sidebar. 
                </p>
                <p>
-                  I organized the pain points into 15 groups where each group consists of pain points mentioned together by one user or are 
-                  similar.
+                  I organized the pain points into 15 groups where each group consists of simlilar pain points or are mentioned in the same comment.
                   The colors for each pain point below correspond to the colors in the pie chart.
                </p>
                <p>
@@ -224,8 +224,8 @@ export default {
                </p>
                <p>
                   Of the ~300 comments, resolutions to improve UX involved changing to the compact library view, downgrading to a previous version, minimizing the social tab, and switching to alternative platforms
-                  such as Apple Music or Tidal. There was a shared consensus from the users that desktop applications should not adhere to mobile UI standards and that, by homogenizing the two,
-                  detriments the desktop UX.
+                  such as Apple Music or Tidal. There was a shared consensus that desktop applications should not adhere to mobile UI standards and that, by homogenizing the two,
+                  detriments UX.
                </p>
                <p>
                   
@@ -236,9 +236,9 @@ export default {
          <section id="sidebar">
             <h2>Sidebar</h2>
             <p>
-               The sidebar is both the navigation tile and the library tile.
-               Functionally the two tiles behave differently where the navigation tile allows a user to traverse to
-               their Home or Search page displayed in the main window tile. The library tile allows a user to traverse through their library,
+               The sidebar is both the navigation and library tiles where each one functions differently.
+               The navigation tile allows a user to traverse to
+               their Home or Search page to be displayed in the main window tile while the library tile allows a user to traverse through their library,
                which instead of initially mutating the main window tile is immediately viewable inside the library tile itself. Clicking on any content in a user's library then pushes content to the
                main window tile. Over 50% of the pain points are directed towards the sidebar and so it will be the first element I focus on.
             </p>
@@ -246,18 +246,13 @@ export default {
             <section id="library">
                <h3>Library Tile</h3>
                <p>
-                  The library tile handles the bulk of user interactions. As shown by the distribution of pain points, it is the primary interface for how a user will access their Podcasts & Shows,
-                  Audiobooks, Albums, and Playlists and, because of this, must be intuitive to the user. A lot of how to ameliorate intuition for UI is subjective -
-                  what characteristics of UI I personally resonate with will be different from what you resonate with because we have different backgrounds and familiarity.
-                  Despite that subjectivity I do believe there are certain design patterns that can aid intuition for the majority of users.
-                  The goal of the mockups for the library tile in this section is to adhere to the priorities shown below in the first slide and resolve the affiliated pain points mentioned above.
-               </p>
-               <p>
-                  The priorities comprise the major interactions with the library tile. Following general consensus from feedback on discussion about the new UI,
+                  The library tile handles the bulk of user interactions. Indicated by the pain points, it is the primary interface for how a user will access their Podcasts & Shows,
+                  Audiobooks, Albums, and Playlists and, because of this, must be intuitive to the user.
+                  The priorities below comprise the major interactions with the library tile. Following general consensus from feedback on discussion about the new UI,
                   improving capability to view what is in a user's library such as playlists or albums ranks at the top. Following are the mutable actions a user has
                   on their library such as creating a playlist/folder, any means of filtering content, any means of sorting content, searching content, and pinning content. At the bottom,
-                  is the ability to change the width of the library tile. This ranks last because, as you will see, I reintroduce the capability to view library contents on the main tile.
-                  Note - you still can view library contents on the main tile via hotkeys such as alt+shift+4, however many users did not know this making it unintuitive.
+                  is the ability to change the width of the library tile. This ranks last and is effectively obsolete because I reintroduce the capability to view library contents on the main window tile.
+                  You still can view library contents on the main tile via hotkeys such as alt+shift+4, however many users did not know this making it unintuitive.
                </p>
                <Flicking class="carousel" :options="{ circular: true }" :plugins="arr1">
                   <div class="panel">
@@ -309,8 +304,9 @@ export default {
                   taskflow issues, segregates the dynamic functionality between filtering and sorting, reduces complexity at the top of the library tile, organizes a user's library,
                   and provides more vertical space for a user to interact with their library.
                   Each section in the content window would be truncatable and have their own sorting dropdown menu for further sorting.
-                  A downside to this resolution is that by interspersing the pill menu functionality inside the content window content is further spaced out.
-                  The second change is to remove the <span style="background-color: #C9844B90">expand</span> button and to group the <span style="background-color: #D57FD990;">search</span>
+                  A downside to this resolution is that content is further spaced out because of interspersing the pill menu functionality.
+
+                  A second change is to remove the <span style="background-color: #C9844B90">expand</span> button and to group the <span style="background-color: #D57FD990;">search</span>
                   with the <span style="background-color: #C9844B90">create playlist/folder</span> button to be in the same row as the <span style="background-color: #C0B83290">title</span>.
                   Functionality for viewing a user's library in a larger window will be handled by the main window tile and is initially discussed in
                   <a href="#sidebartogether">Sidebar as a Whole</a>.
@@ -339,10 +335,10 @@ export default {
                   </template>
                </Flicking>
                <p>
-                  Because content is already organized by type, superfluous text in library contents such as (playlist, album, podcast, etc...), can be omitted to improve overall
-                  clarity. An extra consideration is to allow users to set how many elements an item can have.
+                  Because content is already organized by type, superfluous text in library contents such as mentioning whether something is a playlist, album, or podcast can be omitted to improve overall
+                  clarity. An extra consideration is to allow users to change this based on their own preferences just as how users can toggle compact view in the settings.
                   Below are three possible ways to display library content, each with a different amount of total elements. I'm introducing "Simplified View" because some users
-                  don't need to see the creator as it can also be redundant. An example being my personal library tile - I don't need to see my name.
+                  don't need to see the creator as it can also be redundant but appreciate seeing the visual artwork.
                </p>
                <img class="image" src="../../assets/projects/spotify/6.webp" alt="">
                <img class="max-image" src="../../assets/projects/spotify/61.png" alt="">
@@ -350,8 +346,8 @@ export default {
                   Wireframes of each representation. 
                </p>
                <p>
-                  An alternative design is to remove the horizontal rows segregating each library section since the current Spotify branding has some sections that
-                  use horizontal rows and some sections that do not. Although there are less elements on-screen, it may be difficult to immediately discern
+                  An alternate design is to remove the horizontal rows segregating each library section to match Spotify branding.
+                  Although there are less elements on-screen, it may be difficult to immediately discern
                   sections from each other in the library without horizontal rows. The compact view has added vertical rows to provide structure.
                </p>
                <img class="max-image" src="../../assets/projects/spotify/7.png" alt="">
@@ -359,10 +355,10 @@ export default {
                   Design variation removing horizontal rows.
                </p>
                <div class="side" style="justify-content: space-around;">
-                  <div class="side-text">
+                  <div class="side-text" style="max-width: 50%;">
                      <h4>Colored Folders</h4>
                      <p>
-                        Colored folders can be used to help distinguish from each other. Users have mentioned how it can be difficult when they have many folders.
+                        Colored folders can be used to help users distinguish content from each other. Users have mentioned how it can be difficult when they have many folders.
                      </p>
                   </div>
                   <img src="../../assets/projects/spotify/71.png" alt="" class="side-media">
@@ -377,7 +373,7 @@ export default {
                   Clicking either button immediately
                   mutates the main window tile and highlights the button text in white. Hotkeys to aid navigation are available
                   where the mapping can be seen via <code class="code">ctrl + /</code>.
-                  Although a significant portion of the criticism mentioned having difficulties "navigating", a lot of these comments seemed to be about
+                  Although a significant portion of the criticism mentioned having difficulties "navigating", a lot of these comments seemed to be directed towards
                   the library tile. I believe, because of the tile's simplicity, not much work is required and the intended goals have been accomplished without being
                   frustrating to use.
                </p>
@@ -446,9 +442,9 @@ export default {
                corresponds to a <span style="background-color: #268D3290;">section</span>
                where <span style="background-color: #A726A890;">content</span> is displayed using tiles
                as shown on the first slide. Instead of structuring the library in the main window to begin by displaying 
-               <span style="background-color: #268D3290;">section content</span>,
+               <span style="background-color: #268D3290;">section content</span> as the <code class="code">alt + shift</code> keys do,
                I'd like to incorporate a more holistic
-               experience and embed all of the <span style="background-color: #30288F90;">library</span> where the layout can be seen on the second slide.
+               experience and embed all of the <span style="background-color: #30288F90;">library</span> where the structure's layout can be seen on the second slide.
                This way when a user clicks on the "Your Library" button in the
                sidebar they are routed to a view in the main window with more autonomy similar to "Home" and "Search". A lofi wireframe of the new library is shown on the third slide.
             </p>
@@ -481,8 +477,8 @@ export default {
             </Flicking>
             <p>
                Although having the entirety of a user's library available on one screen provides a more robust experience versus having to view sections individually,
-               users with large libraries are inconvenienced because the amount of scrolling required to traverse to the bottom. This is easily fixed by allowing the pill menu to
-               mutate the visibility of content shown in the second slide below. When clicking on a pill, instead of behaving as a subroute system to show specific content, they
+               users with large libraries are inconvenienced because the amount of scrolling required to traverse to the bottom. This is easily fixed by having the pill menu to
+               mutate the visibility of content, shown in the second slide below. When clicking on a pill, instead of behaving as a subroute system to show specific content, they
                simply toggle content. This way users can exclude categories that they may not use while being able to view multiple shelves at once. Special tiles such as "Liked Songs" and "Your Episodes"
                have also been changed to reduce space but still visually standout by having a distinct gradient background.
             </p>
@@ -508,7 +504,7 @@ export default {
             </Flicking>
             <p>
                This new layout also simplifies the taskflow for viewing different content. Since all content is immediately available users can view a playlist or podcast in their first click
-               instead of having to use the pill menu to traverse through different sections.
+               instead of having to use the pill menu to traverse through different sections with the <code class="code">alt + shift</code> keys.
             </p>
             <img class="max-image" src="../../assets/projects/spotify/15.png" alt="">
             <p class="sub-text" style="margin-bottom: 4rem;">
@@ -558,27 +554,45 @@ export default {
                </Flicking>
          </section>
             
-         <section id="futureideas">
+         <!-- <section id="futureideas">  Maybe some other time :)
             <h2>Future Ideas</h2>
             <p>
                This section walks off the beaten path and is more of an aside to discuss concepts that I personally think would strongly benefit the Spotify desktop UX.
                Because of this, assets shown in this section will not be in the <a href="#finaldesign">Final Design</a>.
             </p>
-         </section>
+         </section> -->
 
          <section id="finaldesign">
             <h2>Final Design</h2>
             <p>
                The goals of this project were to:
                <ul>
-                  <li>Find prominent pain points users were facing with the new desktop Spotify UI.</li>
+                  <li>Find prominent pain points users were facing with the new Spotify desktop UX/UI.</li>
                   <li>Propose changes and explain how they can resolve the pain points.</li>
                   <li>Create wireframes & prototypes to help visualize the proposals.</li>
                </ul>
+               In summary these goals translated into three significant changes to the Spotify UI. 
+               <ul>
+                  <li>
+                     The <a href="#library">first</a> is the library tile. Content inside the tile is now, by default,
+                     organized based on type: pinned, playlists, albums, audiobooks, artists, and podcasts & shows and the various UI changes are intended to reduce overall clutter.
+                  </li>
+                  <li>
+                     The <a href="mainwindow">second</a> large change is allowing to view a user's library inside the main window tile and removing the variable width of the sidebar.
+                     When a user clicks on the "Your Library" button inside the sidebar, they are presented
+                     with a larger UI designed to be more amenable for interacting with library content.
+                  </li>
+                  <li>
+                     The <a href="#albumart">last</a> change, although smaller was still a frequently mentioned frustration by users, expands the album art from the right side of the application instead of
+                     upwards into the library tile space.
+                  </li>
+               </ul>
+               A prototype is available to click through below that showcases all of the discussed changes. I recommend pressing "Z" to toggle the view or to visit the
+               <a href="https://www.figma.com/proto/EZx6ZGUI9Iu5BIe3l1QSSR/Spotify?type=design&node-id=386-3197&scaling=min-zoom&page-id=338%3A2583&starting-point-node-id=386%3A3197" target="_blank">prototype</a>
+               directly to view on a larger window.
             </p>
-            <p>
-               
-            </p>
+
+            <iframe class="frame" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FEZx6ZGUI9Iu5BIe3l1QSSR%2FSpotify%3Fpage-id%3D338%253A2583%26type%3Ddesign%26node-id%3D386-3197%26viewport%3D4690%252C278%252C1.72%26scaling%3Dmin-zoom%26starting-point-node-id%3D386%253A3197" allowfullscreen></iframe>
          </section>
       
       </div>
@@ -586,6 +600,15 @@ export default {
 </div></template>
 
 <style scoped>@import url(./util/projectsStyles.css);
+
+.frame {
+   display: block;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   margin: 0 auto;
+   margin-top: 5rem;
+   width: 100%;
+   height: 800px;
+}
 
 .side-media {
    max-width: 70%;
@@ -602,5 +625,9 @@ export default {
 
    .side-text {
       max-width: 100%;
+   }
+
+   .frame {
+      height: 400px;
    }
 }</style>

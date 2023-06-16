@@ -95,9 +95,9 @@ export default {
                   <div class="meta-header">Links</div>
                   <a href="https://docs.google.com/spreadsheets/d/1q4M7g4D-aJEBAxI9SHTROjkjTC3FK4_XNm9g2e7DTrA/edit?usp=sharing" target="_blank">Pain Points</a>
                   <br>
-                  <a href="https://www.figma.com/file/EZx6ZGUI9Iu5BIe3l1QSSR/Spotify?type=design&node-id=1%3A3&t=FtafiWyuAYSGzaDJ-1" target="_blank">Figma</a>
+                  <a href="https://www.figma.com/file/EZx6ZGUI9Iu5BIe3l1QSSR/Spotify?type=design&node-id=338%3A2583&t=hZFFCk1VYgwqehqW-1" target="_blank">Figma</a>
                   <br>
-                  <a href="https://www.figma.com/proto/EZx6ZGUI9Iu5BIe3l1QSSR/Spotify?type=design&node-id=386-3197&scaling=min-zoom&page-id=338%3A2583&starting-point-node-id=386%3A3197" target="_blank">Prototype</a>
+                  <a href="https://www.figma.com/proto/EZx6ZGUI9Iu5BIe3l1QSSR/Spotify?page-id=338%3A2583&type=design&node-id=386-3197&viewport=4690%2C278%2C1.72&scaling=min-zoom&starting-point-node-id=386%3A3197" target="_blank">Prototype</a>
                </div>
             </div>
             <ToTop />

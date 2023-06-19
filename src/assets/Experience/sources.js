@@ -7,7 +7,7 @@ import signPath from '../projects/threeTextures/signTexture.webp'
 export default {
    spotify: {
       title: 'Spotify',
-      timeline: ['2023', '4 months'],
+      timeline: ['2023', '2 months'],
       genre: ['UX/UI Design'],
       tech: ['Figma'],
       body: 'A case study delving into the Spotify desktop UX since the recent UI overhaul.',

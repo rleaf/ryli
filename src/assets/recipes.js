@@ -46,7 +46,19 @@ export default [
    },
    {
       title: `Pizza Dough`,
-      body: `wip. In search for thin crust.`,
+      list: [
+         'Bread flour (4.5 cups, 630g)',
+         'Sugar (1.5 tbsp, 15g)',
+         'Salt (1 tbsp, 10g)', 
+         'Instant yeast (2 tsp, 10g)',
+         'Extra virgin olive oil (3 tbsp, 32g)',
+         'Lukewarm water (1.75 cups, 420g)'
+      ],
+      body: `Although recipe calls for food processor, I've been using a stand mixer. Mix dry together, then work in wet. Mix until dough is homogenized then take out and start kneading until dough passes the window pane test. I've been using King Arthur's all purpose flour which works & tastes great, however I'd consider using less olive oil than listed because there is a "slight smoky burnt/bitter" taste to the dough. I've let the dough chill up to a couple of days in the fridge before moving to the freezer in saran wrap and it results in an overall good thin crust. At this quantity, a single batch produces three dough balls, each for a ~16 inch pizza.`,
+      source: {
+         key: `J. Kenji López-Alt @ Serious Eats`,
+         value: `https://www.seriouseats.com/basic-new-york-style-pizza-dough`
+      },
       keys: `pizza dough bread`
    },
    {

@@ -33,6 +33,10 @@ export default {
          yPercent: '+200',
          delay: 0.5,
       })
+      .from('.food-head p', {
+         yPercent: '+200',
+         duration: 0.9,
+      }, '<0.2')
       .from('.food-head input', {
          yPercent: '+200',
          duration: 0.9,
@@ -58,6 +62,11 @@ export default {
       <div class="food-head">
          <div class="text-mask">
             <h2>The most important section...</h2>
+         </div>
+         <div class="text-mask">
+            <p>
+               You can find pictures for a lot of these recipes on my <a href="https://www.instagram.com/rylikefood/" target="_blank">Instagram</a>.
+            </p>
          </div>
          <div class="text-mask">
             <input type="text" v-model="search" placeholder="Search..." />
@@ -112,6 +121,11 @@ export default {
       padding-left: 8vw;
       padding-top: 20vh;
       padding-bottom: 10vh;
+   }
+
+   .food-head p {
+      font-size: 1.15rem;
+      max-width: 900px;
    }
 
    a {
